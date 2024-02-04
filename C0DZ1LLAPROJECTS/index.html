@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts.js"></script>
+    <title>Loberca Coffee Island Product System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <!-- Calculator Section -->
+        <div class="calculator">
+            <h2 class="animated-box-shadow animated-slide-in">Calculator</h2>
+
+            <form id="calculatorForm">
+                <label class="animated-box-shadow animated-slide-in" for="num1">Number 1 & VAT Number:</label>
+                <input class="animated-box-shadow animated-slide-in" type="number" id="num1" name="num1" required>
+
+                <label class="animated-box-shadow animated-slide-in" for="num2">Number 2:</label>
+                <input class="animated-box-shadow animated-slide-in" type="number" id="num2" name="num2" required>
+
+                <label class="animated-box-shadow animated-slide-in" for="vatPercentage">VAT Percentage:</label>
+                <input class="animated-box-shadow animated-slide-in" type="number" id="vatPercentage" name="vatPercentage" min="0">
+
+                <div class="calculator-buttons">
+                    <button type="button" onclick="calculate('add')">Add</button>
+                    <button type="button" onclick="calculate('subtract')">Subtract</button>
+                    <button type="button" onclick="calculate('multiply')">Multiply</button>
+                    <button type="button" onclick="calculate('divide')">Divide</button>
+                    <button type="button" onclick="calculate('vat')">Calculate VAT</button>
+                </div>
+
+                <p id="result">Result: <span id="calcResult">0.00</span></p>
+            </form>
+    </form>
+</div>
+    <div class="container">
+        <h1 class="animated-box-shadow animated-slide-in">LOBERCA Storage System</h1>
+
+                <!-- Product Form -->
+                <form id="productForm">
+                    <label class="animated-box-shadow animated-slide-in" for="productName">Product Name:</label>
+                    <input class="animated-box-shadow animated-slide-in" type="text" id="productName" name="productName" required>
+        
+                    <label class="animated-box-shadow animated-slide-in" for="productQuantity">Quantity:</label>
+                    <input class="animated-box-shadow animated-slide-in" type="number" id="productQuantity" name="productQuantity" required>
+        
+                    <label class="animated-box-shadow animated-slide-in" for="bulkPrice">Bulk Price:</label>
+                    <input class="animated-box-shadow animated-slide-in" type="number" id="bulkPrice" name="bulkPrice" step="0.01" required>
+        
+                    <label class="animated-box-shadow animated-slide-in" for="retailPrice">Retail Price:</label>
+                    <input class="animated-box-shadow animated-slide-in" type="number" id="retailPrice" name="retailPrice" step="0.01" required>
+        
+                    <label class="animated-box-shadow animated-slide-in" for="isBox">Box:</label>
+                    <input class="animated-box-shadow animated-slide-in" type="checkbox" id="isBox" name="isBox">
+                    
+                    <!-- Box Quantity input -->
+                    <label class="animated-box-shadow animated-slide-in" for="boxQuantity">Box Quantity:</label>
+                    <input class="animated-box-shadow animated-slide-in" type="number" id="boxQuantity" name="boxQuantity" min="1">
+        
+
+            <button type="button" onclick="addProduct()">Add Product</button>
+        </form>
+
+        <!-- Display Products -->
+        <div id="productList">
+            <!-- Product details will be displayed here -->
+        </div>
+
+        <!-- Total Profit Difference -->
+        <div id="totalProfit">
+            <p>Total Profit : €<span id="totalProfitValue">0.00</span></p>
+        </div>
+    </div>
+</body>
+<script>
+    // Calculator functions
+    function calculate(operation) {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var vatPercentage = parseFloat(document.getElementById('vatPercentage').value);
+            var result = 0;
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+                case 'vat':
+                    // Calculate VAT amount
+                    result = num1 * (vatPercentage / 100);
+                    break;
+                default:
+                    break;
+            }
+
+            document.getElementById('calcResult').textContent = result.toFixed(2);
+        }
+    </script>
+    </body>
+</html>
+
+
+    <!-- Make sure these paths are correct -->
+<script src="scripts.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+</body>
+</html>
