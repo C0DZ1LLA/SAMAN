@@ -1,71 +1,72 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #dadada;
+    background: linear-gradient(90deg, #120537, #0f0326, #1f0d57);
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
     margin: 0;
-    padding: 0;
 }
 
-.container {
+.poll-container {
     max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 50, 250, 0.1);
+    margin: 50px auto;
+    padding: 50px;
+    background: linear-gradient(90deg, #0a0447, #0e0765);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-form {
-    margin-bottom: 20px;
+.poll-title {
+    color: #00ffff;
+    font-size: 32px;
+    font-weight: bold;
 }
 
-label {
-    display: white;
-    margin-bottom: 5px;
+.poll-option {
+    display: block;
+    margin: 15px 0;
+    font-size: 18px;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+input[type="radio"] {
+    margin-right: 8px;
 }
 
 button {
-    background-color: #0028f0;
-    color: white;
-    padding: 10px 15px;
+    background: linear-gradient(90deg, #00ff9b, #009688);
+    color: #000000;
+    padding: 12px 24px;
     border: none;
+    border-radius: 6px;
+    font-size: 18px;
     cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #45a049;
+    background: linear-gradient(90deg, #00ffb0, #00a47e);
 }
 
-.product {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+.live-results {
+    margin-top: 30px;
 }
 
-#totalProfit {
+.results-title {
+    color: #00ffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.result-option {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #8c8c8c;
+}
+
+.message {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border-radius: 8px;
-}
-
-#totalProfit p {
-    margin: 0;
-}
-
-
-
-/* Add this CSS code to your styles.css file */
-
-.animated-fade-in {
-    opacity: 0.1;
-    animation: fadeIn 5s ease-in-out forwards;
+    font-size: 18px;
+    color: #ff4a4a;
 }
 
 @keyframes fadeIn {
@@ -76,226 +77,46 @@ button:hover {
         opacity: 1;
     }
 }
-
-
-.animated-zoom-in {
-    opacity: 0;
-    transform: scale(0.8);
-    animation: zoomIn 0.5s ease-in-out forwards;
+/* Add styles for the chart container and title */
+.chart-container {
+    margin-top: 30px;
 }
 
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.chart-title {
+    color: #00ffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-
-
-.animated-slide-down {
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: slideDown 0.5s ease-in-out forwards;
+/* Update existing styles as needed */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Example: CSS Variables */
+:root {
+    --primary-color: #3498db;
 }
 
-/* Add this CSS code to your styles.css file */
-
-.animated-pulse {
-    transform: scale(1);
-    animation: pulse 1.5s infinite ease-in-out;
+body {
+    background-color: var(--primary-color);
 }
+/* styles.css */
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-/* Add this CSS code to your styles.css file */
-
-.animated-bounce-in {
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: bounceIn 0.5s ease-in-out forwards;
-}
-
-@keyframes bounceIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Add this CSS code to your styles.css file */
-
-.animated-rotate-in {
-    opacity: 0;
-    transform: rotate(-90deg);
-    animation: rotateIn 0.15s ease-in-out forwards;
-}
-
-@keyframes rotateIn {
-    from {
-        opacity: 0;
-        transform: rotate(-90deg);
-    }
-    to {
-        opacity: 1;
-        transform: rotate(0);
-    }
-}
-
-/* Add this CSS code to your styles.css file */
-
-.animated-slide-up {
-    opacity: 0;
-    transform: translateY(500px);
-    animation: slideUp 0.2s ease-in-out forwards;
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(500px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Add this CSS code to your styles.css file */
-
-.animated-shake {
-    animation: shake 0.5s ease-in-out infinite;
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25%, 75% {
-        transform: translateX(-5px);
-    }
-    50% {
-        transform: translateX(5px);
-    }
-}
-
-/* Add this CSS code to your styles.css file */
-
-.animated-fade-in-down {
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeInDown 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Add this CSS code to your styles.css file */
-
-.animated-color-change {
-    background-color: #4caf50; /* Initial color */
-    color: rgb(188, 51, 51);
-    transition: background-color 0.9s ease-in-out, color 0.5s ease-in-out;
-}
-
-.animated-color-change:hover {
-    background-color: #293c2a; /* Hover color */
-}
-
-/* Add this CSS code to your styles.css file */
-
-.animated-gradient-change {
-    background: linear-gradient(45deg, #967259, #634832); /* Initial gradient */
-    color: white;
-    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.animated-gradient-change:hover {
-    background: linear-gradient(45deg, #634832, #967259); /* Hover gradient */
-}
-
-/* Add this CSS code to your styles.css file */
-
-.animated-text-color-change {
-    color: #3498db; /* Initial text color */
-    transition: color 0.5s ease-in-out;
-}
-
-.animated-text-color-change:hover {
-    color: #e74c3c; /* Hover text color */
-}
-
-/* Add this CSS code to your styles.css file */
-
-.animated-background-fade {
-    background-image: url('your-image.jpg'); /* Add your background image URL */
-    background-size: cover;
-    opacity: 1; /* Initial opacity */
-    transition: opacity 0.5s ease-in-out;
-}
-
-.animated-background-fade:hover {
-    opacity: 0.8; /* Hover opacity */
-}
-/* Add this CSS code to your styles.css file */
-
-.animated-box-shadow {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Initial box shadow */
-    transition: box-shadow 0.5s ease-in-out;
-}
-
-.animated-box-shadow:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Hover box shadow */
-}
-/* Add this CSS code to your styles.css file */
-
-.animated-slide-in {
-    opacity: 0;
-    transform: translateX(-100px);
-    animation: slideIn 0.5s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Add your existing styles here */
+.popup {
+    /* Style for the login popup */
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
