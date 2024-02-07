@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Product Management System</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+            max-width: 800px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .container:hover {
+            background-color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #444;
+            color: #fff;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            background-color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: none;
+            padding: 12px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #34495e;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #3498db;
+            color: #fff;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .form-buttons {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        /* Totals Section CSS */
+        .totals-container {
+            background-color: #2c3e50;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+            max-width: 800px;
+            width: 100%;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .totals-label {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .total-cost-label,
+        .total-profit-label,
+        .total-vat-label {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #fff;
+            text-align: center;
+        }
+        /* New styles for image upload */
+        .image-upload-container {
+            margin-top: 20px;
+        }
+
+        .image-upload-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .image-upload-input {
+            display: none;
+        }
+
+        .image-upload-preview {
+            display: block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .image-upload-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Futuristic Product Management System</h1>
+            <!-- Totals Section -->
+    <div class="totals-container">
+        <h2 class="totals-label">Totals</h2>
+        <div class="total-cost-label">Total Cost: <span id="totalCost">$0.00</span></div>
+        <div class="total-profit-label">Total Profit: <span id="totalProfit">$0.00</span></div>
+        <div class="total-vat-label">Total VAT: <span id="totalVAT">$0.00</span></div>
+    </div>
+        <form id="productForm">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="bulkCost">Bulk Cost:</label>
+            <input type="number" id="bulkCost" step="0.01" required>
+
+            <label for="sellPrice">Sell Price:</label>
+            <input type="number" id="sellPrice" step="0.01" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" required>
+
+            <label for="vatRate">VAT Rate (%):</label>
+            <input type="number" id="vatRate" step="0.01" required>
+
+            <div class="form-buttons">
+                <button type="button" onclick="addProduct()" class="btn">Add Product</button>
+                <button type="button" onclick="clearForm()" class="btn">Clear</button>
+            </div>
+        </form>
+
+        <h1>Product List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Bulk Cost</th>
+                    <th>Sell Price</th>
+                    <th>Quantity</th>
+                    <th>VAT Cost</th>
+                    <th>Total Cost</th>
+                    <th>Profit</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        // JavaScript code
+        function autoRefresh() {
+            location.reload(true);
+        }
+
+        setInterval(autoRefresh, 50000); // Auto-refresh every 20 seconds
+
+        function addProduct() {
+            var name = document.getElementById('name').value;
+            var bulkCost = parseFloat(document.getElementById('bulkCost').value);
+            var sellPrice = parseFloat(document.getElementById('sellPrice').value);
+            var quantity = parseInt(document.getElementById('quantity').value);
+            var vatRate = parseFloat(document.getElementById('vatRate').value);
+
+            if (name && !isNaN(bulkCost) && !isNaN(sellPrice) && !isNaN(quantity) && !isNaN(vatRate) && quantity > 0) {
+                var cost = (bulkCost * quantity).toFixed(2);
+                var profit = ((sellPrice - bulkCost) * quantity).toFixed(2);
+                var vatCost = ((bulkCost * (vatRate / 100)) * quantity).toFixed(2);
+
+                var product = {
+                    name: name,
+                    bulkCost: bulkCost,
+                    sellPrice: sellPrice,
+                    quantity: quantity,
+                    vatRate: vatRate,
+                    vatCost: vatCost,
+                    cost: cost,
+                    profit: profit
+                };
+
+                var productList = JSON.parse(localStorage.getItem('products')) || [];
+                productList.push(product);
+                localStorage.setItem('products', JSON.stringify(productList));
+
+                updateTable();
+                clearForm();
+            }
+        }
+
+        function updateTable() {
+            var productList = JSON.parse(localStorage.getItem('products')) || [];
+            var tableBody = document.getElementById('productList');
+            tableBody.innerHTML = '';
+
+            for (var i = 0; i < productList.length; i++) {
+                var product = productList[i];
+                var row = tableBody.insertRow(i);
+
+                var cellName = row.insertCell(0);
+                var cellBulkCost = row.insertCell(1);
+                var cellSellPrice = row.insertCell(2);
+                var cellQuantity = row.insertCell(3);
+                var cellVATCost = row.insertCell(4);
+                var cellCost = row.insertCell(5);
+                var cellProfit = row.insertCell(6);
+                var cellActions = row.insertCell(7);
+
+                cellName.innerHTML = product.name;
+                cellBulkCost.innerHTML = '$' + product.bulkCost.toFixed(2);
+                cellSellPrice.innerHTML = '$' + product.sellPrice.toFixed(2);
+                cellQuantity.innerHTML = product.quantity;
+                cellVATCost.innerHTML = '$' + product.vatCost;
+                cellCost.innerHTML = '$' + product.cost;
+                cellProfit.innerHTML = '$' + product.profit;
+
+                var editBtn = document.createElement('button');
+                editBtn.textContent = 'Edit';
+                editBtn.className = 'btn edit-btn';
+                editBtn.addEventListener('click', function (index) {
+                    return function () {
+                        editProduct(index);
+                    }
+                }(i));
+                cellActions.appendChild(editBtn);
+
+                var deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.className = 'btn delete-btn';
+                deleteBtn.addEventListener('click', function (index) {
+                    return function () {
+                        deleteProduct(index);
+                    }
+                }(i));
+                cellActions.appendChild(deleteBtn);
+            }
+
+            updateTotals();
+        }
+
+        function editProduct(index) {
+            var productList = JSON.parse(localStorage.getItem('products')) || [];
+            var product = productList[index];
+
+            document.getElementById('name').value = product.name;
+            document.getElementById('bulkCost').value = product.bulkCost;
+            document.getElementById('sellPrice').value = product.sellPrice;
+            document.getElementById('quantity').value = product.quantity;
+            document.getElementById('vatRate').value = product.vatRate;
+
+            document.getElementById('productForm').onsubmit = function () {
+                updateProduct(index);
+                return false;
+            };
+        }
+
+        function updateProduct(index) {
+            var name = document.getElementById('name').value;
+            var bulkCost = parseFloat(document.getElementById('bulkCost').value);
+            var sellPrice = parseFloat(document.getElementById('sellPrice').value);
+            var quantity = parseInt(document.getElementById('quantity').value);
+            var vatRate = parseFloat(document.getElementById('vatRate').value);
+
+            if (name && !isNaN(bulkCost) && !isNaN(sellPrice) && !isNaN(quantity) && !isNaN(vatRate) && quantity > 0) {
+                var productList = JSON.parse(localStorage.getItem('products')) || [];
+                var product = productList[index];
+
+                product.name = name;
+                product.bulkCost = bulkCost;
+                product.sellPrice = sellPrice;
+                product.quantity = quantity;
+                product.vatRate = vatRate;
+                product.cost = (bulkCost * quantity).toFixed(2);
+                product.profit = ((sellPrice - bulkCost) * quantity).toFixed(2);
+                product.vatCost = ((bulkCost * (vatRate / 100)) * quantity).toFixed(2);
+
+                localStorage.setItem('products', JSON.stringify(productList));
+                updateTable();
+                clearForm();
+            }
+        }
+
+        function deleteProduct(index) {
+            var productList = JSON.parse(localStorage.getItem('products')) || [];
+            productList.splice(index, 1);
+            localStorage.setItem('products', JSON.stringify(productList));
+            updateTable();
+        }
+
+        function clearForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('bulkCost').value = '';
+            document.getElementById('sellPrice').value = '';
+            document.getElementById('quantity').value = '';
+            document.getElementById('vatRate').value = '';
+
+            document.getElementById('productForm').onsubmit = function () {
+                addProduct();
+                return false;
+            };
+        }
+
+        function updateTotals() {
+            var productList = JSON.parse(localStorage.getItem('products')) || [];
+            var totalCost = 0;
+            var totalProfit = 0;
+            var totalVAT = 0;
+
+            productList.forEach(function (product) {
+                totalCost += parseFloat(product.cost);
+                totalProfit += parseFloat(product.profit);
+                totalVAT += parseFloat(product.vatCost);
+            });
+
+            document.getElementById('totalCost').textContent = '$' + totalCost.toFixed(2);
+            document.getElementById('totalProfit').textContent = '$' + totalProfit.toFixed(2);
+            document.getElementById('totalVAT').textContent = '$' + totalVAT.toFixed(2);
+        }
+
+        updateTable();
+    </script>
+</body>
+</html>
