@@ -174,26 +174,28 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 
-<div class="login-box">
-    <h2>Login</h2>
-    <form action="" method="post">
-        <div class="textbox">
-            <input type="text" name="username" required>
-            <label>Username</label>
-        </div>
-        <div class="textbox">
-            <input type="password" name="password" required>
-            <label>Password</label>
-        </div>
-        <div class="textbox">
-            <input type="email" name="email" required>
-            <label>Email</label>
-        </div>
-        <input type="submit" value="Login" name="login">
-        <?php if(isset($login_error)) echo "<p class='error-message'>$login_error</p>"; ?>
-    </form>
-    <div class="neon-glow"></div>
-</div>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="" method="post">
+            <div class="textbox">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+            <div class="textbox">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+            <!-- Add email input field -->
+            <div class="textbox">
+                <input type="email" name="email" required>
+                <label>Email</label>
+            </div>
+            <input type="submit" value="Login" name="login">
+            <?php if(isset($login_error)) echo "<p class='error-message'>$login_error</p>"; ?>
+        </form>
+        <div class="neon-glow"></div>
+    </div>
+    
 <script>
 // JavaScript to enter full-screen mode on page load
 document.addEventListener('DOMContentLoaded', function() {
