@@ -8,36 +8,69 @@
 /* Global styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1a1a1a;
-    color: #fff;
-    margin: 0;
-    padding: 0;
+    background-color: #f7f7f7; /* Updated background color for a lighter, modern feel */
+    color: #333; /* Darker text color for better readability */
 }
 
-.container {
+#container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #333;
+    background-color: #fff; /* White background for the container */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Slightly increased box shadow for depth */
+}
+
+h1 {
+    font-size: 2em; /* Larger font size for the heading */
+    color: #333; /* Darker heading color for emphasis */
+    margin-bottom: 20px; /* Increased spacing below the heading */
+    text-align: center; /* Center alignment for the heading */
+}
+
+label {
+    font-size: 1.2em; /* Slightly larger font size for labels */
+    color: #666; /* Lighter label color for better contrast */
+    margin-bottom: 10px; /* Increased spacing below labels */
+    display: block; /* Block-level display for labels */
+}
+
+#category-selector {
+    width: 100%; /* Full width for the select element */
+    padding: 10px; /* Increased padding for better touch support */
+    border: 1px solid #ccc; /* Light border for the select element */
+    border-radius: 5px; /* Rounded corners for the select element */
+    background-color: #f9f9f9; /* Lighter background color for the select element */
+    color: #333; /* Darker text color for better readability */
+    font-size: 1em; /* Standard font size for consistency */
+}
+
+#product-container {
+    margin-top: 20px; /* Increased spacing above the product container */
 }
 
 .product-item {
     margin-bottom: 20px;
     padding: 20px;
-    background-color: #444;
+    background-color: #f9f9f9; /* Lighter background color for product items */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slightly reduced box shadow for subtlety */
+    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.product-item:hover {
+    transform: translateY(-5px); /* Lift product items on hover for a subtle animation */
 }
 
 .product-item h2 {
-    color: #ffcc00;
+    color: #333; /* Darker heading color for better contrast */
+    font-size: 1.2em; /* Slightly larger font size for headings */
+    margin-bottom: 10px; /* Increased spacing below headings */
 }
 
 .product-item p {
-    color: #fff;
-    margin-bottom: 10px;
+    color: #666; /* Lighter text color for product details */
+    margin-bottom: 10px; /* Increased spacing below paragraphs */
 }
 
 .product-item input[type="number"],
@@ -51,6 +84,7 @@ body {
     color: #333;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
 }
 
 .product-item input[type="number"] {
@@ -62,5 +96,5 @@ body {
 }
 
 .product-item button:hover {
-    background-color: #ffa500;
+    background-color: #ffa500; /* Darker hover color for buttons */
 }
