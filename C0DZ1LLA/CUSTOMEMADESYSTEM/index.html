@@ -9,6 +9,17 @@
 <body>
     
     <div id="container">
+        <div class="popup-container">
+            <div class="popup">
+                <h2>Welcome to C0DZ1LLA SYSTEMS</h2>
+                <h2>Thank you, for using our System</h2>
+                <div class="popup-buttons">
+                    <button id="continueButton">Continue</button>
+                    <button id="container" onclick="openURL1()">Manual</button>
+                    <button id="goBackButton">Exit</button>
+                </div>
+            </div>
+        </div>
         <h1>Reusable Inventory Management System</h1>
         <div id="container">
         <div id="product-item button">
@@ -22,7 +33,7 @@
         </select>
         <div id="product-container"></div>
     </div>
-    <h1 id="container">Made by SAMAN &copy;</h1>
+    <h1 id="container">Made by SAMAN</h1>
     
     <button id="container" onclick="openURL2()">Website</button>
     <button id="container" onclick="openURL1()">Contact Social</button>
@@ -1861,6 +1872,28 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     category: "Powder" 
 }
 ];
+document.addEventListener("DOMContentLoaded", function() {
+    var popupContainer = document.querySelector('.popup-container');
+    var continueButton = document.querySelector('#continueButton');
+    var goBackButton = document.querySelector('#goBackButton');
+
+    // Show the popup when the page is loaded
+    popupContainer.style.display = 'block';
+    // Event listener for the continue button
+    continueButton.addEventListener('click', function() {
+        // Hide the popup container
+        popupContainer.style.display = 'none';
+    });
+
+
+    // Event listener for the go back button
+    goBackButton.addEventListener('click', function() {
+        // Go back to the previous page
+        window.history.back();
+    });
+});
+
+
 
 // Function to open the modal
 function openModal() {
@@ -1967,6 +2000,12 @@ function displayProductsByCategory(category) {
     });
 }
 
+
+// Function to open URL 1
+function openURL1() {
+            window.open('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM/MANUAL.md', '_blank');
+        }
+
 // Function to sanitize HTML input to prevent XSS attacks
 function sanitizeHTML(value) {
             const div = document.createElement('div');
@@ -1988,7 +2027,7 @@ function exportProductData(product) {
             'Unit Sell Price': product.price,
             'Buying Price': product.bulk_price,
             'Unit Quantity Amount': product.quantity,
-            'Unit Sell Total Price': (product.price * product.quantity).toFixed(2),
+            'Unit Sell Total Price': product.total_profit,
             'Unit Quantity Buying Total Cost': (product.bulk_price * product.quantity).toFixed(2),
             'Total Profit': (product.price - product.bulk_price) * product.quantity
         }
@@ -2033,7 +2072,7 @@ function convertToCSV(data) {
                 'Unit Sell Price': product.price,
                 'Buying Price': product.bulk_price,
                 'Unit Quantity Amount': product.quantity,
-                'Unit Sell Total Price': (product.price * product.quantity).toFixed(2),
+                'Unit Sell Total Price': product.total_profit,
                 'Unit Quantity Buying Total Cost': (product.bulk_price * product.quantity).toFixed(2),
                 'Total Profit': (product.price - product.bulk_price) * product.quantity
             }));
