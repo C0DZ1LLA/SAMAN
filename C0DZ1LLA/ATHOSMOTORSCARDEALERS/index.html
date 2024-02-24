@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATHOS MOTORS</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to your custom CSS file -->
+    <style>
+/* Reset default browser styles */
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #000000, #262626); /* Gradient background for a dynamic look */
+    color: #fff; /* Lighter text color for better contrast */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    margin: 0; /* Reset default margin */
+}
+
+.container {
+    width: 90%; /* Adjusted width for better responsiveness */
+    max-width: 1200px; /* Maximum width for large screens */
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Darker background color for the container with transparency */
+    border-radius: 20px; /* Increased border radius for a softer look */
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.3); /* Glowing box shadow for a futuristic effect */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    position: relative; /* Positioning for pseudo-elements */
+    animation: fadeIn 1s ease; /* Fade-in animation for the container */
+}
+
+.container::before, .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px; /* Rounded corners for pseudo-elements */
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%,rgba(0,0,0,0.8) 100%); /* Gradient overlay */
+    pointer-events: none; /* Disable pointer events */
+    z-index: -1; /* Behind the container content */
+}
+
+h1, h2 {
+    font-size: 6vw; /* Responsive font size for headings */
+    color: #ffcc00; /* Bright accent color for the heading */
+    margin-bottom: 3vw; /* Adjusted spacing below the heading */
+    text-align: center; /* Center alignment for the heading */
+    text-transform: uppercase; /* Uppercase text for a modern look */
+    letter-spacing: 0.2em; /* Increased letter spacing for emphasis */
+    text-shadow: 0 0 3vw rgba(255, 204, 0, 0.8); /* Text shadow for a glowing effect */
+    animation: neonGlow 2s infinite alternate; /* Neon glow animation for headings */
+}
+
+p {
+    font-size: 2vw; /* Responsive font size for paragraphs */
+    margin-bottom: 3vw; /* Adjusted spacing below paragraphs */
+    text-align: center; /* Center alignment for paragraphs */
+    line-height: 1.8; /* Improved readability with increased line height */
+    animation: fadeIn 1s ease; /* Fade-in animation for paragraphs */
+}
+
+.car {
+    display: flex;
+    border: 0.5vw solid #fff; /* Thicker border for cars */
+    margin-bottom: 6vw; /* Adjusted spacing between cars */
+    padding: 4vw;
+    border-radius: 2.5vw; /* Rounded corners for cars */
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%); /* Gradient background for cars */
+    position: relative; /* Positioning for pseudo-elements */
+    animation: pulse 3s infinite alternate; /* Pulse animation for cars */
+}
+
+.car::before, .car::after {
+    content: '';
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+    width: calc(100% - 2vw);
+    height: calc(100% - 2vw);
+    border-radius: 2.5vw; /* Rounded corners for pseudo-elements */
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 100%); /* Gradient overlay */
+    pointer-events: none; /* Disable pointer events */
+    z-index: -1; /* Behind the car content */
+}
+
+.car-content {
+    display: flex;
+    width: 100%;
+}
+
+.car-images {
+    flex: 1;
+    margin-right: 5vw; /* Adjusted spacing between car images */
+}
+
+.car-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5vw; /* Adjusted spacing between car images */
+    border-radius: 2vw; /* Rounded corners for car images */
+    box-shadow: 0 0 3vw rgba(255, 255, 255, 0.6); /* Glowing effect for car images */
+    animation: fadeIn 1s ease; /* Fade-in animation for car images */
+}
+
+.car-details {
+    flex: 2;
+}
+
+.car-info {
+    margin-bottom: 3vw; /* Adjusted spacing between car info */
+    font-size: 1.8vw; /* Responsive font size for car info */
+    animation: neonGlow 2s infinite alternate; /* Neon glow animation for car info */
+}
+
+.button-container {
+    margin-top: 6vw; /* Adjusted spacing above button container */
+    text-align: center;
+    animation: fadeIn 1s ease; /* Fade-in animation for button container */
+}
+
+.car-button {
+    display: inline-block;
+    margin-right: 3vw; /* Adjusted spacing between buttons */
+    padding: 2vw 4vw; /* Adjusted padding for buttons */
+    font-size: 2vw; /* Responsive font size for buttons */
+    background-color: #00ffcc;
+    color: #000;
+    text-decoration: none;
+    border-radius: 4vw; /* Rounded corners for buttons */
+    transition: background-color 0.3s ease; /* Smooth transition for button color */
+    animation: neonGlow 2s infinite alternate; /* Neon glow animation for buttons */
+}
+
+.car-button:hover {
+    background-color: #00cc99; /* Darker color on hover */
+}
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="container">
+        <button class="car-button" onclick="openURL('https://maps.app.goo.gl/YTz4XC4mqFVWJuUWA')">DIRECTION</button>
+        <button class="car-button" onclick="openURL('https://athosmotorscy.com/')">HOME</button>
+        <button class="car-button" onclick="openURL('https://www.facebook.com/people/Athos-Motors/61555675782514/')">FACEBOOK</button>
+    </div>
+    
+<div class="container">
+    <h1 style="text-align: center;">ATHOS MOTORS</h1>
+    <div id="cars"></div>
+</div>
+
+<script>
+    // JavaScript (JS) script
+    // Sample data for cars
+    const cars = [
+        {
+            id: 1,
+            brand: "Bentley",
+            model: "Flying Spur",
+            year: 2020,
+            price: 198000,
+            images: [
+                "https://github.com/C0DZ1LLA/CARDEALER/blob/main/Cars/Bently/1.jpeg?raw=true",
+                "https://github.com/C0DZ1LLA/CARDEALER/blob/main/Cars/Bently/2.jpeg?raw=true",
+                "https://github.com/C0DZ1LLA/CARDEALER/blob/main/Cars/Bently/7.jpeg?raw=true",
+                "https://github.com/C0DZ1LLA/CARDEALER/blob/main/Cars/Bently/5.jpeg?raw=true",
+                "https://github.com/C0DZ1LLA/CARDEALER/blob/main/Cars/Bently/18.jpeg?raw=true",
+                "https://github.com/C0DZ1LLA/CARDEALER/blob/main/Cars/Bently/12.jpeg?raw=true",
+            ],
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 17500,
+            fuelType: "Petrol",
+            engineSize: "2.9L",
+            power: "542 bhp",
+        
+        },
+        {
+            id: 2,
+            brand: "BMW",
+            model: "420i Grand Cupe",
+            year: 2017,
+            price: 24900,
+            images: [
+            "https://c0dz1lla.github.io/CARDEALER/Cars/BMW%20420i%20Grand%20Kupe/B45AAA9C-D17C-43BF-A967-E89FC79978B1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/BMW%20420i%20Grand%20Kupe/F01DB5A2-1C61-4E4F-9BF3-10381E465CB5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/BMW%20420i%20Grand%20Kupe/724D1606-0C78-42C9-9242-CA3FA8205CC7.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/BMW%20420i%20Grand%20Kupe/1150D1AC-BDEC-43FE-AF92-0B230077BC64.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/BMW%20420i%20Grand%20Kupe/0F366072-F376-4427-8A03-F6139610D49E.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/BMW%20420i%20Grand%20Kupe/78445155-8ACD-4036-BF9A-CE42ECCAAEE0.jpeg",
+            ],
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 74900,
+            fuelType: "Petrol",
+            engineSize: "2.0L",
+            power: "184 bhp",
+            
+        },
+        {
+            id: 3,
+            brand: "Mv Avgusta",
+            model: "Brutale 1000",
+            year: 2021,
+            price: 48800,
+            images: [
+            "https://c0dz1lla.github.io/CARDEALER/Cars/MV%20Augusta/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/MV%20Augusta/1D029019-8D38-47ED-9FC5-12B271C4BB4C.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/MV%20Augusta/3A710FE5-10F8-47A3-A9D8-29C7849D9861.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/MV%20Augusta/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/MV%20Augusta/901F1A70-ACDE-4EE1-9CB3-72D62A80471E.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/MV%20Augusta/3DCA21A9-DA44-45D5-A454-BEC49EE99412.jpeg",
+            ],
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 2000,
+            fuelType: "Petrol",
+            engineSize: "1.0L",
+            power: "208 bhp",
+            
+        },
+        {
+            id: 4,
+            brand: "Mazda",
+            model: "CX-3 Blue",
+            year: 2020,
+            price: 21000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/1/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/1/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/1/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/1/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/1/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/1/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 13500,
+            fuelType: "Petrol",
+            engineSize: "1.8L",
+            power: "118 bhp",
+            
+        },
+        {
+            id: 5,
+            brand: "Mazda",
+            model: "CX-3 White",
+            year: 2020,
+            price: 21000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/2/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/2/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/2/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/2/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/2/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/2/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 11800,
+            fuelType: "Petrol",
+            engineSize: "2.0L",
+            power: "148 bhp",
+            
+        },
+        {
+            id: 6,
+            brand: "Mazda",
+            model: "CX-5",
+            year: 2019,
+            price: 23500,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/3/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/3/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/3/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/3/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/3/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/3/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 47000,
+            fuelType: "Diesel",
+            engineSize: "2.2L",
+            power: "175 bhp",
+            
+        },
+        {
+            id: 7,
+            brand: "Mercedes",
+            model: "A-180",
+            year: 2017,
+            price: 20000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/4/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/4/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/4/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/4/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/4/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/4/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 23100,
+            fuelType: "Petrol",
+            engineSize: "1.6L",
+            power: "122 bhp",
+            
+        },
+        {
+            id: 8,
+            brand: "Mercedes",
+            model: "A-180",
+            year: 2016,
+            price: 20000,
+            images: [
+
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 23100,
+            fuelType: "Petrol",
+            engineSize: "1.6L",
+            power: "122 bhp",
+            
+        },
+        {
+            id: 9,
+            brand: "Mercedes-Benz",
+            model: "C 200",
+            year: 2016,
+            price: 19000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/6/1.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/6/2.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/6/3.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/6/4.jpg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 115000,
+            fuelType: "Diesel",
+            engineSize: "1.6L",
+            power: "",
+            
+        },
+        {
+            id: 10,
+            brand: "Mercedes-Benz",
+            model: "S 350d",
+            year: 2017,
+            price: 40500,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/7/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/7/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/7/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/7/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/7/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/7/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 95600,
+            fuelType: "Diesel",
+            engineSize: "2.9L",
+            power: "265 bhp",
+            
+        },
+        {
+            id: 11,
+            brand: "Porsche",
+            model: "Cayenne",
+            year: 2012,
+            price: 29000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/8/1.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/8/2.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/8/3.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/8/4.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/8/5.jpg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/8/6.jpg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 173000,
+            fuelType: "Diesel",
+            engineSize: "3.0L",
+            power: "",
+            
+        },
+        {
+            id: 12,
+            brand: "Porsche",
+            model: "Cayenne S",
+            year: 2014,
+            price: 32000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/9/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/9/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/9/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/9/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/9/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/9/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 93000,
+            fuelType: "Hybrid",
+            engineSize: "3.0L",
+            power: "333 bhp",
+            
+        },
+        {
+            id: 13,
+            brand: "Range Rover",
+            model: "Sport",
+            year: 2021,
+            price: 78000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/10/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/10/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/10/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/10/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/10/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/10/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 20000,
+            fuelType: "Hybrid Petrol",
+            engineSize: "2.0L",
+            power: "404 bhp",
+            
+            
+        },
+        {
+            id: 13,
+            brand: "Toyota",
+            model: "C-HR",
+            year: "2020",
+            price: "25000",
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/11/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/11/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/11/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/11/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/11/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/11/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: "56900",
+            fuelType: "Hybrid",
+            engineSize: "1.8L",
+            power: "122 bhp",
+            
+        },
+        {
+            id: 13,
+            brand: "BMW",
+            model: "530d",
+            year: 2017,
+            price: 36000,
+            images: [
+                "https://c0dz1lla.github.io/CARDEALER/Cars/12/1.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/12/2.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/12/3.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/12/4.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/12/5.jpeg",
+                "https://c0dz1lla.github.io/CARDEALER/Cars/12/6.jpeg",
+
+                
+            ],                
+            phone: "24322842",
+            email: "athosmotorscy@gmail.com",
+            mileage: 98600,
+            fuelType: "Hybrid Petrol",
+            engineSize: "3.0L",
+            power: "249 bhp",
+            
+        }
+    ];
+
+
+
+    function needsUpdate() {
+            // Check if a version is stored in local storage
+            var storedVersion = localStorage.getItem('pageVersion');
+            // Get the current version of the page
+            var currentVersion = '1.0'; // Change this to the version of your page
+            // Check if there's a stored version and if it matches the current version
+            if (storedVersion !== currentVersion) {
+                return true; // Data needs to be updated
+            } else {
+                return false; // Data is up to date
+            }
+        }
+
+        // Function to save the current version in local storage
+        function saveVersion() {
+            var currentVersion = '1.0'; // Change this to the version of your page
+            localStorage.setItem('pageVersion', currentVersion);
+        }
+
+        // Function to update data if needed and refresh the page
+        function updateAndRefresh() {
+            if (needsUpdate()) {
+                // Clear saved data or perform any necessary updates here
+                // Example: clearSavedData();
+                saveVersion(); // Save the current version
+                refreshPage(); // Refresh the page
+            }
+        }
+
+        // Function to refresh the page
+        function refreshPage() {
+            // Reload the current page
+            location.reload();
+        }
+
+        // Call the function when the page is visited
+        window.onload = function() {
+            updateAndRefresh(); // Check for updates and refresh if needed
+        };
+
+
+
+        // Function to open URLs
+        function openURL(url) {
+        window.open(url, '_blank');
+    }
+    
+    // Function to display cars
+    function displayCars() {
+        const carsContainer = document.getElementById('cars');
+        carsContainer.innerHTML = '';
+        cars.forEach(car => {
+            const carElement = document.createElement('div');
+            carElement.classList.add('car');
+            let carImages = '';
+            car.images.forEach((image, index) => {
+                carImages += `<a href="${image}" data-fancybox="car-${car.id}" data-src="${image}"><img src="${image}" alt="${car.brand} ${car.model}" data-index="${index}" class="car-image"></a>`;
+            });
+            carElement.innerHTML = `
+            <div class="car-content">
+                <div class="car-images">
+                    ${carImages}
+                </div>
+                <div class="car-details">
+                    <h2>${car.brand} ${car.model}</h2>
+                    <p class="car-info">Year: ${car.year}</p>
+                    <p class="car-info">Price: €${car.price}</p>
+                    <p class="car-info">Mileage (in km): ${car.mileage}</p>
+                    <p class="car-info">Fuel type: ${car.fuelType}</p>
+                    <p class="car-info">Engine size: ${car.engineSize}</p>
+                    <p class="car-info">Power: ${car.power}</p>
+                    <div class="button-container">
+                        <a href="tel:${car.phone}" class="car-button">Call</a>
+                        <a href="mailto:${car.email}" class="car-button">Email</a>
+                    </div>
+                </div>
+            </div>
+            `;
+            carsContainer.appendChild(carElement);
+        });
+    }
+
+    // Display cars when the page loads
+    displayCars();
+</script>
+
+</body>
+</html>
