@@ -1988,7 +1988,7 @@ function exportProductData(product) {
             'Unit Sell Price': product.price,
             'Buying Price': product.bulk_price,
             'Unit Quantity Amount': product.quantity,
-            'Unit Sell Total Price': product.total_profit,
+            'Unit Sell Total Price': (product.price * product.quantity).toFixed(2),
             'Unit Quantity Buying Total Cost': (product.bulk_price * product.quantity).toFixed(2),
             'Total Profit': (product.price - product.bulk_price) * product.quantity
         }
@@ -2033,7 +2033,7 @@ function convertToCSV(data) {
                 'Unit Sell Price': product.price,
                 'Buying Price': product.bulk_price,
                 'Unit Quantity Amount': product.quantity,
-                'Unit Sell Total Price': product.total_profit,
+                'Unit Sell Total Price': (product.price * product.quantity).toFixed(2),
                 'Unit Quantity Buying Total Cost': (product.bulk_price * product.quantity).toFixed(2),
                 'Total Profit': (product.price - product.bulk_price) * product.quantity
             }));
