@@ -1,0 +1,168 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #222; /* Darker background color for a futuristic look */
+    color: #fff; /* Lighter text color for better contrast */
+}
+
+#container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #111; /* Darker background color for the container */
+    border-radius: 20px; /* Increased border radius for a softer look */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1); /* Glowing box shadow for a futuristic effect */
+    animation: fadeIn 1s ease; /* Fade-in animation for the container */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    font-family: 'Roboto', sans-serif;
+    color: #fff; /* Lighter text color for better contrast */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+h1, h2 {
+    font-size: 3em; /* Larger font size for the heading */
+    color: #ffcc00; /* Bright accent color for the heading */
+    margin-bottom: 40px; /* Increased spacing below the heading */
+    text-align: center; /* Center alignment for the heading */
+    animation: pulse 2s infinite; /* Pulse animation for headings */
+    font-family: 'Roboto', sans-serif;
+    color: #fff; /* Lighter text color for better contrast */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    animation: slideInDown 1s ease, colorChange 2s infinite alternate; /* Slide-in animation and color change for the heading */
+}
+
+h2 {
+    animation: slideInUp 1s ease; /* Slide-in animation for the product container */
+    animation: slideInDown 1s ease, colorChange 2s infinite alternate; /* Slide-in animation and color change for the heading */
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes colorChange {
+    0% { color: #ffffff; }
+    20% { color: #ffcc00; }
+    40% { color: #ffffff; }
+    60% { color: #ffcc00; }
+    80% { color: #ffffff; }
+    100% { color: #ffcc00; }
+}
+
+label {
+    font-size: 1.2em; /* Slightly larger font size for labels */
+    color: #aaa; /* Lighter label color for better contrast */
+    margin-bottom: 20px; /* Increased spacing below labels */
+    display: block; /* Block-level display for labels */
+    animation: fadeIn 1s ease; /* Fade-in animation for labels */
+}
+
+#category-selector {
+    width: 100%; /* Full width for the select element */
+    padding: 15px; /* Increased padding for better touch support */
+    border: none; /* Remove border for a cleaner look */
+    border-radius: 10px; /* Rounded corners for the select element */
+    background-color: #333; /* Darker background color for the select element */
+    color: #fff; /* Lighter text color for better readability */
+    font-size: 1.2em; /* Slightly larger font size for consistency */
+}
+
+#product-container {
+    margin-top: 60px; /* Increased spacing above the product container */
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    animation: slideInUp 1s ease; /* Slide-in animation for the product container */
+}
+
+.product-item {
+    margin: 0 20px 40px 20px; /* Adjust margins for spacing */
+    padding: 30px;
+    background-color: #444; /* Dark background color for product items */
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.5); /* Glowing box shadow for a futuristic effect */
+    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+    animation: fadeIn 1s ease; /* Fade-in animation for product items */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.product-item:hover {
+    transform: translateY(-5px); /* Move product items up on hover for a futuristic animation */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3); /* Enhanced box shadow on hover */
+}
+
+.product-item h3 {
+    color: #ffcc00; /* Bright accent color for headings */
+    font-size: 1.8em; /* Larger font size for headings */
+    margin-bottom: 30px; /* Increased spacing below headings */
+    text-align: center; /* Center alignment for headings */
+}
+
+.product-item p {
+    color: #c5c5c5; /* Lighter text color for product details */
+    margin-bottom: 15px; /* Increased spacing below paragraphs */
+    text-align: center; /* Center alignment for paragraphs */
+}
+
+.product-item input[type="number"],
+.product-item button {
+    width: calc(50% - 10px);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffcc00; /* Bright accent color for buttons */
+    color: #333;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for background color and transform */
+    animation: pulse 2s infinite; /* Pulse animation for buttons */
+}
+
+.product-item button:hover {
+    background-color: #ffa500; /* Darker hover color for buttons */
+    transform: scale(1.05); /* Scale button on hover */
+}
+
+.product-item input[type="number"] {
+    width: calc(100% - 20px);
+}
+
+.product-item button {
+    width: 100%;
+}
+
+.product-item button:hover {
+    background-color: #ffa500; /* Darker hover color for buttons */
+}
