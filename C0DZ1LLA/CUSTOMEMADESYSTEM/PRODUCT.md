@@ -3,7 +3,7 @@
 ## 1. EU Price Rate:
 
 ### Development Costs:
-- Labor Costs: €10,000 (Assuming 200 hours of development at €50 per hour)
+- Labor Costs: €10,000 
 - Software Costs: €2,000
 - Testing and Quality Assurance: €3,000
 
