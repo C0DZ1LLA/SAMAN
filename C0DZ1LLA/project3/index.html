@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C0DZ1LLA SYSTEMS</title>
+    <style>
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 3em;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(255, 204, 0, 0.5);
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+#noteInput {
+    width: calc(100% - 22px);
+    min-height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    background-color: #222;
+    color: #fff;
+    resize: none;
+    outline: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.format-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.format-buttons button:hover {
+    background-color: #ffa500;
+    transform: scale(1.1);
+}
+
+.format-buttons button.active {
+    background-color: #ffa500;
+}
+
+.saved-notes-container {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.saved-note {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.saved-note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+}
+
+.note-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0 20px 0 20px;
+    transition: transform 0.3s ease;
+    opacity: 0;
+}
+
+.saved-note:hover .note-actions {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.note-actions button {
+    padding: 5px 10px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.note-actions button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.category-select {
+    margin-bottom: 20px;
+}
+
+.category-select select {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+}
+
+.category-select select:focus {
+    outline: none;
+}
+.popup-container {
+    display: none;
+    background: #1d1d1d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+}
+
+.popup {
+    width: 300px;
+    background: #1d1d1d;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.popup h2 {
+    margin-bottom: 20px;
+}
+
+.popup button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.popup button.primary {
+    background-color: #007bff;
+    color: #2c2c2c;
+}
+
+.popup button.secondary {
+    background-color: #3f3f3f;
+    color: #000;
+}
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup {
+    background-color: #363636;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.popup h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.popup-buttons {
+    text-align: center;
+}
+
+.popup-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-buttons button:hover {
+    background-color: #0056b3;
+}
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>C0DZ1LLA SYSTEM</h1>
+        <div id="container">
+            <div class="popup-container">
+                <div class="popup">
+                    <h2>Welcome to C0DZ1LLA SYSTEMS</h2>
+                    <h2>Thank you, for using our System</h2>
+                    <div class="popup-buttons">
+                        <button id="continueButton">Continue</button>
+                        <button id="container" onclick="openURL1()">Buy me a coffee &#9994;</button>
+                        <button id="goBackButton">Exit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="format-buttons">
+                <button id="boldButton"><strong>B</strong></button>
+                <button id="italicButton"><em>I</em></button>
+                <button id="underlineButton"><u>U</u></button>
+                <button id="strikethroughButton"><s>S</s></button>
+                <button id="superscriptButton">Sup</button>
+                <button id="subscriptButton">Sub</button>
+                <button id="leftAlignButton">Left</button>
+                <button id="centerAlignButton">Center</button>
+                <button id="rightAlignButton">Right</button>
+                <select id="fontFamilySelect">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+                <select id="fontSizeSelect">
+                    <option value="12px">12</option>
+                    <option value="14px">14</option>
+                    <option value="16px">16</option>
+                    <option value="18px">18</option>
+                    <option value="20px">20</option>
+                </select>
+            </div>
+            <div id="noteInput" contenteditable="true" placeholder="Type your note here..."></div>
+            <button id="saveButton">Save Note</button>
+        </div>
+        <div id="savedNotes" class="saved-notes-container">
+            <!-- Saved notes will be displayed here -->
+        </div>
+        <button id="clearButton">Clear All Notes</button>
+    </div>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    var popupContainer = document.querySelector('.popup-container');
+    var continueButton = document.querySelector('#continueButton');
+    var goBackButton = document.querySelector('#goBackButton');
+
+    // Show the popup when the page is loaded
+    popupContainer.style.display = 'block';
+    // Event listener for the continue button
+    continueButton.addEventListener('click', function() {
+        // Hide the popup container
+        popupContainer.style.display = 'none';
+    });
+
+
+    // Event listener for the go back button
+    goBackButton.addEventListener('click', function() {
+        // Go back to the previous page
+        window.history.back();
+    });
+});
+
+        // Function to open URL 1
+        function openURL1() {
+            window.open('https://revolut.me/samanabotaleby', '_blank');
+        }
+
+
+
+// Function to open the modal
+function openModal() {
+  document.getElementById("modal").style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            const noteInput = document.getElementById('noteInput');
+            const noteTitle = document.getElementById('noteTitle'); // New title input field
+
+            const saveButton = document.getElementById('saveButton');
+            const savedNotesDiv = document.getElementById('savedNotes');
+            const clearButton = document.getElementById('clearButton');
+            const boldButton = document.getElementById('boldButton');
+            const italicButton = document.getElementById('italicButton');
+            const underlineButton = document.getElementById('underlineButton');
+            const strikethroughButton = document.getElementById('strikethroughButton');
+            const superscriptButton = document.getElementById('superscriptButton');
+            const subscriptButton = document.getElementById('subscriptButton');
+            const leftAlignButton = document.getElementById('leftAlignButton');
+            const centerAlignButton = document.getElementById('centerAlignButton');
+            const rightAlignButton = document.getElementById('rightAlignButton');
+            const fontFamilySelect = document.getElementById('fontFamilySelect');
+            const fontSizeSelect = document.getElementById('fontSizeSelect');
+            
+
+            boldButton.addEventListener('click', toggleBold);
+            italicButton.addEventListener('click', toggleItalic);
+            underlineButton.addEventListener('click', toggleUnderline);
+            strikethroughButton.addEventListener('click', toggleStrikethrough);
+            superscriptButton.addEventListener('click', toggleSuperscript);
+            subscriptButton.addEventListener('click', toggleSubscript);
+            leftAlignButton.addEventListener('click', alignLeft);
+            centerAlignButton.addEventListener('click', alignCenter);
+            rightAlignButton.addEventListener('click', alignRight);
+            fontFamilySelect.addEventListener('change', changeFontFamily);
+            fontSizeSelect.addEventListener('change', changeFontSize);
+
+            // Load saved notes from local storage
+            function loadSavedNotes() {
+                const savedNotes = JSON.parse(localStorage.getItem('savedNotes')) || [];
+                savedNotes.forEach(function (note) {
+                    const noteObj = JSON.parse(note);
+                    displaySavedNote(noteObj.text);
+                });
+            }
+
+
+            
+
+
+            // Display saved note in the UI
+            function displaySavedNote(noteText) {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'saved-note';
+                noteDiv.innerHTML = noteText;
+
+                // Add note actions (delete)
+                const actionsDiv = document.createElement('div');
+                actionsDiv.className = 'note-actions';
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', function () {
+                    deleteNoteByElement(noteDiv);
+                });
+                actionsDiv.appendChild(deleteButton);
+                noteDiv.appendChild(actionsDiv);
+
+                savedNotesDiv.appendChild(noteDiv);
+            }
+
+            // Save note to local storage
+            function saveNote() {
+                const noteText = noteInput.innerHTML.trim();
+                if (noteText !== '') {
+                    const noteObj = { text: noteText };
+                    const savedNotes = JSON.parse(localStorage.getItem('savedNotes')) || [];
+                    savedNotes.push(JSON.stringify(noteObj));
+                    localStorage.setItem('savedNotes', JSON.stringify(savedNotes));
+                    displaySavedNote(noteText);
+                    noteInput.innerHTML = ''; // Clear the input field after saving
+                }
+            }
+
+            // Delete note by element
+            function deleteNoteByElement(noteElement) {
+                const noteText = noteElement.textContent;
+                const savedNotes = JSON.parse(localStorage.getItem('savedNotes')) || [];
+                const updatedNotes = savedNotes.filter(function (note) {
+                    return JSON.parse(note).text !== noteText;
+                });
+                localStorage.setItem('savedNotes', JSON.stringify(updatedNotes));
+                savedNotesDiv.removeChild(noteElement);
+            }
+
+            // Clear all saved notes from local storage and UI
+            function clearAllNotes() {
+                localStorage.removeItem('savedNotes');
+                savedNotesDiv.innerHTML = ''; // Clear the saved notes container
+            }
+
+            // Toggle bold
+            function toggleBold() {
+                document.execCommand('bold');
+            }
+
+            // Toggle italic
+            function toggleItalic() {
+                document.execCommand('italic');
+            }
+
+            // Toggle underline
+            function toggleUnderline() {
+                document.execCommand('underline');
+            }
+
+            // Toggle strikethrough
+            function toggleStrikethrough() {
+                document.execCommand('strikethrough');
+            }
+
+            // Toggle superscript
+            function toggleSuperscript() {
+                document.execCommand('superscript');
+            }
+
+            // Toggle subscript
+            function toggleSubscript() {
+                document.execCommand('subscript');
+            }
+
+            // Align left
+            function alignLeft() {
+                document.execCommand('justifyLeft');
+            }
+
+            // Align center
+            function alignCenter() {
+                document.execCommand('justifyCenter');
+            }
+
+            // Align right
+            function alignRight() {
+                document.execCommand('justifyRight');
+            }
+
+            // Change font family
+            function changeFontFamily() {
+                const fontFamily = fontFamilySelect.value;
+                document.execCommand('fontName', false, fontFamily);
+            }
+
+            // Change font size
+            function changeFontSize() {
+                const fontSize = fontSizeSelect.value;
+                document.execCommand('fontSize', false, fontSize);
+            }
+
+            // Event listeners
+            saveButton.addEventListener('click', saveNote);
+            clearButton.addEventListener('click', clearAllNotes);
+
+            // Load saved notes when the page loads
+            loadSavedNotes();
+        });
+        const categorySelect = document.getElementById('categorySelect');
+
+// Load categories from local storage
+function loadCategories() {
+    const categories = JSON.parse(localStorage.getItem('categories')) || [];
+    categories.forEach(function (category) {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categorySelect.appendChild(option);
+    });
+}
+
+// Save category to local storage
+function saveCategory(category) {
+    const categories = JSON.parse(localStorage.getItem('categories')) || [];
+    if (!categories.includes(category)) {
+        categories.push(category);
+        localStorage.setItem('categories', JSON.stringify(categories));
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categorySelect.appendChild(option);
+    }
+}
+
+// Event listener for category selection change
+categorySelect.addEventListener('change', function () {
+    const selectedCategory = categorySelect.value;
+    // Filter and display notes by selected category
+    filterNotesByCategory(selectedCategory);
+});
+
+// Filter notes by category
+function filterNotesByCategory(category) {
+    const savedNotes = document.querySelectorAll('.saved-note');
+    savedNotes.forEach(function (note) {
+        const noteCategory = note.dataset.category;
+        if (!category || noteCategory === category) {
+            note.style.display = 'block';
+        } else {
+            note.style.display = 'none';
+        }
+    });
+}
+
+// Call the function to load categories when the page loads
+loadCategories();
+    </script>
+</body>
+</html>
