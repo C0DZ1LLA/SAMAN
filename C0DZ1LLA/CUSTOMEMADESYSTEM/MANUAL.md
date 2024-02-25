@@ -52,7 +52,7 @@ To clear all data and refresh the page:
 
 6. Maintenance and Support:
 For maintenance and support:
-- For any issues or inquiries, please contact our support team at support@example.com.
+- For any issues or inquiries, please contact our support team at saman.abotaleby@gmail.com
 - Regular updates and improvements may be provided to enhance the functionality and performance of the system.
 
 Conclusion:
