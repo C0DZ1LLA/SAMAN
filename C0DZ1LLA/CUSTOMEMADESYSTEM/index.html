@@ -7,36 +7,33 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
-    <div id="container">
+    <div id="container" class="container">
         <div class="popup-container">
             <div class="popup">
                 <h2>Welcome to C0DZ1LLA SYSTEMS</h2>
-                <h2>Thank you, for using our System</h2>
+                <h2>Thank you for using our System</h2>
                 <div class="popup-buttons">
                     <button id="continueButton">Continue</button>
-                    <button id="container" onclick="openURL1()">Manual</button>
+                    <button id="manualButton" onclick="openURL3()">Manual</button>
                     <button id="goBackButton">Exit</button>
                 </div>
             </div>
         </div>
-        <h1>Reusable Inventory Management System</h1>
-        <div id="container">
-        <div id="product-item button">
-        <button id="container" onclick="exportAllProducts()">Export All Products</button>
-            <button id="container" onclick="clearDataAndRefresh()">Clear Data and Refresh</button>
+        <h1 class="product-item">Reusable Inventory Management System</h1>
+        <div class="product-item">
+            <button id="exportButton" onclick="exportAllProducts()">Export All Products</button>
+            <button id="clearButton" onclick="clearDataAndRefresh()">Clear Data and Refresh</button>
         </div>
-
-        <label for="category-selector">Select Category:</label>
-        <select id="category-selector">
+        <label for="heading">Select Category:</label>
+        <select id="category-selector" class="category-select">
             <option value="All">All</option>
         </select>
-        <div id="product-container"></div>
+        <div id="product-container" class="product-container"></div>
     </div>
-    <h1 id="container">Made by SAMAN</h1>
-    
-    <button id="container" onclick="openURL2()">Website</button>
-    <button id="container" onclick="openURL1()">Contact Social</button>
+    <h1 class="product-item">Made by SAMAN</h1>
+    <button class="product-item" onclick="openURL2()">Website</button>
+    <button class="product-item" onclick="openURL1()">Contact Social</button>
+    </div>
 
     <script>
 
@@ -1298,7 +1295,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [
 {
         id: 111,
         name: "Colombia Las Flores Packaged 1kg",
-        price: 1.11,
+        price: 45.24,
         bulk_price: 31.67,
         quantity: 0,
         total_profit: 0.00,
@@ -1307,7 +1304,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     {
         id: 222,
         name: "Espresso Master Blend Packed 1kg",
-        price: 1.11,
+        price: 29.05,
         bulk_price: 18.43,
         quantity: 0,
         total_profit: 0.00,
@@ -1316,7 +1313,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     {
         id: 333,
         name: "Espresso Silk River Blend Packad 1kg",
-        price: 1.11,
+        price: 27.14,
         bulk_price: 18.73,
         quantity: 0,
         total_profit: 0.00,
@@ -1325,7 +1322,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     {
         id: 444,
         name: "Brazil Alta Mogiana Packaged 1kg",
-        price: 1.11,
+        price: 30.48,
         bulk_price: 18.00,
         quantity: 0,
         total_profit: 0.00,
@@ -1334,7 +1331,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     {
         id: 555,
         name: "Peru Santa Teresa Packaged 1kg",
-        price: 1.11,
+        price: 32.38,
         bulk_price: 19.60,
         quantity: 0,
         total_profit: 0.00,
@@ -1343,7 +1340,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     {
         id: 666,
         name: "Indonesia Sumatra Packaged 1kg",
-        price: 1.11,
+        price: 32.38,
         bulk_price: 19.75,
         quantity: 0,
         total_profit: 0.00,
@@ -1352,7 +1349,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     {
         id: 777,
         name: "Ethiopia Guji Packed 1kg",
-        price: 1.11,
+        price: 32.38,
         bulk_price: 19.60,
         quantity: 0,
         total_profit: 0.00,
@@ -2002,7 +1999,7 @@ function displayProductsByCategory(category) {
 
 
 // Function to open URL 1
-function openURL1() {
+function openURL3() {
             window.open('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM/MANUAL.md', '_blank');
         }
 
@@ -2027,7 +2024,7 @@ function exportProductData(product) {
             'Unit Sell Price': product.price,
             'Buying Price': product.bulk_price,
             'Unit Quantity Amount': product.quantity,
-            'Unit Sell Total Price': product.total_profit,
+            'Unit Sell Total Price': (product.price * product.quantity).toFixed(2),
             'Unit Quantity Buying Total Cost': (product.bulk_price * product.quantity).toFixed(2),
             'Total Profit': (product.price - product.bulk_price) * product.quantity
         }
@@ -2072,7 +2069,7 @@ function convertToCSV(data) {
                 'Unit Sell Price': product.price,
                 'Buying Price': product.bulk_price,
                 'Unit Quantity Amount': product.quantity,
-                'Unit Sell Total Price': product.total_profit,
+                'Unit Sell Total Price': (product.price * product.quantity).toFixed(2),
                 'Unit Quantity Buying Total Cost': (product.bulk_price * product.quantity).toFixed(2),
                 'Total Profit': (product.price - product.bulk_price) * product.quantity
             }));
