@@ -3,255 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C0DZ1LLA SYSTEMS</title>
-    <style>
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #000;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-h1 {
-    margin-bottom: 30px;
-    font-size: 3em;
-    color: #ffcc00;
-    text-shadow: 2px 2px 4px rgba(255, 204, 0, 0.5);
-}
-
-.input-container {
-    margin-bottom: 20px;
-}
-
-#noteInput {
-    width: calc(100% - 22px);
-    min-height: 150px;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 10px;
-    background-color: #222;
-    color: #fff;
-    resize: none;
-    outline: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-.format-buttons button {
-    padding: 10px 20px;
-    margin-right: 10px;
-    background-color: #ffcc00;
-    color: #333;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-}
-
-.format-buttons button:hover {
-    background-color: #ffa500;
-    transform: scale(1.1);
-}
-
-.format-buttons button.active {
-    background-color: #ffa500;
-}
-
-.saved-notes-container {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-}
-
-.saved-note {
-    margin-bottom: 20px;
-    font-size: 1.2em;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.saved-note:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
-}
-
-.note-actions {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0 20px 0 20px;
-    transition: transform 0.3s ease;
-    opacity: 0;
-}
-
-.saved-note:hover .note-actions {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.note-actions button {
-    padding: 5px 10px;
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-.note-actions button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.category-select {
-    margin-bottom: 20px;
-}
-
-.category-select select {
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 10px;
-    background-color: #222;
-    color: #fff;
-    border: none;
-}
-
-.category-select select:focus {
-    outline: none;
-}
-.popup-container {
-    display: none;
-    background: #1d1d1d;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.5);
-    z-index: 9999;
-}
-
-.popup {
-    width: 300px;
-    background: #1d1d1d;
-    border-radius: 10px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-.popup h2 {
-    margin-bottom: 20px;
-}
-
-.popup button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-.popup button.primary {
-    background-color: #007bff;
-    color: #2c2c2c;
-}
-
-.popup button.secondary {
-    background-color: #3f3f3f;
-    color: #000;
-}
-.popup-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.popup {
-    background-color: #363636;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.popup h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.popup p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.popup-buttons {
-    text-align: center;
-}
-
-.popup-buttons button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.popup-buttons button:hover {
-    background-color: #0056b3;
-}
-
-        
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>C0DZ1LLA</title>
 </head>
 <body>
-
     <div class="container">
-        <h1>C0DZ1LLA SYSTEM</h1>
-        <div id="container">
-            <div class="popup-container">
-                <div class="popup">
-                    <h2>Welcome to C0DZ1LLA SYSTEMS</h2>
-                    <h2>Thank you, for using our System</h2>
-                    <div class="popup-buttons">
-                        <button id="continueButton">Continue</button>
-                        <button id="container" onclick="openURL1()">Buy me a coffee &#9994;</button>
-                        <button id="goBackButton">Exit</button>
-                    </div>
+        <div class="format-buttons">
+        <button id="exportButton">Export Data as ZIP</button>
+    </div>
+        <h1>NOTE SYSTEM</h1>
+        <div class="popup-container">
+            <div class="popup">
+                <h2>Welcome to C0DZ1LLA SYSTEMS</h2>
+                <h2>Thank you for using our System</h2>
+                <div class="popup-buttons">
+                    <button id="continueButton">Continue</button>
+                    <button id="buyCoffeeButton" onclick="openURL1()">Buy me a coffee ☕</button>
+                    <button id="goBackButton">Exit</button>
                 </div>
             </div>
-
+        </div>
+        <div id="container" class="continueButton">
             <div class="format-buttons">
                 <button id="boldButton"><strong>B</strong></button>
                 <button id="italicButton"><em>I</em></button>
@@ -262,7 +36,33 @@ h1 {
                 <button id="leftAlignButton">Left</button>
                 <button id="centerAlignButton">Center</button>
                 <button id="rightAlignButton">Right</button>
+                <input type="color" id="fontColorButton">
+                <input type="color" id="highlightColorButton">
+                <button id="undoButton">Undo</button>
+                <button id="redoButton">Redo</button>
+                <button id="insertImageButton">Insert Image</button>
+                <button id="insertLinkButton">Insert Link</button>
+                <button id="textIndentIncreaseButton">Increase Indent</button>
+                <button id="textIndentDecreaseButton">Decrease Indent</button>
+                <button id="orderedListButton">Ordered List</button>
+                <button id="unorderedListButton">Unordered List</button>
+                <button id="horizontalRuleButton">Horizontal Rule</button>
+                <button id="clearFormattingButton">Clear Formatting</button>
+                <button id="selectAllButton">Select All</button>
+                <button id="cutButton">Cut</button>
+                <button id="copyButton">Copy</button>
+                <button id="pasteButton">Paste</button>
+                <button id="deleteButton">Delete</button>
+                <button id="selectAllButton">Select All</button>
+                <button id="findButton">Find</button>
+                <button id="replaceButton">Replace</button>
+                <button id="spellCheckButton">Spell Check</button>
                 <select id="fontFamilySelect">
+                    <button id="exportButton">Export Data as ZIP</button>
+                    
+
+                    <input type="file" id="imageUpload" accept="image/*">
+                    <button id="addImageButton">Add Image</button>
                     <option value="Arial">Arial</option>
                     <option value="Verdana">Verdana</option>
                     <option value="Times New Roman">Times New Roman</option>
@@ -283,9 +83,14 @@ h1 {
             <!-- Saved notes will be displayed here -->
         </div>
         <button id="clearButton">Clear All Notes</button>
+        <button id="deleteAllButton">Delete All Saved Data</button>
+
     </div>
 
     <script>
+
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     var popupContainer = document.querySelector('.popup-container');
@@ -325,39 +130,143 @@ function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
+document.getElementById('addImageButton').addEventListener('click', function() {
+            // Trigger click on hidden file input to select image file
+            document.getElementById('imageUpload').click();
+        });
 
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            const noteInput = document.getElementById('noteInput');
-            const noteTitle = document.getElementById('noteTitle'); // New title input field
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
 
-            const saveButton = document.getElementById('saveButton');
-            const savedNotesDiv = document.getElementById('savedNotes');
-            const clearButton = document.getElementById('clearButton');
-            const boldButton = document.getElementById('boldButton');
-            const italicButton = document.getElementById('italicButton');
-            const underlineButton = document.getElementById('underlineButton');
-            const strikethroughButton = document.getElementById('strikethroughButton');
-            const superscriptButton = document.getElementById('superscriptButton');
-            const subscriptButton = document.getElementById('subscriptButton');
-            const leftAlignButton = document.getElementById('leftAlignButton');
-            const centerAlignButton = document.getElementById('centerAlignButton');
-            const rightAlignButton = document.getElementById('rightAlignButton');
-            const fontFamilySelect = document.getElementById('fontFamilySelect');
-            const fontSizeSelect = document.getElementById('fontSizeSelect');
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageData = event.target.result;
+                
+                // Display the image (optional)
+                const img = document.createElement('img');
+                img.src = imageData;
+                document.body.appendChild(img);
+
+                // Save the image data to local storage or wherever you're storing data
+                localStorage.setItem('imageData', imageData);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('exportButton').addEventListener('click', function() {
+            const zip = new JSZip();
             
+            // Gather all data you want to include in the ZIP file
+            const savedNotes = localStorage.getItem('savedNotes') || '[]';
+            const imageData = localStorage.getItem('imageData');
 
-            boldButton.addEventListener('click', toggleBold);
-            italicButton.addEventListener('click', toggleItalic);
-            underlineButton.addEventListener('click', toggleUnderline);
-            strikethroughButton.addEventListener('click', toggleStrikethrough);
-            superscriptButton.addEventListener('click', toggleSuperscript);
-            subscriptButton.addEventListener('click', toggleSubscript);
-            leftAlignButton.addEventListener('click', alignLeft);
-            centerAlignButton.addEventListener('click', alignCenter);
-            rightAlignButton.addEventListener('click', alignRight);
-            fontFamilySelect.addEventListener('change', changeFontFamily);
-            fontSizeSelect.addEventListener('change', changeFontSize);
+            const data = {
+                savedNotes: JSON.parse(savedNotes),
+                // Add more data properties as needed
+            };
+
+            // Add each piece of data to the ZIP file
+            zip.file('data.json', JSON.stringify(data));
+            if (imageData) {
+                // Convert base64 image data to Blob
+                const blob = dataURItoBlob(imageData);
+                // Add image file to ZIP archive
+                zip.file('image.png', blob);
+            }
+
+            // Generate the ZIP file asynchronously
+            zip.generateAsync({ type: 'blob' }).then(function(content) {
+                // Create a link element to download the ZIP file
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(content);
+                link.download = 'data.zip';
+
+                // Programmatically trigger the download
+                link.click();
+            });
+        });
+
+        // Function to convert data URI to Blob
+        function dataURItoBlob(dataURI) {
+            const byteString = atob(dataURI.split(',')[1]);
+            const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+            const ab = new ArrayBuffer(byteString.length);
+            const ia = new Uint8Array(ab);
+            for (let i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+            return new Blob([ab], { type: mimeString });
+        }
+        
+document.addEventListener('DOMContentLoaded', function () {
+    const noteInput = document.getElementById('noteInput');
+    const saveButton = document.getElementById('saveButton');
+    const savedNotesDiv = document.getElementById('savedNotes');
+    const clearButton = document.getElementById('clearButton');
+    const boldButton = document.getElementById('boldButton');
+    const italicButton = document.getElementById('italicButton');
+    const underlineButton = document.getElementById('underlineButton');
+    const strikethroughButton = document.getElementById('strikethroughButton');
+    const superscriptButton = document.getElementById('superscriptButton');
+    const subscriptButton = document.getElementById('subscriptButton');
+    const leftAlignButton = document.getElementById('leftAlignButton');
+    const centerAlignButton = document.getElementById('centerAlignButton');
+    const rightAlignButton = document.getElementById('rightAlignButton');
+    const fontFamilySelect = document.getElementById('fontFamilySelect');
+    const fontSizeSelect = document.getElementById('fontSizeSelect');
+    const fontColorButton = document.getElementById('fontColorButton');
+    const highlightColorButton = document.getElementById('highlightColorButton');
+    const undoButton = document.getElementById('undoButton');
+    const redoButton = document.getElementById('redoButton');
+    const insertImageButton = document.getElementById('insertImageButton');
+    const insertLinkButton = document.getElementById('insertLinkButton');
+    const textIndentIncreaseButton = document.getElementById('textIndentIncreaseButton');
+    const textIndentDecreaseButton = document.getElementById('textIndentDecreaseButton');
+    const orderedListButton = document.getElementById('orderedListButton');
+    const unorderedListButton = document.getElementById('unorderedListButton');
+    const horizontalRuleButton = document.getElementById('horizontalRuleButton');
+    const clearFormattingButton = document.getElementById('clearFormattingButton');
+    const selectAllButton = document.getElementById('selectAllButton');
+            const cutButton = document.getElementById('cutButton');
+            const copyButton = document.getElementById('copyButton');
+            const pasteButton = document.getElementById('pasteButton');
+            const deleteButton = document.getElementById('deleteButton');
+            const findButton = document.getElementById('findButton');
+            const replaceButton = document.getElementById('replaceButton');
+            const spellCheckButton = document.getElementById('spellCheckButton');
+
+    boldButton.addEventListener('click', toggleBold);
+    italicButton.addEventListener('click', toggleItalic);
+    underlineButton.addEventListener('click', toggleUnderline);
+    strikethroughButton.addEventListener('click', toggleStrikethrough);
+    superscriptButton.addEventListener('click', toggleSuperscript);
+    subscriptButton.addEventListener('click', toggleSubscript);
+    leftAlignButton.addEventListener('click', alignLeft);
+    centerAlignButton.addEventListener('click', alignCenter);
+    rightAlignButton.addEventListener('click', alignRight);
+    fontFamilySelect.addEventListener('change', changeFontFamily);
+    fontSizeSelect.addEventListener('change', changeFontSize);
+    fontColorButton.addEventListener('input', changeFontColor);
+    highlightColorButton.addEventListener('input', changeHighlightColor);
+    undoButton.addEventListener('click', undo);
+    redoButton.addEventListener('click', redo);
+    insertImageButton.addEventListener('click', insertImage);
+    insertLinkButton.addEventListener('click', insertLink);
+    textIndentIncreaseButton.addEventListener('click', increaseIndent);
+    textIndentDecreaseButton.addEventListener('click', decreaseIndent);
+    orderedListButton.addEventListener('click', insertOrderedList);
+    unorderedListButton.addEventListener('click', insertUnorderedList);
+    horizontalRuleButton.addEventListener('click', insertHorizontalRule);
+    clearFormattingButton.addEventListener('click', clearFormatting);
+    selectAllButton.addEventListener('click', selectAll);
+            cutButton.addEventListener('click', cut);
+            copyButton.addEventListener('click', copy);
+            pasteButton.addEventListener('click', paste);
+            deleteButton.addEventListener('click', deleteSelection);
+            findButton.addEventListener('click', find);
+            replaceButton.addEventListener('click', replace);
+            spellCheckButton.addEventListener('click', spellCheck);
 
             // Load saved notes from local storage
             function loadSavedNotes() {
@@ -367,6 +276,8 @@ function closeModal() {
                     displaySavedNote(noteObj.text);
                 });
             }
+
+            
 
 
             
@@ -478,6 +389,120 @@ function closeModal() {
                 const fontSize = fontSizeSelect.value;
                 document.execCommand('fontSize', false, fontSize);
             }
+             // Function to change font color
+             function changeFontColor(event) {
+                document.execCommand('foreColor', false, event.target.value);
+            }
+
+            // Function to change highlight color
+            function changeHighlightColor(event) {
+                document.execCommand('hiliteColor', false, event.target.value);
+            }
+
+            // Function to undo
+            function undo() {
+                document.execCommand('undo');
+            }
+
+            // Function to redo
+            function redo() {
+                document.execCommand('redo');
+            }
+
+            // Function to insert image
+            function insertImage() {
+                var url = prompt('Enter the URL of the image:');
+                if (url) {
+                    document.execCommand('insertImage', false, url);
+                }
+            }
+
+            // Function to insert link
+            function insertLink() {
+                var url = prompt('Enter the URL of the link:');
+                if (url) {
+                    document.execCommand('createLink', false, url);
+                }
+            }
+
+            // Function to increase text indentation
+            function increaseIndent() {
+                document.execCommand('indent');
+            }
+
+            // Function to decrease text indentation
+            function decreaseIndent() {
+                document.execCommand('outdent');
+            }
+
+            // Function to insert ordered list
+            function insertOrderedList() {
+                document.execCommand('insertOrderedList');
+            }
+
+            // Function to insert unordered list
+            function insertUnorderedList() {
+                document.execCommand('insertUnorderedList');
+            }
+
+            // Function to insert horizontal rule
+            function insertHorizontalRule() {
+                document.execCommand('insertHorizontalRule');
+            }
+
+            // Function to clear formatting
+            function clearFormatting() {
+                document.execCommand('removeFormat');
+            }
+            // Select all text
+            function selectAll() {
+                document.execCommand('selectAll');
+            }
+
+            // Cut selected text
+            function cut() {
+                document.execCommand('cut');
+            }
+
+            // Copy selected text
+            function copy() {
+                document.execCommand('copy');
+            }
+
+            // Paste text
+            function paste() {
+                document.execCommand('paste');
+            }
+
+            // Delete selected text
+            function deleteSelection() {
+                document.execCommand('delete');
+            }
+
+            // Find text
+            function find() {
+                const searchText = prompt('Enter text to find:');
+                if (searchText) {
+                    document.execCommand('find', false, searchText);
+                }
+            }
+
+            // Replace text
+            function replace() {
+                const searchText = prompt('Enter text to find:');
+                if (searchText) {
+                    const replacementText = prompt('Enter replacement text:');
+                    if (replacementText) {
+                        document.execCommand('replace', false, replacementText);
+                    }
+                }
+            }
+
+            // Spell check
+            function spellCheck() {
+                document.execCommand('spellcheck');
+            }
+
 
             // Event listeners
             saveButton.addEventListener('click', saveNote);

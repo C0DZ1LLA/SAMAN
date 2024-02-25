@@ -1,0 +1,206 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111; /* Dark background */
+    color: #fff; /* White text */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #222; /* Dark gray container */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Golden neon glow */
+    animation: glow 2s infinite alternate; /* Neon glow animation */
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffd700; /* Gold text */
+}
+
+.popup-container {
+    display: flex;
+    background-color: #333; /* Dark gray popup */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Golden neon glow */
+    animation: pulse 1.5s infinite; /* Pulse animation */
+}
+
+.popup {
+    background-color: #333; /* Dark gray popup */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Golden neon glow */
+    animation: pulse 1.5s infinite; /* Pulse animation */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.popup h2 {
+    margin-bottom: 10px;
+    color: #ffd700; /* Gold text */
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffd700; /* Gold button */
+    color: #111; /* Dark text */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-buttons button:hover {
+    background-color: #ffdf00; /* Lighter gold on hover */
+    transform: translateY(-2px); /* Move up on hover */
+}
+
+.continueButton {
+    margin-top: 20px;
+}
+
+.format-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.format-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffd700; /* Gold button */
+    color: #111; /* Dark text */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.format-buttons button:hover {
+    background-color: #ffdf00; /* Lighter gold on hover */
+    transform: scale(1.1); /* Grow on hover */
+}
+
+#noteInput {
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ffd700; /* Gold border */
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #333; /* Dark gray input background */
+    color: #fff; /* White text */
+}
+
+#saveButton,
+#clearButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffd700; /* Gold button */
+    color: #111; /* Dark text */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#saveButton:hover,
+#clearButton:hover {
+    background-color: #ffdf00; /* Lighter gold on hover */
+    transform: rotate(360deg); /* Rotate on hover */
+}
+
+.saved-notes-container {
+    margin-top: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #222; /* Dark gray container */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Golden neon glow */
+}
+
+.saved-note {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #333; /* Dark gray note */
+    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.5); /* Golden neon glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.saved-note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); /* Larger golden glow on hover */
+}
+
+.note-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.note-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #dc3545; /* Red button */
+    color: #fff; /* White text */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.note-actions button:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: rotate(-360deg); /* Rotate on hover */
+}
+/* Additional styling for button organization */
+.format-buttons {
+    display: flex; /* Ensures the buttons are displayed in a row */
+    flex-wrap: wrap; /* Allows buttons to wrap onto the next line if there's not enough space */
+    margin-bottom: 10px; /* Adds some space below the format bar */
+}
+
+.format-buttons button {
+    margin-right: 5px; /* Adds a small space between each button horizontally */
+    margin-bottom: 5px; /* Adds a small space between each button vertically */
+}
