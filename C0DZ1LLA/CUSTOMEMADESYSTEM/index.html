@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C0DZ1LLA</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/1.css" id="style1">
+    <link rel="stylesheet" href="css/2.css" id="style2" disabled>
+    <link rel="stylesheet" href="css/3.css" id="style3" disabled>
+    <link rel="stylesheet" href="css/4.css" id="style4" disabled>
 </head>
 <body>
-    <div id="container" class="container">
+    <select id="themeSelector" onchange="changeTheme()">
+        <option class="container" value="css/1.css">Theme 1</option>
+        <option class="container" value="css/2.css">Theme 2</option>
+        <option class="container" value="css/3.css">Theme 3</option>
+        <option class="container" value="css/4.css">Theme 4</option>
+        <!-- Add more <option> tags for additional themes -->
+    </select>
+    <div class="container" id="container">
+        <h1 class="product-item">C0DZ1LLA SYSTEMS</h1>
         <div class="popup-container">
             <div class="popup">
                 <h2>Welcome to C0DZ1LLA SYSTEMS</h2>
@@ -19,8 +30,8 @@
                 </div>
             </div>
         </div>
-        <h1 class="product-item">Reusable Inventory Management System</h1>
         <div class="product-item">
+            <h2>Reusable Inventory Management System</h2>
             <button id="exportButton" onclick="exportAllProducts()">Export All Products</button>
             <button id="clearButton" onclick="clearDataAndRefresh()">Clear Data and Refresh</button>
         </div>
@@ -28,11 +39,10 @@
         <select id="category-selector" class="category-select">
             <option value="All">All</option>
         </select>
-        <div id="product-container" class="product-container"></div>
-    </div>
-    <h1 class="product-item">Made by SAMAN</h1>
-    <button class="product-item" onclick="openURL2()">Website</button>
-    <button class="product-item" onclick="openURL1()">Contact Social</button>
+        <div class="product-container" id="product-container"></div>
+        <h1 class="product-item">Made by SAMAN</h1>
+        <button class="product-item" onclick="openURL2()">Website</button>
+        <button class="product-item" onclick="openURL1()">Contact Social</button>
     </div>
 
     <script>
@@ -1869,6 +1879,22 @@ let products = JSON.parse(localStorage.getItem('products')) || [
     category: "Powder" 
 }
 ];
+
+
+
+function changeTheme() {
+    var themeSelector = document.getElementById('themeSelector');
+    var selectedTheme = themeSelector.value;
+    // Loop through all stylesheets and enable the selected one, disable others
+    var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    stylesheets.forEach(function(sheet) {
+        if (sheet.getAttribute('href') === selectedTheme) {
+            sheet.disabled = false; // Enable selected stylesheet
+        } else {
+            sheet.disabled = true; // Disable other stylesheets
+        }
+    });
+}
 document.addEventListener("DOMContentLoaded", function() {
     var popupContainer = document.querySelector('.popup-container');
     var continueButton = document.querySelector('#continueButton');

@@ -1,0 +1,161 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5; /* Lighter background color for improved readability */
+    color: #333; /* Darker text color for better contrast */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* White background color for the container */
+    border-radius: 15px; /* Slightly decreased border radius for a softer look */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+    animation: fadeIn 1s ease; /* Fade-in animation for the container */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Darker text color for better contrast */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+h1, h2 {
+    font-size: 2.5em; /* Slightly decreased font size for headings */
+    color: #333; /* Darker text color for headings */
+    margin-bottom: 30px; /* Decreased spacing below headings */
+    text-align: center; /* Center alignment for headings */
+}
+
+label {
+    font-size: 1.2em; /* Slightly larger font size for labels */
+    color: #555; /* Darker label color for better contrast */
+    margin-bottom: 15px; /* Decreased spacing below labels */
+    display: block; /* Block-level display for labels */
+    animation: fadeIn 1s ease; /* Fade-in animation for labels */
+}
+
+.category-select {
+    width: 100%; /* Full width for the select element */
+    padding: 12px; /* Slightly decreased padding for better touch support */
+    border: 1px solid #ccc; /* Lighter border for improved visibility */
+    border-radius: 8px; /* Slightly decreased border radius for a softer look */
+    background-color: #f9f9f9; /* Lighter background color for the select element */
+    color: #555; /* Darker text color for better readability */
+    font-size: 1em; /* Standard font size for consistency */
+}
+
+.product-container {
+    margin-top: 40px; /* Decreased spacing above the product container */
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    animation: slideInUp 1s ease; /* Slide-in animation for the product container */
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+.product-item {
+    margin: 0 15px 30px 15px; /* Adjusted margins for spacing */
+    padding: 20px;
+    background-color: #fff; /* White background color for product items */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+    animation: fadeIn 1s ease; /* Fade-in animation for product items */
+}
+
+.product-item:hover {
+    transform: translateY(-3px); /* Move product items up slightly on hover for a subtle animation */
+}
+
+.product-item h3 {
+    color: #333; /* Darker text color for headings */
+    font-size: 1.6em; /* Slightly decreased font size for headings */
+    margin-bottom: 20px; /* Decreased spacing below headings */
+    text-align: center; /* Center alignment for headings */
+}
+
+.product-item p {
+    color: #666; /* Darker text color for product details */
+    margin-bottom: 10px; /* Decreased spacing below paragraphs */
+    text-align: center; /* Center alignment for paragraphs */
+}
+
+.product-item input[type="number"],
+.product-item button {
+    width: 48%; /* Decreased width for better spacing between buttons */
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff; /* Blue accent color for buttons */
+    color: #fff; /* White text color for buttons */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for background color and transform */
+}
+
+.product-item button:hover {
+    background-color: #0056b3; /* Darker blue hover color for buttons */
+    transform: scale(1.03); /* Slightly increase button size on hover */
+}
+
+.product-item input[type="number"] {
+    width: 100%; /* Full width for number input */
+}
+
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the popup container */
+    z-index: 9999;
+}
+
+.popup {
+    width: 300px;
+    background: #fff; /* White background color for the popup */
+    border-radius: 15px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    animation: slideInUp 1s ease, fadeIn 1s ease; /* Slide-in animation and fade-in animation for popup */
+}
+
+.popup h2 {
+    margin-bottom: 20px;
+    color: #333; /* Darker text color for headings */
+}
+
+.popup button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.popup button.primary {
+    background-color: #007bff; /* Blue primary button color */
+    color: #fff; /* White text color for buttons */
+}
+
+.popup button.secondary {
+    background-color: #ccc; /* Light gray secondary button color */
+    color: #000; /* Darker text color for buttons */
+}
