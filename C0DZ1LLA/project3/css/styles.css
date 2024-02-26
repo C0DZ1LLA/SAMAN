@@ -193,6 +193,7 @@ h1 {
     background-color: #c82333; /* Darker red on hover */
     transform: rotate(-360deg); /* Rotate on hover */
 }
+
 /* Additional styling for button organization */
 .format-buttons {
     display: flex; /* Ensures the buttons are displayed in a row */
@@ -203,4 +204,142 @@ h1 {
 .format-buttons button {
     margin-right: 5px; /* Adds a small space between each button horizontally */
     margin-bottom: 5px; /* Adds a small space between each button vertically */
+}
+
+/* Additional styles and animations */
+
+.additional-container {
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.additional-section {
+    margin-bottom: 40px;
+}
+
+.additional-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffd700; /* Gold text */
+}
+
+.additional-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc; /* Light gray text */
+}
+
+.additional-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffd700; /* Gold button */
+    color: #111; /* Dark text */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.additional-button:hover {
+    background-color: #ffdf00; /* Lighter gold on hover */
+    transform: translateY(-2px); /* Move up on hover */
+}
+
+.additional-link {
+    color: #ffd700; /* Gold link color */
+    text-decoration: none;
+    border-bottom: 1px dashed #ffd700; /* Gold dashed underline */
+    transition: border-bottom 0.3s ease;
+}
+
+.additional-link:hover {
+    border-bottom-color: transparent; /* Hide dashed underline on hover */
+}
+
+/* Additional animations */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-from-left {
+    animation: slideInFromLeft 0.5s ease forwards;
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-on-hover:hover {
+    animation: rotate360 1s linear infinite;
+}
+
+@keyframes pulseColor {
+    0% {
+        color: #ffd700; /* Gold text */
+    }
+    50% {
+        color: #ff0000; /* Red text */
+    }
+    100% {
+        color: #ffd700; /* Gold text */
+    }
+}
+
+.pulse-color {
+    animation: pulseColor 2s infinite;
+}
+
+@keyframes glitchEffect {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-5px);
+    }
+    40% {
+        transform: translateX(5px);
+    }
+    60% {
+        transform: translateX(-5px);
+    }
+    80% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.glitch-effect {
+    animation: glitchEffect 0.1s infinite;
 }

@@ -170,7 +170,7 @@ document.getElementById('addImageButton').addEventListener('click', function() {
             };
 
             // Add each piece of data to the ZIP file
-            zip.file('C0DZ1LLA SYSTEM.json', JSON.stringify(data));
+            zip.file('data.json', JSON.stringify(data));
             if (imageData) {
                 // Convert base64 image data to Blob
                 const blob = dataURItoBlob(imageData);
@@ -183,7 +183,7 @@ document.getElementById('addImageButton').addEventListener('click', function() {
                 // Create a link element to download the ZIP file
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(content);
-                link.download = 'C0DZ1LLA SYSTEM.zip';
+                link.download = 'data.zip';
 
                 // Programmatically trigger the download
                 link.click();

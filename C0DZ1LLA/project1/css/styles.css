@@ -12,10 +12,12 @@ body {
     color: #fff; /* Lighter text color for better contrast */
 }
 
+/* Container */
 .container {
     margin: 20px auto;
     max-width: 800px;
     padding: 20px;
+    animation: fadeIn 1s ease forwards;
 }
 
 .container h1 {
@@ -24,6 +26,7 @@ body {
     color: #ffcc00;
     text-align: center;
     text-transform: uppercase;
+    animation: slideInDown 1s ease forwards;
 }
 
 .container form {
@@ -68,14 +71,15 @@ body {
 }
 
 /* Calculator Section */
-.calculator-container {
+#calculator-container {
     background-color: #111;
     border-radius: 25px;
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
     padding: 40px;
+    animation: slideInLeft 1s ease forwards;
 }
 
-.calculator-container h2 {
+#calculator-container h2 {
     margin-bottom: 30px;
     font-size: 3em;
     color: #ffcc00;
@@ -83,7 +87,7 @@ body {
     text-transform: uppercase;
 }
 
-.calculator-container .calculator-buttons button {
+#calculator-container .calculator-buttons button {
     padding: 20px;
     margin: 0 20px;
     font-size: 1.5em;
@@ -94,13 +98,13 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.calculator-container .calculator-buttons button:hover {
+#calculator-container .calculator-buttons button:hover {
     background-color: #ffcc00;
     color: #222;
     transform: scale(1.1);
 }
 
-.calculator-container #result {
+#calculator-container #result {
     font-size: 2em;
     color: #fff;
     margin-top: 40px;
@@ -108,15 +112,16 @@ body {
 }
 
 /* Note Container */
-.note-container {
+#note-container {
     background-color: #111;
     border-radius: 25px;
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
     padding: 40px;
     margin-top: 40px;
+    animation: slideInRight 1s ease forwards;
 }
 
-.note-container h2 {
+#note-container h2 {
     margin-bottom: 30px;
     font-size: 3em;
     color: #ffcc00;
@@ -124,7 +129,7 @@ body {
     text-transform: uppercase;
 }
 
-.note-container button {
+#note-container button {
     padding: 20px 40px;
     font-size: 1.5em;
     border-radius: 25px;
@@ -134,21 +139,22 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.note-container button:hover {
+#note-container button:hover {
     background-color: #ffcc00;
     color: #222;
     transform: scale(1.1);
 }
 
-.saved-notes-container {
+#saved-notes-container {
     background-color: #222;
     border-radius: 25px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     padding: 30px;
     margin-top: 20px;
+    animation: fadeIn 1s ease forwards;
 }
 
-.saved-notes-container .saved-note {
+#saved-notes-container .saved-note {
     margin-bottom: 20px;
     font-size: 1.2em;
     color: #fff;
@@ -157,6 +163,7 @@ body {
 /* Product Form */
 #productList {
     margin-top: 40px;
+    animation: slideInUp 1s ease forwards;
 }
 
 #productList .product-item {
@@ -230,6 +237,7 @@ body {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     padding: 40px;
     margin-top: 40px;
+    animation: slideInDown 1s ease forwards;
 }
 
 #totalProfit p {
@@ -238,6 +246,7 @@ body {
     text-align: center;
 }
 
+/* Popup */
 .popup-container {
     display: none;
     background: #1d1d1d;
@@ -248,6 +257,7 @@ body {
     height: 100%;
     background: rgba(255, 255, 255, 0.5);
     z-index: 9999;
+    animation: fadeIn 1s ease forwards;
 }
 
 .popup {
@@ -260,6 +270,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    animation: slideInUp 1s ease forwards;
 }
 
 .popup h2 {
@@ -292,6 +303,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    animation: fadeIn 1s ease forwards;
 }
 
 .popup {
@@ -299,6 +311,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    animation: slideInDown 1s ease forwards;
 }
 
 .popup h2 {
@@ -327,4 +340,58 @@ body {
 
 .popup-buttons button:hover {
     background-color: #0056b3;
+}
+
+/* Keyframe animations */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

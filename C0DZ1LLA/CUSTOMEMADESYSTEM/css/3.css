@@ -225,3 +225,139 @@ label {
     background-color: #ccc; /* Light gray secondary button color */
     color: #000;
 }
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #111; /* Darker background color for a futuristic look */
+    color: #e6e6e6; /* Lighter text color for better contrast */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+.container {
+    max-width: 1200px; /* Increased max-width for larger screens */
+    margin: 0 auto;
+    padding: 50px; /* Increased padding for better spacing */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+h1, h2 {
+    font-size: 4em; /* Larger font size for headings */
+    color: #ffd700; /* Gold color for headings */
+    margin-bottom: 30px; /* Increased spacing below headings */
+    text-align: center; /* Center alignment for headings */
+    text-transform: uppercase; /* Uppercase headings for a futuristic look */
+}
+
+h1 {
+    animation: neonGlow 2s ease infinite alternate; /* Neon glow animation for h1 */
+}
+
+h2 {
+    animation: neonGlow 2s ease infinite alternate-reverse; /* Reverse neon glow animation for h2 */
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 70px #ffd700, 0 0 80px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700;
+    }
+    100% {
+        text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 70px #ffd700, 0 0 80px #ffd700, 0 0 100px #ffd700, 0 0 150px #ffd700, 0 0 200px #ffd700;
+    }
+}
+
+label {
+    font-size: 1.5em; /* Larger font size for labels */
+    color: #ffd700; /* Gold color for labels */
+    margin-bottom: 20px; /* Increased spacing below labels */
+    display: block; /* Block-level display for labels */
+}
+
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
+    width: 100%; /* Full width for input fields and text areas */
+    padding: 15px; /* Increased padding for input fields and text areas */
+    margin-bottom: 20px; /* Increased spacing between input fields and text areas */
+    border: none; /* Remove default borders */
+    border-radius: 8px; /* Rounded corners for input fields and text areas */
+    background-color: #333; /* Darker background color for input fields and text areas */
+    color: #e6e6e6; /* Lighter text color for better readability */
+    font-size: 1.2em; /* Larger font size for input fields and text areas */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing for text areas */
+}
+
+input[type="submit"] {
+    width: 100%; /* Full width for submit buttons */
+    padding: 20px; /* Increased padding for submit buttons */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners for submit buttons */
+    background-color: #ffd700; /* Gold color for submit buttons */
+    color: #111; /* Dark text color for better contrast */
+    font-size: 1.2em; /* Larger font size for submit buttons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+input[type="submit"]:hover {
+    background-color: #ffdf00; /* Lighter gold color on hover for submit buttons */
+}
+
+/* Animation for submit buttons */
+input[type="submit"] {
+    animation: pulse 1.5s infinite; /* Pulse animation for submit buttons */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Additional styling for links */
+a {
+    color: #ffd700; /* Gold color for links */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+a:hover {
+    color: #ffdf00; /* Lighter gold color on hover for links */
+}
+
+/* Additional styling for lists */
+ul {
+    list-style: none; /* Remove default list styles */
+}
+
+li {
+    margin-bottom: 10px; /* Increased spacing between list items */
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 2560px) {
+    .container {
+        max-width: 1920px; /* Adjust max-width for 4K displays */
+        padding: 100px; /* Increased padding for better spacing on larger screens */
+    }
+
+    h1, h2 {
+        font-size: 5em; /* Larger font size for headings on larger screens */
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], select, textarea {
+        font-size: 1.5em; /* Larger font size for input fields and text areas on larger screens */
+    }
+
+    input[type="submit"] {
+        font-size: 1.5em; /* Larger font size for submit buttons on larger screens */
+    }
+}
