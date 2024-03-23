@@ -1,0 +1,157 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #080808; /* Darker background color */
+    color: #fff; /* White text color */
+}
+
+.container {
+    width: 100%; /* Full width for container */
+    padding: 20px;
+    background-color: #0d0d0d; /* Dark background color */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Neon glow shadow */
+    border-radius: 12px;
+    margin-bottom: 30px; /* Add margin bottom to separate containers */
+}
+
+h1 {
+    color: #ffcc00; /* Neon yellow color for the title */
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Add margin at the bottom */
+    text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00, 0 0 60px #ffcc00; /* Increased glow effect */
+    font-size: 36px; /* Increased font size */
+}
+
+input[type="text"],
+select,
+button {
+    width: 100%; /* Full width for inputs and buttons */
+    padding: 15px; /* Increased padding */
+    margin-bottom: 20px; /* Adjusted margin */
+    border: none;
+    border-radius: 12px;
+    background-color: #1a1a1a; /* Darker background for inputs and buttons */
+    color: #fff;
+    font-size: 18px; /* Increased font size */
+    outline: none; /* Remove outline on focus */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); /* Gold glow shadow */
+}
+
+button {
+    background-color: #ffcc00; /* Neon yellow color for buttons */
+    cursor: pointer; /* Add cursor pointer to buttons */
+    border: 2px solid #ffcc00; /* Add border */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #ffa500; /* Slightly darker neon yellow color on hover */
+    border-color: #ffa500; /* Change border color on hover */
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.8); /* Increased glow shadow on hover */
+}
+
+/* Style for modal and overlay */
+.modal,
+.modal-overlay,
+#totalsPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    z-index: 1000;
+}
+
+.modal,
+#totalsPopup {
+    background-color: #1a1a1a; /* Darker background color */
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Neon glow shadow */
+}
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    z-index: 999;
+}
+
+#totalsPopup {
+    background-color: #1c1c1c;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal h2 {
+    color: #ffcc00; /* Neon yellow color for modal title */
+    margin-bottom: 20px;
+    text-align: center; /* Center align the modal title */
+    font-size: 24px; /* Increased font size */
+}
+
+.modal .close,
+#totalsPopup .close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hide modal by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1a1a1a; /* Dark background color for the modal */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    max-width: 80%; /* Adjust maximum width as needed */
+    max-height: 80%; /* Adjust maximum height as needed */
+    overflow: auto; /* Enable scrolling if content exceeds modal height */
+}
+
+/* Modal content */
+.modal-content {
+    color: #fff; /* Text color */
+}
+
+/* Close button */
+.close {
+    color: #fff; /* Close button color */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.close:hover {
+    color: #ffd700; /* Close button hover color */
+}
+
+/* Modal overlay */
+#modalOverlay {
+    display: none; /* Hide overlay by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    z-index: 999;
+}

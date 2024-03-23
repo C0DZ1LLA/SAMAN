@@ -1,0 +1,67 @@
+<?php
+session_start();
+
+// Function to load user data from JSON file
+function loadUsers() {
+    $usersFile = 'users.json';
+    if (file_exists($usersFile)) {
+        $jsonString = file_get_contents($usersFile);
+        return json_decode($jsonString, true);
+    }
+    return ['users' => []];
+}
+
+// Function to save user data to JSON file
+function saveUsers($users) {
+    $usersFile = 'users.json';
+    file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
+}
+
+// Login functionality
+$login_error = ""; // Initialize the login error message
+if (isset($_POST['login'])) {
+    // Load users from JSON file
+    $users = loadUsers();
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Check if user exists
+    foreach ($users['users'] as $user) {
+        if ($user['username'] === $username && $user['password'] === $password) {
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $user['email']; // Retrieve email from user data
+
+            header("Location: LOGGED.php");
+            exit();
+        }
+    }
+
+    $login_error = "Invalid username or password.";
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form id="loginForm" method="post">
+        <div class="textbox">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="textbox">
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <input type="submit" value="Login" name="login">
+        <p id="error-message" style="color: red;"><?php echo $login_error; ?></p>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,514 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C0DZ1LLA SYSTEMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>ATHOS MOTORS</h1>
+        <h1>CARWASH</h1>
+        <button onclick="exportToCSV()">Export to CSV</button>
+        <button type="button" onclick="calculateTotals()">Calculate Totals</button>
+        <button type="button" onclick="viewAllInformation()">View All Information</button> <!-- Added button -->
+
+        <form id="addForm">
+            <div class="input-group">
+                <label for="brand">Vehicle Brand:</label>
+                <select id="brand" name="brand" required>
+
+                <option value="Acura">Acura</option>
+                <option value="Alfa_Romeo">Alfa Romeo</option>
+                <option value="Aston_Martin">Aston Martin</option>
+                <option value="Audi">Audi</option>
+                <option value="Bentley">Bentley</option>
+                <option value="BMW">BMW</option>
+                <option value="Buick">Buick</option>
+                <option value="Cadillac">Cadillac</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Chrysler">Chrysler</option>
+                <option value="Dodge">Dodge</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Genesis">Genesis</option>
+                <option value="GMC">GMC</option>
+                <option value="Honda">Honda</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Infiniti">Infiniti</option>
+                <option value="Jaguar">Jaguar</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Kia">Kia</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Land_Rover">Land Rover</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Lincoln">Lincoln</option>
+                <option value="Lotus">Lotus</option>
+                <option value="Maserati">Maserati</option>
+                <option value="Mazda">Mazda</option>
+                <option value="McLaren">McLaren</option>
+                <option value="Mercedes_Benz">Mercedes-Benz</option>
+                <option value="Mini">Mini</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Maybach">Maybach</option>
+                <option value="Mclaren">Mclaren</option>
+                <option value="Mercury">Mercury</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Nissan">Nissan</option>
+                <option value="NIO">NIO</option>
+                <option value="Noble">Noble</option>
+                <option value="Oldsmobile">Oldsmobile</option>
+                <option value="Opel">Opel</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Pagani">Pagani</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Polestar">Polestar</option>
+                <option value="Pontiac">Pontiac</option>
+                <option value="Proton">Proton</option>
+                <option value="Qoros">Qoros</option>
+                <option value="Ram">Ram</option>
+                <option value="Renault">Renault</option>
+                <option value="Rezvani">Rezvani</option>
+                <option value="Rivian">Rivian</option>
+                <option value="Roewe">Roewe</option>
+                <option value="Rolls_Royce">Rolls-Royce</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Saab">Saab</option>
+                <option value="Saleen">Saleen</option>
+                <option value="Saturn">Saturn</option>
+                <option value="Scion">Scion</option>
+                <option value="Seat">Seat</option>
+                <option value="Shelby">Shelby</option>
+                <option value="Skoda">Skoda</option>
+                <option value="Smart">Smart</option>
+                <option value="SsangYong">SsangYong</option>
+                <option value="SSC">SSC</option>
+                <option value="Spyker">Spyker</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Tesla">Tesla</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Tata">Tata</option>
+                <option value="Tatra">Tatra</option>
+                <option value="Tazzari">Tazzari</option>
+                <option value="Tesla">Tesla</option>
+                <option value="Tofas">Tofas</option>
+                <option value="Tomcar">Tomcar</option>
+                <option value="Trabant">Trabant</option>
+                <option value="Triumph">Triumph</option>
+                <option value="TVR">TVR</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Vauxhall">Vauxhall</option>
+                <option value="Vector">Vector</option>
+                <option value="Venturi">Venturi</option>
+                <option value="VinFast">VinFast</option>
+                <option value="Yugo">Yugo</option>
+                <option value="Zagato">Zagato</option>
+                <option value="Zastava">Zastava</option>
+                <option value="Zenos">Zenos</option>
+                <option value="Zenvo">Zenvo</option>
+
+                <!-- Add more options as needed -->
+            </select>
+            
+            <div class="input-group"></div>
+            <label for="color">Vehicle Color:</label>
+            <select id="color" brand="color" required>
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>    
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
+                <option value="Brown">Brown</option>
+                <option value="Gold">Gold</option>
+                <option value="Gray">Gray</option>
+                <option value="Green">Green</option>
+                <option value="Orange">Orange</option>
+                <option value="Pink">Pink</option>
+                <option value="Purple">Purple</option>
+                <option value="Silver">Silver</option>
+                <option value="White">White</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Beige">Beige</option>
+                <option value="Burgundy">Burgundy</option>
+                <option value="Cyan">Cyan</option>
+                <option value="Magenta">Magenta</option>
+                <option value="Maroon">Maroon</option>
+                <option value="Navy">Navy</option>
+                <option value="Olive">Olive</option>
+                <option value="Turquoise">Turquoise</option>
+                <option value="Violet">Violet</option>
+                <!-- Add more options as needed -->
+            </select>
+        
+            <div class="input-group"></div>
+            <label for="idNumber">Vehicle Number:</label>
+            <input type="text" id="idNumber" brand="idNumber" required autocomplete="off">
+        
+            <div class="input-group"></div>
+            <label for="status">Status:</label>
+            <select id="status" brand="status" required>
+                <option value="Pending">Pending</option>
+                <option value="In Wash">In Wash</option>
+                <option value="Ready">Ready</option>
+            </select>
+            <div class="input-group">
+                <label for="extraPrice" style="display: block; margin-bottom: 10px;">Extra Price:</label>
+                <input type="number" id="extraPrice" name="extraPrice" step="0.01" required style="width: 100%; padding: 12px; border-radius: 12px; background-color: #1a1a1a; color: #fff; font-size: 16px; border: none; outline: none; transition: background-color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);">
+            </div>
+            
+            <!-- Add Information Form -->
+<form id="addForm">
+    <!-- ... (existing form elements) ... -->
+
+    <div class="input-group"></div>
+    <label for="price">Select Price:</label>
+    <select id="price" name="price" required>
+        <option value="0">NO WASH</option>
+        <option value="10">INSIDE/OUTSIDE WASH</option>
+        <option value="10">INSIDE WASH ONLY</option>
+        <option value="10">OUTSIDE WASH ONLY</option>
+        <!-- Add more options as needed -->
+    </select>
+    
+    <label for="discount" style="font-size: 18px; color: #fff; margin-bottom: 10px;">Discount Percentage:</label>
+    <input type="number" id="discount" name="discount" min="0" max="100" step="1" placeholder="Enter discount percentage" style="width: 100%; padding: 12px; border: none; border-radius: 12px; background-color: #1a1a1a; color: #fff; font-size: 16px; outline: none; transition: background-color 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);">
+    
+
+    <!-- Add more options as needed -->
+</select>
+<!-- Add Information Button -->
+<!-- Ensure type="button" to prevent traditional form submission -->
+<button type="button" onclick="addInformation()">ADD INFORMATION</button>
+
+
+
+
+    
+
+</form>
+
+
+        
+
+        
+
+        <!-- Display Information -->
+        <div class="column" id="infoDisplayColumn">
+            <div id="infoList">
+                <!-- Information will be displayed here -->
+            </div>
+        </div>
+<!-- Edit Modal -->
+<div class="modal" id="editModal">
+    <h1>Edit Information</h1>
+    <form id="editForm">
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="In Wash">In Wash</option>
+                <option value="Pending">Pending</option>
+                <option value="Ready">Ready</option>
+            </select>
+        </div>
+        <button type="button" onclick="saveStatus()">Save Status</button>
+        <button type="button" onclick="closeEditModal()">Close</button>
+
+    </form>
+</div>
+<!-- Modal -->
+<div id="modal" class="modal">
+    <!-- Close button -->
+    <span class="close" onclick="closeModal()">&times;</span>
+    <!-- Container for information -->
+    <div id="infoContainer">
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-overlay" id="modalOverlay"></div>
+    </div>
+    <script>
+
+
+function viewAllInformation() {
+    // Create modal elements dynamically
+    var modal = $('<div class="modal"></div>');
+    var modalContent = $('<div class="modal-content"></div>');
+    var closeBtn = $('<span class="close">&times;</span>');
+
+    // Append close button to modal content
+    modalContent.append(closeBtn);
+
+    // Append modal content to modal
+    modal.append(modalContent);
+
+    // Append modal to body
+    $('body').append(modal);
+
+    // Fetch information from server
+    $.get('fetch.php')
+        .done(function(data) {
+            // Append fetched data to modal content
+            modalContent.append(data);
+
+            // Show modal and overlay
+            modal.show();
+            $('#modalOverlay').show();
+        })
+        .fail(function(xhr, status, error) {
+            console.error('Error fetching information:', error);
+        });
+
+    // Close modal when close button is clicked
+    closeBtn.on('click', function() {
+        modal.hide();
+        $('#modalOverlay').hide();
+    });
+}
+
+
+function openModal() {
+            // Show the modal
+            document.getElementById("modal").style.display = "block";
+
+            // Fetch and display information
+            fetch('view_all.php')
+                .then(response => response.text())
+                .then(data => {
+                    // Update the information container with fetched data
+                    document.getElementById("infoContainer").innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching information:', error));
+        }
+
+        function closeModal() {
+            // Hide the modal
+            document.getElementById("modal").style.display = "none";
+        }
+
+    // Function to close the edit modal
+    function closeEditModal() {
+        $('#editModal').hide();
+        $('#modalOverlay').hide();
+    }
+    function exportToCSV() {
+    // Fetch the data from the server
+    fetch('export_data.php')
+        .then(response => response.text())
+        .then(data => {
+            // Create a hidden anchor element
+            const downloadLink = document.createElement('a');
+            downloadLink.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(data));
+            downloadLink.setAttribute('download', 'C0DZ1LLASYSTENS.csv');
+            downloadLink.style.display = 'none';
+            document.body.appendChild(downloadLink);
+
+            // Trigger the click event to download the CSV file
+            downloadLink.click();
+
+            // Clean up
+            document.body.removeChild(downloadLink);
+        })
+        .catch(error => console.error('Error exporting data:', error));
+}
+
+// Function to add information
+function addInformation() {
+    var brand = $('#brand').val();
+    var color = $('#color').val();
+    var idNumber = $('#idNumber').val();
+    var status = $('#status').val();
+    var price = parseFloat($('#price').val()); // Parse price as a float
+    var extraPrice = parseFloat($('#extraPrice').val()); // Parse extraPrice as a float
+    var discount = parseFloat($('#discount').val()); // Parse discount as a float
+
+    // Calculate total price by adding the base price and extra price, then applying the discount
+    var totalPrice = (price + extraPrice) * (1 - discount / 100);
+
+    $.post('add_information.php', {
+        brand: brand,
+        color: color,
+        idNumber: idNumber,
+        status: status,
+        price: price,
+        extraPrice: extraPrice,
+        discount: discount,
+        totalPrice: totalPrice // Pass the totalPrice to the server
+    }, function(response) {
+        console.log(response);
+        updateInfoList();
+    });
+}
+
+// Function to calculate totals
+function calculateTotals() {
+    $.get('calculate_totals.php', function (data) {
+        // Parse the JSON response
+        var totals = JSON.parse(data);
+
+        // Display the totals
+        var message = 'Total Brands: ' + totals.total_brands + '\n\n';
+        message += 'Brand Totals:\n';
+        for (var brand in totals.brand_totals) {
+            message += brand + ': ' + totals.brand_totals[brand] + ' vehicles\n';
+        }
+        message += '\nBrand Discounts:\n';
+        for (var brand in totals.brand_discounts) {
+            message += brand + ': ' + totals.brand_discounts[brand] + '% discount\n';
+        }
+        // Add other displays as needed...
+
+        alert(message);
+    });
+}
+
+// Event handler for the "Calculate Totals" button
+function calculateTotals() {
+    $.get('calculate_totals.php', function(data) {
+        // Parse the JSON response
+        var totals = JSON.parse(data);
+
+        // Create a popup window for displaying totals
+        var totalsPopup = document.createElement('div');
+        totalsPopup.id = 'totalsPopup';
+        totalsPopup.classList.add('modal');
+
+        // Close button for the popup window
+        var closeBtn = document.createElement('span');
+        closeBtn.classList.add('close');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.onclick = function() {
+            totalsPopup.style.display = 'none';
+        };
+        totalsPopup.appendChild(closeBtn);
+
+        // Content of the popup window
+        var popupContent = document.createElement('div');
+        popupContent.classList.add('modal-content');
+
+        // Display the totals
+        var message = '<h2>Total Brands: ' + totals.total_brands + '</h2>';
+        message += '<h3>Brand Totals:</h3>';
+        for (var brand in totals.brand_totals) {
+            message += '<p>' + brand + ': ' + totals.brand_totals[brand] + ' vehicles</p>';
+        }
+        message += '<h3>Brand Discounts:</h3>';
+        for (var brand in totals.brand_discounts) {
+            message += '<p>' + brand + ': ' + totals.brand_discounts[brand] + '% discount</p>';
+        }
+        // Add other displays as needed...
+
+        popupContent.innerHTML = message;
+        totalsPopup.appendChild(popupContent);
+
+        // Append the popup window to the body and display it
+        document.body.appendChild(totalsPopup);
+        totalsPopup.style.display = 'block';
+    });
+}
+
+// Other JavaScript functions remain unchanged...
+
+
+// Function to delete information
+function deleteInformation(id) {
+    // Assuming you have a server-side script to handle marking as deleted
+    $.post('delete_information.php', {id: id}, function() {
+        // Update the information list directly without showing alerts
+        updateInfoList();
+    });
+}
+
+// Function to save the new status
+function saveStatus() {
+    var id = $('#editModal').data('id');
+    var newStatus = $('#editModal #status').val();
+
+    // Assuming you have a server-side script to handle updating the status
+    $.post('update_status.php', {
+        id: id,
+        status: newStatus
+    }, function(data) {
+        // Update the information list directly without showing alerts
+        updateInfoList();
+    });
+}
+
+// Function to update the information list
+function updateInfoList() {
+    // Assuming you have a server-side script to fetch and display information
+    $.get('display_information.php', function(data) {
+        $('#infoList').html(data);
+    });
+}
+
+// Function to update the color circles next to dropdown options
+function updateColorCircles() {
+    $('#color option').each(function() {
+        var colorCode = $(this).data('color');
+        $(this).prepend('<span class="color-circle" style="background-color: ' + colorCode + '"></span>');
+    });
+}
+
+// Initial color circle update
+updateColorCircles();
+
+// Function to open the edit modal for a specific information entry
+function editInformation(id) {
+    // Show the modal and overlay
+    $('#editModal').show();
+    $('#modalOverlay').show();
+
+    // Fetch the current status for the given ID
+    $.get('get_status.php', {id: id}, function(status) {
+        // Set the current status in the dropdown
+        $('#editModal #status').val(status);
+
+        // Save the ID for later use when saving changes
+        $('#editModal').data('id', id);
+    });
+}
+
+// Function to save the new status
+function saveStatus() {
+    var id = $('#editModal').data('id');
+    var newStatus = $('#editModal #status').val();
+
+    // Assuming you have a server-side script to handle updating the status
+    $.post('update_status.php', {
+        id: id,
+        status: newStatus
+    }, function(data) {
+        // Update the information list directly without showing alerts
+        updateInfoList();
+
+        // Hide the modal and overlay after saving changes
+        $('#editModal').hide();
+        $('#modalOverlay').hide();
+    });
+}
+
+// Initial setup
+$(document).ready(function () {
+            // Update information list
+            updateInfoList();
+
+            // Update color circles
+            updateColorCircles();
+
+            // Set interval to update information list periodically (every 5 seconds)
+            setInterval(updateInfoList, 1000); // Adjust as needed
+        });
+    </script>
+</body>
+
+</html>

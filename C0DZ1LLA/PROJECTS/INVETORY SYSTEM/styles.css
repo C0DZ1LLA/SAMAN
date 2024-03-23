@@ -1,0 +1,76 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff; /* White text */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333; /* Dark container background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow */
+}
+
+h1 {
+    color: #ffd700; /* Gold neon color */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-item {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    padding: 20px;
+    background-color: #444; /* Dark product background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Gold neon box shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-item:hover {
+    transform: translateY(-5px); /* Add hover effect */
+}
+
+.product-item h2 {
+    color: #ffd700; /* Gold neon color */
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    color: #fff; /* White text */
+    font-size: 16px;
+}
+
+/* Animation */
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 50px #ffd700, 0 0 60px #ffd700, 0 0 70px #ffd700;
+    }
+    100% {
+        text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700, 0 0 50px #ffd700, 0 0 60px #ffd700, 0 0 70px #ffd700, 0 0 80px #ffd700;
+    }
+}
+
+h1 {
+    animation: neon 1.5s infinite alternate; /* Apply neon animation to heading */
+}

@@ -1,0 +1,51 @@
+<?php
+include 'db_connection.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C0DZ1LLA SYSTEMS</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Adjust the CSS file path if necessary -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Include jQuery -->
+</head>
+<body>
+    <div class="container">
+        <h1>ATHOS MOTORS</h1>
+        <div id="information-container">
+            <!-- Information will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch and display information from the server
+        function fetchInformation() {
+            $.ajax({
+                url: 'fetch.php', // Path to PHP script to fetch data from the server
+                method: 'GET',
+                success: function(response) {
+                    // Update the HTML content with the fetched data
+                    $('#information-container').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching information:', error);
+                }
+            });
+        }
+
+        // Function to automatically refresh the page every 5 seconds
+        function autoRefresh() {
+            fetchInformation(); // Fetch information initially
+
+            setInterval(function() {
+                fetchInformation(); // Fetch information every 5 seconds
+            }, 3000); // Adjust the interval as needed (in milliseconds)
+        }
+
+        // Call autoRefresh to start the auto-refresh process
+        autoRefresh();
+    </script>
+</body>
+</html>

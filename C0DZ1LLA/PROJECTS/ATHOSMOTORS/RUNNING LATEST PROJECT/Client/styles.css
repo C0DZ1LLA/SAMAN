@@ -1,0 +1,193 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #080808; /* Darker background color */
+    color: #fff; /* White text color */
+}
+
+.container {
+    width: 100%; /* Full width for container */
+    padding: 40px; /* Increased padding */
+    margin-bottom: 40px; /* Add margin bottom to separate containers */
+    background-color: #0d0d0d; /* Dark background color */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Neon glow shadow */
+    border-radius: 12px;
+}
+
+h1 {
+    color: #ffcc00; /* Neon yellow color for the title */
+    text-shadow: 0 0 20px #ffcc00, 0 0 30px #ffcc00, 0 0 40px #ffcc00; /* Neon glow effect for the title */
+    animation: glow 2s infinite alternate; /* Glowing animation for the title */
+    text-align: center; /* Center align the title */
+    margin-bottom: 40px; /* Add margin at the bottom */
+    font-size: 48px; /* Increased font size */
+}
+
+input[type="text"],
+select,
+button {
+    width: 100%; /* Full width for inputs and buttons */
+    padding: 20px; /* Increased padding */
+    margin-bottom: 30px; /* Adjusted margin */
+    border: none;
+    border-radius: 12px;
+    background-color: #1a1a1a; /* Darker background for inputs and buttons */
+    color: #fff;
+    font-size: 24px; /* Increased font size */
+    outline: none; /* Remove outline on focus */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.5); /* Gold glow shadow */
+}
+
+button {
+    background-color: #ffcc00; /* Neon yellow color for buttons */
+    cursor: pointer; /* Add cursor pointer to buttons */
+    border: 2px solid #ffcc00; /* Add border */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #ffa500; /* Slightly darker neon yellow color on hover */
+    border-color: #ffa500; /* Change border color on hover */
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.8); /* Increased glow shadow on hover */
+}
+
+/* Advanced futuristic styling */
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
+    animation: scanLine 5s linear infinite;
+}
+
+@keyframes scanLine {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+/* Glowing animation */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #ffcc00, 0 0 30px #ffcc00, 0 0 40px #ffcc00;
+    }
+    to {
+        text-shadow: 0 0 30px #ffcc00, 0 0 50px #ffcc00, 0 0 70px #ffcc00; /* Increased glow effect */
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Style for modal and overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1a1a1a; /* Darker background color for the modal */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Neon glow shadow */
+    z-index: 1000;
+}
+
+.modal h2 {
+    color: #ffcc00; /* Neon yellow color for modal title */
+    margin-bottom: 30px;
+    text-align: center; /* Center align the modal title */
+    font-size: 36px; /* Increased font size */
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    z-index: 999;
+}
+
+/* Style for the totals popup window */
+#totalsPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#totalsPopup .modal-content {
+    color: #fff;
+}
+
+#totalsPopup .close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#totalsPopup .close:hover {
+    color: #ffd700;
+}
+
+/* Columns */
+.columns {
+    display: flex; /* Use flexbox to create a flexible layout */
+    flex-wrap: wrap; /* Allow columns to wrap to the next row if needed */
+    justify-content: space-around; /* Distribute columns evenly with space around */
+}
+
+/* Individual column */
+.column {
+    flex: 0 0 calc(20% - 32px); /* Each column takes up 20% of the available width with a gap of 32px */
+    margin-bottom: 40px; /* Add margin bottom to separate columns */
+}

@@ -1,0 +1,162 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #080808; /* Darker background color */
+    color: #fff; /* White text color */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation for the body */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #0d0d0d; /* Dark background color */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Neon glow shadow */
+    border-radius: 12px;
+    animation: slideIn 1s ease-in-out; /* Slide-in animation for the container */
+}
+
+h1 {
+    color: #ffcc00; /* Neon yellow color for the title */
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00; /* Neon glow effect for the title */
+    animation: glow 2s infinite alternate; /* Glowing animation for the title */
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+input[type="text"],
+select,
+button {
+    width: calc(100% - 24px); /* Adjust width to accommodate padding */
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 12px;
+    background-color: #1a1a1a; /* Darker background for inputs and buttons */
+    color: #fff;
+    font-size: 16px;
+    outline: none; /* Remove outline on focus */
+    transition: background-color 0.3s ease;
+}
+
+button {
+    background-color: #ffcc00; /* Neon yellow color for buttons */
+    cursor: pointer; /* Add cursor pointer to buttons */
+}
+
+button:hover {
+    background-color: #ffa500; /* Slightly darker neon yellow color on hover */
+}
+
+/* Add more styles and animations as needed */
+/* Hide the edit button */
+#editModal {
+    display: none;
+}
+
+#modalOverlay {
+    display: none;
+}
+
+/* Position the edit button */
+#infoDisplayColumn {
+    position: relative;
+}
+
+/* Style for modal and overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1a1a1a; /* Darker background color for the modal */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Neon glow shadow */
+    z-index: 1000;
+}
+
+.modal h2 {
+    color: #ffcc00; /* Neon yellow color for modal title */
+    margin-bottom: 20px;
+    text-align: center; /* Center align the modal title */
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    z-index: 999;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    }
+    to {
+        text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00, 0 0 60px #ffcc00; /* Increased glow effect */
+    }
+}
+
+/* Style for the totals popup window */
+#totalsPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#totalsPopup .modal-content {
+    color: #fff;
+}
+
+#totalsPopup .close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#totalsPopup .close:hover {
+    color: #ffd700;
+}
+
+/* Add more styles as needed */

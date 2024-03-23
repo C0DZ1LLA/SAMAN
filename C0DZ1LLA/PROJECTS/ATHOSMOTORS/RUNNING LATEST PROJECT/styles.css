@@ -1,0 +1,120 @@
+body {
+    background-color: #000;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.login-box {
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    padding: 40px;
+    width: 300px;
+    color: #ffd700;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #ffd700;
+    text-align: center;
+    font-size: 30px;
+}
+
+.textbox {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ffd700;
+    background-color: transparent;
+    color: #ffd700;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.textbox input::placeholder {
+    color: #aaa;
+}
+
+.textbox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.textbox input:focus + label, .textbox input:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: #ffd700;
+}
+
+.textbox input:focus {
+    border-bottom: 2px solid #ffd700;
+}
+
+.textbox input[type="submit"] {
+    background-color: #ffd700;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.textbox input[type="submit"]:hover {
+    background-color: #ffcc00;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.neon-glow {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 20px rgba(255, 215, 0, 0.5);
+    animation: shine 2s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}

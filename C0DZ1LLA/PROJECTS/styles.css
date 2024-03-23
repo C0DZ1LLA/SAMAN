@@ -1,0 +1,103 @@
+body {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Add margin between containers */
+}
+
+.card {
+    background-color: #292929;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin: 10px;
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+.input {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ffd700;
+    border-radius: 5px;
+    background-color: #383838;
+    color: #e0e0e0;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+.btn {
+    background-color: #ffd700;
+    color: #1e1e1e;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffdf5f;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Added styles for saved URL containers */
+.url-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    background-color: #ff4500; /* Dark orange */
+    color: #fff;
+    margin-left: 10px;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background-color: #ff6347; /* Lighter shade of orange on hover */
+}

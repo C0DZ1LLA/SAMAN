@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C0DZ1LLA Systems</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div id="loginMessage" class="message"></div>.
+
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <button type="button" onclick="submitLogin()">Login</button>
+            </form>
+        </div>
+    </div>
+
+<div class="poll-container">
+    <h2 class="poll-title">POLL SYSTEM</h2>
+    <h2 class="poll-title">Made by SAMAN</h2>
+    <form id="pollForm">
+
+        <label class="poll-option">
+            <input type="radio" name="choice" value="1"> YES
+        </label>
+        <label class="poll-option">
+            <input type="radio" name="choice" value="2"> NO
+        </label>
+        <br>
+        <button type="button" onclick="submitVote()">Submit Vote</button>
+    </form>
+    <div id="liveResults" class="live-results">
+        <h3 class="results-title">Live Results</h3>
+        <div id="resultOption1" class="result-option">Option 1: 0 votes</div>
+        <div id="resultOption2" class="result-option">Option 2: 0 votes</div>
+    </div>
+    <div id="message" class="message"></div>
+    <div id="chartContainer" class="chart-container">
+        <h3 class="chart-title">Live Results Chart</h3>
+        <canvas id="liveChart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="chart.js"></script> <!-- Include Chart.js library -->
+</body>
+</html>
+
+
+
+<script>
+// Function to update the live chart with advanced futuristic styling and animations
+function updateLiveChart(option1Votes, option2Votes) {
+    var ctx = document.getElementById('liveChart').getContext('2d');
+
+    var gradient = ctx.createLinearGradient(0, 0, 0, 200);
+    gradient.addColorStop(0, 'rgba(30, 144, 255, 1)'); // Dodger Blue for Option 1
+    gradient.addColorStop(1, 'rgba(70, 0, 255, 0.8)'); // Purple gradient for Option 2
+
+    var liveChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['YES', 'NO'],
+            datasets: [{
+                label: 'Live Votes',
+                data: [option1Votes, option2Votes],
+                backgroundColor: gradient,
+                borderColor: 'rgba(255, 255, 255, 0.4)', // Soft white border
+                borderWidth: 2,
+                borderRadius: 20, // Bigger rounded corners for a futuristic look
+                barPercentage: 0.8, // Slightly wider bars
+                categoryPercentage: 0.7, // Adjust spacing between bars
+                hoverOffset: 10, // Increased hover effect
+                shadowOffsetX: 4, // Larger shadow on X-axis
+                shadowOffsetY: 6, // Larger shadow on Y-axis
+                shadowBlur: 12, // Increased blur for the shadow
+                shadowColor: 'rgba(0, 0, 0, 0.5)', // Darker shadow color
+                hoverBackgroundColor: 'rgba(255, 255, 255, 0.9)', // Brighter background on hover
+                hoverBorderColor: 'rgba(255, 255, 255, 1)', // Brighter border on hover
+                hoverBorderWidth: 3, // Thicker border on hover
+            }]
+        },
+        options: {
+            animation: {
+                duration: 2000, // Longer duration for a more pronounced animation
+                easing: 'easeInOutBounce' // Use a bouncing easing function
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false // Hide the horizontal grid lines for a cleaner look
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false // Hide the vertical grid lines for a cleaner look
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+}
+
+
+
+
+
+
+    function submitVote() {
+        var choice = $("input[name='choice']:checked").val();
+
+        if (!choice) {
+            showMessage("Please select an option.", "red");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "vote.php",
+            data: { choice: choice },
+            success: function (response) {
+                if (response === "success") {
+                    showMessage("Vote submitted successfully!", "green");
+                    updateLiveResults(); // Update live results after submitting a vote
+                } else if (response === "duplicate") {
+                    showMessage("You have already voted.", "orange");
+                } else {
+                    showMessage("Error submitting vote.", "red");
+                }
+            }
+        });
+    }
+
+    function showMessage(message, color) {
+        var messageDiv = $("#message");
+        messageDiv.text(message);
+        messageDiv.css("color", color);
+        messageDiv.fadeIn().delay(3000).fadeOut();
+    }
+
+    function updateLiveResults() {
+        $.ajax({
+            type: "GET",
+            url: "get_results.php",
+            success: function (response) {
+                var results = response;
+
+                $("#resultOption1").text("YES: " + results.option1 + " votes");
+                $("#resultOption2").text("NO: " + results.option2 + " votes");
+            }
+        });
+    }
+
+    // Initial live results update
+    updateLiveResults();
+
+    // Set interval to update live results every 10 seconds (adjust as needed)
+    setInterval(updateLiveResults, 10000);
+</script>
+
+</body>
+</html>
