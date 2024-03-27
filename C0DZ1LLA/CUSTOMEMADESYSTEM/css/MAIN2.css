@@ -1,0 +1,149 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0f0f1a; /* Dark blue background color */
+    color: #b5e7ff; /* Light blue text color for better contrast */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #111; /* Dark gray background color for the container */
+    border-radius: 20px; /* Slightly decreased border radius for a modern look */
+    box-shadow: 0 0 40px rgba(120, 213, 255, 0.7); /* Glowing blue box shadow for a futuristic effect */
+    animation: fadeIn 1s ease; /* Fade-in animation for the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    color: #b5e7ff; /* Light blue text color for better contrast */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+h1, h2 {
+    font-size: 3em; /* Larger font size for headings */
+    color: #ff9d00; /* Orange accent color for headings */
+    margin-bottom: 30px; /* Decreased spacing below headings */
+    text-align: center;
+    animation: neonGlow 2s ease infinite alternate; /* Neon glow animation for headings */
+    font-family: 'Roboto', sans-serif;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 10px #ff9d00, 0 0 20px #ff9d00, 0 0 30px #ff9d00, 0 0 40px #ff9d00, 0 0 70px #ff9d00, 0 0 80px #ff9d00, 0 0 100px #ff9d00, 0 0 150px #ff9d00;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff9d00, 0 0 30px #ff9d00, 0 0 40px #ff9d00, 0 0 70px #ff9d00, 0 0 80px #ff9d00, 0 0 100px #ff9d00, 0 0 150px #ff9d00, 0 0 200px #ff9d00;
+    }
+}
+
+h2 {
+    animation: neonGlow 2s ease infinite alternate-reverse; /* Reverse neon glow animation for h2 */
+}
+
+label {
+    font-size: 1.2em; /* Slightly larger font size for labels */
+    color: #ff9d00; /* Orange accent color for labels */
+    margin-bottom: 20px; /* Decreased spacing below labels */
+    display: block;
+    animation: fadeIn 1s ease; /* Fade-in animation for labels */
+}
+
+.category-select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #111;
+    color: #b5e7ff;
+    font-size: 1.2em;
+}
+
+.product-container {
+    margin-top: 40px; /* Decreased spacing above the product container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: slideInUp 1s ease;
+}
+
+.product-item {
+    margin: 0 20px 40px 20px;
+    padding: 30px;
+    background-color: #0f0f1a; /* Dark blue background color for product items */
+    border-radius: 20px; /* Slightly decreased border radius for product items */
+    box-shadow: 0 0 30px rgba(120, 213, 255, 0.7); /* Glowing blue box shadow for product items */
+    transition: transform 0.3s ease;
+    animation: fadeIn 1s ease, pulse 2s infinite; /* Fade-in animation and pulse animation for product items */
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+    animation: hoverAnimation 0.5s ease; /* Hover animation for product items */
+}
+
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.product-item h3 {
+    color: #ff9d00; /* Orange accent color for headings */
+    font-size: 1.8em; /* Larger font size for headings */
+    margin-bottom: 20px; /* Decreased spacing below headings */
+    text-align: center;
+}
+
+.product-item p {
+    color: #b5e7ff; /* Light blue text color for product details */
+    margin-bottom: 10px; /* Decreased spacing below paragraphs */
+    text-align: center;
+}
+
+.product-item input[type="number"],
+.product-item button {
+    width: calc(50% - 10px);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff9d00; /* Orange accent color for buttons */
+    color: #0f0f1a; /* Dark blue text color for buttons */
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+    animation: pulse 2s infinite; /* Pulse animation for buttons */
+}
+
+.product-item button:hover {
+    background-color: #ffdf00; /* Lighter orange hover color for buttons */
+    transform: scale(1.05); /* Scale button on hover */
+}
+
+.product-item input[type="number"] {
+    width: calc(100% - 20px);
+}
+
+.product-item button {
+    width: 100%;
+}
