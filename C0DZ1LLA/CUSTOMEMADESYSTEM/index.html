@@ -7,12 +7,23 @@
     <link rel="stylesheet" href="css/MAIN1.css" id="style1">
     <link rel="stylesheet" href="css/MAIN2.css" id="style2" disabled>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4S5FVTLKRD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4S5FVTLKRD');
+</script>
 <body>
     <select id="themeSelector" onchange="changeTheme()">
         <option class="container" value="css/MAIN1.css">BASIC THEME</option>
         <option class="container" value="css/MAIN2.css">FUN THEME</option>
         <!-- Add more <option> tags for additional themes -->
-    </select>
+        </select>
+    
+
     <div class="container" id="container">
         <h1 class="product-item">C0DZ1LLA SYSTEMS</h1>
         <div class="popup-container">
@@ -47,7 +58,7 @@
 
 
 let products = JSON.parse(localStorage.getItem('products')) || [
-{
+    {
         id: 1,
         name: "Colombia Las Flores Packaged 200g",
         price: 9.05,
@@ -1924,19 +1935,20 @@ let products = JSON.parse(localStorage.getItem('products')) || [
 
 
 
-function changeTheme() {
-    var themeSelector = document.getElementById('themeSelector');
-    var selectedTheme = themeSelector.value;
-    // Loop through all stylesheets and enable the selected one, disable others
-    var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-    stylesheets.forEach(function(sheet) {
-        if (sheet.getAttribute('href') === selectedTheme) {
-            sheet.disabled = false; // Enable selected stylesheet
-        } else {
-            sheet.disabled = true; // Disable other stylesheets
-        }
-    });
-}
+    // Function to change theme
+    function changeTheme() {
+        var themeSelector = document.getElementById('themeSelector');
+        var selectedTheme = themeSelector.value;
+        // Loop through all stylesheets and enable the selected one, disable others
+        var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+        stylesheets.forEach(function(sheet) {
+            if (sheet.getAttribute('href') === selectedTheme) {
+                sheet.disabled = false; // Enable selected stylesheet
+            } else {
+                sheet.disabled = true; // Disable other stylesheets
+            }
+        });
+    }
 document.addEventListener("DOMContentLoaded", function() {
     var popupContainer = document.querySelector('.popup-container');
     var continueButton = document.querySelector('#continueButton');
@@ -2018,52 +2030,95 @@ function translateContent(language) {
         // Restore other elements to default language
     }
 }
-
-
-// Function to display products by category
-function displayProductsByCategory(category) {
-    const productContainer = document.getElementById("product-container");
-    productContainer.innerHTML = ""; // Clear previous content
-
-    products.forEach(product => {
-        if (product.category === category || category === "All") {
-            const productItem = document.createElement("div");
-            productItem.classList.add("product-item");
-            const profitPerUnit = product.price - product.bulk_price; // Calculate profit per unit
-            const totalProfit = profitPerUnit * product.quantity; // Calculate total profit
-            productItem.innerHTML = `
-                <h3>${product.name}</h3>
-                <p>Unit Sell Price: €${product.price}</p>
-                <p>Buying Price: €${product.bulk_price.toFixed(2)}</p>
-                <p>Unit Quantity Amount: ${product.quantity}</p>
-                <p>Unit Sell Total Price: €${(product.price * product.quantity).toFixed(2)}</p> <!-- Display calculation -->                <p>Unit Quantity Buying Total Cost: €${(product.bulk_price * product.quantity).toFixed(2)}</p>
-                <p>Total Profit: €${totalProfit.toFixed(2)}</p> <!-- Display total profit -->
-                <input type="number" id="add-quantity-${product.id}" placeholder="Quantity to add">
-                <button id="add-btn-${product.id}">Add Quantity</button>
-                <button class="subtract-btn">Subtract Quantity</button>
-                <button class="export-btn">Export Unit CSV</button> <!-- Add export button -->
-                <button class="clear-btn" onclick="clearProductData(${product.id})">Clear Data</button> <!-- Add clear data button -->
-            `;
-
-            // Add click event listener to subtract quantity
-            productItem.querySelector(`.subtract-btn`).addEventListener("click", () => {
-                subtractQuantity(product.id, product.price);
-            });
-
-            // Add click event listener to add quantity
-            productItem.querySelector(`#add-btn-${product.id}`).addEventListener("click", () => {
-                addQuantity(product.id);
-            });
-            
-                        // Add click event listener to export button
-                        productItem.querySelector(`.export-btn`).addEventListener("click", () => {
-                exportProductData(product); // Pass the product data to the export function
-            });
-
-            productContainer.appendChild(productItem);
-        }
-    });
+// Function to add a specified quantity
+function addSpecifiedQuantity(productId) {
+    const additionalQuantity = parseInt(document.getElementById(`add-quantity-${productId}`).value);
+    if (!isNaN(additionalQuantity) && additionalQuantity > 0) {
+        products = products.map(product => {
+            if (product.id === productId) {
+                product.quantity += additionalQuantity;
+            }
+            return product;
+        });
+        updateLocalStorage();
+        const selectedCategory = document.getElementById("category-selector").value;
+        displayProductsByCategory(selectedCategory);
+    } else {
+        alert("Please enter a valid quantity to add.");
+    }
 }
+
+// Function to add a default quantity if the quantity field is empty
+function addDefaultQuantity(productId, defaultQuantity) {
+    products = products.map(product => {
+        if (product.id === productId) {
+            product.quantity += defaultQuantity;
+        }
+        return product;
+    });
+    updateLocalStorage();
+    const selectedCategory = document.getElementById("category-selector").value;
+    displayProductsByCategory(selectedCategory);
+}
+
+
+// Function to display products by category with enhanced features
+function displayProductsByCategory(category) {
+        const productContainer = document.getElementById("product-container");
+        productContainer.innerHTML = ""; // Clear previous content
+
+        products.forEach(product => {
+            if (product.category === category || category === "All") {
+                const productItem = document.createElement("div");
+                productItem.classList.add("product-item");
+
+                // Calculate profit per unit and total profit
+                const profitPerUnit = product.price - product.bulk_price;
+                const totalProfit = profitPerUnit * product.quantity;
+
+                // Create HTML elements for product information
+                const productInfo = `
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="unit-sell-price">Unit Sell Price: €${product.price}</p>
+                    <p class="buying-price">Buying Price: €${product.bulk_price.toFixed(2)}</p>
+                    <p class="unit-quantity-amount">Unit Quantity Amount: ${product.quantity}</p>
+                    <p class="unit-sell-total-price">Unit Sell Total Price: €${(product.price * product.quantity).toFixed(2)}</p>
+                    <p class="unit-quantity-buying-total-cost">Unit Quantity Buying Total Cost: €${(product.bulk_price * product.quantity).toFixed(2)}</p>
+                    <p class="total-profit">Total Profit: €${totalProfit.toFixed(2)}</p>
+                    <input type="number" id="add-quantity-${product.id}" class="add-quantity-input" placeholder="Quantity to add">
+                    <button id="add-btn-${product.id}" class="add-btn">Add Quantity</button>
+                    <button id="subtract-btn-${product.id}" class="subtract-btn">Subtract Quantity</button>
+                    <button id="export-btn-${product.id}" class="export-btn">Export Unit CSV</button>
+                    <button id="clear-btn-${product.id}" class="clear-btn">Clear Data</button>
+                `;
+                productItem.innerHTML = productInfo;
+
+                productItem.querySelector(`#add-btn-${product.id}`).addEventListener("click", () => {
+    // Check if the quantity input field is empty
+    const quantityInput = document.getElementById(`add-quantity-${product.id}`).value;
+    if (quantityInput.trim() === "") {
+        // Call the function to add a default quantity
+        addDefaultQuantity(product.id, 1); // Change the default quantity as needed
+    } else {
+        // Call the function to add the specified quantity
+        addSpecifiedQuantity(product.id);
+    }
+});
+
+                productItem.querySelector(`#subtract-btn-${product.id}`).addEventListener("click", () => {
+                    subtractQuantity(product.id, product.price);
+                });
+                productItem.querySelector(`#export-btn-${product.id}`).addEventListener("click", () => {
+                    exportProductData(product);
+                });
+                productItem.querySelector(`#clear-btn-${product.id}`).addEventListener("click", () => {
+                    clearProductData(product.id);
+                });
+
+                productContainer.appendChild(productItem);
+            }
+        });
+    }
 
 
 // Function to open URL 1
