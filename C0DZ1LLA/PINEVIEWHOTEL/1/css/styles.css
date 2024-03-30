@@ -9,67 +9,48 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #0e3344;
+    background-color: #050505; /* Dark background */
     color: #fff;
     overflow-x: hidden;
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 100%;
+    padding: 0 5%;
     margin: 0 auto;
-    padding: 0 20px;
-}
-        /* Header Styles */
-        header {
-            background-image: radial-gradient(circle, rgba(14, 51, 68, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%), url('img/header-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        /* Add the rest of the CSS code here */
-
-        @media screen and (max-width: 480px) {
-            header {
-                padding: 50px 0;
-            }
-
-            /* Add responsive styles for smaller screens here */
-        }
-
-.image-gallery h1 {
-    font-size: 3.5em;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero {
-    margin-top: 50px;
+/* Header Styles */
+header {
+    background-image: radial-gradient(circle, rgba(36, 107, 126, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%), url('img/header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 10% 0; /* Adjusted for better responsiveness */
+    text-align: center;
 }
 
-.hero h1 {
-    font-size: 5em;
+.header-title {
+    font-size: 4em;
     margin-bottom: 20px;
 }
 
-.hero p {
-    font-size: 1.8em;
-    margin-bottom: 50px;
+.header-subtitle {
+    font-size: 2em;
+    margin-bottom: 40px;
 }
 
 /* Main Content Styles */
 main {
-    padding: 50px 0;
+    padding: 5% 0; /* Adjusted for better responsiveness */
 }
 
 .room {
-    background-color: #1e687d;
+    background-color: #252525; /* Dark grey */
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-    padding: 50px;
-    margin-bottom: 50px;
+    padding: 5%;
+    margin-bottom: 5%;
     transition: transform 0.3s ease;
 }
 
@@ -78,28 +59,28 @@ main {
 }
 
 .room h2 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
 .room p {
-    font-size: 1.6em;
+    font-size: 1.2em;
     margin-bottom: 30px;
 }
 
 .features li {
     list-style-type: none;
     margin-bottom: 20px;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 .price {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: 30px;
 }
 
 .notes {
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin-bottom: 30px;
 }
 
@@ -108,7 +89,7 @@ main {
     color: #fff;
     border: none;
     padding: 15px 30px;
-    font-size: 1.6em;
+    font-size: 1.4em;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -124,7 +105,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 5%;
 }
 
 .gallery-images img {
@@ -139,280 +120,40 @@ main {
     transform: scale(1.05);
 }
 
-/* Footer Styles */
-footer {
-    background-color: #1e687d;
-    color: #fff;
-    padding: 50px 0;
-    text-align: center;
+/* Nearby Attractions Styles */
+.nearby-info {
+    margin-top: 5%;
 }
 
-footer p {
-    font-size: 1.6em;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 1200px) {
-    .container {
-        padding: 0 20px;
-    }
-
-    .image-gallery h1 {
-        font-size: 3em;
-    }
-
-    .hero h1 {
-        font-size: 4em;
-    }
-
-    .hero p {
-        font-size: 1.5em;
-    }
-
-    .room h2 {
-        font-size: 2.5em;
-    }
-
-    .room p {
-        font-size: 1.4em;
-    }
-
-    .features li {
-        font-size: 1.2em;
-    }
-
-    .price {
-        font-size: 1.8em;
-    }
-
-    .notes {
-        font-size: 1.2em;
-    }
-
-    .book-btn {
-        padding: 12px 25px;
-        font-size: 1.4em;
-    }
-
-    footer p {
-        font-size: 1.4em;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    header {
-        padding: 70px 0;
-    }
-
-    .image-gallery h1 {
-        font-size: 2.5em;
-    }
-
-    .hero h1 {
-        font-size: 3em;
-    }
-
-    .hero p {
-        font-size: 1.3em;
-    }
-
-    .room h2 {
-        font-size: 2em;
-    }
-
-    .room p {
-        font-size: 1.2em;
-    }
-
-    .features li {
-        font-size: 1em;
-    }
-
-    .price {
-        font-size: 1.6em;
-    }
-
-    .notes {
-        font-size: 1em;
-    }
-
-    .book-btn {
-        padding: 10px 20px;
-        font-size: 1.2em;
-    }
-
-    footer p {
-        font-size: 1.2em;
-    }
-
-    .gallery-images img {
-        width: calc(50% - 20px);
-    }
-}
-
-@media screen and (max-width: 480px) {
-    header {
-        padding: 50px 0;
-    }
-
-    .image-gallery h1 {
-        font-size: 2em;
-    }
-
-    .hero h1 {
-        font-size: 2.5em;
-    }
-
-    .hero p {
-        font-size: 1.1em;
-    }
-
-    .room h2 {
-        font-size: 1.8em;
-    }
-
-    .room p {
-        font-size: 1em;
-    }
-
-    .features li {
-        font-size: 0.9em;
-    }
-
-    .price {
-        font-size: 1.4em;
-    }
-
-    .notes {
-        font-size: 0.9em;
-    }
-
-    .book-btn {
-        padding: 8px 16px;
-        font-size: 1em;
-    }
-
-    footer p {
-        font-size: 1em;
-    }
-
-    .gallery-images img {
-        width: calc(100% - 20px);
-    }
-}
-/* Nearby attractions */
-#nearby, #facilities, #restaurants, .natural-beauty, .ski-lifts, .closest-airports {
-    margin-top: 50px;
-}
-
-#nearby h2,
-#facilities h2,
-#restaurants h2,
-.natural-beauty h2,
-.ski-lifts h2,
-.closest-airports h2 {
+.nearby-info h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #fff;
 }
 
-#nearby ul,
-#facilities ul,
-#restaurants ul,
-.natural-beauty ul,
-.ski-lifts ul,
-.closest-airports ul {
+.nearby-info ul {
     list-style: none;
 }
 
-#nearby ul li,
-#facilities ul li,
-#restaurants ul li,
-.natural-beauty ul li,
-.ski-lifts ul li,
-.closest-airports ul li {
-    font-size: 1.6em;
+.nearby-info ul li {
+    font-size: 1.2em;
     margin-bottom: 10px;
 }
 
 /* Footer Styles */
 footer {
-    background-color: #1e687d;
+    background-color: #252525; /* Dark grey */
     color: #fff;
-    padding: 50px 0;
+    padding: 5% 0; /* Adjusted for better responsiveness */
     text-align: center;
 }
 
 footer p {
-    font-size: 1.6em;
+    font-size: 1.4em;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 1200px) {
-    /* Add responsive styles for smaller screens here */
-}
-
-@media screen and (max-width: 768px) {
-    #nearby h2,
-    #facilities h2,
-    #restaurants h2,
-    .natural-beauty h2,
-    .ski-lifts h2,
-    .closest-airports h2 {
-        font-size: 2em;
-    }
-
-    #nearby ul li,
-    #facilities ul li,
-    #restaurants ul li,
-    .natural-beauty ul li,
-    .ski-lifts ul li,
-    .closest-airports ul li {
-        font-size: 1.4em;
-    }
-
-    footer p {
-        font-size: 1.4em;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #nearby h2,
-    #facilities h2,
-    #restaurants h2,
-    .natural-beauty h2,
-    .ski-lifts h2,
-    .closest-airports h2 {
-        font-size: 1.5em;
-    }
-
-    #nearby ul li,
-    #facilities ul li,
-    #restaurants ul li,
-    .natural-beauty ul li,
-    .ski-lifts ul li,
-    .closest-airports ul li {
-        font-size: 1.2em;
-    }
-
-    footer p {
-        font-size: 1.2em;
-    }
-}
-/* Footer Styles */
-footer {
-    background-color: #1e687d;
-    color: #fff;
-    padding: 50px 0;
-    text-align: center;
-}
-
-footer p {
-    font-size: 1.6em;
-}
-
+/* Button Styles */
 .button-container {
-    margin-top: 30px;
+    margin-top: 5%;
 }
 
 .footer-btn {
@@ -429,4 +170,95 @@ footer p {
 
 .footer-btn:hover {
     background-color: #ff2e00;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 20% 0;
+    }
+
+    .header-title {
+        font-size: 3em;
+    }
+
+    .header-subtitle {
+        font-size: 1.5em;
+    }
+
+    .room h2 {
+        font-size: 2em;
+    }
+
+    .room p {
+        font-size: 1em;
+    }
+
+    .features li {
+        font-size: 1em;
+    }
+
+    .price {
+        font-size: 1.2em;
+    }
+
+    .notes {
+        font-size: 1em;
+    }
+
+    .book-btn {
+        padding: 10px 20px;
+        font-size: 1.2em;
+    }
+
+    .gallery-images img {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 30% 0;
+    }
+
+    .header-title {
+        font-size: 2.5em;
+    }
+
+    .header-subtitle {
+        font-size: 1.2em;
+    }
+
+    .room h2 {
+        font-size: 1.5em;
+    }
+
+    .room p {
+        font-size: 0.8em;
+    }
+
+    .features li {
+        font-size: 0.8em;
+    }
+
+    .price {
+        font-size: 1em;
+    }
+
+    .notes {
+        font-size: 0.8em;
+    }
+
+    .book-btn {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+
+    footer p {
+        font-size: 1em;
+    }
+
+    .gallery-images img {
+        width: calc(100% - 20px);
+    }
 }
