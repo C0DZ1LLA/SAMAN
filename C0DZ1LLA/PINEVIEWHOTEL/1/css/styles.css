@@ -1,264 +1,386 @@
-/* Resetting default styles */
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Global Styles */
+/* Global styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Updated font */
     line-height: 1.6;
-    background-color: #050505; /* Dark background */
-    color: #fff;
-    overflow-x: hidden;
+    background-color: #f9f9f9; /* Light background */
+    color: #444; /* Dark text color */
 }
 
 .container {
-    max-width: 100%;
-    padding: 0 5%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Header Styles */
+/* Header styles */
 header {
-    background-image: radial-gradient(circle, rgba(36, 107, 126, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%), url('img/header-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 10% 0; /* Adjusted for better responsiveness */
+    background-color: #727272; /* Dark blue */
+    color: #fff; /* Light text color */
+    padding: 40px 0; /* Increased padding */
     text-align: center;
 }
 
 .header-title {
-    font-size: 4em;
-    margin-bottom: 20px;
+    font-size: 3.5em; /* Larger font size */
+    margin-bottom: 20px; /* Increased margin */
 }
 
 .header-subtitle {
-    font-size: 2em;
-    margin-bottom: 40px;
+    font-size: 1.8em; /* Larger font size */
+    margin-bottom: 30px; /* Increased margin */
 }
 
-/* Main Content Styles */
+/* Main content styles */
 main {
-    padding: 5% 0; /* Adjusted for better responsiveness */
+    padding: 40px 0;
 }
 
 .room {
-    background-color: #252525; /* Dark grey */
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-    padding: 5%;
-    margin-bottom: 5%;
+    background-color: #fff;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 30px;
+    margin-bottom: 40px; /* Increased margin */
     transition: transform 0.3s ease;
 }
 
 .room:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px); /* Slight lift on hover */
 }
 
 .room h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2.2em; /* Larger font size */
+    margin-bottom: 15px; /* Increased margin */
 }
 
 .room p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.2em; /* Larger font size */
+    margin-bottom: 20px; /* Increased margin */
 }
 
 .features li {
-    list-style-type: none;
-    margin-bottom: 20px;
-    font-size: 1.2em;
+    list-style: none;
+    margin-bottom: 15px;
+    font-size: 1.2em; /* Larger font size */
 }
 
 .price {
-    font-size: 1.5em;
-    margin-bottom: 30px;
+    font-size: 1.5em; /* Larger font size */
+    margin-bottom: 20px; /* Increased margin */
 }
 
 .notes {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.2em; /* Larger font size */
+    margin-bottom: 20px; /* Increased margin */
 }
 
 .book-btn {
-    background-color: #ff6f61;
+    background-color: #ff6f61; /* Coral */
     color: #fff;
     border: none;
-    padding: 15px 30px;
-    font-size: 1.4em;
-    border-radius: 8px;
+    padding: 14px 28px; /* Increased padding */
+    font-size: 1.4em; /* Larger font size */
+    border-radius: 8px; /* Rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .book-btn:hover {
-    background-color: #ff2e00;
-    transform: translateY(-3px);
+    background-color: #ff2e00; /* Darker coral on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
 }
 
-/* Image Gallery Styles */
-.gallery-images {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* Other styles */
+
+/* Image slider styles */
+.image-slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.slides {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 5%;
+    transition: transform 0.8s ease;
+}
+.slide {
+    min-width: 100%;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.prev {
+    left: 10px;
+}
+.next {
+    right: 10px;
+}
+.prev:hover, .next:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+    opacity: 1;
+}
+/* Insert symbols before the buttons */
+.prev::before {
+    content: '\2329'; /* Unicode for the symbol you want to display (left-pointing triangle) */
+    margin-right: 5px; /* Adjust spacing between symbol and button text */
+}
+.next::before {
+    content: '\232a'; /* Unicode for the symbol you want to display (right-pointing triangle) */
+    margin-left: 5px; /* Adjust spacing between symbol and button text */
 }
 
-.gallery-images img {
-    width: calc(25% - 20px);
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
+
+
+
+
+/* Existing styles for contact buttons */
+.contact-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Additional styles for contact buttons */
+  .contact-btn {
+    margin-right: 10px; /* Add margin between buttons */
+  }
+  
+
+
+
+
+/* Styles for the booking form */
+.booking-form {
+    max-width: 100%; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex; /* Use flexbox to align items in one line */
+    flex-wrap: wrap; /* Allow elements to wrap to the next line if necessary */
+  }
+  
+  .form-group {
+    flex: 1; /* Each form group takes equal space */
+    margin-right: 10px; /* Add some space between form groups */
+    margin-bottom: 10px; /* Add some space at the bottom */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="button"] {
+    width: 100%; /* Set width to 100% */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the width */
+  }
+  
+  .calendar-btn,
+  .book-btn {
+    width: 100%; /* Set width to 100% */
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .calendar-btn:hover,
+  .book-btn:hover {
+    background-color: #0056b3;
+  }
+  .sections-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+  
+  .sections-container section {
+    width: 100%; /* Ensure sections take full width */
+    max-width: 600px; /* Limit the maximum width of each section */
+    margin-bottom: 20px; /* Add some space between sections */
+  }
+  
+  .sections-container h2 {
+    text-align: center; /* Center section headings */
+  }
+  
+  .sections-container ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center list items */
+  }
+  /* Styles for the sections container */
+.sections-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
 }
 
-.gallery-images img:hover {
-    transform: scale(1.05);
+/* Style for individual sections */
+.sections-container section {
+    margin-bottom: 50px;
 }
 
-/* Nearby Attractions Styles */
-.nearby-info {
-    margin-top: 5%;
-}
-
-.nearby-info h2 {
-    font-size: 2.5em;
+/* Style for section headings */
+.sections-container h2 {
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
-.nearby-info ul {
-    list-style: none;
+/* Style for section descriptions */
+.sections-container p {
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.nearby-info ul li {
-    font-size: 1.2em;
+/* Style for section images */
+.sections-container .welcome-image,
+.sections-container .facility-image,
+.sections-container .attractions-image,
+.sections-container .dining-image {
+    margin-bottom: 20px;
+}
+
+.sections-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for facility list */
+.sections-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sections-container ul li {
     margin-bottom: 10px;
 }
 
-/* Footer Styles */
+/* Style for contact details */
+.sections-container .contact-details {
+    margin-top: 20px;
+}
+
+.sections-container .contact-details p {
+    margin-bottom: 10px;
+}
+
+
+
+/* Footer styles */
 footer {
-    background-color: #252525; /* Dark grey */
+    background-color: #222;
     color: #fff;
-    padding: 5% 0; /* Adjusted for better responsiveness */
+    padding: 20px 0;
     text-align: center;
 }
 
-footer p {
-    font-size: 1.4em;
-}
-
-/* Button Styles */
 .button-container {
-    margin-top: 5%;
+    margin-bottom: 20px;
 }
 
 .footer-btn {
-    background-color: #ff6f61;
+    padding: 10px 20px;
+    background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 15px 30px;
-    font-size: 1.6em;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s ease;
-    margin: 0 10px;
 }
 
 .footer-btn:hover {
-    background-color: #ff2e00;
+    background-color: #0056b3;
+}
+/* Section Container */
+.sections-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 20% 0;
-    }
-
-    .header-title {
-        font-size: 3em;
-    }
-
-    .header-subtitle {
-        font-size: 1.5em;
-    }
-
-    .room h2 {
-        font-size: 2em;
-    }
-
-    .room p {
-        font-size: 1em;
-    }
-
-    .features li {
-        font-size: 1em;
-    }
-
-    .price {
-        font-size: 1.2em;
-    }
-
-    .notes {
-        font-size: 1em;
-    }
-
-    .book-btn {
-        padding: 10px 20px;
-        font-size: 1.2em;
-    }
-
-    .gallery-images img {
-        width: calc(50% - 20px);
-    }
+/* Individual Section */
+.section {
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 480px) {
-    header {
-        padding: 30% 0;
-    }
+/* Section Content */
+.section-content {
+    margin-top: 20px;
+}
 
-    .header-title {
-        font-size: 2.5em;
-    }
+/* Image Styles */
+.section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
-    .header-subtitle {
-        font-size: 1.2em;
-    }
+/* Text Fade-in Animation */
+.section h2, .section p {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
 
-    .room h2 {
-        font-size: 1.5em;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    .room p {
-        font-size: 0.8em;
-    }
-
-    .features li {
-        font-size: 0.8em;
-    }
-
-    .price {
-        font-size: 1em;
-    }
-
-    .notes {
-        font-size: 0.8em;
-    }
-
-    .book-btn {
-        padding: 8px 16px;
-        font-size: 1em;
-    }
-
-    footer p {
-        font-size: 1em;
-    }
-
-    .gallery-images img {
-        width: calc(100% - 20px);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
