@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #181818;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #00ffff;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#imageInput {
+    /* Remove display: none; to make the upload button visible */
+}
+
+.button {
+    background-color: #00ffff;
+    color: #181818;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #008080;
+}
+
+.uploaded-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s;
+}
+
+.uploaded-image:hover {
+    transform: scale(1.05);
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Gallery</h1>
+        <input type="file" id="imageInput" accept="image/*">
+        <input type="text" id="imageName" placeholder="Image Name">
+        <button onclick="saveImage()" class="button">Save Image</button>
+
+        <div id="gallery"></div>
+    </div>
+
+    <script>
+        // Function to save the uploaded image
+        function saveImage() {
+            var imageInput = document.getElementById('imageInput');
+            var imageName = document.getElementById('imageName').value;
+            var gallery = document.getElementById('gallery');
+
+            if (imageInput.files.length > 0) {
+                var file = imageInput.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    var imageUrl = event.target.result;
+                    var img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = imageName || 'Image';
+                    img.classList.add('uploaded-image');
+
+                    // Add the image to the gallery
+                    gallery.appendChild(img);
+                    saveToLocalStorage(imageName || 'Image', imageUrl);
+                };
+
+                // Read the image as a data URL
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select an image to upload.');
+            }
+        }
+
+        // Function to save the image to local storage
+        function saveToLocalStorage(name, url) {
+            var images = JSON.parse(localStorage.getItem('images')) || [];
+            images.push({ name: name, url: url });
+            localStorage.setItem('images', JSON.stringify(images));
+        }
+
+        // Function to load saved images from local storage
+        function loadImages() {
+            var gallery = document.getElementById('gallery');
+            var images = JSON.parse(localStorage.getItem('images')) || [];
+
+            images.forEach(function(image) {
+                var img = document.createElement('img');
+                img.src = image.url;
+                img.alt = image.name || 'Image';
+                img.classList.add('uploaded-image');
+                gallery.appendChild(img);
+            });
+        }
+
+        // Load saved images when the page loads
+        window.onload = function() {
+            loadImages();
+        };
+    </script>
+</body>
+</html>
