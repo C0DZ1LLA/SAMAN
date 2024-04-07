@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .day {
+            margin-bottom: 10px;
+        }
+
+        .timer {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weekly Schedule Management</h1>
+        <div id="schedule"></div>
+        <button onclick="addFullWeekSchedule()">Add Full Week Schedule</button>
+        <button onclick="calculateTotalHours()">Calculate Total Hours</button>
+        <button onclick="clearData()">Clear Data</button>
+        <button onclick="exportToCSV()">Export to CSV</button>
+    </div>
+
+    <script>
+        class ScheduleDay {
+            constructor(day, workStart, workEnd) {
+                this.day = day;
+                this.workStart = workStart;
+                this.workEnd = workEnd;
+                this.totalHours = this.calculateTotalHours(workStart, workEnd);
+                this.timerIntervalId = null;
+                this.isTimerRunning = false;
+                this.timerStartTime = null;
+                this.pausedTime = 0;
+            }
+
+            calculateTotalHours(startTime, endTime) {
+                const [startHour, startMinute] = startTime.split(':').map(parseFloat);
+                const [endHour, endMinute] = endTime.split(':').map(parseFloat);
+                const totalHours = (endHour + endMinute / 60) - (startHour + startMinute / 60);
+                return totalHours;
+            }
+        }
+
+        let weeklySchedule = JSON.parse(localStorage.getItem('weeklySchedule')) || [];
+
+        function addFullWeekSchedule() {
+            const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            daysOfWeek.forEach(day => {
+                const workHours = prompt(`Enter work hours for ${day} (e.g., 7:30-16:00):`);
+                const [workStart, workEnd] = workHours.split('-');
+                const scheduleDay = new ScheduleDay(day, workStart.trim(), workEnd.trim());
+                weeklySchedule.push(scheduleDay);
+            });
+            saveScheduleToLocalStorage();
+            displaySchedule();
+        }
+
+        function saveScheduleToLocalStorage() {
+            localStorage.setItem('weeklySchedule', JSON.stringify(weeklySchedule));
+        }
+
+        function displaySchedule() {
+    const scheduleDiv = document.getElementById("schedule");
+    scheduleDiv.innerHTML = ""; 
+
+    weeklySchedule.forEach(day => {
+        const dayDiv = document.createElement("div");
+        dayDiv.classList.add("day");
+        const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+        dayDiv.innerHTML = `<p>${day.day}: Work Hours - ${day.workStart} to ${day.workEnd} | Total Hours - ${totalTime.toFixed(2)}</p>`;
+        const timerButton = document.createElement("button");
+        timerButton.textContent = day.isTimerRunning ? "Pause Timer" : "Start Timer";
+        timerButton.onclick = function(event) {
+            toggleTimer(day, event);
+        };
+        const timerDiv = document.createElement("div");
+        timerDiv.classList.add("timer");
+        timerDiv.appendChild(timerButton);
+        dayDiv.appendChild(timerDiv);
+        scheduleDiv.appendChild(dayDiv);
+    });
+}
+function calculateUpdatedTotalHours(day) {
+    const elapsedTime = calculateElapsedTime(day);
+    return day.totalHours - (elapsedTime / 3600);
+}
+function calculateTotalHours() {
+    let totalHours = 0;
+    weeklySchedule.forEach(day => {
+        totalHours += day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+    });
+    alert(`Total Hours for the Week: ${totalHours.toFixed(2)}`);
+}
+
+function calculateElapsedTime(day) {
+    const currentTime = new Date().getTime();
+    const elapsedTime = (currentTime - day.timerStartTime) / 1000;
+    const remainingTime = day.totalHours * 3600 - elapsedTime;
+    const elapsedHours = (day.totalHours * 3600 - remainingTime) / 3600;
+    return elapsedHours;
+}
+
+
+        function toggleTimer(day, event) {
+            const timerButton = event.target;
+            if (!day.isTimerRunning) {
+                startTimer(day, timerButton);
+            } else {
+                pauseTimer(day, timerButton);
+            }
+        }
+
+        function startTimer(day, timerButton) {
+            day.isTimerRunning = true;
+            day.timerStartTime = new Date().getTime() - day.pausedTime;
+            timerButton.textContent = "Pause Timer";
+            day.timerIntervalId = setInterval(function() {
+                const currentTime = new Date().getTime();
+                const elapsedTime = (currentTime - day.timerStartTime) / 1000;
+                const remainingTime = day.totalHours * 3600 - elapsedTime;
+                if (remainingTime <= 0) {
+                    clearInterval(day.timerIntervalId);
+                    timerButton.textContent = "Timer Finished";
+                    day.isTimerRunning = false;
+                } else {
+                    const hours = Math.floor(remainingTime / 3600);
+                    const minutes = Math.floor((remainingTime % 3600) / 60);
+                    const seconds = Math.floor(remainingTime % 60);
+                    const timerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    timerButton.textContent = `Remaining Time: ${timerText}`;
+                }
+            }, 1000);
+        }
+
+        function pauseTimer(day, timerButton) {
+            clearInterval(day.timerIntervalId);
+            timerButton.textContent = "Resume Timer";
+            day.isTimerRunning = false;
+            const currentTime = new Date().getTime();
+            day.pausedTime += currentTime - day.timerStartTime;
+        }
+
+        function calculateTotalHours() {
+            let totalHours = 0;
+            weeklySchedule.forEach(day => {
+                totalHours += day.totalHours;
+            });
+            alert(`Total Hours for the Week: ${totalHours.toFixed(2)}`);
+        }
+
+        function clearData() {
+            localStorage.removeItem('weeklySchedule');
+            weeklySchedule = [];
+            displaySchedule();
+        }
+
+        function exportToCSV() {
+    let csvContent = "data:text/csv;charset=utf-8,";
+    const header = ['Day', 'Work Start Time', 'Work End Time', 'Total Hours'];
+    csvContent += header.join(',') + '\n';
+    weeklySchedule.forEach(day => {
+        const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+        const row = [day.day, day.workStart, day.workEnd, totalTime.toFixed(2)];
+        csvContent += row.join(',') + '\n';
+    });
+    const encodedURI = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedURI);
+    link.setAttribute("download", "weekly_schedule.csv");
+    document.body.appendChild(link);
+    link.click();
+}
+
+        // Display schedule on page load
+        displaySchedule();
+    </script>
+</body>
+</html>
