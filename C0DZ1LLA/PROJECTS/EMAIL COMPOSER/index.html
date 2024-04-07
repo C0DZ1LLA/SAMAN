@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+    <style>
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.container {
+    max-width: 700px;
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2e2e2e;
+    color: #fff;
+    font-size: 16px;
+}
+
+textarea {
+    height: 200px;
+    resize: none;
+}
+
+.recipient-container {
+    display: flex;
+    align-items: center;
+}
+
+.recipient-input {
+    flex: 1;
+}
+
+.add-email-button {
+    background-color: #1a1aff;
+    color: #00ffff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.add-email-button:hover {
+    background-color: #00ffff;
+}
+
+input[type="submit"],
+.button {
+    background-color: #1a1aff;
+    color: #00ffff;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 48%;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.button:hover {
+    background-color: #00ffff;
+}
+
+.template-list {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.template-item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.template-item button {
+    background-color: #1a1aff;
+    color: #00ffff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.template-item button:hover {
+    background-color: #00ffff;
+}
+
+.template-item:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 16px;
+    z-index: 9999;
+}
+
+.popup input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2e2e2e;
+    color: #fff;
+    font-size: 16px;
+}
+
+.popup button {
+    background-color: #1a1aff;
+    color: #00ffff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.popup button:hover {
+    background-color: #00ffff;
+}
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Welcome to our Website!</h2>
+          <p>We're glad you're here. Take a moment to explore our awesome features.</p>
+        </div>
+      </div>
+      
+
+<div class="container">
+    <h1>Compose Email</h1>
+    <div class="form-group">
+        <label for="recipient">To:</label>
+        <div class="recipient-container">
+            <input type="text" id="recipient" name="recipient" placeholder="Recipient Email(s)" class="recipient-input">
+            <button onclick="openPopup()" class="add-email-button">+</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject">
+    </div>
+
+    <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+    </div>
+
+    <button onclick="sendEmail()" class="button">Send Email</button>
+    <button onclick="saveTemplate()" class="button">Save Template</button>
+    <button onclick="loadTemplate()" class="button">Load Template</button>
+
+    <div class="template-list" id="templateList">
+        <strong>Saved Templates:</strong>
+    </div>
+
+    <button onclick="createTemplate()" class="button" style="margin-top: 20px;">Create Template</button>
+    <button onclick="clearFields()" class="button">Clear Fields</button>
+</div>
+
+<div class="popup" id="popup">
+    <label for="additionalRecipient">Enter Additional Recipient Email:</label>
+    <input type="text" id="additionalRecipient" placeholder="Email">
+    <button onclick="addAdditionalRecipient()">Add</button>
+</div>
+
+<script>
+    // Get the modal element
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var closeBtn = document.getElementsByClassName('close')[0];
+
+// When the page loads, display the modal
+window.onload = function() {
+  modal.style.display = 'block';
+};
+
+// When the user clicks on <span> (x), close the modal
+closeBtn.onclick = function() {
+  modal.style.display = 'none';
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};
+
+
+    function sendEmail() {
+        var recipient = document.getElementById('recipient').value.trim();
+        var subject = document.getElementById('subject').value.trim();
+        var message = document.getElementById('message').value.trim();
+
+        if (!recipient || !subject || !message) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        var mailtoUrl = 'mailto:' + encodeURIComponent(recipient) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+
+        window.location.href = mailtoUrl;
+    }
+
+    function saveTemplate() {
+        var recipient = document.getElementById('recipient').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+
+        var template = { recipient: recipient, subject: subject, message: message };
+
+        var templates = JSON.parse(localStorage.getItem('emailTemplates')) || [];
+        templates.push(template);
+
+        localStorage.setItem('emailTemplates', JSON.stringify(templates));
+
+        displaySavedTemplates();
+    }
+
+    function loadTemplate() {
+        var templates = JSON.parse(localStorage.getItem('emailTemplates'));
+
+        if (templates && templates.length > 0) {
+            var selectedIndex = prompt('Enter the index of the template to load (starting from 1):');
+            selectedIndex = parseInt(selectedIndex);
+
+            if (!isNaN(selectedIndex) && selectedIndex > 0 && selectedIndex <= templates.length) {
+                var selectedTemplate = templates[selectedIndex - 1];
+                document.getElementById('recipient').value = selectedTemplate.recipient;
+                document.getElementById('subject').value = selectedTemplate.subject;
+                document.getElementById('message').value = selectedTemplate.message;
+            } else {
+                alert('Invalid index.');
+            }
+        } else {
+            alert('No saved templates found.');
+        }
+    }
+
+    function displaySavedTemplates() {
+        var templates = JSON.parse(localStorage.getItem('emailTemplates'));
+        var templateList = document.getElementById('templateList');
+        templateList.innerHTML = '<strong>Saved Templates:</strong>';
+
+        if (templates && templates.length > 0) {
+            templates.forEach(function(template, index) {
+                var button = document.createElement('button');
+                button.textContent = 'Template ' + (index + 1);
+                button.onclick = function() {
+                    document.getElementById('recipient').value = template.recipient;
+                    document.getElementById('subject').value = template.subject;
+                    document.getElementById('message').value = template.message;
+                };
+
+                var removeButton = document.createElement('button');
+                removeButton.textContent = 'X';
+                removeButton.onclick = function(e) {
+                    e.stopPropagation();
+                    templates.splice(index, 1);
+                    localStorage.setItem('emailTemplates', JSON.stringify(templates));
+                    displaySavedTemplates();
+                };
+
+                var templateItem = document.createElement('div');
+                templateItem.classList.add('template-item');
+                templateItem.appendChild(button);
+                templateItem.appendChild(removeButton);
+
+                templateList.appendChild(templateItem);
+            });
+        }
+    }
+
+    function createTemplate() {
+        var defaultRecipient = 'recipient@example.com';
+        var defaultSubject = 'Subject of the email';
+        var defaultMessage = 'Dear recipient,\n\nI hope this email finds you well.\n\n[Your message here]\n\nBest regards,\n[Your Name]';
+
+        document.getElementById('recipient').value = defaultRecipient;
+        document.getElementById('subject').value = defaultSubject;
+        document.getElementById('message').value = defaultMessage;
+    }
+
+    function clearFields() {
+        document.getElementById('recipient').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
+    }
+
+    function openPopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'block';
+    }
+
+    function addAdditionalRecipient() {
+        var recipientInput = document.getElementById('recipient');
+        var additionalRecipient = document.getElementById('additionalRecipient').value.trim();
+        if (additionalRecipient) {
+            if (recipientInput.value) {
+                recipientInput.value += ', ';
+            }
+            recipientInput.value += additionalRecipient;
+        }
+        closePopup();
+    }
+
+    function closePopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'none';
+        document.getElementById('additionalRecipient').value = '';
+    }
+
+    window.onload = function() {
+        displaySavedTemplates();
+    };
+</script>
+
+</body>
+</html>
