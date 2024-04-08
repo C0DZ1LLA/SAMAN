@@ -3,61 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Schedule Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <title>C0DZ1LLA Systems</title>
     <style>
-        body {
+/* General styles */
+body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #111;
             margin: 0;
             padding: 0;
+            color: #fff;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 90%;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #222;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
 
         h1 {
-            color: #333;
+            color: #ffd700; /* Dark gold */
+            margin-bottom: 20px;
         }
 
-        button {
-            background-color: #007bff;
+        /* Dropdown menu styles */
+        .select-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        select {
+            appearance: none;
+            padding: 12px;
+            border: 1px solid #00ffff; /* Neon blue */
+            border-radius: 5px;
+            background-color: #333;
             color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
             font-size: 16px;
-            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        select:hover,
+        select:focus {
+            border-color: #ffd700; /* Dark gold */
+            background-color: #444;
         }
 
-        .day {
+        /* Label styles */
+        .label-container {
             margin-bottom: 10px;
         }
 
-        .timer {
-            margin-top: 10px;
+        label {
+            margin-right: 10px;
+            font-size: 16px;
+            color: #ffd700; /* Dark gold */
         }
+
+        /* Button styles */
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #00ffff; /* Neon blue */
+            color: #111;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffd700; /* Dark gold */
+            color: #fff;
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Weekly Schedule Management</h1>
-        <div id="schedule"></div>
-        <button onclick="addFullWeekSchedule()">Add Full Week Schedule</button>
+            <label for="day-dropdown">Select Day:</label>
+            <select id="day-dropdown">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+            <div class="container">
+
+            <label for="start-hour-dropdown">Select Start Time:</label>
+            <select id="start-hour-dropdown">
+                <!-- Options for start hour -->
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <!-- Add options for other hours -->
+            </select>
+            
+            <select id="start-minute-dropdown">
+                <!-- Options for start minute -->
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <!-- Add options for other minutes -->
+            </select>    <div class="container">
+
+            <label for="end-hour-dropdown">Select End Time:</label>
+            <select id="end-hour-dropdown">
+                <!-- Options for end hour -->
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <!-- Add options for other hours -->
+            </select>
+            <select id="end-minute-dropdown">
+                <!-- Options for end minute -->
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <!-- Add options for other minutes -->
+            </select>
+
+            <div class="container">
+            <button onclick="addCustomWeekSchedule()">Add Custom Week Schedule</button>
+        </div>
+        <div class="schedule" id="schedule"></div>
         <button onclick="calculateTotalHours()">Calculate Total Hours</button>
         <button onclick="clearData()">Clear Data</button>
         <button onclick="exportToCSV()">Export to CSV</button>
+        <div class="footer">
+            <p>Designed by <a href="https://samanconnect.com/" target="_blank">SAMAN</a></p>
+        </div>
     </div>
 
     <script>
@@ -71,26 +208,32 @@
                 this.isTimerRunning = false;
                 this.timerStartTime = null;
                 this.pausedTime = 0;
+                this.hoursPreview = '';
             }
 
             calculateTotalHours(startTime, endTime) {
                 const [startHour, startMinute] = startTime.split(':').map(parseFloat);
                 const [endHour, endMinute] = endTime.split(':').map(parseFloat);
                 const totalHours = (endHour + endMinute / 60) - (startHour + startMinute / 60);
-                return totalHours;
+                return totalHours > 0 ? totalHours : 0;
             }
         }
 
         let weeklySchedule = JSON.parse(localStorage.getItem('weeklySchedule')) || [];
 
-        function addFullWeekSchedule() {
-            const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-            daysOfWeek.forEach(day => {
-                const workHours = prompt(`Enter work hours for ${day} (e.g., 7:30-16:00):`);
-                const [workStart, workEnd] = workHours.split('-');
-                const scheduleDay = new ScheduleDay(day, workStart.trim(), workEnd.trim());
-                weeklySchedule.push(scheduleDay);
-            });
+        function addCustomWeekSchedule() {
+            const selectedDay = document.getElementById('day-dropdown').value;
+            const selectedStartHour = document.getElementById('start-hour-dropdown').value;
+            const selectedStartMinute = document.getElementById('start-minute-dropdown').value;
+            const selectedEndHour = document.getElementById('end-hour-dropdown').value;
+            const selectedEndMinute = document.getElementById('end-minute-dropdown').value;
+
+            const workStart = `${selectedStartHour}:${selectedStartMinute}`;
+            const workEnd = `${selectedEndHour}:${selectedEndMinute}`;
+
+            const scheduleDay = new ScheduleDay(selectedDay, workStart, workEnd);
+            weeklySchedule.push(scheduleDay);
+
             saveScheduleToLocalStorage();
             displaySchedule();
         }
@@ -100,50 +243,55 @@
         }
 
         function displaySchedule() {
-    const scheduleDiv = document.getElementById("schedule");
-    scheduleDiv.innerHTML = ""; 
+            const scheduleDiv = document.getElementById("schedule");
+            scheduleDiv.innerHTML = "";
 
-    weeklySchedule.forEach(day => {
-        const dayDiv = document.createElement("div");
-        dayDiv.classList.add("day");
-        const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
-        dayDiv.innerHTML = `<p>${day.day}: Work Hours - ${day.workStart} to ${day.workEnd} | Total Hours - ${totalTime.toFixed(2)}</p>`;
-        const timerButton = document.createElement("button");
-        timerButton.textContent = day.isTimerRunning ? "Pause Timer" : "Start Timer";
-        timerButton.onclick = function(event) {
-            toggleTimer(day, event);
-        };
-        const timerDiv = document.createElement("div");
-        timerDiv.classList.add("timer");
-        timerDiv.appendChild(timerButton);
-        dayDiv.appendChild(timerDiv);
-        scheduleDiv.appendChild(dayDiv);
-    });
-}
-function calculateUpdatedTotalHours(day) {
-    const elapsedTime = calculateElapsedTime(day);
-    return day.totalHours - (elapsedTime / 3600);
-}
-function calculateTotalHours() {
-    let totalHours = 0;
-    weeklySchedule.forEach(day => {
-        totalHours += day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
-    });
-    alert(`Total Hours for the Week: ${totalHours.toFixed(2)}`);
-}
+            weeklySchedule.forEach(day => {
+                const dayDiv = document.createElement("div");
+                dayDiv.classList.add("day");
+                const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+                dayDiv.innerHTML = `<p>${day.day.toUpperCase()}: Work Hours - ${day.workStart} to ${day.workEnd} | Total Hours - <span class="total-hours">${totalTime.toFixed(2)}</span></p>`;
+                const timerDiv = document.createElement("div");
+                timerDiv.classList.add("timer");
+                const timerButton = document.createElement("button");
+                timerButton.textContent = day.isTimerRunning ? "Pause Timer" : "Start Timer";
+                timerButton.onclick = function(event) {
+                    toggleTimer(day, event);
+                };
+                const timerText = document.createElement("p");
+                timerText.textContent = day.isTimerRunning ? "Hours Preview: " + day.hoursPreview : "";
+                timerDiv.appendChild(timerButton);
+                timerDiv.appendChild(timerText);
+                dayDiv.appendChild(timerDiv);
+                scheduleDiv.appendChild(dayDiv);
+            });
+        }
 
-function calculateElapsedTime(day) {
-    const currentTime = new Date().getTime();
-    const elapsedTime = (currentTime - day.timerStartTime) / 1000;
-    const remainingTime = day.totalHours * 3600 - elapsedTime;
-    const elapsedHours = (day.totalHours * 3600 - remainingTime) / 3600;
-    return elapsedHours;
-}
+        function calculateUpdatedTotalHours(day) {
+            const elapsedTime = calculateElapsedTime(day);
+            return day.totalHours - (elapsedTime / 3600);
+        }
 
+        function calculateTotalHours() {
+            let totalHours = 0;
+            weeklySchedule.forEach(day => {
+                totalHours += day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+            });
+            alert(`Total Hours for the Week: ${totalHours.toFixed(2)}`);
+        }
+
+        function calculateElapsedTime(day) {
+            const currentTime = new Date().getTime();
+            const elapsedTime = (currentTime - day.timerStartTime) / 1000;
+            const remainingTime = day.totalHours * 3600 - elapsedTime;
+            const elapsedHours = (day.totalHours * 3600 - remainingTime) / 3600;
+            return elapsedHours;
+        }
 
         function toggleTimer(day, event) {
             const timerButton = event.target;
             if (!day.isTimerRunning) {
+                resetHoursPreview(day);
                 startTimer(day, timerButton);
             } else {
                 pauseTimer(day, timerButton);
@@ -152,7 +300,13 @@ function calculateElapsedTime(day) {
 
         function startTimer(day, timerButton) {
             day.isTimerRunning = true;
-            day.timerStartTime = new Date().getTime() - day.pausedTime;
+            const storedTimerData = JSON.parse(localStorage.getItem(`timer_${day.day}`));
+            if (storedTimerData) {
+                day.timerStartTime = storedTimerData.startTime;
+                day.pausedTime = storedTimerData.pausedTime;
+            } else {
+                day.timerStartTime = new Date().getTime() - day.pausedTime;
+            }
             timerButton.textContent = "Pause Timer";
             day.timerIntervalId = setInterval(function() {
                 const currentTime = new Date().getTime();
@@ -162,12 +316,19 @@ function calculateElapsedTime(day) {
                     clearInterval(day.timerIntervalId);
                     timerButton.textContent = "Timer Finished";
                     day.isTimerRunning = false;
+                    localStorage.removeItem(`timer_${day.day}`);
                 } else {
                     const hours = Math.floor(remainingTime / 3600);
                     const minutes = Math.floor((remainingTime % 3600) / 60);
                     const seconds = Math.floor(remainingTime % 60);
                     const timerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
                     timerButton.textContent = `Remaining Time: ${timerText}`;
+                    day.hoursPreview = timerText;
+                    displaySchedule();
+                    const updatedTotalHours = calculateUpdatedTotalHours(day);
+                    const dayDiv = timerButton.parentElement.parentElement;
+                    const totalHoursDisplay = dayDiv.querySelector(".total-hours");
+                    totalHoursDisplay.textContent = `${updatedTotalHours.toFixed(2)}`;
                 }
             }, 1000);
         }
@@ -180,12 +341,8 @@ function calculateElapsedTime(day) {
             day.pausedTime += currentTime - day.timerStartTime;
         }
 
-        function calculateTotalHours() {
-            let totalHours = 0;
-            weeklySchedule.forEach(day => {
-                totalHours += day.totalHours;
-            });
-            alert(`Total Hours for the Week: ${totalHours.toFixed(2)}`);
+        function resetHoursPreview(day) {
+            day.hoursPreview = '';
         }
 
         function clearData() {
@@ -195,24 +352,48 @@ function calculateElapsedTime(day) {
         }
 
         function exportToCSV() {
-    let csvContent = "data:text/csv;charset=utf-8,";
-    const header = ['Day', 'Work Start Time', 'Work End Time', 'Total Hours'];
-    csvContent += header.join(',') + '\n';
-    weeklySchedule.forEach(day => {
-        const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
-        const row = [day.day, day.workStart, day.workEnd, totalTime.toFixed(2)];
-        csvContent += row.join(',') + '\n';
-    });
-    const encodedURI = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedURI);
-    link.setAttribute("download", "weekly_schedule.csv");
-    document.body.appendChild(link);
-    link.click();
-}
+            let csvContent = "data:text/csv;charset=utf-8,";
+            const header = ['Day', 'Work Start Time', 'Work End Time', 'Total Hours'];
+            csvContent += header.join(',') + '\n';
+            weeklySchedule.forEach(day => {
+                const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+                const row = [day.day, day.workStart, day.workEnd, totalTime.toFixed(2)];
+                csvContent += row.join(',') + '\n';
+            });
+            const encodedURI = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedURI);
+            link.setAttribute("download", "weekly_schedule.csv");
+            document.body.appendChild(link);
+            link.click();
+        }
 
-        // Display schedule on page load
         displaySchedule();
+
+        // Initialize Flatpickr for time selectors
+        flatpickr(".time-selector", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+        });
+
+        // Populate dropdowns for other hours and minutes
+        const hoursDropdowns = document.querySelectorAll('select[id$="-hour-dropdown"]');
+        const minutesDropdowns = document.querySelectorAll('select[id$="-minute-dropdown"]');
+        populateDropdowns(hoursDropdowns, 0, 23);
+        populateDropdowns(minutesDropdowns, 0, 59);
+
+        function populateDropdowns(dropdowns, start, end) {
+            dropdowns.forEach(dropdown => {
+                for (let i = start; i <= end; i++) {
+                    const option = document.createElement('option');
+                    const value = i.toString().padStart(2, '0');
+                    option.value = value;
+                    option.textContent = value;
+                    dropdown.appendChild(option);
+                }
+            });
+        }
     </script>
 </body>
 </html>
