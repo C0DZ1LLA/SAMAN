@@ -4,237 +4,390 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C0DZ1LLA Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-}
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f0f0f;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
 
-.container {
-    max-width: 700px;
-    background-color: #1e1e1e;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
+        .container {
+            max-width: 700px;
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
 
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 32px;
-}
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
 
-.form-group {
-    margin-bottom: 30px;
-    position: relative;
-}
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
 
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #2e2e2e;
-    color: #fff;
-    font-size: 16px;
-}
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #292929;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
 
-textarea {
-    height: 200px;
-    resize: none;
-}
+        textarea {
+            height: 200px;
+            resize: none;
+        }
 
-.recipient-container {
-    display: flex;
-    align-items: center;
-}
+        .recipient-container {
+            display: flex;
+            align-items: center;
+        }
 
-.recipient-input {
-    flex: 1;
-}
+        .recipient-input {
+            flex: 1;
+        }
 
-.add-email-button {
-    background-color: #1a1aff;
-    color: #00ffff;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+        .add-email-button {
+            background-color: #4a4aff;
+            color: #00ffff;
+            padding: 50px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
 
-.add-email-button:hover {
-    background-color: #00ffff;
-}
+        .add-email-button:hover {
+            background-color: #00ffff;
+        }
 
-input[type="submit"],
-.button {
-    background-color: #1a1aff;
-    color: #00ffff;
-    padding: 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 48%;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+        .button {
+            background-color: #4a4aff;
+            color: #00ffff;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            width: 48%;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
 
-.button:hover {
-    background-color: #00ffff;
-}
+        .button:hover {
+            background-color: #00ffff;
+        }
 
-.template-list {
-    margin-top: 40px;
-    text-align: center;
-}
+        .template-list {
+            margin-top: 40px;
+            text-align: center;
+        }
 
-.template-item {
-    display: inline-block;
-    margin-right: 20px;
-}
+        .template-item {
+            display: inline-block;
+            margin-right: 20px;
+        }
 
-.template-item button {
-    background-color: #1a1aff;
-    color: #00ffff;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin-left: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+        .template-item button {
+            background-color: #4a4aff;
+            color: #00ffff;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
 
-.template-item button:hover {
-    background-color: #00ffff;
-}
+        .template-item button:hover {
+            background-color: #00ffff;
+        }
 
-.template-item:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
+        .template-item:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
 
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 40px;
-    border-radius: 16px;
-    z-index: 9999;
-}
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 16px;
+            z-index: 9999;
+        }
 
-.popup input[type="text"] {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #2e2e2e;
-    color: #fff;
-    font-size: 16px;
-}
+        .popup input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #292929;
+            color: #fff;
+            font-size: 16px;
+        }
 
-.popup button {
-    background-color: #1a1aff;
-    color: #00ffff;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+        .popup button {
+            background-color: #4a4aff;
+            color: #00ffff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
 
-.popup button:hover {
-    background-color: #00ffff;
-}
-/* Modal styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+        .popup button:hover {
+            background-color: #00ffff;
+        }
 
-.modal-content {
-  background-color: #1a1a1a;
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 80%;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-.close {
-  color: #fff;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 80%;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
 
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
+        .close {
+            color: #fff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
 
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 10;
+            }
+        }
+
+
+        .neon {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 160;
+            stroke-dashoffset: 160;
+            animation: dash 2s linear infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .glow {
+            filter: drop-shadow(0 0 10px cyan);
+        }
+    
+        /* Footer container style */
+        .footer-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            z-index: 999; /* Ensure the footer stays above other content */
+        }
+
+        /* Footer style */
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    
     <div id="myModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Welcome to our Website!</h2>
-          <p>We're glad you're here. Take a moment to explore our awesome features.</p>
+        <div class="modal-content" style="max-width: 80%; width: 600px;">
+            <span class="close">&times;</span>
+            <div class="slider">
+                <div class="slide">
+                    <h2>Welcome to C0DZ1LLA Systems!</h2>
+                    <p>Experience the future of email composing.</p>
+                    <h3>How to Use</h3>
+
+                </div>
+                <div class="slide">
+                    <ol start="1">
+                        <h3><strong>Opening the System:</h3>
+                            
+                                <li><strong>Upon</strong> accessing the system, a welcome modal will appear.</li>
+                                <li><strong>Click</strong> anywhere on the screen or the "X" button to close it and proceed.</li>
+                            
+                        </li>
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Composing an Email:</h3>
+                    <ol start="3">
+                        <li><strong>To Field:</strong> Enter recipient email address(es) in the "To:" field. Separate multiple recipients with commas.</li>
+                        <li><strong>Subject Field:</strong> Input the subject of your email in the designated field.</li>
+                        <li><strong>Message Field:</strong> Write your email message in the large text area provided.</li>
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Sending an Email:</h3>
+                    <ol start="6">
+                        <li>Click on the "Send Email" button to open your default email client. The recipient, subject, and message will be pre-filled in the email client.</li>
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Saving and Loading Templates:</h3>
+                    <ol start="7">
+                        <li><strong>To save the current email content as a template:</strong> Click on the "Save Template" button.</li>
+                        <li><strong>To load a saved template:</strong> Click on the "Load Template" button and enter the template index.</li>
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Creating and Clearing Templates:</h3>
+                    <ol start="9">
+                        <li><strong>To populate fields with default values:</strong> Click on the "Create Template" button.</li>
+                        <li><strong>To clear all input fields:</strong> Click on the "Clear Fields" button.</li>
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Adding Additional Recipients:</h3>
+                    <ol start="11">
+                        <li>Click on the "Add Email" button next to the recipient field.</li>
+                        <li>Enter additional email addresses in the popup.</li>
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Managing Saved Templates:</h3>
+                    <ol start="13">
+                        <li>Below the email composition section, find a list of saved templates.</li>
+                        <li>Click on a template button to load it into the input fields.</li>
+                        <li>Remove a template by clicking the "X" button next to it.</li>
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Final Note:</h3>
+                    <p>Enjoy using the system to streamline your email composition process!</p>
+                    <button id="buyCoffeeButton" onclick="openURL1()">Buy me a coffee ☕</button>
+
+                </div>
+            </div>
+            <div class="slider-arrows">
+                <span class="prev" onclick="prevSlide()">&#8592;</span>
+                <span class="next" onclick="nextSlide()">&#8594;</span>
+            </div>
         </div>
-      </div>
-      
+    </div>
+    
+    <script>
+        var slideIndex = 0;
+        showSlide(slideIndex);
+    
+        function prevSlide() {
+            showSlide(slideIndex -= 1);
+        }
+    
+        function nextSlide() {
+            showSlide(slideIndex += 1);
+        }
+    
+        function showSlide(n) {
+            var slides = document.getElementsByClassName("slide");
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+    </script>
+    
+    
+    
 
 <div class="container">
     <h1>Compose Email</h1>
-    <div class="form-group">
-        <label for="recipient">To:</label>
-        <div class="recipient-container">
-            <input type="text" id="recipient" name="recipient" placeholder="Recipient Email(s)" class="recipient-input">
-            <button onclick="openPopup()" class="add-email-button">+</button>
+    <div class="neon" style="margin-bottom: 30px;">
+        <label for="recipient" style="color: #fff; font-size: 18px;">To:</label><br>
+        <div class="recipient-container" style="display: flex; align-items: center;">
+            <input type="text" id="recipient" name="recipient" placeholder="Recipient Email(s)" class="recipient-input" style="padding: 15px; margin-bottom: 20px; border: none; border-radius: 8px; background-color: #292929; color: #fff; font-size: 16px; width: 70%; box-sizing: border-box;">
+            <button onclick="openPopup()" class="add-email-button" style="background-color: #4a4aff; color: #00ffff; padding: 15px; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; transition: background-color 0.3s ease; box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); margin-left: 10px;">Add Email</button>
         </div>
     </div>
+    
 
-    <div class="form-group">
+    <div class="neon">
         <label for="subject">Subject:</label>
         <input type="text" id="subject" name="subject" placeholder="Subject">
     </div>
@@ -257,35 +410,39 @@ input[type="submit"],
 </div>
 
 <div class="popup" id="popup">
-    <label for="additionalRecipient">Enter Additional Recipient Email:</label>
-    <input type="text" id="additionalRecipient" placeholder="Email">
-    <button onclick="addAdditionalRecipient()">Add</button>
+    <label for="additionalRecipient" style="color: #fff; font-size: 18px;">Enter Additional Recipient Email:</label><br>
+    <input type="text" id="additionalRecipient" placeholder="Email" style="padding: 15px; margin-top: 10px; width: 100%; border: none; border-radius: 8px; background-color: #292929; color: #fff; font-size: 16px; box-sizing: border-box;">
+    <button onclick="addAdditionalRecipient()" style="background-color: #4a4aff; color: #00ffff; padding: 15px; border: none; border-radius: 8px; cursor: pointer; font-size: 18px; transition: background-color 0.3s ease; box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); margin-top: 10px;">Add</button>
 </div>
+<div class="footer">
+    <p>Designed by <a href="https://samanconnect.com/" target="_blank">SAMAN</a></p>
+</div>
+</div>
+
 
 <script>
     // Get the modal element
-var modal = document.getElementById('myModal');
+    var modal = document.getElementById('myModal');
 
-// Get the <span> element that closes the modal
-var closeBtn = document.getElementsByClassName('close')[0];
+    // Get the <span> element that closes the modal
+    var closeBtn = document.getElementsByClassName('close')[0];
 
-// When the page loads, display the modal
-window.onload = function() {
-  modal.style.display = 'block';
-};
+    // When the page loads, display the modal
+    window.onload = function() {
+        modal.style.display = 'block';
+    };
 
-// When the user clicks on <span> (x), close the modal
-closeBtn.onclick = function() {
-  modal.style.display = 'none';
-};
+    // When the user clicks on <span> (x), close the modal
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    };
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
-  }
-};
-
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
 
     function sendEmail() {
         var recipient = document.getElementById('recipient').value.trim();
@@ -336,6 +493,11 @@ window.onclick = function(event) {
             alert('No saved templates found.');
         }
     }
+    // Function to open URL 1
+function openURL1() {
+    window.open('https://revolut.me/samanabotaleby', '_blank');
+}
+
 
     function displaySavedTemplates() {
         var templates = JSON.parse(localStorage.getItem('emailTemplates'));
@@ -410,10 +572,15 @@ window.onclick = function(event) {
         document.getElementById('additionalRecipient').value = '';
     }
 
+    // Initialize page elements and saved templates on page load
     window.onload = function() {
+        // Display welcome modal
+        var modal = document.getElementById('myModal');
+        modal.style.display = 'block';
+
+        // Display saved templates
         displaySavedTemplates();
     };
 </script>
-
 </body>
 </html>
