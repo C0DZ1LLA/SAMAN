@@ -138,7 +138,6 @@
 <body>
     <div class="container">
         <h1>Monthly Schedule Management</h1>
-
     <div class="select-container">
         <div class="label-container">
         </div>
@@ -162,10 +161,22 @@
                 <option value="November">November</option>
                 <option value="December">December</option>
             </select>
-        </div>
-    </div>
 
-            <div class="container">
+
+ 
+        <div class="select-container">
+            <div class="label-container">
+        <label for="date-number-dropdown">Select Month Date:</label>
+    <select id="date-number-dropdown">
+        <script>
+            for (let i = 1; i <= 31; i++) {
+                document.getElementById('date-number-dropdown').innerHTML += `<option value="${i}">${i}</option>`;
+            }
+        </script>
+    </select>
+
+<div class="label-container">
+
              <label for="month-dropdown">Select Day:</label>
         <select id="day-dropdown">
         <option value="Monday">Monday</option>
@@ -183,39 +194,21 @@
         <label for="start-hour-dropdown">Select Start Time:</label>
             <select id="start-hour-dropdown">
                 <!-- Options for start hour -->
-                <option value="00">00</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
+                <script>
+                    for (let i = 0; i <= 23; i++) {
+                        document.getElementById('start-hour-dropdown').innerHTML += `<option value="${i}">${i}</option>`;
+                    }
+                </script>
                 <!-- Add options for other hours -->
             </select>
 
             <select id="start-minute-dropdown">
                 <!-- Options for start minute -->
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
+                <script>
+                    for (let i = 0; i <= 60; i++) {
+                        document.getElementById('start-minute-dropdown').innerHTML += `<option value="${i}">${i}</option>`;
+                    }
+                </script>
                 <!-- Add options for other minutes -->
         </select>
     </div>
@@ -224,39 +217,21 @@
         <label for="end-hour-dropdown">Select End Time:</label>
             <select id="end-hour-dropdown">
                 <!-- Options for end hour -->
-                <option value="00">00</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
+                <script>
+                    for (let i = 0; i <= 23; i++) {
+                        document.getElementById('end-hour-dropdown').innerHTML += `<option value="${i}">${i}</option>`;
+                    }
+                </script>
                 <!-- Add options for other hours -->
             </select>
 
             <select id="end-minute-dropdown">
                 <!-- Options for end minute -->
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
+                <script>
+                    for (let i = 0; i <= 60; i++) {
+                        document.getElementById('end-minute-dropdown').innerHTML += `<option value="${i}">${i}</option>`;
+                    }
+                </script>
                 <!-- Add options for other minutes -->
             </select>
     </div>
@@ -266,6 +241,7 @@
     </div>
 
     <div class="schedule" id="schedule"></div>
+    <div class="container">
 
     <button onclick="calculateTotalHours()">Calculate Total Hours</button>
     <button onclick="clearData()">Clear Data</button>
@@ -278,75 +254,80 @@
 
 <script>
     class ScheduleDay {
-        constructor(month, day, workStart, workEnd) {
-            this.month = month;
-            this.day = day;
-            this.workStart = workStart;
-            this.workEnd = workEnd;
-            this.totalHours = this.calculateTotalHours(workStart, workEnd);
-            this.timerIntervalId = null;
-            this.isTimerRunning = false;
-            this.timerStartTime = null;
-            this.pausedTime = 0;
-            this.hoursPreview = '';
-        }
-
-        calculateTotalHours(startTime, endTime) {
-            const [startHour, startMinute] = startTime.split(':').map(parseFloat);
-            const [endHour, endMinute] = endTime.split(':').map(parseFloat);
-            const totalHours = (endHour + endMinute / 60) - (startHour + startMinute / 60);
-            return totalHours > 0 ? totalHours : 0;
-        }
+    constructor(month, day, dateNumber, workStart, workEnd) {
+        this.month = month;
+        this.day = day;
+        this.dateNumber = dateNumber; // Add dateNumber property
+        this.workStart = workStart;
+        this.workEnd = workEnd;
+        this.totalHours = this.calculateTotalHours(workStart, workEnd);
+        this.timerIntervalId = null;
+        this.isTimerRunning = false;
+        this.timerStartTime = null;
+        this.pausedTime = 0;
+        this.hoursPreview = '';
     }
+
+    calculateTotalHours(startTime, endTime) {
+        const [startHour, startMinute] = startTime.split(':').map(parseFloat);
+        const [endHour, endMinute] = endTime.split(':').map(parseFloat);
+        const totalHours = (endHour + endMinute / 60) - (startHour + startMinute / 60);
+        return totalHours > 0 ? totalHours : 0;
+    }
+}
+
 
     let monthlySchedule = JSON.parse(localStorage.getItem('monthlySchedule')) || [];
 
     function addCustomMonthlySchedule() {
-        const selectedMonth = document.getElementById('month-dropdown').value;
-        const selectedDay = document.getElementById('day-dropdown').value;
-        const selectedStartHour = document.getElementById('start-hour-dropdown').value;
-        const selectedStartMinute = document.getElementById('start-minute-dropdown').value;
-        const selectedEndHour = document.getElementById('end-hour-dropdown').value;
-        const selectedEndMinute = document.getElementById('end-minute-dropdown').value;
+    const selectedMonth = document.getElementById('month-dropdown').value;
+    const selectedDay = document.getElementById('day-dropdown').value;
+    const selectedDateNumber = document.getElementById('date-number-dropdown').value; // Add this line to retrieve the selected date number
+    const selectedStartHour = document.getElementById('start-hour-dropdown').value;
+    const selectedStartMinute = document.getElementById('start-minute-dropdown').value;
+    const selectedEndHour = document.getElementById('end-hour-dropdown').value;
+    const selectedEndMinute = document.getElementById('end-minute-dropdown').value;
 
-        const workStart = `${selectedStartHour}:${selectedStartMinute}`;
-        const workEnd = `${selectedEndHour}:${selectedEndMinute}`;
+    const workStart = `${selectedStartHour}:${selectedStartMinute}`;
+    const workEnd = `${selectedEndHour}:${selectedEndMinute}`;
 
-        const scheduleDay = new ScheduleDay(selectedMonth, selectedDay, workStart, workEnd);
-        monthlySchedule.push(scheduleDay);
+    const scheduleDay = new ScheduleDay(selectedMonth, selectedDay, selectedDateNumber, workStart, workEnd); // Pass selectedDateNumber to the ScheduleDay constructor
+    monthlySchedule.push(scheduleDay);
 
-        saveScheduleToLocalStorage();
-        displaySchedule();
-    }
+    saveScheduleToLocalStorage();
+    displaySchedule();
+}
+
 
     function saveScheduleToLocalStorage() {
         localStorage.setItem('monthlySchedule', JSON.stringify(monthlySchedule));
     }
 
     function displaySchedule() {
-        const scheduleDiv = document.getElementById("schedule");
-        scheduleDiv.innerHTML = "";
+    const scheduleDiv = document.getElementById("schedule");
+    scheduleDiv.innerHTML = "";
 
-        monthlySchedule.forEach(day => {
-            const dayDiv = document.createElement("div");
-            dayDiv.classList.add("day");
-            const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
-            dayDiv.innerHTML = `<p>${day.month} ${day.day.toUpperCase()}: Work Hours - ${day.workStart} to ${day.workEnd} | Total Hours - <span class="total-hours">${totalTime.toFixed(2)}</span></p>`;
-            const timerDiv = document.createElement("div");
-            timerDiv.classList.add("timer");
-            const timerButton = document.createElement("button");
-            timerButton.textContent = day.isTimerRunning ? "Pause Timer" : "Start Timer";
-            timerButton.onclick = function(event) {
-                toggleTimer(day, event);
-            };
-            const timerText = document.createElement("p");
-            timerText.textContent = day.isTimerRunning ? "Hours Preview: " + day.hoursPreview : "";
-            timerDiv.appendChild(timerButton);
-            timerDiv.appendChild(timerText);
-            dayDiv.appendChild(timerDiv);
-            scheduleDiv.appendChild(dayDiv);
-        });
-    }
+    monthlySchedule.forEach(day => {
+        const dayDiv = document.createElement("div");
+        dayDiv.classList.add("day");
+        const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+        dayDiv.innerHTML = `<p>${day.month} ${day.day.toUpperCase()} ${day.dateNumber}: Work Hours - ${day.workStart} to ${day.workEnd} | Total Hours - <span class="total-hours">${totalTime.toFixed(2)}</span></p>`;
+        const timerDiv = document.createElement("div");
+        timerDiv.classList.add("timer");
+        const timerButton = document.createElement("button");
+        timerButton.textContent = day.isTimerRunning ? "Pause Timer" : "Start Timer";
+        timerButton.onclick = function(event) {
+            toggleTimer(day, event);
+        };
+        const timerText = document.createElement("p");
+        timerText.textContent = day.isTimerRunning ? "Hours Preview: " + day.hoursPreview : "";
+        timerDiv.appendChild(timerButton);
+        timerDiv.appendChild(timerText);
+        dayDiv.appendChild(timerDiv);
+        scheduleDiv.appendChild(dayDiv);
+    });
+}
+
 
     function calculateUpdatedTotalHours(day) {
         const elapsedTime = calculateElapsedTime(day);
@@ -433,21 +414,21 @@
     }
 
     function exportToCSV() {
-        let csvContent = "data:text/csv;charset=utf-8,";
-        const header = ['Month', 'Day', 'Work Start Time', 'Work End Time', 'Total Hours'];
-        csvContent += header.join(',') + '\n';
-        monthlySchedule.forEach(day => {
-            const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
-            const row = [day.month, day.day, day.workStart, day.workEnd, totalTime.toFixed(2)];
-            csvContent += row.join(',') + '\n';
-        });
-        const encodedURI = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", encodedURI);
-        link.setAttribute("download", "monthly_schedule.csv");
-        document.body.appendChild(link);
-        link.click();
-    }
+    let csvContent = "data:text/csv;charset=utf-8,";
+    const header = ['Month', 'Day', 'Date Number', 'Work Start Time', 'Work End Time', 'Total Hours']; // Add 'Date Number' to the header
+    csvContent += header.join(',') + '\n';
+    monthlySchedule.forEach(day => {
+        const totalTime = day.isTimerRunning ? calculateUpdatedTotalHours(day) : day.totalHours;
+        const row = [day.month, day.day, day.dateNumber, day.workStart, day.workEnd, totalTime.toFixed(2)]; // Include 'day.dateNumber' in the row
+        csvContent += row.join(',') + '\n';
+    });
+    const encodedURI = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedURI);
+    link.setAttribute("download", "monthly_schedule.csv");
+    document.body.appendChild(link);
+    link.click();
+}
 
     displaySchedule();
 
