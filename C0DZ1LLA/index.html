@@ -176,25 +176,105 @@
     </div>
     <!-- Modals -->
     <div id="translateModal" class="modal-content">
-        <!-- Translate modal content -->
+    <h2>Translate</h2>
+        <p>Translate this website into your preferred language.</p>
+        <div class="language-selector">
+
+            </select>
+            <button id="translateButton" onclick="translatePage()">Translate</button>
+        </div>
+        <div id="google_translate_element"></div>
+        <span class="close" onclick="closeModal('translateModal')"><i class="fas fa-times"></i></span>
+
     </div>
     <div id="contactModal" class="modal-content">
-        <!-- Contact modal content -->
+        <h2>Contact Information</h2>
+        <p>Email: <a href="mailto:saman.abotaleby@gmail..com">saman.abotaleby@gmail..com</a></p>
+        <p>Phone: <a href="tel:+357 97906864">+357 97906864</a></p>
+        <div class="button-container">
+            <button onclick="openEmailApp('saman.abotaleby@gmail..com')">Email Us</button>
+            <button onclick="openPhoneApp('+357 97906864')">Call Us</button>
+            <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
+
+        </div>
     </div>
     <div id="aboutModal" class="modal-content">
-        <!-- About modal content -->
+        <h2>About Us</h2>
+        <!-- About Us content here -->
+        <p>Saman is a proficient coder who leverages the power of AI to create projects spanning multiple programming languages. With expertise in Python, JavaScript, Java, C and C++, Golang, Swift, Kotlin, C#, R, PHP, HTML, and CSS, Saman utilizes AI-driven tools to streamline project development and enhance efficiency across diverse language ecosystems.</p>
+        <p>By harnessing AI algorithms, Saman accelerates the project creation process, generating code snippets, optimizing algorithms, and automating repetitive tasks across a wide range of languages. Whether it's developing web applications, mobile apps, desktop software, or machine learning models, Saman's innovative approach enables rapid prototyping and iteration, resulting in high-quality projects with minimal manual effort.</p>
+        <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
+
     </div>
     <div id="servicesModal" class="modal-content">
-        <!-- Services modal content -->
+        <h2>Unlock Your Coding Potential with Saman's AI-Powered Mastery</h2>
+        <!-- Our Services content here -->
+        <div class="service">
+            <h3>Python Power-Ups</h3>
+            <p>Delve into the art of data sorcery or web wizardry with Saman's AI-infused Python prowess. Whether you're crunching numbers or conjuring up a dazzling website, Saman's tools will have you zooming through tasks faster than you can say "import antigravity."</p>
+
+       
+        <div class="service">
+            <h3>JavaScript Jams</h3>
+            <p>From crafting interactive web wonders to brewing browser enchantments, Saman's AI tools sprinkle a dash of magic into your JavaScript projects. Experience the smooth groove of development as you weave your ideas into reality with effortless finesse.</p>
+
+      
+        <div class="service">
+            <h3>Java Journeys</h3>
+            <p>Bid adieu to coding marathons and embark on epic Java journeys with Saman's AI by your side. Whether you're charting the depths of Android app development or conquering the enterprise jungle, Saman's expertise will guide you through with the grace of a digital guru.</p>
+
+       
+        <div class="service">
+            <h3>C and C++ Charms</h3>
+            <p>Wave goodbye to pointer perils and embrace the charm of seamless development with Saman's AI-infused C and C++ services. Watch in awe as headaches vanish into thin air, replaced by high-fives and victorious shouts of triumph.</p>
+      
+        <div class="service">
+            <h3>Golang Goodies</h3>
+            <p>Feel the rush of Go(lang) development as Saman's AI solutions propel your projects to new heights of speed and scalability. Experience the thrill as your Golang creations zoom along like a cheetah on rocket-powered roller skates.</p>
+       
+        <div class="service">
+            <h3>Swift and Kotlin Spells</h3>
+            <p>Whether you're an Apple aficionado or an Android acolyte, Saman's AI has you covered. Experience the exhilaration of crafting Swift iOS wonders and Kotlin Android delights faster than you can say "Hello, World!" in Klingon.</p>
+ 
+        <div class="service">
+            <h3>C# Sorcery</h3>
+            <p>Embrace the dark arts of C# development and watch your code dreams materialize into reality with Saman's AI-driven solutions. From crafting desktop epics to conjuring immersive game realms, Saman's expertise is like a magic wand for your digital desires.</p>
+    
+        <div class="service">
+            <h3>R for Data Wizards</h3>
+            <p>Navigate the labyrinth of data science with confidence using Saman's AI-enhanced R services. Slay statistics and conjure up predictive models like a true data wizard, unleashing the hidden powers of your data-driven endeavors.</p>
+     
+        <div class="service">
+            <h3>PHP Phenomena</h3>
+            <p>Say hello to dynamic web marvels and e-commerce enchantments with Saman's PHP prowess. Watch in awe as Saman sprinkles AI magic on your PHP projects, making them shine brighter than a disco ball at a power outage rave.</p>
+ 
+        <div class="service">
+            <h3>HTML and CSS Enchantment</h3>
+            <p>Transform your web designs from mundane to mesmerizing with Saman's AI-enhanced HTML and CSS services. Bid adieu to bland layouts and hello to web pages so stylish, they'll have your grandma calling to ask for design tips.</p>
+   
+        <span class="close" onclick="closeModal('servicesModal')"><i class="fas fa-times"></i></span>
+
+    </div>
+    
+    
+        
+    <div id="faqsModal" class="modal-content">
+        <h2>Frequently Asked Questions</h2>
+        <!-- FAQs content here -->
+        <span class="close" onclick="closeModal('faqsModal')"><i class="fas fa-times"></i></span>
+
     </div>
     <div id="galleryModal" class="modal-content">
-        <!-- Gallery modal content -->
+        <h2>Gallery</h2>
+        <!-- Gallery content here -->
+        <span class="close" onclick="closeModal('galleryModal')"><i class="fas fa-times"></i></span>
+
     </div>
     <div id="testimonialsModal" class="modal-content">
-        <!-- Testimonials modal content -->
-    </div>
-    <div id="faqsModal" class="modal-content">
-        <!-- FAQs modal content -->
+        <h2>Testimonials</h2>
+        <!-- Testimonials content here -->
+        <span class="close" onclick="closeModal('testimonialsModal')"><i class="fas fa-times"></i></span>
+
     </div>
     <!-- End Modals -->
     <footer>
