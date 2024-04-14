@@ -4,155 +4,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <title>C0DZ1LLA Systems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Universal Styles */
-        * {
-            box-sizing: border-box;
-        }
+/* Universal Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212; /* Dark background color */
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            scroll-behavior: smooth; /* Smooth scrolling */
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #8d8d8d;
+}
 
-        /* Add futuristic animation effect to header */
-        header {
-            animation: fadeIn 2s ease-in-out;
-        }
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ffd700; /* Futuristic border */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Futuristic shadow */
+}
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ffd700; /* Bright yellow */
+}
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #3a3a3a;
+}
 
-        /* Container Styles */
-        .container {
-            max-width: 90%;
-            padding: 20px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center horizontally */
-            text-align: center; /* Center button container horizontally */
-        }
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    padding: 0 20px;
+}
 
-        /* Button Styles */
-        .button-container button {
-            padding: 1em 2em;
-            font-size: 1.2em;
-            background-color: transparent;
-            color: #00ffff;
-            border: 2px solid #00ffff;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none;
-            flex: 1; /* Each button takes equal space */
-            max-width: 200px; /* Limit maximum button width */
-            position: relative; /* Position relative for pseudo-element */
-            overflow: hidden; /* Hide overflowing content */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a suitable font */
-        }
+button {
+    padding: 1em 2em;
+    font-size: 1.2em;
+    background-color: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        /* Add futuristic hover effect */
-        .button-container button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background-color: #00ffff;
-            transition: all 0.3s ease;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            z-index: -1;
-        }
+button:hover {
+    background-color: #00ffff;
+    color: #121212;
+}
 
-        .button-container button:hover::before {
-            width: 0;
-            height: 0;
-            opacity: 1;
-        }
+/* Modal Styles */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: calc(100vw - 40px); /* Subtract padding from viewport width */
+    height: calc(100vh - 40px); /* Subtract padding from viewport height */
+    max-width: 800px; /* Adjust max-width as needed */
+    max-height: 80vh; /* Adjust max-height as needed */
+    overflow-y: auto;
+    background-color: #121212; /* Dark background color */
+    border: 2px solid #ffd700; /* Futuristic border */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.7);
+    color: #fff; /* White text color */
+    text-align: center; /* Center align text */
+}
 
-        /* Modal Styles */
-        .modal-content {
-            display: none; /* Hide modal content by default */
-            background-color: #121212; /* Dark background */
-            padding: 2em;
-            border-radius: 20px;
-            width: 90%; /* 90% of viewport width */
-            max-width: 90vw; /* Maximum width for larger screens */
-            max-height: 90vh; /* 90% of viewport height */
-            overflow-y: auto;
-            text-align: left; /* Align text to the left */
-            position: fixed; /* Position fixed to keep it in view */
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%) scale(0.7); /* Center the modal and initially scale down */
-            z-index: 1000; /* Ensure modal is above other content */
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.5); /* Futuristic box shadow */
-            border: 2px solid #ffd700; /* Gold border */
-            color: #fff; /* Text color */
-            transition: transform 0.5s ease; /* Add transition for modal animation */
-        }
+.modal-content:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+}
 
-        /* Scale up the modal on hover */
-        .modal-content:hover {
-            transform: translate(-50%, -50%) scale(0.8);
-        }
+h2 {
+    font-size: 2.5em; /* Maintain heading size for compatibility */
+    margin-bottom: 1em;
+    color: #00ffff; /* Cyan color */
+}
 
-        .close {
-            color: #fff;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 2em;
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            z-index: 999; /* Ensure close button is above modal content */
-            transition: color 0.3s ease, transform 0.3s ease; /* Include transition for smoother effects */
-        }
+.service h3 {
+    font-size: 1.8em; /* Maintain service title font size */
+    margin-bottom: 0.5em;
+    color: #ffd700; /* Bright yellow */
+}
 
-        .close:hover {
-            color: #00ffff;
-            transform: scale(1.1); /* Add a scale effect on hover */
-        }
+.service p {
+    font-size: 1.1em; /* Maintain service paragraph font size */
+    line-height: 1.5;
+}
 
-        /* Define a CSS class to hide the button */
+.close {
+    color: #5e0000;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    z-index: 999;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close:hover {
+    color: #00ffff;
+    transform: scale(1.1);
+}
+
+/* Header Styles */
+header {
+    background-color: #000; /* Dark background color for header */
+    padding: 20px 0; /* Add some padding to the top and bottom */
+    text-align: center; /* Center align the content */
+}
+
+header h1 {
+    font-size: 2em; /* Increase font size for header */
+    color: #ffd700; /* Bright yellow text color */
+}
+
+header p {
+    font-size: 1.2em; /* Increase font size for paragraph */
+    color: #b3b3b3; /* Light gray text color */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000; /* Dark background color for footer */
+    padding: 20px 0; /* Add some padding to the top and bottom */
+    text-align: center; /* Center align the content */
+}
+
+footer p {
+    font-size: 1em; /* Normal font size for paragraph */
+    color: #b3b3b3; /* Light gray text color */
+}
+
+
+
         .hidden {
             display: none;
         }
 
-        /* Responsive Styles */
-        @media screen and (max-width: 768px) {
-            .button-container button {
-                flex-basis: calc(50% - 10px); /* Set button width to one-half minus the gap */
-            }
-        }
 
-        @media screen and (max-width: 480px) {
-            .button-container button {
-                flex-basis: calc(100% - 10px); /* Set button width to full width */
-                margin-bottom: 10px; /* Add some margin between buttons */
-            }
-        }
     </style>
 </head>
 
@@ -168,132 +183,92 @@
             <button onclick="toggleModal('translateModal')">Translate Page</button>
             <button onclick="toggleModal('contactModal')">Contact</button>
             <button onclick="toggleModal('aboutModal')">About</button>
-            <button onclick="toggleModal('servicesModal')">Services</button>
             <button onclick="toggleModal('galleryModal')">Gallery</button>
-            <button id="testimonialsModal" onclick="toggleModal('testimonialsModal')">Testimonials</button>
-            <button id="faqButton" onclick="toggleModal('faqsModal')">FAQs</button>
         </div>
     </div>
-    <!-- Modals -->
-    <div id="translateModal" class="modal-content">
-    <h2>Translate</h2>
+
+    <div id="translateModal" class="modal-content hidden">
+        <h2>Translate</h2>
         <p>Translate this website into your preferred language.</p>
         <div class="language-selector">
 
-            </select>
-            <button id="translateButton" onclick="translatePage()">Translate</button>
         </div>
         <div id="google_translate_element"></div>
         <span class="close" onclick="closeModal('translateModal')"><i class="fas fa-times"></i></span>
-
     </div>
-    <div id="contactModal" class="modal-content">
-        <h2>Contact Information</h2>
-        <p>Email: <a href="mailto:saman.abotaleby@gmail..com">saman.abotaleby@gmail..com</a></p>
-        <p>Phone: <a href="tel:+357 97906864">+357 97906864</a></p>
-        <div class="button-container">
-            <button onclick="openEmailApp('saman.abotaleby@gmail..com')">Email Us</button>
-            <button onclick="openPhoneApp('+357 97906864')">Call Us</button>
-            <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
 
+    <div id="contactModal" class="modal-content hidden">
+        <h2>Contact Information</h2>
+
+        <div class="button-container">
+            <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email Us</button>
+            <button onclick="openPhoneApp('+35797906864')">Whatsapp</button>
+            <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
         </div>
     </div>
-    <div id="aboutModal" class="modal-content">
-        <h2>About Us</h2>
-        <!-- About Us content here -->
+
+    <div id="aboutModal" class="modal-content hidden">
+        <h2>Saman's Tech Portfolio
+
+        </h2>
         <p>Saman is a proficient coder who leverages the power of AI to create projects spanning multiple programming languages. With expertise in Python, JavaScript, Java, C and C++, Golang, Swift, Kotlin, C#, R, PHP, HTML, and CSS, Saman utilizes AI-driven tools to streamline project development and enhance efficiency across diverse language ecosystems.</p>
         <p>By harnessing AI algorithms, Saman accelerates the project creation process, generating code snippets, optimizing algorithms, and automating repetitive tasks across a wide range of languages. Whether it's developing web applications, mobile apps, desktop software, or machine learning models, Saman's innovative approach enables rapid prototyping and iteration, resulting in high-quality projects with minimal manual effort.</p>
         <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
-
     </div>
-    <div id="servicesModal" class="modal-content">
-        <h2>Unlock Your Coding Potential with Saman's AI-Powered Mastery</h2>
-        <!-- Our Services content here -->
+    <div class="container">
+
+        <h2>Saman's Tech Wizardry</h2>
+        <div class="service" id="pythonService">
+            <h3 onclick="openModal('pythonModal')">Python Power-Ups</h3>
+            <p>I can do some cool stuff with Python, from crunching numbers to making awesome websites!</p>
+        </div>
+
         <div class="service">
             <h3>Python Power-Ups</h3>
-            <p>Delve into the art of data sorcery or web wizardry with Saman's AI-infused Python prowess. Whether you're crunching numbers or conjuring up a dazzling website, Saman's tools will have you zooming through tasks faster than you can say "import antigravity."</p>
-
-       
+            <p>I can do some cool stuff with Python, from crunching numbers to making awesome websites!</p>
+        </div>
         <div class="service">
             <h3>JavaScript Jams</h3>
-            <p>From crafting interactive web wonders to brewing browser enchantments, Saman's AI tools sprinkle a dash of magic into your JavaScript projects. Experience the smooth groove of development as you weave your ideas into reality with effortless finesse.</p>
-
-      
+            <p>With JavaScript and a sprinkle of AI magic, I can create interactive web wonders and browser enchantments.</p>
+        </div>
         <div class="service">
             <h3>Java Journeys</h3>
-            <p>Bid adieu to coding marathons and embark on epic Java journeys with Saman's AI by your side. Whether you're charting the depths of Android app development or conquering the enterprise jungle, Saman's expertise will guide you through with the grace of a digital guru.</p>
-
-       
+            <p>I've dabbled in Java, whether it's creating Android apps or tackling enterprise projects.                .</p>
+        </div>
         <div class="service">
             <h3>C and C++ Charms</h3>
-            <p>Wave goodbye to pointer perils and embrace the charm of seamless development with Saman's AI-infused C and C++ services. Watch in awe as headaches vanish into thin air, replaced by high-fives and victorious shouts of triumph.</p>
-      
-        <div class="service">
-            <h3>Golang Goodies</h3>
-            <p>Feel the rush of Go(lang) development as Saman's AI solutions propel your projects to new heights of speed and scalability. Experience the thrill as your Golang creations zoom along like a cheetah on rocket-powered roller skates.</p>
-       
-        <div class="service">
-            <h3>Swift and Kotlin Spells</h3>
-            <p>Whether you're an Apple aficionado or an Android acolyte, Saman's AI has you covered. Experience the exhilaration of crafting Swift iOS wonders and Kotlin Android delights faster than you can say "Hello, World!" in Klingon.</p>
- 
+            <p>No pointer problems here! I've mastered C and C++ with a little help from AI, making development seamless and fun.</p>
+        </div>
+
         <div class="service">
             <h3>C# Sorcery</h3>
-            <p>Embrace the dark arts of C# development and watch your code dreams materialize into reality with Saman's AI-driven solutions. From crafting desktop epics to conjuring immersive game realms, Saman's expertise is like a magic wand for your digital desires.</p>
-    
-        <div class="service">
-            <h3>R for Data Wizards</h3>
-            <p>Navigate the labyrinth of data science with confidence using Saman's AI-enhanced R services. Slay statistics and conjure up predictive models like a true data wizard, unleashing the hidden powers of your data-driven endeavors.</p>
-     
+            <p>I'm getting crafty with C#, crafting desktop apps and immersive game realms using AI-driven solutions.</p>
+        </div>
         <div class="service">
             <h3>PHP Phenomena</h3>
-            <p>Say hello to dynamic web marvels and e-commerce enchantments with Saman's PHP prowess. Watch in awe as Saman sprinkles AI magic on your PHP projects, making them shine brighter than a disco ball at a power outage rave.</p>
- 
+            <p>PHP is my playground for dynamic web marvels and e-commerce magic, powered by AI tricks.</p>
+        </div>
         <div class="service">
             <h3>HTML and CSS Enchantment</h3>
-            <p>Transform your web designs from mundane to mesmerizing with Saman's AI-enhanced HTML and CSS services. Bid adieu to bland layouts and hello to web pages so stylish, they'll have your grandma calling to ask for design tips.</p>
-   
-        <span class="close" onclick="closeModal('servicesModal')"><i class="fas fa-times"></i></span>
-
+            <p>With AI-enhanced HTML and CSS, I can transform web designs from dull to dazzling.</p>
+        </div>
     </div>
-    
-    
-        
-    <div id="faqsModal" class="modal-content">
-        <h2>Frequently Asked Questions</h2>
-        <!-- FAQs content here -->
-        <span class="close" onclick="closeModal('faqsModal')"><i class="fas fa-times"></i></span>
 
-    </div>
-    <div id="galleryModal" class="modal-content">
-        <h2>Gallery</h2>
-        <!-- Gallery content here -->
-        <span class="close" onclick="closeModal('galleryModal')"><i class="fas fa-times"></i></span>
 
-    </div>
-    <div id="testimonialsModal" class="modal-content">
-        <h2>Testimonials</h2>
-        <!-- Testimonials content here -->
-        <span class="close" onclick="closeModal('testimonialsModal')"><i class="fas fa-times"></i></span>
-
-    </div>
-    <!-- End Modals -->
     <footer>
-        <div class="container">
             <p>&copy; 2024 Futuristic Website. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        document.getElementById('faqButton').classList.add('hidden');
-        document.getElementById('testimonialsModal').classList.add('hidden');
-
-        let currentModal = null;
         // Function to close the modal with the given ID
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.style.display = "none";
         }
 
+        let currentModal = null;
+        // Function to toggle modal display
         const toggleModal = (id) => {
             const modal = document.getElementById(id);
             if (currentModal !== null && currentModal !== modal) {
@@ -307,20 +282,17 @@
             currentModal = modal.style.display === "flex" ? modal : null;
         }
 
-        window.addEventListener("click", (event) => {
-            if (event.target.classList.contains('modal-container')) {
-                toggleModal(currentModal.id);
-            }
-        });
-
+        // Function to open email app
         function openEmailApp(email) {
             window.location.href = "mailto:" + email;
         }
 
+        // Function to open phone app
         function openPhoneApp(phone) {
             window.location.href = "tel:" + phone;
         }
 
+        // Function to translate page
         function translatePage() {
             // Implement translation functionality here
         }
@@ -342,10 +314,15 @@
             }, 'google_translate_element');
         }
 
-        function closeModal(modalId) {
-            var modal = document.getElementById(modalId);
-            modal.style.display = "none";
-        }
+        // Close modal on outside click
+        window.addEventListener("click", (event) => {
+            if (event.target.classList.contains('modal-container')) {
+                toggleModal(currentModal.id);
+            }
+        });
+
+
+        
     </script>
 </body>
 
