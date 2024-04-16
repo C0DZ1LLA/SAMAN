@@ -1,49 +1,682 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C0DZ1LLA Systems</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S5FVTLKRD"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TTNJ9CYT8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0TTNJ9CYT8');
-</script>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>SAMAN | C0DZ1LLA SERVER</title>
-  </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width="100%" height="100%" tabindex="-1" style="width: 100vw; height: 100vh; background: #808080"></canvas>
-    <script src="Build/COMPRESSED.loader.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TTNJ9CYT8"></script>
     <script>
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-
-        var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
-        canvas.style.position = "fixed";
-
-        document.body.style.textAlign = "left";
-      }
-
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/COMPRESSED.data.unityweb",
-        frameworkUrl: "Build/COMPRESSED.framework.js.unityweb",
-        codeUrl: "Build/COMPRESSED.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "SAMAN",
-        productName: "C0DZ1LLA SERVER",
-        productVersion: "10.0",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-0TTNJ9CYT8');
     </script>
-  </body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+/* Universal Styles */
+/* Universal Styles */
+body {
+            margin: 0;
+            padding: 0;
+            font-family: "Courier New", Courier, monospace;
+            background-color: #000000; /* Darker background for a futuristic feel */
+            color: #00ffff; /* Bright cyan text color */
+        }
+
+        /* Create matrix rain effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; /* Use viewport width */
+            height: 100vh; /* Use viewport height */
+            pointer-events: none;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext x='0' y='15' font-family='Courier' font-size='15' fill='%23ffd700'%3E%3C/text%3E%3C/svg%3E");
+            background-size: 100% 200%; /* Double the height to create scrolling effect */
+            animation: matrixRain 5s linear infinite;
+            z-index: -1;
+        }
+
+        /* Apply matrix rain effect to canvas background */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width of the viewport */
+            height: 100%; /* Full height of the viewport */
+            z-index: -1;
+        }
+
+        /* Ensure canvas is behind other content */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Create matrix rain effect for the container background */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext x='0' y='15' font-family='Courier' font-size='15' fill='%23ffd700'%3E%3C/text%3E%3C/svg%3E");
+            background-size: 100% 200%; /* Double the height to create scrolling effect */
+            animation: matrixRain 5s linear infinite;
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ffd700; /* Dark gold */
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #00ffff; /* Bright cyan */
+        }
+
+        /* Vertical button container */
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Change to column direction */
+            align-items: center; /* Center align buttons vertically */
+            gap: 10px;
+            max-width: 100%;
+            padding: 0 20px;
+        }
+
+        /* Adjust button styles for vertical layout */
+        button {
+            padding: 1em 2em;
+            font-size: 1.2em;
+            background-color: #000000b7;
+            color: #00ffff; /* Bright cyan */
+            border: 2px solid #00ffff; /* Bright cyan border */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 200px; /* Set fixed width for vertical buttons */
+        }
+
+        button:hover {
+            background-color: #00ffff; /* Bright cyan */
+            color: #121212;
+        }
+
+/* Base Modal Styles */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    max-width: 800px; /* Maximum width for large screens */
+    max-height: 80vh; /* Maximum height for large screens */
+    overflow-y: auto;
+    background-color: #000; /* Dark background color */
+    border: 2px solid #ffd700; /* Futuristic dark gold border */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.7);
+    color: #00ffff; /* Bright cyan text color */
+    text-align: center; /* Center align text */
+}
+
+/* Media Query for Small Devices */
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        width: 90%; /* Adjust width percentage for small screens */
+        height: 90%; /* Adjust height percentage for small screens */
+    }
+}
+
+/* Media Query for Medium Devices */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .modal-content {
+        width: 70%; /* Adjust width percentage for medium screens */
+        height: 70%; /* Adjust height percentage for medium screens */
+    }
+}
+
+
+        .modal-content:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+        }
+
+        h2 {
+            font-size: 2.5em; /* Maintain heading size for compatibility */
+            margin-bottom: 1em;
+            color: #00ffff; /* Bright cyan color */
+        }
+
+        .service h3 {
+            font-size: 1.8em; /* Maintain service title font size */
+            margin-bottom: 0.5em;
+            color: #ffd700; /* Dark gold color */
+        }
+
+        .service p {
+            font-size: 1.1em; /* Maintain service paragraph font size */
+            line-height: 1.5;
+        }
+
+        .close {
+            color: #5e0000;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            z-index: 999;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .close:hover {
+            color: #00ffff; /* Bright cyan on hover */
+            transform: scale(1.1);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0000002a; /* Dark background color for header */
+            padding: 20px 0; /* Add some padding to the top and bottom */
+            text-align: center; /* Center align the content */
+        }
+
+        header h1 {
+            font-size: 2em; /* Increase font size for header */
+            color: #ffd700; /* Dark gold text color */
+        }
+
+        header p {
+            font-size: 1.2em; /* Increase font size for paragraph */
+            color: #b3b3b3; /* Light gray text color */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #000; /* Dark background color for footer */
+            padding: 20px 0; /* Add some padding to the top and bottom */
+            text-align: center; /* Center align the content */
+        }
+
+        footer p {
+            font-size: 1em; /* Normal font size for paragraph */
+            color: #b3b3b3; /* Light gray text color */
+        }
+
+        /* Image container styles */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-y: auto;
+            max-height: calc(100% - 120px); /* Adjust as needed */
+            padding: 10px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="button-container">
+            <h1>Welcome to C0DZ1LLA Systems</h1>
+            <h1>Made by Saman</h1>
+            <p>Welcome to C0DZ1LLA Systems, self-taught individual dedicated to pushing the boundaries of technology. As a coder, programmer, and developer, I am on a mission to explore the vast possibilities that technology offers in the age of AI. At C0DZ1LLA Systems, I strive to create awe-inspiring websites, software solutions, games, and more, leveraging my expertise and innovative spirit.</p>
+        </div>
+
+    </header>
+    <div class="container">
+        <div class="button-container">
+            <button onclick="toggleModal('translateModal')">Translate Page</button>
+
+            <button onclick="toggleModal('aboutModal')">About</button>
+            <button onclick="openModal('GithubModal')">Github Profile</button>
+            <button onclick="openModal('GameDevModal')">Game Development</button>
+            <button onclick="openModal('ProjectsModal')">Recent Projects</button>
+            <button onclick="toggleModal('contactModal')">Contact</button>
+
+
+<!-- Button to trigger the gallery modal -->
+</div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <div id="translateModal" class="modal-content hidden">
+        <h2>Translate</h2>
+        <p>Translate this website into your preferred language.</p>
+        <div class="language-selector"></div>
+        <div id="google_translate_element"></div>
+    </div>
+    
+
+    <div id="contactModal" class="modal-content hidden">
+        <h2>Contact Information</h2>
+
+        <div class="button-container">
+            <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
+
+            <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
+            <button onclick="openPhoneApp('+35797906864')">Whatsup</button>
+            <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
+        </div>
+    </div>
+
+    <div id="aboutModal" class="modal-content hidden">
+        <h1>Saman's Tech Portfolio
+        </h1>
+        <p>
+        <ul>
+            <li>Website Development: From concept to execution, I design and develop cutting-edge websites that captivate and engage users, tailored to meet your specific needs.</li>
+            <li>Software Engineering: As a skilled software engineer, I craft powerful applications that solve complex problems and streamline processes, utilizing the latest AI technologies.</li>
+            <li>Game Development: Immerse yourself in captivating gaming experiences crafted with passion and creativity, combining AI algorithms with innovative design concepts.</li>
+            <li>Tech Consulting: Need guidance on navigating the tech landscape? My consulting services provide personalized insights and strategies to help you succeed in your projects.</li>
+        </ul>
+        <p>
+        <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
+    </div>
+
+
+<!-- Github modal -->
+<div id="GithubModal" class="modal-content hidden" onclick="closeModal('GithubModal')">
+    <p>
+        I can do some cool stuff with various programming languages:
+        <ul>
+            <li>Python: From crunching numbers to making awesome websites.</li>
+            <li>JavaScript: Creating interactive web wonders and browser enchantments.</li>
+            <li>Java: Creating Android apps or tackling enterprise projects.</li>
+            <li>C and C++: Mastering these languages with AI assistance, making development seamless.</li>
+            <li>C#: Crafting desktop apps and immersive game realms using AI-driven solutions.</li>
+            <li>PHP: Playground for dynamic web marvels and e-commerce magic, powered by AI.</li>
+            <li>HTML and CSS: Transforming web designs from dull to dazzling with AI enhancements.</li>
+        </ul>
+    </p>
+        <div class="button-container">
+            <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Website</button>
+            <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
+        </div>
+    </p>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+<!-- Game Development modal -->
+<div id="GameDevModal" class="modal-content hidden" onclick="closeModal('GameDevModal')">
+    <div class="modal-body">
+        <p>
+            Game development, exploring both 3D and 2D realms:
+            <ul>
+                <li>3D Game Development:
+                    <ul>
+                        <li>Utilizing advanced tools like Unity or Unreal Engine to create immersive 3D environments.</li>
+                        <li>Implementing realistic physics, lighting effects, and animations for lifelike experiences.</li>
+                        <li>Developing complex game mechanics and AI systems to enhance gameplay.</li>
+                        <li>Creating multiplayer experiences with network programming and server integration.</li>
+                    </ul>
+                </li>
+                <li>2D Game Development:
+                    <ul>
+                        <li>Using frameworks Unity's 2D features to build engaging 2D games.</li>
+                        <li>Designing captivating visual assets and animations to bring games to life.</li>
+                        <li>Implementing intuitive user interfaces and responsive controls for seamless gameplay.</li>
+                        <li>Optimizing performance and compatibility across various platforms and devices.</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        <div class="button-container">
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/3D WEB')">View Portfolio</button>
+            <span class="close" onclick="closeModal('GameDevModal')"><i class="fas fa-times"></i></span>
+        </div>
+    </div>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+
+<!-- Recent Projects modal -->
+<div id="ProjectsModal" class="modal-content hidden" onclick="closeModal('ProjectsModal')">
+    <div class="modal-body">
+            Here are some of my recent projects showcasing various skills and technologies:
+            </ul>
+        </p>
+        <div class="button-container">
+
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">PROJECT 1</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project3')">PROJECT 2</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/POLL SYSTEM')">PROJECT 3</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PINEVIEWHOTEL/1')">PROJECT 4</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">PROJECT 5</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CHARIDIOVENUE')">PROJECT 6</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">PROJECT 7</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">PROJECT 8</button>
+            <span class="close" onclick="closeModal('ProjectsModal')"><i class="fas fa-times"></i></span>
+        </div>
+    </div>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+
+<!-- C and C++ modal -->
+<div id="cCppModal" class="modal-content hidden" onclick="closeModal('cCppModal')">
+    <h3>C and C++ Charms</h3>
+    <p>No pointer problems here! I've mastered C and C++ with a little help from AI, making development seamless and fun.</p>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+
+<!-- C# modal -->
+<div id="cSharpModal" class="modal-content hidden" onclick="closeModal('cSharpModal')">
+    <h3>C# Sorcery</h3>
+    <p>I'm getting crafty with C#, crafting desktop apps and immersive game realms using AI-driven solutions.</p>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+
+<!-- PHP modal -->
+<div id="phpModal" class="modal-content hidden" onclick="closeModal('phpModal')">
+    <h3>PHP Phenomena</h3>
+    <p>PHP is my playground for dynamic web marvels and e-commerce magic, powered by AI tricks.</p>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+
+<!-- HTML and CSS modal -->
+<div id="htmlCssModal" class="modal-content hidden" onclick="closeModal('htmlCssModal')">
+    <h3>HTML and CSS Enchantment</h3>
+    <p>With AI-enhanced HTML and CSS, I can transform web designs from dull to dazzling.</p>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+
+
+
+<!-- Modal with image container -->
+<div id="galleryModal" class="modal-content hidden" onclick="closeModal('galleryModal')">
+    <div class="image-container">
+        <div class="image-item">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/img/carwash.png" alt="Image 1" onclick="toggleImageSize(this)">
+        </div>
+        <div class="image-item">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/img/email.png" alt="Image 2" onclick="toggleImageSize(this)">
+        </div>
+        <div class="image-item">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/img/image.png" alt="Image 1" onclick="toggleImageSize(this)">
+        </div>
+        <div class="image-item">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/img/carwash.png" alt="Image 1" onclick="toggleImageSize(this)">
+        </div>
+        <div class="image-item">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/img/carwash.png" alt="Image 1" onclick="toggleImageSize(this)">
+        </div>
+        <div class="image-item">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/img/carwash.png" alt="Image 1" onclick="toggleImageSize(this)">
+        </div>
+        <!-- Add more image items as needed -->
+    </div>
+    <span class="close"><i class="fas fa-times"></i></span>
+</div>
+
+
+
+    <footer>
+            <p>&copy; 2024 C0DZ1LLA Futuristic Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+
+
+
+// Function to open the gallery modal and load images
+function openGalleryModal(imageURLs) {
+    const modal = document.getElementById('galleryModal');
+    const imageContainer = modal.querySelector('#imageContainer');
+    imageContainer.innerHTML = ''; // Clear previous images
+
+    // Loop through each image URL and create an img element
+    imageURLs.forEach(url => {
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = 'Gallery Image';
+        imageContainer.appendChild(img); // Append the img to the imageContainer
+    });
+
+    // Show the modal
+    modal.style.display = 'flex';
+    modal.children[0].classList.add('fadeIn');
+    modal.children[0].classList.remove('fadeOut');
+}
+
+
+
+        // Function to open modal
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "flex";
+    modal.children[0].classList.add("fadeIn");
+    modal.children[0].classList.remove("fadeOut");
+    currentModal = modal;
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
+    
+    // Check if the closed modal is the translate modal
+    if (modalId === "translateModal") {
+        // Get the Google Translate element
+        const translateElement = document.getElementById("google_translate_element");
+        
+        // Remove the Google Translate element from the DOM
+        translateElement.remove();
+        
+        // Create a new Google Translate script element
+        const googleTranslateScript = document.createElement('script');
+        googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        googleTranslateScript.type = 'text/javascript';
+        
+        // Append the new script element to the head
+        document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
+    }
+}
+
+// Close modal on outside click, excluding clicks inside the modal content
+window.addEventListener("click", (event) => {
+    if (
+        event.target.classList.contains('modal-content') &&
+        !event.target.closest('.modal-content').contains(event.target)
+    ) {
+        closeModal(event.target.id);
+    }
+});
+
+let currentModal = null;
+        // Function to toggle modal display
+        const toggleModal = (id) => {
+            const modal = document.getElementById(id);
+            if (currentModal !== null && currentModal !== modal) {
+                currentModal.style.display = "none";
+                currentModal.children[0].classList.remove("fadeIn");
+                currentModal.children[0].classList.add("fadeOut");
+            }
+            modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+            modal.children[0].classList.toggle("fadeIn");
+            modal.children[0].classList.toggle("fadeOut");
+            currentModal = modal.style.display === "flex" ? modal : null;
+        }
+
+
+        // Function to open email app
+        function openEmailApp(email) {
+            window.location.href = "mailto:" + email;
+        }
+    
+        // Function to open phone app
+        function openPhoneApp(phone) {
+            window.location.href = "tel:" + phone;
+        }
+    
+// Function to translate page
+function translatePage() {
+    // Get the selected language from the dropdown or any other UI element
+    var selectedLanguage = document.getElementById('languageSelect').value;
+
+    // Call the Google Translate API to translate the page
+    new google.translate.TranslateElement({
+        pageLanguage: 'en', // Set the default page language
+        includedLanguages: selectedLanguage // Set the selected language for translation
+    }, 'google_translate_element');
+}
+
+    
+        // Load Google Translate script when the page loads
+        window.onload = function () {
+            // Load Google Translate script dynamically
+            var googleTranslateScript = document.createElement('script');
+            googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            googleTranslateScript.type = 'text/javascript';
+            document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
+        };
+    
+        // Callback function for Google Translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,de,ja,ko,zh-CN,ar,hi,pt,ru,el,fa,iw,tr'
+            }, 'google_translate_element');
+        }
+        // Close modal on outside click
+        window.addEventListener("click", (event) => {
+            if (event.target.classList.contains('modal-content')) {
+                toggleModal(currentModal.id);
+            }
+        });
+// Function to generate a random character
+function generateRandomCharacter() {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    return characters.charAt(Math.floor(Math.random() * characters.length));
+}
+
+// Function to generate a random color
+function generateRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Matrix rain animation
+function matrixRain() {
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas dimensions
+    function setCanvasDimensions() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    setCanvasDimensions();
+
+    // Number of columns
+    let columns = Math.floor(canvas.width / 20);
+
+    // Initialize an array to store the y-coordinate of each character
+    let drops = [];
+    for (let i = 0; i < columns; i++) {
+        drops[i] = {
+            y: Math.floor(Math.random() * canvas.height),
+            speed: Math.random() * 3 + 1, // Randomize falling speed
+            size: Math.random() * 10 + 10 // Randomize character size
+        };
+    }
+
+    // Animation loop
+    function draw() {
+        // Draw semi-transparent rectangles to create trails
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Set font properties
+        ctx.font = 'italic bold 20px "Consolas", monospace';
+        ctx.textAlign = 'center';
+
+        // Loop through each column
+        for (let i = 0; i < drops.length; i++) {
+            // Randomly change the character
+            const character = generateRandomCharacter();
+
+            // Randomly change the color
+            const color = generateRandomColor();
+
+            // Draw the character
+            ctx.fillStyle = color;
+            ctx.fillText(character, i * 20, drops[i].y);
+
+            // Move the character down
+            drops[i].y += drops[i].speed;
+
+            // Reset drop if it reaches bottom
+            if (drops[i].y > canvas.height && Math.random() > 0.95) {
+                drops[i].y = 0;
+            }
+        }
+    }
+
+    // Resize canvas when window is resized
+    window.addEventListener('resize', function() {
+        setCanvasDimensions();
+        columns = Math.floor(canvas.width / 20);
+        drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = {
+                y: Math.floor(Math.random() * canvas.height),
+                speed: Math.random() * 3 + 1,
+                size: Math.random() * 10 + 10
+            };
+        }
+    });
+
+    // Animation loop
+    setInterval(draw, 50);
+}
+
+// Start the matrix rain animation when the page loads
+window.onload = function () {
+    matrixRain();
+};
+        function openURL(url) {
+        window.open(url, '_blank');
+    }
+    
+    </script>
+    
+</body>
+
 </html>
