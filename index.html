@@ -35,12 +35,11 @@
         </script>
     <style>
 /* Universal Styles */
-/* Universal Styles */
 body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    background-color: #000; /* Black background */
+    background: radial-gradient(circle, #000 10%, #111 80%); /* Radial gradient background */
     color: #0f0; /* Neon green text color */
     overflow-x: hidden; /* Hide horizontal overflow */
 }
@@ -101,13 +100,19 @@ body::before {
 }
 
 h1, h2, h3 {
-    font-size: 3em;
+    font-size: 5em;
     margin-bottom: 20px;
+    font-weight: bold; /* Bold font weight */
+    text-transform: uppercase; /* Uppercase text */
+    text-align: center; /* Center align text */
+    letter-spacing: 3px; /* Increased letter spacing */
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Neon glow text shadow */
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-bottom: 20px;
+    line-height: 1.6; /* Increased line height */
 }
 
 /* Vertical button container */
@@ -115,7 +120,7 @@ p {
     display: flex;
     flex-direction: column; /* Change to column direction */
     align-items: center; /* Center align buttons vertically */
-    gap: 10px;
+    gap: 20px; /* Increased gap between buttons */
     max-width: 100%;
     padding: 0 20px;
 }
@@ -132,13 +137,14 @@ button {
     transition: all 0.3s ease;
     outline: none;
     font-family: 'Roboto', sans-serif;
-    width: 200px; /* Set fixed width for vertical buttons */
+    width: 300px; /* Increased button width */
+    text-transform: uppercase; /* Uppercase text */
 }
 
 button:hover {
     background-color: #0f0; /* Neon green on hover */
     color: #000; /* Black text on hover */
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7); /* Neon glow on hover */
+    box-shadow: 0 0 50px rgba(0, 255, 0, 0.7); /* Intensified neon glow on hover */
 }
 
 /* Modal Styles */
@@ -153,14 +159,14 @@ button:hover {
     transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
     z-index: 1000;
     width: 80%; /* Adjust width as needed */
-    max-width: 800px; /* Maximum width for large screens */
+    max-width: 1000px; /* Maximum width for large screens */
     max-height: 80vh; /* Maximum height for large screens */
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.9); /* Transparent black background */
-    border: 2px solid #0f0; /* Neon green border */
-    border-radius: 20px;
-    padding: 40px; /* Increase padding for better spacing */
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
+    border: 3px solid #0f0; /* Neon green border */
+    border-radius: 50px; /* Rounded border */
+    padding: 60px; /* Increased padding for better spacing */
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
     color: #00d8ff; /* Electric blue text color */
     text-align: center; /* Center align text */
     animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
@@ -195,19 +201,19 @@ button:hover {
 }
 
 .modal-content:hover {
-    box-shadow: 0 0 30px rgba(0, 216, 255, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+    box-shadow: 0 0 40px rgba(0, 216, 255, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
 }
 
 /* Header Styles */
 header {
-    background-color: rgba(0, 0, 0, 0.76); /* Transparent black background for header */
-    padding: 20px 0; /* Add some padding to the top and bottom */
+    background-color: rgba(0, 0, 0, 0.9); /* Transparent black background for header */
+    padding: 40px 0; /* Add more padding to the top and bottom */
     text-align: center; /* Center align the content */
     overflow: hidden; /* Hide overflow to prevent scroll */
 }
 
 header h1 {
-    font-size: 5em; /* Increase font size for header */
+    font-size: 6.5em; /* Increase font size for header */
     color: #0f0; /* Gold text color */
     animation: slideInDown 0.5s ease; /* Slide in from top animation */
 }
@@ -223,19 +229,19 @@ header h1 {
 }
 
 header p {
-    font-size: 1.2em; /* Increase font size for paragraph */
+    font-size: 1.5em; /* Increase font size for paragraph */
     color: #0f0; /* Neon green text color */
 }
 
 /* Footer Styles */
 footer {
     background-color: rgba(0, 0, 0, 0.9); /* Transparent black background for footer */
-    padding: 20px 0; /* Add some padding to the top and bottom */
+    padding: 40px 0; /* Add more padding to the top and bottom */
     text-align: center; /* Center align the content */
 }
 
 footer p {
-    font-size: 1em; /* Normal font size for paragraph */
+    font-size: 1.3em; /* Increased font size for paragraph */
     color: #0f0; /* Neon green text color */
 }
 
@@ -246,18 +252,30 @@ footer p {
     justify-content: center;
     overflow-y: hidden;
     max-height: calc(100% - 100%); /* Adjust as needed */
-    padding: 10px;
+    padding: 20px;
 }
 
 .image-container img {
     max-width: 50%;
     height: auto;
     cursor: pointer;
-    margin: 5px;
+    margin: 10px; /* Increased margin */
+    border: 3px solid #0f0; /* Neon green border */
+    border-radius: 50px; /* Rounded corners */
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.5); /* Intensified neon glow */
 }
 
 .hidden {
     display: none;
+}
+
+.welcome-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #fff; /* White text color */
+    text-align: center;
+    margin: 20px auto; /* Center and add margin */
+    max-width: 800px; /* Limit width for better readability */
 }
 
 
@@ -268,92 +286,73 @@ footer p {
 
     <header>
         <div class="image-container">
-
-        <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
-        <div>
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
+        </div>
         <div class="container">
             <h1>&#120138&#120120&#120132&#120120&#8469</h1>
-            <p>Welcome to my webiste, self-taught individual dedicated to pushing the boundaries of technology. As a coder, programmer, and developer, I am on a mission to explore the vast possibilities that technology offers in the age of AI. At C0DZ1LLA Systems, I strive to create awe-inspiring websites, software solutions, games, and more, leveraging my expertise and innovative spirit.</p>
+            <p class="welcome-text">Welcome to my website! I'm a self-taught enthusiast driven by curiosity and a passion for technology. As a coder, programmer, and developer, I'm constantly exploring the endless possibilities that technology, especially in the era of AI, has to offer. Through C0DZ1LLA Systems, my aim is to craft captivating websites, innovative software solutions, engaging games, and much more, drawing upon my expertise and boundless creativity.</p>
         </div>
-        <div>
-    <div class="image-container">
-        <div class="button-container">
-            <button onclick="toggleModal('translateModal')">Translate Page</button>
-
-            <button onclick="toggleModal('aboutModal')">About</button>
-            <button onclick="openModal('GithubModal')">Github Profile</button>
-            <button onclick="openModal('GameDevModal')">Game Development</button>
-            <button onclick="openModal('ProjectsModal')">Recent Projects</button>
-            <button onclick="toggleModal('contactModal')">Contact</button>
-            <button id="clearDataButton">Clear Data</button>
-
-
-
-<!-- Button to trigger the gallery modal -->
-</div>
-    </div>
+        <div class="image-container">
+            <div class="button-container">
+                <button onclick="toggleModal('translateModal')">Translate Page</button>
+                <button onclick="toggleModal('aboutModal')">About</button>
+                <button onclick="openModal('GithubModal')">Github Profile</button>
+                <button onclick="openModal('GameDevModal')">Game Development</button>
+                <button onclick="openModal('ProjectsModal')">Recent Projects</button>
+                <button onclick="toggleModal('contactModal')">Contact</button>
+                <button id="clearDataButton">Clear Data</button>
+            </div>
+        </div>
+    </header>
+    
     <canvas id="matrixCanvas"></canvas>
+    
     <div id="translateModal" class="modal-content hidden">
         <h2>Translate</h2>
         <p>Translate this website into your preferred language.</p>
         <div class="language-selector"></div>
         <div id="google_translate_element"></div>
-
     </div>
     
-
     <div id="contactModal" class="modal-content hidden">
         <h2>Contact Information</h2>
-
         <div class="button-container">
             <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
-
             <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
             <button onclick="openPhoneApp('+35797906864')">Whatsup</button>
-            <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
         </div>
+        <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
     </div>
-
+    
     <div id="aboutModal" class="modal-content hidden">
-        <h1>Saman's Tech Portfolio
-        </h1>
-        <p>
+        <h2>Saman's Tech Portfolio</h2>
         <ul>
             <li>Website Development: From concept to execution, I design and develop cutting-edge websites that captivate and engage users, tailored to meet your specific needs.</li>
             <li>Software Engineering: As a skilled software engineer, I craft powerful applications that solve complex problems and streamline processes, utilizing the latest AI technologies.</li>
             <li>Game Development: Immerse yourself in captivating gaming experiences crafted with passion and creativity, combining AI algorithms with innovative design concepts.</li>
             <li>Tech Consulting: Need guidance on navigating the tech landscape? My consulting services provide personalized insights and strategies to help you succeed in your projects.</li>
         </ul>
-        <p>
         <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
     </div>
-
-
-<!-- Github modal -->
-<div id="GithubModal" class="modal-content hidden" onclick="closeModal('GithubModal')">
-    <p>
-        I can do some cool stuff with various programming languages:
+    
+    <!-- Github modal -->
+    <div id="GithubModal" class="modal-content hidden">
+        <h2>Github Profile</h2>
+        <p>I can do some cool stuff with various programming languages:</p>
         <ul>
             <li>Python: From crunching numbers to making awesome websites.</li>
             <li>JavaScript: Creating interactive web wonders and browser enchantments.</li>
             <li>Java: Creating Android apps or tackling enterprise projects.</li>
-            <li>C and C++: Mastering these languages with AI assistance, making development seamless.</li>
-            <li>C#: Crafting desktop apps and immersive game realms using AI-driven solutions.</li>
-            <li>PHP: Playground for dynamic web marvels and e-commerce magic, powered by AI.</li>
-            <li>HTML and CSS: Transforming web designs from dull to dazzling with AI enhancements.</li>
+            <!-- Add other languages here -->
         </ul>
-    </p>
         <div class="button-container">
             <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Website</button>
         </div>
-    </p>
-    <span class="close"><i class="fas fa-times"></i></span>
-</div>
+        <span class="close" onclick="closeModal('GithubModal')"><i class="fas fa-times"></i></span>
+    </div>
 <!-- Game Development modal -->
-<div id="GameDevModal" class="modal-content hidden" onclick="closeModal('GameDevModal')">
-    <div class="modal-body">
-        <p>
-            Game development, exploring both 3D and 2D realms:
+<div id="GameDevModal" class="modal-content hidden">
+    <h2>Game Development</h2>
             <ul>
                 <li>3D Game Development:
                     <ul>
@@ -381,11 +380,9 @@ footer p {
 </div>
 
 <!-- Recent Projects modal -->
-<div id="ProjectsModal" class="modal-content hidden" onclick="closeModal('ProjectsModal')">
-    <div class="modal-body">
-            Here are some of my recent projects showcasing various skills and technologies:
-            </ul>
-        </p>
+<div id="ProjectsModal" class="modal-content hidden">
+    <h2>Recent Projects</h2>
+
         <div class="button-container">
 
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">PROJECT 1</button>
@@ -398,17 +395,11 @@ footer p {
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">PROJECT 8</button>
 
         </div>
+        
+        <span class="close" onclick="closeModal('ProjectsModal')"><i class="fas fa-times"></i></span>
+
     </div>
-    <span class="close"><i class="fas fa-times"></i></span>
 </div>
-
-<!-- C and C++ modal -->
-<div id="cCppModal" class="modal-content hidden" onclick="closeModal('cCppModal')">
-    <h3>C and C++ Charms</h3>
-    <p>No pointer problems here! I've mastered C and C++ with a little help from AI, making development seamless and fun.</p>
-    <span class="close"><i class="fas fa-times"></i></span>
-</div>
-
 
     <footer>
             <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
