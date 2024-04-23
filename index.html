@@ -39,7 +39,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    background: radial-gradient(circle, #000 10%, #111 80%); /* Radial gradient background */
+    background: linear-gradient(to bottom, rgba(0,255,0,1) 0%, rgba(0,0,0,0) 100%), radial-gradient(circle, rgba(0,255,0,1) 0%, rgba(0,0,0,0) 80%);
     color: #0f0; /* Neon green text color */
     overflow-x: hidden; /* Hide horizontal overflow */
 }
@@ -52,8 +52,7 @@ body::before {
     left: -50%; /* Start left of the viewport */
     width: 200%; /* Extend twice the viewport width */
     height: 200%; /* Extend twice the viewport height */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%), 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext x='0' y='15' font-family='Consolas' font-size='15' fill='%23ff0080'%3E%3C/text%3E%3C/svg%3E");
+    background: linear-gradient(to bottom, rgba(0,0,255,1) 0%, rgba(255,0,0,0) 100%), radial-gradient(circle, rgba(0,0,255,1) 0%, rgba(255,0,0,0) 80%);
     background-size: 100% 200%; /* Double the height to create scrolling effect */
     animation: matrixRain 5s linear infinite;
     z-index: -1;
@@ -292,17 +291,16 @@ footer p {
             <h1>&#120138&#120120&#120132&#120120&#8469</h1>
             <p class="welcome-text">Welcome to my website! I'm a self-taught enthusiast driven by curiosity and a passion for technology. As a coder, programmer, and developer, I'm constantly exploring the endless possibilities that technology, especially in the era of AI, has to offer. Through C0DZ1LLA Systems, my aim is to craft captivating websites, innovative software solutions, engaging games, and much more, drawing upon my expertise and boundless creativity.</p>
         </div>
-        <div class="image-container">
-            <div class="button-container">
-                <button onclick="toggleModal('translateModal')">Translate Page</button>
-                <button onclick="toggleModal('aboutModal')">About</button>
-                <button onclick="openModal('GithubModal')">Github Profile</button>
-                <button onclick="openModal('GameDevModal')">Game Development</button>
-                <button onclick="openModal('ProjectsModal')">Recent Projects</button>
-                <button onclick="toggleModal('contactModal')">Contact</button>
-                <button id="clearDataButton">Clear Data</button>
-            </div>
+        <div class="button-container">
+            <button class="action-button" onclick="toggleModal('translateModal')">Translate Page</button>
+            <button class="action-button" onclick="toggleModal('aboutModal')">About</button>
+            <button class="action-button" onclick="openModal('GithubModal')">Github Profile</button>
+            <button class="action-button" onclick="openModal('GameDevModal')">Game Development</button>
+            <button class="action-button" onclick="openModal('ProjectsModal')">Recent Projects</button>
+            <button class="action-button" onclick="toggleModal('contactModal')">Contact</button>
+            <button id="clearDataButton" class="action-button">Clear Data</button>
         </div>
+        
     </header>
     
     <canvas id="matrixCanvas"></canvas>
