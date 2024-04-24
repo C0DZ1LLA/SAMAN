@@ -42,6 +42,7 @@ body {
     background: linear-gradient(to bottom, rgba(0,255,0,1) 0%, rgba(0,0,0,0) 100%), radial-gradient(circle, rgba(0,255,0,1) 0%, rgba(0,0,0,0) 80%);
     color: #0f0; /* Neon green text color */
     overflow-x: hidden; /* Hide horizontal overflow */
+
 }
 
 /* Create futuristic matrix rain effect */
@@ -186,8 +187,8 @@ button:hover {
 /* Media Query for Small Devices */
 @media only screen and (max-width: 600px) {
     .modal-content {
-        width: 90%; /* Adjust width percentage for small screens */
-        height: 90%; /* Adjust height percentage for small screens */
+        width: 100%; /* Adjust width percentage for small screens */
+        height: 100%; /* Adjust height percentage for small screens */
     }
 }
 
@@ -267,7 +268,6 @@ footer p {
 .hidden {
     display: none;
 }
-
 .welcome-text {
     font-size: 1.2em;
     line-height: 1.6;
@@ -278,12 +278,16 @@ footer p {
 }
 
 
+
+
+
     </style>
 </head>
 
 <body>
 
     <header>
+
         <div class="image-container">
             <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
         </div>
@@ -291,16 +295,17 @@ footer p {
             <h1>&#120138&#120120&#120132&#120120&#8469</h1>
             <p class="welcome-text">Welcome to my website! I'm a self-taught enthusiast driven by curiosity and a passion for technology. As a coder, programmer, and developer, I'm constantly exploring the endless possibilities that technology, especially in the era of AI, has to offer. Through C0DZ1LLA Systems, my aim is to craft captivating websites, innovative software solutions, engaging games, and much more, drawing upon my expertise and boundless creativity.</p>
         </div>
-        <div class="button-container">
-            <button class="action-button" onclick="toggleModal('translateModal')">Translate Page</button>
-            <button class="action-button" onclick="toggleModal('aboutModal')">About</button>
-            <button class="action-button" onclick="openModal('GithubModal')">Github Profile</button>
-            <button class="action-button" onclick="openModal('GameDevModal')">Game Development</button>
-            <button class="action-button" onclick="openModal('ProjectsModal')">Recent Projects</button>
-            <button class="action-button" onclick="toggleModal('contactModal')">Contact</button>
-            <button id="clearDataButton" class="action-button">Clear Data</button>
+        <div class="image-container">
+            <div class="button-container">
+                <button onclick="toggleModal('translateModal')">Translate Page</button>
+                <button onclick="toggleModal('aboutModal')">About</button>
+                <button onclick="openModal('GithubModal')">Github Profile</button>
+                <button onclick="openModal('GameDevModal')">Game Development</button>
+                <button onclick="openModal('ProjectsModal')">Recent Projects</button>
+                <button onclick="toggleModal('contactModal')">Contact</button>
+                <button id="clearDataButton">Clear Data</button>
+            </div>
         </div>
-        
     </header>
     
     <canvas id="matrixCanvas"></canvas>
@@ -313,7 +318,7 @@ footer p {
     </div>
     
     <div id="contactModal" class="modal-content hidden">
-        <h2>Contact Information</h2>
+        <h2>Contact</h2>
         <div class="button-container">
             <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
             <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
@@ -350,8 +355,7 @@ footer p {
     </div>
 <!-- Game Development modal -->
 <div id="GameDevModal" class="modal-content hidden">
-    <h2>Game Development</h2>
-            <ul>
+    <h2>Game</h2>
                 <li>3D Game Development:
                     <ul>
                         <li>Utilizing advanced tools like Unity or Unreal Engine to create immersive 3D environments.</li>
@@ -379,7 +383,7 @@ footer p {
 
 <!-- Recent Projects modal -->
 <div id="ProjectsModal" class="modal-content hidden">
-    <h2>Recent Projects</h2>
+    <h1>Projects</h1>
 
         <div class="button-container">
 
@@ -410,35 +414,40 @@ footer p {
     
 
 
-
     <script>
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
     const clearDataButton = document.getElementById("clearDataButton");
-    
+
     // Add click event listener to the clear data button
     clearDataButton.addEventListener("click", function() {
-        // Clear cookies
-        document.cookie.split(";").forEach(function(cookie) {
-            document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-        });
+        try {
+            // Clear cookies
+            document.cookie.split(";").forEach(function(cookie) {
+                document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+            });
 
-        // Clear localStorage
-        localStorage.clear();
+            // Clear localStorage
+            localStorage.clear();
 
-        // Clear sessionStorage
-        sessionStorage.clear();
+            // Clear sessionStorage
+            sessionStorage.clear();
 
-        // Optionally, you can add more code here to clear other types of data as needed
+            // Optionally, you can add more code here to clear other types of data as needed
 
-        // Alert the user that data has been cleared
-        alert("Page data cleared successfully! Press OK to reload the page to its default settings.");
+            // Alert the user that data has been cleared
+            alert("Page data cleared successfully! Press OK to reload the page to its default settings.");
 
-        // Refresh the page
-        location.reload();
+            // Refresh the page
+            location.reload();
+        } catch (error) {
+            console.error("Error while clearing data:", error);
+            alert("An error occurred while clearing data. Please try again later.");
+        }
     });
+
+    // Add more event listeners and functions here...
 });
 
 // Function to open the gallery modal and load images
