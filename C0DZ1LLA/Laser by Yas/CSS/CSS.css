@@ -292,20 +292,20 @@ footer p {
     }
 
     li {
-        background-color: #f5f5f5;
+        background-color: #333; /* Dark list item background color */
         border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 5px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 14px;
-        color: #333;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin-bottom: 10px;
+        font-family: 'Roboto', sans-serif; /* Futuristic font */
+        font-size: 16px;
+        color: #ccc; /* Light text color */
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); /* List item box shadow */
         transition: all 0.3s ease;
     }
 
     li:hover {
-        background-color: #e0e0e0;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        background-color: #444; /* Darker background color on hover */
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2); /* Increase shadow on hover */
     }
 
 /* Location Info Styling */
@@ -316,16 +316,19 @@ footer p {
 .location-info h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #dbb28e; /* Light nude text color */
 }
 
 .location-info p {
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    color: #ccc; /* Light text color */
 }
 
 .location-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
+    color: #dbb28e; /* Light nude text color */
 }
 
 /* Table Styling */
@@ -334,36 +337,59 @@ table {
     border-collapse: collapse;
 }
 
-table th, table td {
-    padding: 8px;
+table th,
+table td {
+    padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #666; /* Medium gray border */
 }
 
 table th {
-    background-color: #f2f2f2;
+    background-color: #444; /* Dark table header background color */
 }
+
 /* Container Styling */
 .cccontainer {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.futuristic-button {
-    background-color: #dbb28e; /* Medium nude button background color */
-    color: #fff; /* Text color */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 10px;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-    display: inline-block; /* Make buttons inline-block to center them */
-
+/* Slider Container Styling */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.futuristic-button:hover {
-    background-color: #a67b5b; /* Dark nude button background color on hover */
-    transform: translateY(-2px);
+.slide {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #dbb28e; /* Light nude button color */
+    font-size: 24px;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }
