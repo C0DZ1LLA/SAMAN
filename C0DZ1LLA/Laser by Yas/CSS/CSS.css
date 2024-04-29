@@ -5,143 +5,111 @@
     padding: 0;
 }
 
-/* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #000; /* Black background color */
-    color: #fff; /* White text color */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    background-color: #f4f4f4; /* Light background color */
+    color: #444; /* Dark text color */
 }
 
+header {
+    background-color: #f4f4f4; /* Light header background color */
+    padding: 20px;
+    text-align: center;
+}
 
 header h1 {
     margin: 0;
-    font-size: 3em;
-    letter-spacing: 3px;
-    color: #f0f; /* Neon pink header text color */
-    text-transform: uppercase;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    color: #333; /* Dark header text color */
 }
 
-/* Navigation Styles */
-nav {
+main {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.container {
+    background-color: #fff; /* White container background color */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Container box shadow */
+    transition: transform 0.3s, background-color 0.3s; /* Add transition for hover effect */
+    position: relative;
+    overflow: hidden;
+}
+
+.container:before {
+    content: "";
     position: absolute;
-    top: 20px;
-    right: 30px;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #f0f;
-}
-
-/* Button Styles */
-.button {
-    background-color: #0ff; /* Neon blue button background color */
-    color: #000; /* Black text color */
-    padding: 15px 30px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.button:hover {
-    background-color: #f0f; /* Neon pink background color on hover */
-    transform: translateY(-3px) scale(1.05);
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s;
 }
 
-.modal-content {
-    background-color: #000;
-    margin: 15% auto;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); /* Modal glow effect */
-    color: #fff;
+.container:hover:before {
+    opacity: 1;
 }
 
-.close {
-    color: #f0f; /* Neon pink close button color */
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2em;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #0ff; /* Neon blue close button color on hover */
-}
-
-
-/* Main Content Styles */
-main {
-    padding-top: 120px; /* Adjust for fixed header */
-}
-
-/* Container Styles */
-.container {
-    background-color: rgba(255, 255, 255, 0.1); /* Transparent container background */
-    padding: 40px;
-    margin: 20px auto;
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); /* Container glow effect */
+.container:hover {
+    transform: translateY(-3px) scale(1.05); /* Apply hover effect - move up slightly and scale */
+    background-color: #f4f4f4; /* Lighter background color on hover */
 }
 
 .container h2 {
-    margin-bottom: 30px;
-    font-size: 3em;
-    color: #0ff; /* Neon blue container heading color */
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    color: #333; /* Dark container heading color */
+    transition: color 0.3s; /* Add transition for text color */
+}
+
+.container:hover h2 {
+    color: #666; /* Darker text color on hover */
 }
 
 .container p {
-    font-size: 1.4em;
-    line-height: 1.6;
+    color: #666; /* Medium gray container text color */
+    font-size: 18px;
 }
 
-/* Button Styles */
+.container img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #f4f4f4; /* Light footer background color */
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: #333; /* Dark footer text color */
+}
+
 .button {
-    background-color: #0ff; /* Neon blue button background color */
-    color: #000; /* Black text color */
+    background-color: #dbb28e; /* Nude button background color */
+    color: #fff; /* White text color */
     padding: 15px 30px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.2em;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s; /* Add transition for button */
 }
 
 .button:hover {
-    background-color: #f0f; /* Neon pink background color on hover */
-    transform: translateY(-3px) scale(1.05);
+    background-color: #af4c4c; /* Darker button background color on hover */
+    transform: translateY(-3px) scale(1.05); /* Apply hover effect - move up slightly and scale */
 }
 
 /* Modal Styles */
@@ -154,182 +122,142 @@ main {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .modal-content {
-    background-color: #000;
+    background-color: #f4f4f4;
     margin: 15% auto;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); /* Modal glow effect */
-    color: #fff;
+    padding: 20px;
+    border: 1px solid #999; /* Light border color */
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    color: #333; /* Dark text color */
 }
 
 .close {
-    color: #f0f; /* Neon pink close button color */
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2em;
+    color: #666; /* Medium close button color */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #333; /* Dark close button color on hover */
+    text-decoration: none;
     cursor: pointer;
 }
 
-.close:hover {
-    color: #0ff; /* Neon blue close button color on hover */
-}
-/* Futuristic Button Styles */
+/* Futuristic button styles */
 .futuristic-button {
     background-color: transparent;
-    color: #0ff; /* Neon blue button text color */
-    border: 2px solid #0ff; /* Neon blue button border */
-    padding: 20px 40px;
-    font-size: 1.6em;
+    color: #333; /* Dark button text color */
+    border: 2px solid #333; /* Dark button border color */
+    padding: 15px 30px;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .futuristic-button:hover {
-    background-color: #0ff; /* Neon blue background color on hover */
-    color: #000; /* Black text color on hover */
+    background-color: #dbb28e; /* Nude button background color on hover */
+    color: #fff; /* White button text color on hover */
 }
 
-/* Unreal Container Styles */
-.unreal-container {
-    background-image: url('space-background.jpg'); /* Replace with your image */
-    background-size: cover;
-    background-position: center;
-    padding: 100px;
+/* Location Info Styling */
+.location-info {
+    margin-bottom: 20px;
+}
+
+.location-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #dbb28e; /* Nude header text color */
+}
+
+.location-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #666; /* Medium gray text color */
+}
+
+.location-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #dbb28e; /* Nude header text color */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc; /* Light gray border color */
+}
+
+table th {
+    background-color: #dbb28e; /* Nude table header background color */
+}
+
+/* Container Styling */
+.cccontainer {
     text-align: center;
-    color: #fff;
-}
-
-.unreal-container h2 {
-    font-size: 4em;
     margin-bottom: 30px;
 }
 
-.unreal-container p {
-    font-size: 1.6em;
-    line-height: 1.8;
-    margin-bottom: 40px;
-}
-
-/* Animation */
-@keyframes neon {
-    0% {
-        color: #0ff;
-    }
-    50% {
-        color: #f0f;
-    }
-    100% {
-        color: #0ff;
-    }
-}
-
-.neon-text {
-    animation: neon 1.5s infinite alternate;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em;
-    }
-
-    .container {
-        padding: 30px;
-    }
-
-    .button {
-        padding: 12px 24px;
-    }
-
-    .modal-content {
-        padding: 30px;
-    }
-
-    .close {
-        font-size: 1.5em;
-        top: 15px;
-        right: 20px;
-    }
-
-    .futuristic-button {
-        padding: 15px 30px;
-        font-size: 1.2em;
-    }
-
-    .unreal-container {
-        padding: 50px;
-    }
-}
-
-/* Additional Advanced Styles and Functionality */
-
-/* Add advanced hover effects to containers */
-.container:hover {
-    transform: translateY(-3px) scale(1.05); /* Apply hover effect - move up slightly and scale */
-    background-color: #404040; /* Darker background color on hover */
-    box-shadow: 0 0 60px rgba(255, 255, 255, 0.3); /* Increased glow effect on hover */
-}
-
-/* Add glow effect to container heading on hover */
-.container:hover h2 {
-    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; /* Neon glow effect on hover */
-}
-
-/* Add pulsating animation to futuristic button */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.futuristic-button {
-    animation: pulse 2s infinite alternate; /* Apply pulsating animation */
-}
-
-/* Add parallax scrolling effect to unreal container */
-.unreal-container {
-    background-attachment: fixed; /* Fix background image */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* Add floating animation to navigation items */
-nav ul li {
-    display: inline-block;
-    margin-left: 20px;
+/* Slider Container Styling */
+.slider-container {
     position: relative;
-    animation: float 3s infinite ease-in-out;
+    width: 100%;
+    max-width: 600px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+.slide {
+    position: relative;
+    width: 100%;
+    text-align: center;
 }
 
-/* Add toggle button for style changes */
+.slider-image {
+    width: 100%;
+    height: auto;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #dbb28e; /* Nude button color */
+    font-size: 24px;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
 #style-toggle-button {
     position: fixed;
-    top: 20px;
+    top: 50px; /* Adjust as needed */
     right: 20px;
     z-index: 9999;
     background-color: rgba(255, 255, 255, 0.9);
@@ -348,44 +276,26 @@ nav ul li {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
 }
 
-/* Advanced hover effect for navigation items */
-nav ul li:hover::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #0ff; /* Neon blue underline color */
-    bottom: -5px;
-    left: 0;
-}
-
-/* Add futuristic font to navigation items */
-nav ul li a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* Google Translate dropdown styling */
+/* Styling for Google Translate dropdown */
 #google_translate_element {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.9); /* Dark background color */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Light box shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 14px;
-    color: #ccc; /* Light text color */
+    color: #333;
 }
 
 #google_translate_element select {
     width: 100%;
     padding: 8px;
     border: none;
-    background-color: #333; /* Dark dropdown background color */
+    background-color: #f4f4f4;
     border-radius: 5px;
     appearance: none;
     -webkit-appearance: none;
@@ -399,32 +309,56 @@ nav ul li a {
 
 #google_translate_element select option {
     padding: 5px;
-    background-color: #444; /* Dark dropdown option background color */
+    background-color: #fff;
 }
 
 #google_translate_element select option:hover {
-    background-color: #555; /* Darker dropdown option background color on hover */
+    background-color: #f0f0f0;
 }
 
-/* Add futuristic font to Google Translate dropdown */
-#google_translate_element * {
-    font-family: 'Roboto', sans-serif;
+#google_translate_element .goog-te-gadget-icon {
+    display: none;
 }
 
-/* Add hover effects to list items */
-li {
-    background-color: #1a1a1a; /* Dark list item background color */
+#google_translate_element .goog-te-combo {
+    border: none;
     border-radius: 5px;
+    box-shadow: none;
+}
+
+#google_translate_element .goog-te-combo-arrow {
+    display: none;
+}
+
+#google_translate_element .goog-te-combo-label {
+    display: none;
+}
+
+/* Futuristic and Professional Style for <li> and <ul> */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #f4f4f4; /* Light list item background color */
+    border-radius: 15px;
     padding: 15px;
     margin-bottom: 10px;
     font-family: 'Roboto', sans-serif; /* Futuristic font */
     font-size: 16px;
-    color: #ccc; /* Light text color */
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); /* List item box shadow */
+    color: #333; /* Dark text color */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* List item box shadow */
     transition: all 0.3s ease;
 }
 
 li:hover {
-    background-color: #333; /* Darker background color on hover */
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2); /* Increase shadow on hover */
+    background-color: #e0e0e0; /* Lighter background color on hover */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Additional section styles */
+.main-content {
+    padding: 20px;
 }
