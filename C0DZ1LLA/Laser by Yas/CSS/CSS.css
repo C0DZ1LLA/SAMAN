@@ -5,117 +5,67 @@
     padding: 0;
 }
 
+/* Global Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F6ECEB; /* Nude background color */
-    color: #444; /* Text color */
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; /* Black background color */
+    color: #fff; /* White text color */
+    overflow-x: hidden; /* Hide horizontal overflow */
 }
 
-header {
-    background-color: #F6ECEB; /* Light nude header background color */
-    padding: 20px;
-    text-align: center;
-}
 
 header h1 {
     margin: 0;
-    font-size: 2em;
-    letter-spacing: 2px;
-    color: #664a37; /* Dark nude header text color */
+    font-size: 3em;
+    letter-spacing: 3px;
+    color: #f0f; /* Neon pink header text color */
+    text-transform: uppercase;
 }
 
-main {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.container {
-    background-color: #dbb28e; /* Medium nude container background color */
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Container box shadow */
-    transition: transform 0.3s, background-color 0.3s; /* Add transition for hover effect */
-    position: relative;
-    overflow: hidden;
-}
-
-.container:before {
-    content: "";
+/* Navigation Styles */
+nav {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.1s;
+    top: 20px;
+    right: 30px;
 }
 
-.container:hover:before {
-    opacity: 1;
+nav ul {
+    list-style-type: none;
 }
 
-.container:hover {
-    transform: translateY(-2px) scale(1.05); /* Apply hover effect - move up slightly and scale */
-    background-color: #d1a76e; /* Change background color on hover */
+nav ul li {
+    display: inline-block;
+    margin-left: 20px;
 }
 
-.container h2 {
-    margin-bottom: 15px;
-    font-size: 2.5em;
-    color: #664a37; /* Dark nude container heading color */
-    transition: color 0.3s; /* Add transition for text color */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
 }
 
-.container:hover h2 {
-    color: #fff; /* Change text color on hover */
+nav ul li a:hover {
+    color: #f0f;
 }
 
-.container p {
-    color: #666; /* Light gray container text color */
-}
-
-.container img {
-    max-width: 50%; /* Ensure images are responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-footer {
-    background-color: #e0b994; /* Light nude footer background color */
-    padding: 20px;
-    text-align: center;
-}
-
-footer p {
-    margin: 0;
-    color: #664a37; /* Dark nude footer text color */
-}
-
+/* Button Styles */
 .button {
-    background-color: #f4a261; /* Medium nude button background color */
-    color: #fff; /* Button text color */
+    background-color: #0ff; /* Neon blue button background color */
+    color: #000; /* Black text color */
     padding: 15px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 1.2em;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* Add transition for button */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .button:hover {
-    background-color: #e76f51; /* Dark nude button hover background color */
-    transform: translateY(-3px) scale(1.05); /* Apply hover effect - move up slightly and scale */
+    background-color: #f0f; /* Neon pink background color on hover */
+    transform: translateY(-3px) scale(1.05);
 }
 
-/* Additional section styles */
-.main-content {
-    padding: 20px;
-}
-/* CSS styles for modal */
 /* Modal Styles */
 .modal {
     display: none;
@@ -126,270 +76,355 @@ footer p {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #000;
     margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); /* Modal glow effect */
+    color: #fff;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
+    color: #f0f; /* Neon pink close button color */
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2em;
     cursor: pointer;
 }
-/* CSS for futuristic buttons in modal */
 
-.modal-content button {
-    background-color: #af4c4c; /* Green background color */
-    border: none;
-    color: white;
+.close:hover {
+    color: #0ff; /* Neon blue close button color on hover */
+}
+
+
+/* Main Content Styles */
+main {
+    padding-top: 120px; /* Adjust for fixed header */
+}
+
+/* Container Styles */
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent container background */
+    padding: 40px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); /* Container glow effect */
+}
+
+.container h2 {
+    margin-bottom: 30px;
+    font-size: 3em;
+    color: #0ff; /* Neon blue container heading color */
+}
+
+.container p {
+    font-size: 1.4em;
+    line-height: 1.6;
+}
+
+/* Button Styles */
+.button {
+    background-color: #0ff; /* Neon blue button background color */
+    color: #000; /* Black text color */
     padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Add transition effect */
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.modal-content button:hover {
-    background-color: #dbb28e; /* Darker green color on hover */
-    transform: translateY(-2px); /* Move button up slightly on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
-}
-.container img {
-    max-width: 50%; /* Ensure images are responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Make the image round */
-    overflow: hidden; /* Hide overflow content outside the rounded border */
-    margin-top: 20px;
-    transition: transform 0.3s; /* Add transition for smoother animation */
+.button:hover {
+    background-color: #f0f; /* Neon pink background color on hover */
+    transform: translateY(-3px) scale(1.05);
 }
 
-.container:hover img {
-    transform: scale(1.03); /* Scale image on hover */
-    animation: pulse 0.5s infinite alternate; /* Apply pulse animation */
-}
-
-@keyframes pulse {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.05);
-    }
-}
-    /* Styling for Google Translate dropdown */
-    #google_translate_element {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 9999;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        padding: 10px 20px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        color: #333;
-    }
-
-    #google_translate_element select {
-        width: 100%;
-        padding: 8px;
-        border: none;
-        background-color: #f8f8f8;
-        border-radius: 5px;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        cursor: pointer;
-    }
-
-    #google_translate_element select:focus {
-        outline: none;
-    }
-
-    #google_translate_element select option {
-        padding: 5px;
-        background-color: #fff;
-    }
-
-    #google_translate_element select option:hover {
-        background-color: #f0f0f0;
-    }
-
-    #google_translate_element .goog-te-gadget-icon {
-        display: none;
-    }
-
-    #google_translate_element .goog-te-combo {
-        border: none;
-        border-radius: 5px;
-        box-shadow: none;
-    }
-
-    #google_translate_element .goog-te-combo-arrow {
-        display: none;
-    }
-
-    #google_translate_element .goog-te-combo-label {
-        display: none;
-    }       
-
-    
-    .futuristic-button {
-        background-color: transparent;
-        color: #fff;
-        border: 2px solid #fff;
-        padding: 15px 30px;
-        font-size: 16px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .futuristic-button:hover {
-        background-color: #fff;
-        color: #000;
-        border-color: #000;
-    }
-    
-    /* Container for button */
-    .button-container {
-        display: flex;
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        height: 100vh; /* Adjust as needed */
-    }
-
-    /* Futuristic and Professional Style for <li> and <ul> */
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    li {
-        background-color: #333; /* Dark list item background color */
-        border-radius: 5px;
-        padding: 15px;
-        margin-bottom: 10px;
-        font-family: 'Roboto', sans-serif; /* Futuristic font */
-        font-size: 16px;
-        color: #ccc; /* Light text color */
-        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); /* List item box shadow */
-        transition: all 0.3s ease;
-    }
-
-    li:hover {
-        background-color: #444; /* Darker background color on hover */
-        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2); /* Increase shadow on hover */
-    }
-
-/* Location Info Styling */
-.location-info {
-    margin-bottom: 20px;
-}
-
-.location-info h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #dbb28e; /* Light nude text color */
-}
-
-.location-info p {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #ccc; /* Light text color */
-}
-
-.location-info h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #dbb28e; /* Light nude text color */
-}
-
-/* Table Styling */
-table {
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
     width: 100%;
-    border-collapse: collapse;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
 }
 
-table th,
-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #666; /* Medium gray border */
+.modal-content {
+    background-color: #000;
+    margin: 15% auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2); /* Modal glow effect */
+    color: #fff;
 }
 
-table th {
-    background-color: #444; /* Dark table header background color */
+.close {
+    color: #f0f; /* Neon pink close button color */
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2em;
+    cursor: pointer;
 }
 
-/* Container Styling */
-.cccontainer {
+.close:hover {
+    color: #0ff; /* Neon blue close button color on hover */
+}
+/* Futuristic Button Styles */
+.futuristic-button {
+    background-color: transparent;
+    color: #0ff; /* Neon blue button text color */
+    border: 2px solid #0ff; /* Neon blue button border */
+    padding: 20px 40px;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.futuristic-button:hover {
+    background-color: #0ff; /* Neon blue background color on hover */
+    color: #000; /* Black text color on hover */
+}
+
+/* Unreal Container Styles */
+.unreal-container {
+    background-image: url('space-background.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    padding: 100px;
     text-align: center;
+    color: #fff;
+}
+
+.unreal-container h2 {
+    font-size: 4em;
     margin-bottom: 30px;
 }
 
-/* Slider Container Styling */
-.slider-container {
+.unreal-container p {
+    font-size: 1.6em;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Animation */
+@keyframes neon {
+    0% {
+        color: #0ff;
+    }
+    50% {
+        color: #f0f;
+    }
+    100% {
+        color: #0ff;
+    }
+}
+
+.neon-text {
+    animation: neon 1.5s infinite alternate;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .container {
+        padding: 30px;
+    }
+
+    .button {
+        padding: 12px 24px;
+    }
+
+    .modal-content {
+        padding: 30px;
+    }
+
+    .close {
+        font-size: 1.5em;
+        top: 15px;
+        right: 20px;
+    }
+
+    .futuristic-button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+
+    .unreal-container {
+        padding: 50px;
+    }
+}
+
+/* Additional Advanced Styles and Functionality */
+
+/* Add advanced hover effects to containers */
+.container:hover {
+    transform: translateY(-3px) scale(1.05); /* Apply hover effect - move up slightly and scale */
+    background-color: #404040; /* Darker background color on hover */
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.3); /* Increased glow effect on hover */
+}
+
+/* Add glow effect to container heading on hover */
+.container:hover h2 {
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; /* Neon glow effect on hover */
+}
+
+/* Add pulsating animation to futuristic button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.futuristic-button {
+    animation: pulse 2s infinite alternate; /* Apply pulsating animation */
+}
+
+/* Add parallax scrolling effect to unreal container */
+.unreal-container {
+    background-attachment: fixed; /* Fix background image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Add floating animation to navigation items */
+nav ul li {
+    display: inline-block;
+    margin-left: 20px;
     position: relative;
-    width: 100%;
-    max-width: 600px; /* Adjust max-width as needed */
-    margin: 0 auto;
-    overflow: hidden;
+    animation: float 3s infinite ease-in-out;
 }
 
-.slide {
-    position: relative;
-    width: 100%;
-    text-align: center;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-.slider-image {
-    width: 100%;
-    height: auto;
-}
-
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
+/* Add toggle button for style changes */
+#style-toggle-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
     cursor: pointer;
-    color: #dbb28e; /* Light nude button color */
-    font-size: 24px;
-    z-index: 2;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Add transition effect */
 }
 
-.prev {
-    left: 10px;
+#style-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 1); /* Lighten background color on hover */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
 }
 
-.next {
-    right: 10px;
+/* Advanced hover effect for navigation items */
+nav ul li:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #0ff; /* Neon blue underline color */
+    bottom: -5px;
+    left: 0;
+}
+
+/* Add futuristic font to navigation items */
+nav ul li a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Google Translate dropdown styling */
+#google_translate_element {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background color */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Light box shadow */
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #ccc; /* Light text color */
+}
+
+#google_translate_element select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: #333; /* Dark dropdown background color */
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+#google_translate_element select:focus {
+    outline: none;
+}
+
+#google_translate_element select option {
+    padding: 5px;
+    background-color: #444; /* Dark dropdown option background color */
+}
+
+#google_translate_element select option:hover {
+    background-color: #555; /* Darker dropdown option background color on hover */
+}
+
+/* Add futuristic font to Google Translate dropdown */
+#google_translate_element * {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Add hover effects to list items */
+li {
+    background-color: #1a1a1a; /* Dark list item background color */
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif; /* Futuristic font */
+    font-size: 16px;
+    color: #ccc; /* Light text color */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); /* List item box shadow */
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    background-color: #333; /* Darker background color on hover */
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2); /* Increase shadow on hover */
 }
