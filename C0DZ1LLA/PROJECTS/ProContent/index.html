@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Futuristix - Futuristic Content Composer</title>
+    <style>
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header__title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #81a2be; /* Light Blue */
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4caf50; /* Green */
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.content-item {
+    background-color: #212121;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.content-item:hover {
+    transform: translateY(-5px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Additional Futuristic Styles */
+.action-btn {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#modalInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #212121;
+    color: #ffffff;
+}
+
+#modalSubmit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #81a2be; /* Light Blue */
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#modalSubmit:hover {
+    background-color: #4f94cd; /* Slightly Darker Blue */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">Futuristix - Futuristic Content Composer</h1>
+        </header>
+        <div class="actions">
+            <button id="addText" class="action-btn">Compose Text</button>
+            <button id="addImage" class="action-btn">Insert Image</button>
+            <button id="addVideo" class="action-btn">Embed Video</button>
+            <button id="addRichText" class="action-btn">Craft Rich Text</button>
+            <button id="addLink" class="action-btn">Link to Web</button>
+            <button id="exportContent" class="action-btn">Export Content</button>
+        </div>
+        <div id="contentContainer" class="content"></div>
+    </div>
+
+    <!-- Modal for Interactive Input -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentContainer = document.getElementById('contentContainer');
+            loadContent();
+
+            document.getElementById('addText').addEventListener('click', () => {
+                openModal('Enter the text:', 'text');
+            });
+
+            document.getElementById('addImage').addEventListener('click', () => {
+                openModal('Enter the image URL:', 'image');
+            });
+
+            document.getElementById('addVideo').addEventListener('click', () => {
+                openModal('Enter the video URL:', 'video');
+            });
+
+            document.getElementById('addRichText').addEventListener('click', () => {
+                openModal('Enter the rich text (HTML format):', 'richText');
+            });
+
+            document.getElementById('addLink').addEventListener('click', () => {
+                openModal('Enter the link URL:', 'link');
+            });
+
+            document.getElementById('exportContent').addEventListener('click', () => {
+                exportContent();
+            });
+
+            // Function to open modal for interactive input
+            function openModal(promptText, type) {
+                const modal = document.getElementById('modal');
+                const modalContent = document.getElementById('modalContent');
+                modalContent.innerHTML = `
+                    <p>${promptText}</p>
+                    <input type="text" id="modalInput" />
+                    <button id="modalSubmit">Submit</button>
+                `;
+                modal.style.display = 'block';
+
+                // Event listener for modal submit button
+                document.getElementById('modalSubmit').addEventListener('click', () => {
+                    const inputText = document.getElementById('modalInput').value;
+                    modal.style.display = 'none';
+                    if (inputText) addItem(type, inputText);
+                });
+
+                // Close modal when the close button is clicked
+                document.getElementsByClassName('close')[0].addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+
+            function addItem(type, content, options = {}) {
+                // Add futuristic logic here
+                // Example: AI content suggestions, real-time collaboration, etc.
+
+                // For now, let's just add the item to the container
+                const item = document.createElement('div');
+                item.classList.add('content-item');
+                item.classList.add('futuristic');
+                switch (type) {
+                    case 'text':
+                        item.textContent = content;
+                        item.style.color = options.color || '#ffffff';
+                        item.style.fontSize = options.fontSize || '16px';
+                        break;
+                    case 'image':
+                        const img = document.createElement('img');
+                        img.src = content;
+                        img.alt = 'Image';
+                        img.style.width = options.width || '100%';
+                        img.style.height = options.height || 'auto';
+                        item.appendChild(img);
+                        break;
+                    case 'video':
+                        const video = document.createElement('video');
+                        video.src = content;
+                        video.controls = true;
+                        video.style.width = options.width || '100%';
+                        video.style.height = options.height || 'auto';
+                        item.appendChild(video);
+                        break;
+                    case 'richText':
+                        item.innerHTML = content;
+                        break;
+                    case 'link':
+                        const link = document.createElement('a');
+                        link.href = content.url;
+                        link.textContent = content.text;
+                        link.target = '_blank';
+                        link.style.color = content.color || '#81a2be';
+                        link.style.fontSize = content.fontSize || '16px';
+                        item.appendChild(link);
+                        break;
+                    default:
+                        break;
+                }
+
+                contentContainer.appendChild(item);
+                saveContent();
+            }
+
+            function saveContent() {
+                const items = Array.from(contentContainer.children).map(item => {
+                    const content = getContentForType(item);
+                    const type = getTypeForItem(item);
+                    const options = getOptionsForItem(item, type);
+                    return { type, content, options };
+                });
+                localStorage.setItem('contentItems', JSON.stringify(items));
+            }
+
+            function getContentForType(item) {
+                switch (getTypeForItem(item)) {
+                    case 'image':
+                        return item.querySelector('img').src;
+                    case 'video':
+                        return item.querySelector('video').src;
+                    case 'link':
+                        return { 
+                            url: item.querySelector('a').href,
+                            text: item.querySelector('a').textContent,
+                            color: item.querySelector('a').style.color,
+                            fontSize: item.querySelector('a').style.fontSize
+                        };
+                    default:
+                        return item.innerHTML;
+                }
+            }
+
+            function getTypeForItem(item) {
+                if (item.querySelector('img')) {
+                    return 'image';
+                } else if (item.querySelector('video')) {
+                    return 'video';
+                } else if (item.querySelector('a')) {
+                    return 'link';
+                } else if (item.style.color) {
+                    return 'text';
+                } else {
+                    return 'richText';
+                }
+            }
+
+            function getOptionsForItem(item, type) {
+                switch (type) {
+                    case 'image':
+                        return { 
+                            width: item.querySelector('img').style.width,
+                            height: item.querySelector('img').style.height
+                        };
+                    case 'video':
+                        return { 
+                            width: item.querySelector('video').style.width,
+                            height: item.querySelector('video').style.height
+                        };
+                    case 'link':
+                        return { 
+                            url: item.querySelector('a').href,
+                            text: item.querySelector('a').textContent,
+                            color: item.querySelector('a').style.color,
+                            fontSize: item.querySelector('a').style.fontSize
+                        };
+                    default:
+                        return {};
+                }
+            }
+
+            function loadContent()
+            {
+                const savedItems = JSON.parse(localStorage.getItem('contentItems')) || [];
+                savedItems.forEach(({ type, content, options }) => {
+                    addItem(type, content, options);
+                });
+            }
+
+            function exportContent() {
+    // Create a CSV header
+    let csvContent = 'Type,Content,Options\n';
+
+    // Iterate through each content item and add it to the CSV content
+    Array.from(contentContainer.children).forEach(item => {
+        const type = getTypeForItem(item);
+        const content = getContentForType(item);
+        const options = JSON.stringify(getOptionsForItem(item, type));
+        csvContent += `${type},"${content}","${options}"\n`;
+    });
+
+    // Create a data URI for download
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+
+    // Create a link element and trigger download
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'futuristix_content.csv';
+    a.click();
+
+    // Clean up by revoking the object URL
+    URL.revokeObjectURL(url);
+}
+
+        });
+    </script>
+
+</body>
+</html>
