@@ -142,10 +142,10 @@ body {
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1 class="header__title">Futuristix - Futuristic Content Composer</h1>
-        </header>
+    <header class="header">
+        <h1 class="header__title">Futurify - Your Gateway to Futuristic Content Creation</h1>
+    </header>
+    <main class="container">
         <div class="actions">
             <button id="addText" class="action-btn">Compose Text</button>
             <button id="addImage" class="action-btn">Insert Image</button>
@@ -155,7 +155,7 @@ body {
             <button id="exportContent" class="action-btn">Export Content</button>
         </div>
         <div id="contentContainer" class="content"></div>
-    </div>
+    </main>
 
     <!-- Modal for Interactive Input -->
     <div id="modal" class="modal">
@@ -164,212 +164,244 @@ body {
             <div id="modalContent"></div>
         </div>
     </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const contentContainer = document.getElementById('contentContainer');
-            loadContent();
+ document.addEventListener('DOMContentLoaded', () => {
+                const contentContainer = document.getElementById('contentContainer');
+                loadContent();
 
-            document.getElementById('addText').addEventListener('click', () => {
-                openModal('Enter the text:', 'text');
-            });
-
-            document.getElementById('addImage').addEventListener('click', () => {
-                openModal('Enter the image URL:', 'image');
-            });
-
-            document.getElementById('addVideo').addEventListener('click', () => {
-                openModal('Enter the video URL:', 'video');
-            });
-
-            document.getElementById('addRichText').addEventListener('click', () => {
-                openModal('Enter the rich text (HTML format):', 'richText');
-            });
-
-            document.getElementById('addLink').addEventListener('click', () => {
-                openModal('Enter the link URL:', 'link');
-            });
-
-            document.getElementById('exportContent').addEventListener('click', () => {
-                exportContent();
-            });
-
-            // Function to open modal for interactive input
-            function openModal(promptText, type) {
-                const modal = document.getElementById('modal');
-                const modalContent = document.getElementById('modalContent');
-                modalContent.innerHTML = `
-                    <p>${promptText}</p>
-                    <input type="text" id="modalInput" />
-                    <button id="modalSubmit">Submit</button>
-                `;
-                modal.style.display = 'block';
-
-                // Event listener for modal submit button
-                document.getElementById('modalSubmit').addEventListener('click', () => {
-                    const inputText = document.getElementById('modalInput').value;
-                    modal.style.display = 'none';
-                    if (inputText) addItem(type, inputText);
+                document.getElementById('addText').addEventListener('click', () => {
+                    openModal('Enter the text:', 'text');
                 });
 
-                // Close modal when the close button is clicked
-                document.getElementsByClassName('close')[0].addEventListener('click', () => {
-                    modal.style.display = 'none';
+                document.getElementById('addImage').addEventListener('click', () => {
+                    openModal('Enter the image URL:', 'image');
                 });
-            }
 
-            function addItem(type, content, options = {}) {
-                // Add futuristic logic here
-                // Example: AI content suggestions, real-time collaboration, etc.
+                document.getElementById('addVideo').addEventListener('click', () => {
+                    openModal('Enter the video URL (YouTube or Twitter):', 'video');
+                });
 
-                // For now, let's just add the item to the container
-                const item = document.createElement('div');
-                item.classList.add('content-item');
-                item.classList.add('futuristic');
-                switch (type) {
-                    case 'text':
-                        item.textContent = content;
-                        item.style.color = options.color || '#ffffff';
-                        item.style.fontSize = options.fontSize || '16px';
-                        break;
-                    case 'image':
-                        const img = document.createElement('img');
-                        img.src = content;
-                        img.alt = 'Image';
-                        img.style.width = options.width || '100%';
-                        img.style.height = options.height || 'auto';
-                        item.appendChild(img);
-                        break;
-                    case 'video':
-                        const video = document.createElement('video');
-                        video.src = content;
-                        video.controls = true;
-                        video.style.width = options.width || '100%';
-                        video.style.height = options.height || 'auto';
-                        item.appendChild(video);
-                        break;
-                    case 'richText':
-                        item.innerHTML = content;
-                        break;
-                    case 'link':
-                        const link = document.createElement('a');
-                        link.href = content.url;
-                        link.textContent = content.text;
-                        link.target = '_blank';
-                        link.style.color = content.color || '#81a2be';
-                        link.style.fontSize = content.fontSize || '16px';
-                        item.appendChild(link);
-                        break;
-                    default:
-                        break;
+                document.getElementById('addRichText').addEventListener('click', () => {
+                    openModal('Enter the rich text (HTML format):', 'richText');
+                });
+
+                document.getElementById('addLink').addEventListener('click', () => {
+                    openModal('Enter the link URL:', 'link');
+                });
+
+                document.getElementById('exportContent').addEventListener('click', () => {
+                    exportContent();
+                });
+
+                // Add event listener for adding audio files
+                document.getElementById('addAudio').addEventListener('click', () => {
+                    openModal('Select an MP3 or MP4 file:', 'audio');
+                });
+
+                // Function to open modal for interactive input
+                function openModal(promptText, type) {
+                    const modal = document.getElementById('modal');
+                    const modalContent = document.getElementById('modalContent');
+                    modalContent.innerHTML = `
+                        <p>${promptText}</p>
+                        <input type="text" id="modalInput" />
+                        <button id="modalSubmit">Submit</button>
+                    `;
+                    modal.style.display = 'block';
+
+                    // Event listener for modal submit button
+                    document.getElementById('modalSubmit').addEventListener('click', () => {
+                        const inputText = document.getElementById('modalInput').value;
+                        modal.style.display = 'none';
+                        if (inputText) addItem(type, inputText);
+                    });
+
+                    // Close modal when the close button is clicked
+                    document.getElementsByClassName('close')[0].addEventListener('click', () => {
+                        modal.style.display = 'none';
+                    });
                 }
 
-                contentContainer.appendChild(item);
-                saveContent();
-            }
+                // Function to add item to content container
+                function addItem(type, content, options = {}) {
+                    const item = document.createElement('div');
+                    item.classList.add('content-item');
+                    item.classList.add('futuristic');
+                    switch (type) {
+                        case 'text':
+                            item.textContent = content;
+                            item.style.color = options.color || '#ffffff';
+                            item.style.fontSize = options.fontSize || '16px';
+                            break;
+                        case 'image':
+                            const img = document.createElement('img');
+                            img.src = content;
+                            img.alt = 'Image';
+                            img.style.width = options.width || '100%';
+                            img.style.height = options.height || 'auto';
+                            item.appendChild(img);
+                            break;
+                            case 'video':
+                if (content.includes('youtube.com') || content.includes('youtu.be')) {
+                    // If YouTube URL, extract the video ID and create the embed URL
+                    const videoId = content.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?vi=))([^&?#]+)/)[1];
+                    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                    const iframe = document.createElement('iframe');
+                    iframe.src = embedUrl;
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
+                    item.appendChild(iframe);
+                } else if (content.includes('twitter.com')) {
+                    // If Twitter URL, create the Twitter embed code
+                    const tweetId = content.match(/\/status\/(\d+)/)[1];
+                    const twitterScript = document.createElement('script');
+                    twitterScript.src = 'https://platform.twitter.com/widgets.js';
+                    twitterScript.async = true;
+                    item.appendChild(twitterScript);
 
-            function saveContent() {
-                const items = Array.from(contentContainer.children).map(item => {
-                    const content = getContentForType(item);
-                    const type = getTypeForItem(item);
-                    const options = getOptionsForItem(item, type);
-                    return { type, content, options };
-                });
-                localStorage.setItem('contentItems', JSON.stringify(items));
-            }
-
-            function getContentForType(item) {
-                switch (getTypeForItem(item)) {
-                    case 'image':
-                        return item.querySelector('img').src;
-                    case 'video':
-                        return item.querySelector('video').src;
-                    case 'link':
-                        return { 
-                            url: item.querySelector('a').href,
-                            text: item.querySelector('a').textContent,
-                            color: item.querySelector('a').style.color,
-                            fontSize: item.querySelector('a').style.fontSize
-                        };
-                    default:
-                        return item.innerHTML;
-                }
-            }
-
-            function getTypeForItem(item) {
-                if (item.querySelector('img')) {
-                    return 'image';
-                } else if (item.querySelector('video')) {
-                    return 'video';
-                } else if (item.querySelector('a')) {
-                    return 'link';
-                } else if (item.style.color) {
-                    return 'text';
+                    const embedHtml = `
+                        <blockquote class="twitter-tweet">
+                            <a href="${content}"></a>
+                        </blockquote>
+                    `;
+                    item.innerHTML = embedHtml;
                 } else {
-                    return 'richText';
+                    // For other URLs, assume direct video embedding
+                    const video = document.createElement('video');
+                    video.src = content;
+                    video.controls = true;
+                    item.appendChild(video);
                 }
-            }
+                break;
+                        case 'richText':
+                            item.innerHTML = content;
+                            break;
+                        case 'link':
+                            const link = document.createElement('a');
+                            link.href = content.url;
+                            link.textContent = content.text;
+                            link.target = '_blank';
+                            link.style.color = content.color || '#81a2be';
+                            link.style.fontSize = content.fontSize || '16px';
+                            item.appendChild(link);
+                            break;
+                        case 'audio':
+                            const audio = document.createElement('audio');
+                            audio.src = content;
+                            audio.controls = true;
+                            item.appendChild(audio);
+                            break;
+                    }
 
-            function getOptionsForItem(item, type) {
-                switch (type) {
-                    case 'image':
-                        return { 
-                            width: item.querySelector('img').style.width,
-                            height: item.querySelector('img').style.height
-                        };
-                    case 'video':
-                        return { 
-                            width: item.querySelector('video').style.width,
-                            height: item.querySelector('video').style.height
-                        };
-                    case 'link':
-                        return { 
-                            url: item.querySelector('a').href,
-                            text: item.querySelector('a').textContent,
-                            color: item.querySelector('a').style.color,
-                            fontSize: item.querySelector('a').style.fontSize
-                        };
-                    default:
-                        return {};
+                    contentContainer.appendChild(item);
+                    saveContent();
                 }
-            }
 
-            function loadContent()
-            {
-                const savedItems = JSON.parse(localStorage.getItem('contentItems')) || [];
-                savedItems.forEach(({ type, content, options }) => {
-                    addItem(type, content, options);
-                });
-            }
+                // Function to save content to local storage
+                function saveContent() {
+                    const items = Array.from(contentContainer.children).map(item => {
+                        const content = getContentForType(item);
+                        const type = getTypeForItem(item);
+                        const options = getOptionsForItem(item, type);
+                        return { type, content, options };
+                    });
+                    localStorage.setItem('contentItems', JSON.stringify(items));
+                }
 
-            function exportContent() {
-    // Create a CSV header
-    let csvContent = 'Type,Content,Options\n';
+                // Function to load content from local storage
+                function loadContent() {
+                    const savedItems = JSON.parse(localStorage.getItem('contentItems')) || [];
+                    savedItems.forEach(({ type, content, options }) => {
+                        addItem(type, content, options);
+                    });
+                }
 
-    // Iterate through each content item and add it to the CSV content
-    Array.from(contentContainer.children).forEach(item => {
-        const type = getTypeForItem(item);
-        const content = getContentForType(item);
-        const options = JSON.stringify(getOptionsForItem(item, type));
-        csvContent += `${type},"${content}","${options}"\n`;
-    });
+                // Function to get content for a specific type
+                function getContentForType(item) {
+                    switch (getTypeForItem(item)) {
+                        case 'image':
+                            return item.querySelector('img').src;
+                        case 'video':
+                            return item.querySelector('video').src;
+                        case 'link':
+                            return {
+                                url: item.querySelector('a').href,
+                                text: item.querySelector('a').textContent,
+                                color: item.querySelector('a').style.color,
+                                fontSize: item.querySelector('a').style.fontSize
+                            };
+                        default:
+                            return item.innerHTML;
+                    }
+                }
 
-    // Create a data URI for download
-    const blob = new Blob([csvContent], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
+                // Function to get the type of an item
+                function getTypeForItem(item) {
+                    if (item.querySelector('img')) {
+                        return 'image';
+                    } else if (item.querySelector('video')) {
+                        return 'video';
+                    } else if (item.querySelector('a')) {
+                        return 'link';
+                    } else if (item.style.color) {
+                        return 'text';
+                    } else {
+                        return 'richText';
+                    }
+                }
 
-    // Create a link element and trigger download
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'futuristix_content.csv';
-    a.click();
-
-    // Clean up by revoking the object URL
-    URL.revokeObjectURL(url);
+                function getOptionsForItem(item, type) {
+    switch (type) {
+        case 'image':
+            return {
+                width: item.querySelector('img').style.width,
+                height: item.querySelector('img').style.height
+            };
+        case 'video':
+            return {
+                width: item.querySelector('video').style.width,
+                height: item.querySelector('video').style.height
+            };
+        case 'link':
+            return {
+                url: item.querySelector('a').href,
+                text: item.querySelector('a').textContent,
+                color: item.querySelector('a').style.color,
+                fontSize: item.querySelector('a').style.fontSize
+            };
+        default:
+            return {};
+    }
 }
 
-        });
-    </script>
 
-</body>
+                // Function to export content as CSV
+                function exportContent() {
+                    // Create a CSV header
+                    let csvContent = 'Type,Content,Options\n';
+
+                    // Iterate through each content item and add it to the CSV content
+                    Array.from(contentContainer.children).forEach(item => {
+                        const type = getTypeForItem(item);
+                        const content = getContentForType(item);
+                        const options = JSON.stringify(getOptionsForItem(item, type));
+                        csvContent += `${type},"${content}","${options}"\n`;
+                    });
+
+                    // Create a data URI for download
+                    const blob = new Blob([csvContent], { type: 'text/csv' });
+                    const url = URL.createObjectURL(blob);
+
+                    // Create a link element and trigger download
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'futurify_content.csv';
+                    a.click();
+
+                    // Clean up by revoking the object URL
+                    URL.revokeObjectURL(url);
+                }
+            });
+        </script>
+    </body>
 </html>
