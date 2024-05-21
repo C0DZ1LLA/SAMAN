@@ -3,142 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Futuristix - Futuristic Content Composer</title>
+    <title>Futurify - Futuristic Content Composer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-/* Global Styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.header__title {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #81a2be; /* Light Blue */
-}
+        .header__title {
+            font-size: 3em;
+            font-weight: bold;
+            color: #81a2be; /* Light Blue */
+        }
 
-.actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
 
-.action-btn {
-    font-size: 1.2em;
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #4caf50; /* Green */
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-}
+        .action-btn {
+            font-size: 1.2em;
+            padding: 12px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4caf50; /* Green */
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
 
-.action-btn:hover {
-    background-color: #45a049; /* Darker Green */
-}
+        .action-btn:hover {
+            background-color: #45a049; /* Darker Green */
+            transform: scale(1.05);
+        }
 
-.content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-}
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
 
-.content-item {
-    background-color: #212121;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
+        .content-item {
+            background-color: #212121;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.content-item:hover {
-    transform: translateY(-5px);
-}
+        .content-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+        }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
 
-.modal-content {
-    background-color: #333;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 10px;
-    position: relative;
-}
+        .modal-content {
+            background-color: #333;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+            position: relative;
+        }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-.close:hover,
-.close:focus {
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
-}
+        .close:hover,
+        .close:focus {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-/* Additional Futuristic Styles */
-.action-btn {
-    font-weight: bold;
-    text-transform: uppercase;
-}
+        #modalInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #212121;
+            color: #ffffff;
+        }
 
-#modalInput {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #212121;
-    color: #ffffff;
-}
+        #modalSubmit {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #81a2be; /* Light Blue */
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-#modalSubmit {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #81a2be; /* Light Blue */
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        #modalSubmit:hover {
+            background-color: #4f94cd; /* Slightly Darker Blue */
+        }
 
-#modalSubmit:hover {
-    background-color: #4f94cd; /* Slightly Darker Blue */
-}
+        /* Additional Styles */
+        .action-btn:active {
+            transform: scale(0.95);
+        }
 
+        .rich-editor {
+            min-height: 200px;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        iframe, video, audio {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -152,6 +167,7 @@ body {
             <button id="addVideo" class="action-btn">Embed Video</button>
             <button id="addRichText" class="action-btn">Craft Rich Text</button>
             <button id="addLink" class="action-btn">Link to Web</button>
+            <button id="addAudio" class="action-btn">Embed Audio</button>
             <button id="exportContent" class="action-btn">Export Content</button>
         </div>
         <div id="contentContainer" class="content"></div>
@@ -165,243 +181,207 @@ body {
         </div>
     </div>
     <script>
- document.addEventListener('DOMContentLoaded', () => {
-                const contentContainer = document.getElementById('contentContainer');
-                loadContent();
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentContainer = document.getElementById('contentContainer');
+            loadContent();
 
-                document.getElementById('addText').addEventListener('click', () => {
-                    openModal('Enter the text:', 'text');
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modalContent');
+
+            document.querySelectorAll('.action-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const action = button.id.replace('add', '').toLowerCase();
+                    openModal(`Enter the ${action.replace('richtext', 'rich text').replace('link', 'link URL')}:`, action);
+                });
+            });
+
+            // Function to open modal for interactive input
+            function openModal(promptText, type) {
+                modalContent.innerHTML = `
+                    <p>${promptText}</p>
+                    ${type === 'richtext' ? '<div contenteditable="true" class="rich-editor" id="modalInput"></div>' : '<input type="text" id="modalInput" />'}
+                    <button id="modalSubmit">Submit</button>
+                `;
+                modal.style.display = 'block';
+
+                // Event listener for modal submit button
+                document.getElementById('modalSubmit').addEventListener('click', () => {
+                    const inputText = document.getElementById('modalInput').value || document.getElementById('modalInput').innerHTML;
+                    modal.style.display = 'none';
+                    if (inputText) addItem(type, inputText);
                 });
 
-                document.getElementById('addImage').addEventListener('click', () => {
-                    openModal('Enter the image URL:', 'image');
+                // Close modal when the close button is clicked
+                document.getElementsByClassName('close')[0].addEventListener('click', () => {
+                    modal.style.display = 'none';
                 });
+            }
 
-                document.getElementById('addVideo').addEventListener('click', () => {
-                    openModal('Enter the video URL (YouTube or Twitter):', 'video');
-                });
-
-                document.getElementById('addRichText').addEventListener('click', () => {
-                    openModal('Enter the rich text (HTML format):', 'richText');
-                });
-
-                document.getElementById('addLink').addEventListener('click', () => {
-                    openModal('Enter the link URL:', 'link');
-                });
-
-                document.getElementById('exportContent').addEventListener('click', () => {
-                    exportContent();
-                });
-
-                // Add event listener for adding audio files
-                document.getElementById('addAudio').addEventListener('click', () => {
-                    openModal('Select an MP3 or MP4 file:', 'audio');
-                });
-
-                // Function to open modal for interactive input
-                function openModal(promptText, type) {
-                    const modal = document.getElementById('modal');
-                    const modalContent = document.getElementById('modalContent');
-                    modalContent.innerHTML = `
-                        <p>${promptText}</p>
-                        <input type="text" id="modalInput" />
-                        <button id="modalSubmit">Submit</button>
-                    `;
-                    modal.style.display = 'block';
-
-                    // Event listener for modal submit button
-                    document.getElementById('modalSubmit').addEventListener('click', () => {
-                        const inputText = document.getElementById('modalInput').value;
-                        modal.style.display = 'none';
-                        if (inputText) addItem(type, inputText);
-                    });
-
-                    // Close modal when the close button is clicked
-                    document.getElementsByClassName('close')[0].addEventListener('click', () => {
-                        modal.style.display = 'none';
-                    });
+            // Function to add item to content container
+            function addItem(type, content, options = {}) {
+                const item = document.createElement('div');
+                item.classList.add('content-item');
+                switch (type) {
+                    case 'text':
+                        item.textContent = content;
+                        item.style.color = options.color || '#ffffff';
+                        item.style.fontSize = options.fontSize || '16px';
+                        break;
+                    case 'image':
+                        const img = document.createElement('img');
+                        img.src = content;
+                        img.alt = 'Image';
+                        img.style.width = options.width || '100%';
+                        img.style.height = options.height || 'auto';
+                        item.appendChild(img);
+                        break;
+                    case 'video':
+                        addMediaItem(item, content, 'video');
+                        break;
+                    case 'richtext':
+                        item.innerHTML = content;
+                        break;
+                    case 'link':
+                        const link = document.createElement('a');
+                        link.href = content;
+                        link.textContent = content;
+                        link.target = '_blank';
+                        link.style.color = options.color || '#81a2be';
+                        link.style.fontSize = options.fontSize || '16px';
+                        item.appendChild(link);
+                        break;
+                    case 'audio':
+                        addMediaItem(item, content, 'audio');
+                        break;
                 }
 
-                // Function to add item to content container
-                function addItem(type, content, options = {}) {
-                    const item = document.createElement('div');
-                    item.classList.add('content-item');
-                    item.classList.add('futuristic');
-                    switch (type) {
-                        case 'text':
-                            item.textContent = content;
-                            item.style.color = options.color || '#ffffff';
-                            item.style.fontSize = options.fontSize || '16px';
-                            break;
-                        case 'image':
-                            const img = document.createElement('img');
-                            img.src = content;
-                            img.alt = 'Image';
-                            img.style.width = options.width || '100%';
-                            img.style.height = options.height || 'auto';
-                            item.appendChild(img);
-                            break;
-                            case 'video':
+                contentContainer.appendChild(item);
+                saveContent();
+            }
+
+            function addMediaItem(item, content, type) {
                 if (content.includes('youtube.com') || content.includes('youtu.be')) {
-                    // If YouTube URL, extract the video ID and create the embed URL
                     const videoId = content.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?vi=))([^&?#]+)/)[1];
                     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
                     const iframe = document.createElement('iframe');
                     iframe.src = embedUrl;
-                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                     iframe.allowFullscreen = true;
                     item.appendChild(iframe);
-                } else if (content.includes('twitter.com')) {
-                    // If Twitter URL, create the Twitter embed code
-                    const tweetId = content.match(/\/status\/(\d+)/)[1];
-                    const twitterScript = document.createElement('script');
-                    twitterScript.src = 'https://platform.twitter.com/widgets.js';
-                    twitterScript.async = true;
-                    item.appendChild(twitterScript);
-
-                    const embedHtml = `
-                        <blockquote class="twitter-tweet">
-                            <a href="${content}"></a>
-                        </blockquote>
-                    `;
-                    item.innerHTML = embedHtml;
                 } else {
-                    // For other URLs, assume direct video embedding
-                    const video = document.createElement('video');
-                    video.src = content;
-                    video.controls = true;
-                    item.appendChild(video);
+                    const media = document.createElement(type);
+                    media.src = content;
+                    media.controls = true;
+                    item.appendChild(media);
                 }
-                break;
-                        case 'richText':
-                            item.innerHTML = content;
-                            break;
-                        case 'link':
-                            const link = document.createElement('a');
-                            link.href = content.url;
-                            link.textContent = content.text;
-                            link.target = '_blank';
-                            link.style.color = content.color || '#81a2be';
-                            link.style.fontSize = content.fontSize || '16px';
-                            item.appendChild(link);
-                            break;
-                        case 'audio':
-                            const audio = document.createElement('audio');
-                            audio.src = content;
-                            audio.controls = true;
-                            item.appendChild(audio);
-                            break;
-                    }
+            }
 
-                    contentContainer.appendChild(item);
-                    saveContent();
+            // Function to save content to local storage
+            function saveContent() {
+                const items = Array.from(contentContainer.children).map(item => {
+                    const content = getContentForType(item);
+                    const type = getTypeForItem(item);
+                    const options = getOptionsForItem(item, type);
+                    return { type, content, options };
+                });
+                localStorage.setItem('contentItems', JSON.stringify(items));
+            }
+
+            // Function to load content from local storage
+            function loadContent() {
+                const savedItems = JSON.parse(localStorage.getItem('contentItems')) || [];
+                savedItems.forEach(({ type, content, options }) => {
+                    addItem(type, content, options);
+                });
+            }
+
+            // Function to get content for a specific type
+            function getContentForType(item) {
+                switch (getTypeForItem(item)) {
+                    case 'image':
+                        return item.querySelector('img').src;
+                    case 'video':
+                        return item.querySelector('iframe')?.src || item.querySelector('video').src;
+                    case 'link':
+                        return item.querySelector('a').href;
+                    case 'audio':
+                        return item.querySelector('audio').src;
+                    default:
+                        return item.innerHTML;
                 }
+            }
 
-                // Function to save content to local storage
-                function saveContent() {
-                    const items = Array.from(contentContainer.children).map(item => {
-                        const content = getContentForType(item);
-                        const type = getTypeForItem(item);
-                        const options = getOptionsForItem(item, type);
-                        return { type, content, options };
-                    });
-                    localStorage.setItem('contentItems', JSON.stringify(items));
+            // Function to get the type of an item
+            function getTypeForItem(item) {
+                if (item.querySelector('img')) {
+                    return 'image';
+                } else if (item.querySelector('iframe') || item.querySelector('video')) {
+                    return 'video';
+                } else if (item.querySelector('a')) {
+                    return 'link';
+                } else if (item.querySelector('audio')) {
+                    return 'audio';
+                } else if (item.style.color) {
+                    return 'text';
+                } else {
+                    return 'richtext';
                 }
+            }
 
-                // Function to load content from local storage
-                function loadContent() {
-                    const savedItems = JSON.parse(localStorage.getItem('contentItems')) || [];
-                    savedItems.forEach(({ type, content, options }) => {
-                        addItem(type, content, options);
-                    });
+            function getOptionsForItem(item, type) {
+                switch (type) {
+                    case 'image':
+                        return {
+                            width: item.querySelector('img').style.width,
+                            height: item.querySelector('img').style.height
+                        };
+                    case 'video':
+                    case 'audio':
+                        return {
+                            width: item.querySelector(type)?.style.width,
+                            height: item.querySelector(type)?.style.height
+                        };
+                    case 'link':
+                        return {
+                            url: item.querySelector('a').href,
+                            text: item.querySelector('a').textContent,
+                            color: item.querySelector('a').style.color,
+                            fontSize: item.querySelector('a').style.fontSize
+                        };
+                    default:
+                        return {};
                 }
+            }
 
-                // Function to get content for a specific type
-                function getContentForType(item) {
-                    switch (getTypeForItem(item)) {
-                        case 'image':
-                            return item.querySelector('img').src;
-                        case 'video':
-                            return item.querySelector('video').src;
-                        case 'link':
-                            return {
-                                url: item.querySelector('a').href,
-                                text: item.querySelector('a').textContent,
-                                color: item.querySelector('a').style.color,
-                                fontSize: item.querySelector('a').style.fontSize
-                            };
-                        default:
-                            return item.innerHTML;
-                    }
-                }
+            // Function to export content as CSV
+            function exportContent() {
+                // Create a CSV header
+                let csvContent = 'Type,Content,Options\n';
 
-                // Function to get the type of an item
-                function getTypeForItem(item) {
-                    if (item.querySelector('img')) {
-                        return 'image';
-                    } else if (item.querySelector('video')) {
-                        return 'video';
-                    } else if (item.querySelector('a')) {
-                        return 'link';
-                    } else if (item.style.color) {
-                        return 'text';
-                    } else {
-                        return 'richText';
-                    }
-                }
+                // Iterate through each content item and add it to the CSV content
+                Array.from(contentContainer.children).forEach(item => {
+                    const type = getTypeForItem(item);
+                    const content = getContentForType(item);
+                    const options = JSON.stringify(getOptionsForItem(item, type));
+                    csvContent += `${type},"${content}","${options}"\n`;
+                });
 
-                function getOptionsForItem(item, type) {
-    switch (type) {
-        case 'image':
-            return {
-                width: item.querySelector('img').style.width,
-                height: item.querySelector('img').style.height
-            };
-        case 'video':
-            return {
-                width: item.querySelector('video').style.width,
-                height: item.querySelector('video').style.height
-            };
-        case 'link':
-            return {
-                url: item.querySelector('a').href,
-                text: item.querySelector('a').textContent,
-                color: item.querySelector('a').style.color,
-                fontSize: item.querySelector('a').style.fontSize
-            };
-        default:
-            return {};
-    }
-}
+                // Create a data URI for download
+                const blob = new Blob([csvContent], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
 
+                // Create a link element and trigger download
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'futurify_content.csv';
+                a.click();
 
-                // Function to export content as CSV
-                function exportContent() {
-                    // Create a CSV header
-                    let csvContent = 'Type,Content,Options\n';
+                // Clean up by revoking the object URL
+                URL.revokeObjectURL(url);
+            }
 
-                    // Iterate through each content item and add it to the CSV content
-                    Array.from(contentContainer.children).forEach(item => {
-                        const type = getTypeForItem(item);
-                        const content = getContentForType(item);
-                        const options = JSON.stringify(getOptionsForItem(item, type));
-                        csvContent += `${type},"${content}","${options}"\n`;
-                    });
-
-                    // Create a data URI for download
-                    const blob = new Blob([csvContent], { type: 'text/csv' });
-                    const url = URL.createObjectURL(blob);
-
-                    // Create a link element and trigger download
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'futurify_content.csv';
-                    a.click();
-
-                    // Clean up by revoking the object URL
-                    URL.revokeObjectURL(url);
-                }
-            });
-        </script>
-    </body>
+            document.getElementById('exportContent').addEventListener('click', exportContent);
+        });
+    </script>
+</body>
 </html>
