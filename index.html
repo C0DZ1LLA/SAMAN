@@ -7,6 +7,8 @@
     <meta name="description" content="Welcome to C0DZ1LLA Systems, a hub of innovative technology solutions. Explore our website for cutting-edge web development, software engineering, game development, and tech consulting services. Our team of experts is dedicated to pushing the boundaries of technology to deliver exceptional results for our clients.">
     <meta name="keywords" content="C0DZ1LLA Systems, technology solutions, web development, software engineering, game development, tech consulting, innovation, expertise, cutting-edge, AI, artificial intelligence">
     <meta name="author" content="Saman Abotaleby">
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <title>C0DZ1LLA Systems</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S5FVTLKRD"></script>
     <script>
@@ -552,14 +554,19 @@ function translatePage() {
 }
 
     
-        // Load Google Translate script when the page loads
-        window.onload = function () {
-            // Load Google Translate script dynamically
-            var googleTranslateScript = document.createElement('script');
-            googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            googleTranslateScript.type = 'text/javascript';
-            document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
-        };
+// Load Google Translate script when the page loads
+window.onload = function () {
+    loadGoogleTranslateScript();
+    fetchSupportedLanguages(function (languages) {
+        var languageSelect = document.getElementById('languageSelect');
+        languages.forEach(function (lang) {
+            var option = document.createElement('option');
+            option.value = lang.code;
+            option.textContent = lang.name;
+            languageSelect.appendChild(option);
+        });
+    });
+};
     
         // Callback function for Google Translate
         function googleTranslateElementInit() {
