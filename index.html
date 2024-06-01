@@ -276,10 +276,183 @@ footer p {
     margin: 20px auto; /* Center and add margin */
     max-width: 800px; /* Limit width for better readability */
 }
+ /* New Kick Livestream Modal Styles */
+ #kickStreamModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s;
+        }
 
+        #kickStreamModal .modal-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-height: 100vh;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.9);
+            border: none;
+            padding: 0;
+            box-shadow: none;
+        }
 
+        #kickStreamModal .close-kick-modal {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 1001;
+        }
 
+        #kickStreamModal .close-kick-modal:hover,
+        #kickStreamModal .close-kick-modal:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
+        #kickStreamIframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .control-buttons {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1001;
+        }
+
+        .control-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #0f0;
+            color: #0f0;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .control-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+                     /* New X.com (Twitter) Modal Styles */
+        #xcomModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s;
+        }
+
+        #xcomModal.show {
+            display: flex;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        #xcomModal .modal-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-height: 100vh;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.9);
+            border: none;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        #xcomModal .close-xcom-modal {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 1001;
+        }
+
+        #xcomModal .close-xcom-modal:hover,
+        #xcomModal .close-xcom-modal:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .twitter-tweet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .control-buttons {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1001;
+        }
+
+        .control-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #0f0;
+            color: #0f0;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .control-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
     </style>
 </head>
@@ -303,10 +476,34 @@ footer p {
                 <button onclick="openModal('GameDevModal')">Game Development</button>
                 <button onclick="openModal('ProjectsModal')">Recent Projects</button>
                 <button onclick="toggleModal('contactModal')">Contact</button>
+                <button id="openKickStreamModalBtn">Open Kick Livestream</button>
+                <button id="openXcomModalBtn">Open X.com Livestream</button>
+
+
             </div>
         </div>
     </header>
-    
+    <!-- New X.com (Twitter) Modal -->
+    <div id="xcomModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-xcom-modal">&times;</span>
+            <blockquote class="twitter-tweet" data-media-max-width="560">
+                <p lang="en" dir="ltr">LIVE 0.2 <a href="https://t.co/KESc6zDBPm">https://t.co/KESc6zDBPm</a></p>&mdash; SAMAN (@saman_abotaleby) 
+                <a href="https://twitter.com/saman_abotaleby/status/1796969453907050814?ref_src=twsrc%5Etfw">June 1, 2024</a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+
+        <!-- New Kick Livestream Modal -->
+        <div id="kickStreamModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-kick-modal">&times;</span>
+                <iframe id="kickStreamIframe" src="" allowfullscreen="true"></iframe>
+                <div class="control-buttons">
+                </div>
+            </div>
+        </div>
     <canvas id="matrixCanvas"></canvas>
     
     <div id="translateModal" class="modal-content hidden">
@@ -419,6 +616,107 @@ onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')"
 
     <script>
 
+document.addEventListener('DOMContentLoaded', () => {
+            const xcomModal = document.getElementById('xcomModal');
+            const openXcomModalBtn = document.getElementById('openXcomModalBtn');
+            const closeXcomModalBtn = xcomModal.querySelector('.close-xcom-modal');
+
+            openXcomModalBtn.addEventListener('click', () => {
+                xcomModal.style.display = 'flex';
+            });
+
+            closeXcomModalBtn.addEventListener('click', () => {
+                xcomModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == xcomModal) {
+                    xcomModal.style.display = 'none';
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    xcomModal.style.display = 'none';
+                }
+            });
+        });
+
+
+   document.addEventListener('DOMContentLoaded', () => {
+            const kickStreamModal = document.getElementById('kickStreamModal');
+            const openKickStreamModalBtn = document.getElementById('openKickStreamModalBtn');
+            const closeKickStreamModalBtn = kickStreamModal.querySelector('.close-kick-modal');
+            const kickStreamIframe = document.getElementById('kickStreamIframe');
+            const fullScreenBtn = document.getElementById('fullScreenBtn');
+            const qualityBtn = document.getElementById('qualityBtn');
+
+            // Replace YOUR_USERNAME with your actual Kick username
+            const username = "C0DZ1LLA"; // Replace with actual Kick username
+
+            // Customize parameters as needed
+            const autoplay = true; // true or false
+            const muted = true; // true or false
+            const allowfullscreen = true; // true or false
+
+            const buildIframeSrc = (username, autoplay, muted, allowfullscreen) => {
+                let src = `https://player.kick.com/${username}`;
+                let params = [];
+
+                if (autoplay) params.push("autoplay=true");
+                if (muted) params.push("muted=true");
+                if (!allowfullscreen) params.push("allowfullscreen=false");
+
+                if (params.length > 0) {
+                    src += "?" + params.join("&");
+                }
+
+                return src;
+            };
+
+            openKickStreamModalBtn.addEventListener('click', () => {
+                kickStreamIframe.src = buildIframeSrc(username, autoplay, muted, allowfullscreen);
+                kickStreamModal.style.display = 'flex';
+            });
+
+            closeKickStreamModalBtn.addEventListener('click', () => {
+                kickStreamModal.style.display = 'none';
+                kickStreamIframe.src = "";
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == kickStreamModal) {
+                    kickStreamModal.style.display = 'none';
+                    kickStreamIframe.src = "";
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    kickStreamModal.style.display = 'none';
+                    kickStreamIframe.src = "";
+                }
+            });
+
+            // Full Screen Button Functionality
+            fullScreenBtn.addEventListener('click', () => {
+                if (kickStreamIframe.requestFullscreen) {
+                    kickStreamIframe.requestFullscreen();
+                } else if (kickStreamIframe.mozRequestFullScreen) { /* Firefox */
+                    kickStreamIframe.mozRequestFullScreen();
+                } else if (kickStreamIframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    kickStreamIframe.webkitRequestFullscreen();
+                } else if (kickStreamIframe.msRequestFullscreen) { /* IE/Edge */
+                    kickStreamIframe.msRequestFullscreen();
+                }
+            });
+
+            // Quality Button Functionality
+            qualityBtn.addEventListener('click', () => {
+                // Example logic: replace with actual quality control logic if available
+                alert('Quality control feature is not supported by this player.');
+            });
+        });
 
 document.addEventListener("DOMContentLoaded", function() {
     const clearDataButton = document.getElementById("clearDataButton");
