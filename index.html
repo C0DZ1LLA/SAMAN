@@ -617,107 +617,105 @@ onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')"
     <script>
 
 document.addEventListener('DOMContentLoaded', () => {
-            const xcomModal = document.getElementById('xcomModal');
-            const openXcomModalBtn = document.getElementById('openXcomModalBtn');
-            const closeXcomModalBtn = xcomModal.querySelector('.close-xcom-modal');
+    // X.com Modal
+    const xcomModal = document.getElementById('xcomModal');
+    const openXcomModalBtn = document.getElementById('openXcomModalBtn');
+    const closeXcomModalBtn = xcomModal.querySelector('.close-xcom-modal');
 
-            openXcomModalBtn.addEventListener('click', () => {
-                xcomModal.style.display = 'flex';
-            });
+    openXcomModalBtn.addEventListener('click', () => {
+        xcomModal.style.display = 'flex';
+    });
 
-            closeXcomModalBtn.addEventListener('click', () => {
-                xcomModal.style.display = 'none';
-            });
+    closeXcomModalBtn.addEventListener('click', () => {
+        xcomModal.style.display = 'none';
+    });
 
-            window.addEventListener('click', (event) => {
-                if (event.target == xcomModal) {
-                    xcomModal.style.display = 'none';
-                }
-            });
+    window.addEventListener('click', (event) => {
+        if (event.target == xcomModal) {
+            xcomModal.style.display = 'none';
+        }
+    });
 
-            window.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    xcomModal.style.display = 'none';
-                }
-            });
-        });
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            xcomModal.style.display = 'none';
+        }
+    });
 
+    // Kick Stream Modal
+    const kickStreamModal = document.getElementById('kickStreamModal');
+    const openKickStreamModalBtn = document.getElementById('openKickStreamModalBtn');
+    const closeKickStreamModalBtn = kickStreamModal.querySelector('.close-kick-modal');
+    const kickStreamIframe = document.getElementById('kickStreamIframe');
+    const fullScreenBtn = document.getElementById('fullScreenBtn');
+    const qualityBtn = document.getElementById('qualityBtn');
 
-   document.addEventListener('DOMContentLoaded', () => {
-            const kickStreamModal = document.getElementById('kickStreamModal');
-            const openKickStreamModalBtn = document.getElementById('openKickStreamModalBtn');
-            const closeKickStreamModalBtn = kickStreamModal.querySelector('.close-kick-modal');
-            const kickStreamIframe = document.getElementById('kickStreamIframe');
-            const fullScreenBtn = document.getElementById('fullScreenBtn');
-            const qualityBtn = document.getElementById('qualityBtn');
+    // Replace YOUR_USERNAME with your actual Kick username
+    const username = "C0DZ1LLA"; // Replace with actual Kick username
 
-            // Replace YOUR_USERNAME with your actual Kick username
-            const username = "C0DZ1LLA"; // Replace with actual Kick username
+    // Customize parameters as needed
+    const autoplay = true; // true or false
+    const muted = true; // true or false
+    const allowfullscreen = true; // true or false
 
-            // Customize parameters as needed
-            const autoplay = true; // true or false
-            const muted = true; // true or false
-            const allowfullscreen = true; // true or false
+    const buildIframeSrc = (username, autoplay, muted, allowfullscreen) => {
+        let src = `https://player.kick.com/${username}`;
+        let params = [];
 
-            const buildIframeSrc = (username, autoplay, muted, allowfullscreen) => {
-                let src = `https://player.kick.com/${username}`;
-                let params = [];
+        if (autoplay) params.push("autoplay=true");
+        if (muted) params.push("muted=true");
+        if (!allowfullscreen) params.push("allowfullscreen=false");
 
-                if (autoplay) params.push("autoplay=true");
-                if (muted) params.push("muted=true");
-                if (!allowfullscreen) params.push("allowfullscreen=false");
+        if (params.length > 0) {
+            src += "?" + params.join("&");
+        }
 
-                if (params.length > 0) {
-                    src += "?" + params.join("&");
-                }
+        return src;
+    };
 
-                return src;
-            };
+    openKickStreamModalBtn.addEventListener('click', () => {
+        kickStreamIframe.src = buildIframeSrc(username, autoplay, muted, allowfullscreen);
+        kickStreamModal.style.display = 'flex';
+    });
 
-            openKickStreamModalBtn.addEventListener('click', () => {
-                kickStreamIframe.src = buildIframeSrc(username, autoplay, muted, allowfullscreen);
-                kickStreamModal.style.display = 'flex';
-            });
+    closeKickStreamModalBtn.addEventListener('click', () => {
+        kickStreamModal.style.display = 'none';
+        kickStreamIframe.src = "";
+    });
 
-            closeKickStreamModalBtn.addEventListener('click', () => {
-                kickStreamModal.style.display = 'none';
-                kickStreamIframe.src = "";
-            });
+    window.addEventListener('click', (event) => {
+        if (event.target == kickStreamModal) {
+            kickStreamModal.style.display = 'none';
+            kickStreamIframe.src = "";
+        }
+    });
 
-            window.addEventListener('click', (event) => {
-                if (event.target == kickStreamModal) {
-                    kickStreamModal.style.display = 'none';
-                    kickStreamIframe.src = "";
-                }
-            });
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            kickStreamModal.style.display = 'none';
+            kickStreamIframe.src = "";
+        }
+    });
 
-            window.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    kickStreamModal.style.display = 'none';
-                    kickStreamIframe.src = "";
-                }
-            });
+    // Full Screen Button Functionality
+    fullScreenBtn.addEventListener('click', () => {
+        if (kickStreamIframe.requestFullscreen) {
+            kickStreamIframe.requestFullscreen();
+        } else if (kickStreamIframe.mozRequestFullScreen) { /* Firefox */
+            kickStreamIframe.mozRequestFullScreen();
+        } else if (kickStreamIframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            kickStreamIframe.webkitRequestFullscreen();
+        } else if (kickStreamIframe.msRequestFullscreen) { /* IE/Edge */
+            kickStreamIframe.msRequestFullscreen();
+        }
+    });
 
-            // Full Screen Button Functionality
-            fullScreenBtn.addEventListener('click', () => {
-                if (kickStreamIframe.requestFullscreen) {
-                    kickStreamIframe.requestFullscreen();
-                } else if (kickStreamIframe.mozRequestFullScreen) { /* Firefox */
-                    kickStreamIframe.mozRequestFullScreen();
-                } else if (kickStreamIframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                    kickStreamIframe.webkitRequestFullscreen();
-                } else if (kickStreamIframe.msRequestFullscreen) { /* IE/Edge */
-                    kickStreamIframe.msRequestFullscreen();
-                }
-            });
-
-            // Quality Button Functionality
-            qualityBtn.addEventListener('click', () => {
-                // Example logic: replace with actual quality control logic if available
-                alert('Quality control feature is not supported by this player.');
-            });
-        });
-
+    // Quality Button Functionality
+    qualityBtn.addEventListener('click', () => {
+        // Example logic: replace with actual quality control logic if available
+        alert('Quality control feature is not supported by this player.');
+    });
+});
 document.addEventListener("DOMContentLoaded", function() {
     const clearDataButton = document.getElementById("clearDataButton");
 
