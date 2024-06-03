@@ -454,6 +454,129 @@ footer p {
             }
         }
 
+        #projectShowcaseModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s;
+        }
+
+        #projectShowcaseModal.show {
+            display: flex;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        #projectShowcaseModal .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #0f0;
+            border-radius: 10px;
+            padding: 20px;
+            padding-top: 50px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+        }
+
+        #projectShowcaseModal .close-modal {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 1001;
+            cursor: pointer;
+        }
+
+        #projectShowcaseModal .close-modal:hover {
+            color: #fff;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .carousel-image {
+            display: none;
+            width: 100%;
+            height: auto;
+            max-height: 60vh;
+            object-fit: contain;
+            border: 3px solid #0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .carousel-image.active {
+            display: block;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: #0f0;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            border-radius: 3px;
+            user-select: none;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .next {
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .project-content iframe {
+            width: 100%;
+            height: 315px;
+            max-height: 60vh;
+            margin: 20px 0;
+            border: 3px solid #0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -477,18 +600,66 @@ footer p {
                 <button onclick="openModal('ProjectsModal')">Recent Projects</button>
                 <button onclick="toggleModal('contactModal')">Contact</button>
                 <button id="openKickStreamModalBtn">Open Kick Livestream</button>
+                <button id="openXcomModalBtn">Open X.com Livestream</button>
+                <button id="openProjectShowcaseModalBtn">Showcase New Project</button>
 
 
             </div>
         </div>
     </header>
+    <!-- Project Showcase Modal -->
+    <div id="projectShowcaseModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>New Project: Amazing Project</h2>
+            <div class="project-content">
+                <p>This project showcases the latest innovations in web development.</p>
+                <div class="carousel-container">
+                    <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Project Image 1" class="carousel-image active">
+                    <img src="https://images.unsplash.com/photo-1711348240856-2d5f186354ba?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D" alt="Project Image 2" class="carousel-image">
+                    <img src="https://via.placeholder.com/800x400/00ff00" alt="Project Image 3" class="carousel-image">
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
+                <iframe src="https://www.youtube.com/embed/EJcBsl3l5b8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <!-- Project Details Section -->
+                <div class="details-section">
+                    <h3>Project Details</h3>
+                    <p>Here you can provide a more detailed description of the project, including its objectives, technologies used, and any other relevant information.</p>
+                </div>
+
+                <!-- Social Sharing Buttons -->
+                <div class="social-sharing">
+                    <a href="https://twitter.com/intent/tweet?url=https://samanconnect.com&text=Check%20out%20this%20amazing%20project!" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://samanconnect.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://samanconnect.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+
+                <!-- Download Links -->
+                <div class="download-links">
+                    <a href="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" download>Download Project Image</a><br>
+                    <a href="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/ProjectDocumentation.pdf" download>Download Project Documentation</a>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Contact Me</h3>
+                    <form id="contactForm">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- New X.com (Twitter) Modal -->
     <div id="xcomModal" class="modal hidden">
         <div class="modal-content">
             <span class="close-xcom-modal">&times;</span>
             <blockquote class="twitter-tweet" data-media-max-width="560"><p lang="en" dir="ltr">LIVE 0.35 <a href="https://t.co/0Ujid3aegF">https://t.co/0Ujid3aegF</a></p>&mdash; SAMAN (@saman_abotaleby) <a href="https://twitter.com/saman_abotaleby/status/1797334087965024381?ref_src=twsrc%5Etfw">June 2, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        </div>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
     </div>
 
         <!-- New Kick Livestream Modal -->
@@ -608,6 +779,7 @@ onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')"
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
 
     
+
 
     <script>
         // Open Project Showcase Modal
