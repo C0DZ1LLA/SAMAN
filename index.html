@@ -609,8 +609,69 @@ onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')"
 
     
 
-
     <script>
+        // Open Project Showcase Modal
+        const openProjectShowcaseModalBtn = document.getElementById('openProjectShowcaseModalBtn');
+        const projectShowcaseModal = document.getElementById('projectShowcaseModal');
+        const closeModalBtn = projectShowcaseModal.querySelector('.close-modal');
+
+        openProjectShowcaseModalBtn.addEventListener('click', () => {
+            projectShowcaseModal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            projectShowcaseModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == projectShowcaseModal) {
+                projectShowcaseModal.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                projectShowcaseModal.style.display = 'none';
+            }
+        });
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-image');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        nextButton.addEventListener('click', nextSlide);
+        prevButton.addEventListener('click', prevSlide);
+
+        // Initialize carousel
+        showSlide(currentSlide);
+
+        // Handle contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Message sent! Thank you for contacting us.');
+            projectShowcaseModal.style.display = 'none';
+        });
 
 document.addEventListener('DOMContentLoaded', () => {
     // X.com Modal
@@ -712,6 +773,8 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Quality control feature is not supported by this player.');
     });
 });
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const clearDataButton = document.getElementById("clearDataButton");
 
@@ -980,7 +1043,8 @@ window.onload = function () {
     }
     
     </script>
-    
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
