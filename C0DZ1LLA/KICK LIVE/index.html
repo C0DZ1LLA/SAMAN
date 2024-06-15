@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Kick.com and Twitch Streams - Under Construction</title>
+    <meta name="description" content="Join our live streams on Kick.com and Twitch, and interact with the community while we work on some top-secret features.">
+    <meta property="og:title" content="Interactive Kick.com and Twitch Streams - Under Construction">
+    <meta property="og:description" content="Join our live streams on Kick.com and Twitch, and interact with the community while we work on some top-secret features.">
+    <meta property="og:image" content="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png">
+    <meta property="og:url" content="https://www.samanconnect.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <title>C0DZ1LLA Systems</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S5FVTLKRD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0TTNJ9CYT8');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "C0DZ1LLA Systems",
+          "url": "https://samanconnect.com",
+          "description": "Fun",
+          "logo": "https://c0dz1lla.github.io/LOGO/SAMANLOGOVIDEO.mp4",
+          "sameAs": [
+            "https://twitter.com/saman_abotaleby"
+          ]
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Attention! We're Under Construction</h1>
+            <p>But hey, the streams are still live! Enjoy the live streams and interact with the community while we work on some top-secret features!</p>
+            <button id="darkModeToggle" aria-label="Toggle Dark Mode">Toggle Dark Mode</button>
+            <!-- New Buttons -->
+            <div class="header-buttons">
+                <button class="btn-header" id="websiteBtn" aria-label="Go to Home">Website</button>
+                <button class="btn-header" id="socialMediaBtn" aria-label="About Us">Social Media</button>
+                <button class="btn-header" id="emailBtn" aria-label="Contact Us">Email</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="live-stream">
+            <h2>Live Streams</h2>
+            <div class="stream-container">
+                <iframe id="kickStreamIframe" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
+                <div class="control-buttons">
+                    <button id="kickFullScreenBtn" aria-label="Fullscreen Kick Stream">Full Screen Kick</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="stream-schedule">
+            <h2>Streaming Schedule</h2>
+            <div class="schedule-container">
+                <ul>
+                    <li>Monday: 6 PM - 10 PM</li>
+                    <li>Tuesday: 6 PM - 10 PM</li>
+                    <li>Wednesday: 6 PM - 10 PM</li>
+                    <li>Thursday: 6 PM - 10 PM</li>
+                    <li>Friday: 6 PM - 11 PM</li>
+                    <li>Saturday: 6 PM - 10 PM</li>
+                    <li>Sunday: 6 PM - 10 PM</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 C0DZ1LLA Interactive Stream. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="notificationModal" class="modal hidden" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div class="modal-content">
+            <span class="close-btn" aria-label="Close Modal">&times;</span>
+            <h2 id="modalTitle">Welcome to the Ultimate Multistream Experience!</h2>
+            <p id="notificationMessage">Hey there, stream enthusiast! 🎉</p>
+            <p>Welcome to our interactive multistream hub where you can catch all the action from every corner of the internet. We're talking Kick, Twitch, and all your favorite platforms, all in one place!</p>
+            <p>We're under construction, but that doesn't mean you can't have fun. Dive into our streams, chat with the community, and watch out for some top-secret features coming your way soon. Stay tuned and enjoy the show!</p>
+            <div id="countdown">
+                <p>Something amazing is coming in:</p>
+                <p id="timer"></p>
+            </div>
+            <div id="additionalContent" style="display: none;">
+                <img src="https://media.giphy.com/media/l0HlMWkKz2cHOH16k/giphy.gif" alt="Exciting features coming soon!" onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallbackMessage').style.display='block';">
+                <p id="fallbackMessage" style="display:none;">Exciting features coming soon!</p>
+            </div>
+            <button id="closeModalBtn" class="btn-primary">OK, Let's Go!</button>
+        </div>
+    </div>
+<script>document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const kickStreamIframe = document.getElementById('kickStreamIframe');
+    const kickFullScreenBtn = document.getElementById('kickFullScreenBtn');
+    const modal = createKickModal();
+    const websiteBtn = document.getElementById('websiteBtn');
+    const emailBtn = document.getElementById('emailBtn');
+    const socialMediaBtn = document.getElementById('socialMediaBtn');
+    const notificationModal = document.getElementById('notificationModal');
+    const closeNotificationBtn = document.getElementsByClassName('close-btn')[0];
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const countdownElement = document.getElementById('timer');
+
+    initializeDarkMode();
+    handleDarkModeToggle();
+    handleFullScreenKick();
+    handleButtonActions();
+    initializeNotificationModal();
+    startCountdown();
+
+    function createKickModal() {
+        const modal = document.createElement('div');
+        modal.id = 'kickModal';
+        modal.classList.add('modal');
+
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        const closeKickBtn = document.createElement('span');
+        closeKickBtn.classList.add('close-kick-btn');
+        closeKickBtn.innerHTML = '&times;';
+
+        const kickStreamModalIframe = document.createElement('iframe');
+        kickStreamModalIframe.id = 'kickStreamModalIframe';
+        kickStreamModalIframe.src = kickStreamIframe.src;
+
+        modalContent.appendChild(closeKickBtn);
+        modalContent.appendChild(kickStreamModalIframe);
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+
+        closeKickBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        return modal;
+    }
+
+    function initializeDarkMode() {
+        const darkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
+        document.body.classList.add(darkModeEnabled ? 'dark-mode' : 'light-mode');
+        darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
+    }
+
+    function handleDarkModeToggle() {
+        darkModeToggle.addEventListener('click', () => {
+            const darkModeEnabled = document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+            localStorage.setItem('dark-mode', darkModeEnabled ? 'enabled' : 'disabled');
+            darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
+        });
+    }
+
+    function handleFullScreenKick() {
+        kickFullScreenBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+    }
+
+    function handleButtonActions() {
+        websiteBtn.addEventListener('click', () => {
+            window.open('https://www.samanconnect.com', '_blank');
+        });
+
+        emailBtn.addEventListener('click', () => {
+            window.location.href = 'mailto:saman.abotaleby@gmail.com?subject=Subject%20Here&body=Body%20content%20here';
+        });
+
+        socialMediaBtn.addEventListener('click', () => {
+            window.open('https://www.instagram.com/saman.abotaleby', '_blank');
+        });
+    }
+
+    function initializeNotificationModal() {
+        showNotification();
+
+        closeNotificationBtn.onclick = () => notificationModal.style.display = 'none';
+        closeModalBtn.onclick = () => notificationModal.style.display = 'none';
+        window.onclick = (event) => {
+            if (event.target === notificationModal) {
+                notificationModal.style.display = 'none';
+            }
+        };
+    }
+
+    function showNotification() {
+        notificationModal.classList.remove('hidden');
+        notificationModal.style.display = 'block';
+    }
+
+    function startCountdown() {
+        const countdownDate = new Date().getTime() + 60 * 60 * 1000; // 1 hour from now
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "The wait is over!";
+                revealHiddenContent();
+            }
+        }, 1000);
+    }
+
+    function revealHiddenContent() {
+        const additionalContent = document.getElementById('additionalContent');
+        additionalContent.style.display = 'block';
+    }
+});
+</script>
+</body>
+</html>
