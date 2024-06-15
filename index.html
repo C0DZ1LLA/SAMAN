@@ -276,307 +276,6 @@ footer p {
     margin: 20px auto; /* Center and add margin */
     max-width: 800px; /* Limit width for better readability */
 }
- /* New Kick Livestream Modal Styles */
- #kickStreamModal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.5s;
-        }
-
-        #kickStreamModal .modal-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            max-height: 100vh;
-            overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.9);
-            border: none;
-            padding: 0;
-            box-shadow: none;
-        }
-
-        #kickStreamModal .close-kick-modal {
-            color: #aaa;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            z-index: 1001;
-        }
-
-        #kickStreamModal .close-kick-modal:hover,
-        #kickStreamModal .close-kick-modal:focus {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        #kickStreamIframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .control-buttons {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 1001;
-        }
-
-        .control-buttons button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid #0f0;
-            color: #0f0;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .control-buttons button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-                     /* New X.com (Twitter) Modal Styles */
-        #xcomModal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.5s;
-        }
-
-        #xcomModal.show {
-            display: flex;
-            animation: fadeIn 0.5s forwards;
-        }
-
-        #xcomModal .modal-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            max-height: 100vh;
-            overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.9);
-            border: none;
-            padding: 0;
-            box-shadow: none;
-        }
-
-        #xcomModal .close-xcom-modal {
-            color: #aaa;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            z-index: 1001;
-        }
-
-        #xcomModal .close-xcom-modal:hover,
-        #xcomModal .close-xcom-modal:focus {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .twitter-tweet {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .control-buttons {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 1001;
-        }
-
-        .control-buttons button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid #0f0;
-            color: #0f0;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .control-buttons button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        #projectShowcaseModal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.5s;
-        }
-
-        #projectShowcaseModal.show {
-            display: flex;
-            animation: fadeIn 0.5s forwards;
-        }
-
-        #projectShowcaseModal .modal-content {
-            position: relative;
-            width: 80%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-            background: rgba(0, 0, 0, 0.9);
-            border: 3px solid #0f0;
-            border-radius: 10px;
-            padding: 20px;
-            padding-top: 50px;
-            text-align: center;
-            color: #fff;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
-        }
-
-        #projectShowcaseModal .close-modal {
-            color: #aaa;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            z-index: 1001;
-            cursor: pointer;
-        }
-
-        #projectShowcaseModal .close-modal:hover {
-            color: #fff;
-        }
-
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-        }
-
-        .carousel-image {
-            display: none;
-            width: 100%;
-            height: auto;
-            max-height: 60vh;
-            object-fit: contain;
-            border: 3px solid #0f0;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-        }
-
-        .carousel-image.active {
-            display: block;
-        }
-
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            color: #0f0;
-            font-weight: bold;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-            border-radius: 3px;
-            user-select: none;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .prev {
-            left: 0;
-            transform: translateY(-50%);
-        }
-
-        .next {
-            right: 0;
-            transform: translateY(-50%);
-        }
-
-        .project-content iframe {
-            width: 100%;
-            height: 315px;
-            max-height: 60vh;
-            margin: 20px 0;
-            border: 3px solid #0f0;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 
@@ -593,84 +292,18 @@ footer p {
         </div>
         <div class="image-container">
             <div class="button-container">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/KICK%20LIVE/')">LIVE Sessions</button>
                 <button onclick="toggleModal('translateModal')">Translate Page</button>
                 <button onclick="toggleModal('aboutModal')">About</button>
                 <button onclick="openModal('GithubModal')">Github Profile</button>
                 <button onclick="openModal('GameDevModal')">Game Development</button>
                 <button onclick="openModal('ProjectsModal')">Recent Projects</button>
                 <button onclick="toggleModal('contactModal')">Contact</button>
-                <button id="openKickStreamModalBtn">Open Kick Livestream</button>
-                <button id="openXcomModalBtn">Open X.com Livestream</button>
-                <button id="openProjectShowcaseModalBtn">Showcase New Project</button>
-
 
             </div>
         </div>
     </header>
-    <!-- Project Showcase Modal -->
-    <div id="projectShowcaseModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>New Project: Amazing Project</h2>
-            <div class="project-content">
-                <p>This project showcases the latest innovations in web development.</p>
-                <div class="carousel-container">
-                    <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Project Image 1" class="carousel-image active">
-                    <img src="https://images.unsplash.com/photo-1711348240856-2d5f186354ba?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D" alt="Project Image 2" class="carousel-image">
-                    <img src="https://via.placeholder.com/800x400/00ff00" alt="Project Image 3" class="carousel-image">
-                    <a class="prev">&#10094;</a>
-                    <a class="next">&#10095;</a>
-                </div>
-                <iframe src="https://www.youtube.com/embed/EJcBsl3l5b8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                <!-- Project Details Section -->
-                <div class="details-section">
-                    <h3>Project Details</h3>
-                    <p>Here you can provide a more detailed description of the project, including its objectives, technologies used, and any other relevant information.</p>
-                </div>
-
-                <!-- Social Sharing Buttons -->
-                <div class="social-sharing">
-                    <a href="https://twitter.com/intent/tweet?url=https://samanconnect.com&text=Check%20out%20this%20amazing%20project!" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://samanconnect.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://samanconnect.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-
-                <!-- Download Links -->
-                <div class="download-links">
-                    <a href="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" download>Download Project Image</a><br>
-                    <a href="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/ProjectDocumentation.pdf" download>Download Project Documentation</a>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <h3>Contact Me</h3>
-                    <form id="contactForm">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- New X.com (Twitter) Modal -->
-    <div id="xcomModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-xcom-modal">&times;</span>
-            <blockquote class="twitter-tweet" data-media-max-width="560"><p lang="en" dir="ltr">LIVE 0.35 <a href="https://t.co/0Ujid3aegF">https://t.co/0Ujid3aegF</a></p>&mdash; SAMAN (@saman_abotaleby) <a href="https://twitter.com/saman_abotaleby/status/1797334087965024381?ref_src=twsrc%5Etfw">June 2, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        </div>
-    </div>
-
-        <!-- New Kick Livestream Modal -->
-        <div id="kickStreamModal" class="modal hidden">
-            <div class="modal-content">
-                <span class="close-kick-modal">&times;</span>
-                <iframe id="kickStreamIframe" src="" allowfullscreen="true"></iframe>
-                <div class="control-buttons">
-                </div>
-            </div>
-        </div>
+    
     <canvas id="matrixCanvas"></canvas>
     
     <div id="translateModal" class="modal-content hidden">
@@ -782,433 +415,213 @@ onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')"
 
 
     <script>
-        // Open Project Showcase Modal
-        const openProjectShowcaseModalBtn = document.getElementById('openProjectShowcaseModalBtn');
-        const projectShowcaseModal = document.getElementById('projectShowcaseModal');
-        const closeModalBtn = projectShowcaseModal.querySelector('.close-modal');
-
-        openProjectShowcaseModalBtn.addEventListener('click', () => {
-            projectShowcaseModal.style.display = 'flex';
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            projectShowcaseModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target == projectShowcaseModal) {
-                projectShowcaseModal.style.display = 'none';
-            }
-        });
-
-        window.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                projectShowcaseModal.style.display = 'none';
-            }
-        });
-
-        // Carousel functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-image');
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (i === index) {
-                    slide.classList.add('active');
-                }
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        nextButton.addEventListener('click', nextSlide);
-        prevButton.addEventListener('click', prevSlide);
-
-        // Initialize carousel
-        showSlide(currentSlide);
-
-        // Handle contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            alert('Message sent! Thank you for contacting us.');
-            projectShowcaseModal.style.display = 'none';
-        });
-
-document.addEventListener('DOMContentLoaded', () => {
-    // X.com Modal
-    const xcomModal = document.getElementById('xcomModal');
-    const openXcomModalBtn = document.getElementById('openXcomModalBtn');
-    const closeXcomModalBtn = xcomModal.querySelector('.close-xcom-modal');
-
-    openXcomModalBtn.addEventListener('click', () => {
-        xcomModal.style.display = 'flex';
-    });
-
-    closeXcomModalBtn.addEventListener('click', () => {
-        xcomModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target == xcomModal) {
-            xcomModal.style.display = 'none';
-        }
-    });
-
-    window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            xcomModal.style.display = 'none';
-        }
-    });
-
-    // Kick Stream Modal
-    const kickStreamModal = document.getElementById('kickStreamModal');
-    const openKickStreamModalBtn = document.getElementById('openKickStreamModalBtn');
-    const closeKickStreamModalBtn = kickStreamModal.querySelector('.close-kick-modal');
-    const kickStreamIframe = document.getElementById('kickStreamIframe');
-    const fullScreenBtn = document.getElementById('fullScreenBtn');
-    const qualityBtn = document.getElementById('qualityBtn');
-
-    // Replace YOUR_USERNAME with your actual Kick username
-    const username = "C0DZ1LLA"; // Replace with actual Kick username
-
-    // Customize parameters as needed
-    const autoplay = true; // true or false
-    const muted = true; // true or false
-    const allowfullscreen = true; // true or false
-
-    const buildIframeSrc = (username, autoplay, muted, allowfullscreen) => {
-        let src = `https://player.kick.com/${username}`;
-        let params = [];
-
-        if (autoplay) params.push("autoplay=true");
-        if (muted) params.push("muted=true");
-        if (!allowfullscreen) params.push("allowfullscreen=false");
-
-        if (params.length > 0) {
-            src += "?" + params.join("&");
-        }
-
-        return src;
-    };
-
-    openKickStreamModalBtn.addEventListener('click', () => {
-        kickStreamIframe.src = buildIframeSrc(username, autoplay, muted, allowfullscreen);
-        kickStreamModal.style.display = 'flex';
-    });
-
-    closeKickStreamModalBtn.addEventListener('click', () => {
-        kickStreamModal.style.display = 'none';
-        kickStreamIframe.src = "";
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target == kickStreamModal) {
-            kickStreamModal.style.display = 'none';
-            kickStreamIframe.src = "";
-        }
-    });
-
-    window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            kickStreamModal.style.display = 'none';
-            kickStreamIframe.src = "";
-        }
-    });
-
-    // Full Screen Button Functionality
-    fullScreenBtn.addEventListener('click', () => {
-        if (kickStreamIframe.requestFullscreen) {
-            kickStreamIframe.requestFullscreen();
-        } else if (kickStreamIframe.mozRequestFullScreen) { /* Firefox */
-            kickStreamIframe.mozRequestFullScreen();
-        } else if (kickStreamIframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            kickStreamIframe.webkitRequestFullscreen();
-        } else if (kickStreamIframe.msRequestFullscreen) { /* IE/Edge */
-            kickStreamIframe.msRequestFullscreen();
-        }
-    });
-
-    // Quality Button Functionality
-    qualityBtn.addEventListener('click', () => {
-        // Example logic: replace with actual quality control logic if available
-        alert('Quality control feature is not supported by this player.');
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    const clearDataButton = document.getElementById("clearDataButton");
-
-    // Add click event listener to the clear data button
-    clearDataButton.addEventListener("click", function() {
-        try {
-            // Clear cookies
-            document.cookie.split(";").forEach(function(cookie) {
-                document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-            });
-
-            // Clear localStorage
-            localStorage.clear();
-
-            // Clear sessionStorage
-            sessionStorage.clear();
-
-            // Optionally, you can add more code here to clear other types of data as needed
-
-            // Alert the user that data has been cleared
-            alert("Page data cleared successfully! Press OK to reload the page to its default settings.");
-
-            // Refresh the page
-            location.reload();
-        } catch (error) {
-            console.error("Error while clearing data:", error);
-            alert("An error occurred while clearing data. Please try again later.");
-        }
-    });
-
-    // Add more event listeners and functions here...
-});
-
-// Function to open the gallery modal and load images
-function openGalleryModal(imageURLs) {
-    const modal = document.getElementById('galleryModal');
-    const imageContainer = modal.querySelector('#imageContainer');
-    imageContainer.innerHTML = ''; // Clear previous images
-
-    // Loop through each image URL and create an img element
-    imageURLs.forEach(url => {
-        const img = document.createElement('img');
-        img.src = url;
-        img.alt = 'Gallery Image';
-        imageContainer.appendChild(img); // Append the img to the imageContainer
-    });
-
-    // Show the modal
-    modal.style.display = 'flex';
-    modal.children[0].classList.add('fadeIn');
-    modal.children[0].classList.remove('fadeOut');
-}
-
-
-
         // Function to open modal
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = "flex";
-    modal.children[0].classList.add("fadeIn");
-    modal.children[0].classList.remove("fadeOut");
-    currentModal = modal;
-}
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "flex";
+            modal.children[0].classList.add("fadeIn");
+            modal.children[0].classList.remove("fadeOut");
+            currentModal = modal;
+        }
 
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = "none";
-    
-    // Check if the closed modal is the translate modal
-    if (modalId === "translateModal") {
-        // Get the Google Translate element
-        const translateElement = document.getElementById("google_translate_element");
-        
-        // Remove the Google Translate element from the DOM
-        translateElement.remove();
-        
-        // Create a new Google Translate script element
-        const googleTranslateScript = document.createElement('script');
-        googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        googleTranslateScript.type = 'text/javascript';
-        
-        // Append the new script element to the head
-        document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
-    }
-}
-
-// Close modal on outside click, excluding clicks inside the modal content
-window.addEventListener("click", (event) => {
-    if (
-        event.target.classList.contains('modal-content') &&
-        !event.target.closest('.modal-content').contains(event.target)
-    ) {
-        closeModal(event.target.id);
-    }
-});
-
-let currentModal = null;
-        // Function to toggle modal display
-        const toggleModal = (id) => {
-            const modal = document.getElementById(id);
-            if (currentModal !== null && currentModal !== modal) {
-                currentModal.style.display = "none";
-                currentModal.children[0].classList.remove("fadeIn");
-                currentModal.children[0].classList.add("fadeOut");
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+            
+            // Check if the closed modal is the translate modal
+            if (modalId === "translateModal") {
+                // Get the Google Translate element
+                const translateElement = document.getElementById("google_translate_element");
+                
+                // Remove the Google Translate element from the DOM
+                translateElement.remove();
+                
+                // Create a new Google Translate script element
+                const googleTranslateScript = document.createElement('script');
+                googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                googleTranslateScript.type = 'text/javascript';
+                
+                // Append the new script element to the head
+                document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
             }
-            modal.style.display = modal.style.display === "flex" ? "none" : "flex";
-            modal.children[0].classList.toggle("fadeIn");
-            modal.children[0].classList.toggle("fadeOut");
-            currentModal = modal.style.display === "flex" ? modal : null;
         }
 
-
-        // Function to open email app
-        function openEmailApp(email) {
-            window.location.href = "mailto:" + email;
-        }
-    
-        // Function to open phone app
-        function openPhoneApp(phone) {
-            window.location.href = "tel:" + phone;
-        }
-    
-// Function to translate page
-function translatePage() {
-    // Get the selected language from the dropdown or any other UI element
-    var selectedLanguage = document.getElementById('languageSelect').value;
-
-    // Call the Google Translate API to translate the page
-    new google.translate.TranslateElement({
-        pageLanguage: 'en', // Set the default page language
-        includedLanguages: selectedLanguage // Set the selected language for translation
-    }, 'google_translate_element');
-}
-
-    
-// Load Google Translate script when the page loads
-window.onload = function () {
-    loadGoogleTranslateScript();
-    fetchSupportedLanguages(function (languages) {
-        var languageSelect = document.getElementById('languageSelect');
-        languages.forEach(function (lang) {
-            var option = document.createElement('option');
-            option.value = lang.code;
-            option.textContent = lang.name;
-            languageSelect.appendChild(option);
+        // Close modal on outside click, excluding clicks inside the modal content
+        window.addEventListener("click", (event) => {
+            if (
+                event.target.classList.contains('modal-content') &&
+                !event.target.closest('.modal-content').contains(event.target)
+            ) {
+                closeModal(event.target.id);
+            }
         });
-    });
-};
-    
-        // Callback function for Google Translate
-        function googleTranslateElementInit() {
+
+        let currentModal = null;
+                // Function to toggle modal display
+                const toggleModal = (id) => {
+                    const modal = document.getElementById(id);
+                    if (currentModal !== null && currentModal !== modal) {
+                        currentModal.style.display = "none";
+                        currentModal.children[0].classList.remove("fadeIn");
+                        currentModal.children[0].classList.add("fadeOut");
+                    }
+                    modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+                    modal.children[0].classList.toggle("fadeIn");
+                    modal.children[0].classList.toggle("fadeOut");
+                    currentModal = modal.style.display === "flex" ? modal : null;
+                }
+
+
+                // Function to open email app
+                function openEmailApp(email) {
+                    window.location.href = "mailto:" + email;
+                }
+            
+                // Function to open phone app
+                function openPhoneApp(phone) {
+                    window.location.href = "tel:" + phone;
+                }
+            
+        // Function to translate page
+        function translatePage() {
+            // Get the selected language from the dropdown or any other UI element
+            var selectedLanguage = document.getElementById('languageSelect').value;
+
+            // Call the Google Translate API to translate the page
             new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,es,fr,de,ja,ko,zh-CN,ar,hi,pt,ru,el,fa,iw,tr'
+                pageLanguage: 'en', // Set the default page language
+                includedLanguages: selectedLanguage // Set the selected language for translation
             }, 'google_translate_element');
         }
-        // Close modal on outside click
-        window.addEventListener("click", (event) => {
-            if (event.target.classList.contains('modal-content')) {
-                toggleModal(currentModal.id);
-            }
-        });
-// Function to generate a random character
-function generateRandomCharacter() {
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    return characters.charAt(Math.floor(Math.random() * characters.length));
-}
 
-// Function to generate a random color
-function generateRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-// Matrix rain animation with 3D effect
-function matrixRain() {
-    const canvas = document.getElementById('matrixCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Set canvas dimensions
-    function setCanvasDimensions() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    setCanvasDimensions();
-
-    // Number of columns
-    let columns = Math.floor(canvas.width / 20);
-
-    // Initialize an array to store the y-coordinate of each character
-    let drops = [];
-    for (let i = 0; i < columns; i++) {
-        drops[i] = {
-            y: Math.floor(Math.random() * canvas.height),
-            speed: Math.random() * 3 + 1, // Randomize falling speed
-            size: Math.random() * 10 + 10 // Randomize character size
+        
+        // Load Google Translate script when the page loads
+        window.onload = function () {
+            loadGoogleTranslateScript();
+            fetchSupportedLanguages(function (languages) {
+                var languageSelect = document.getElementById('languageSelect');
+                languages.forEach(function (lang) {
+                    var option = document.createElement('option');
+                    option.value = lang.code;
+                    option.textContent = lang.name;
+                    languageSelect.appendChild(option);
+                });
+            });
         };
-    }
+        
+                // Callback function for Google Translate
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,es,fr,de,ja,ko,zh-CN,ar,hi,pt,ru,el,fa,iw,tr'
+                    }, 'google_translate_element');
+                }
+                // Close modal on outside click
+                window.addEventListener("click", (event) => {
+                    if (event.target.classList.contains('modal-content')) {
+                        toggleModal(currentModal.id);
+                    }
+                });
+        // Function to generate a random character
+        function generateRandomCharacter() {
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            return characters.charAt(Math.floor(Math.random() * characters.length));
+        }
 
-    // Animation loop
-    function draw() {
-        // Draw semi-transparent rectangles to create trails
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Set font properties
-        ctx.textAlign = 'center';
-
-        // Loop through each column
-        for (let i = 0; i < drops.length; i++) {
-            // Randomly change the character
-            const character = generateRandomCharacter();
-
-            // Randomly change the color
-            const color = generateRandomColor();
-
-            // Calculate character size based on depth
-            const depth = drops[i].y / canvas.height;
-            const fontSize = (depth * 20) + 10; // Adjust the multiplier to control the size change
-
-            // Draw the character
-            ctx.font = `italic bold ${fontSize}px "Consolas", monospace`;
-            ctx.fillStyle = color;
-            ctx.fillText(character, i * 20, drops[i].y);
-
-            // Move the character down
-            drops[i].y += drops[i].speed;
-
-            // Reset drop if it reaches bottom
-            if (drops[i].y > canvas.height && Math.random() > 0.95) {
-                drops[i].y = 0;
+        // Function to generate a random color
+        function generateRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
             }
+            return color;
         }
-    }
 
-    // Resize canvas when window is resized
-    window.addEventListener('resize', function() {
-        setCanvasDimensions();
-        columns = Math.floor(canvas.width / 20);
-        drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = {
-                y: Math.floor(Math.random() * canvas.height),
-                speed: Math.random() * 3 + 1,
-                size: Math.random() * 10 + 10
-            };
+        // Matrix rain animation with 3D effect
+        function matrixRain() {
+            const canvas = document.getElementById('matrixCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas dimensions
+            function setCanvasDimensions() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            setCanvasDimensions();
+
+            // Number of columns
+            let columns = Math.floor(canvas.width / 20);
+
+            // Initialize an array to store the y-coordinate of each character
+            let drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = {
+                    y: Math.floor(Math.random() * canvas.height),
+                    speed: Math.random() * 3 + 1, // Randomize falling speed
+                    size: Math.random() * 10 + 10 // Randomize character size
+                };
+            }
+
+            // Animation loop
+            function draw() {
+                // Draw semi-transparent rectangles to create trails
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Set font properties
+                ctx.textAlign = 'center';
+
+                // Loop through each column
+                for (let i = 0; i < drops.length; i++) {
+                    // Randomly change the character
+                    const character = generateRandomCharacter();
+
+                    // Randomly change the color
+                    const color = generateRandomColor();
+
+                    // Calculate character size based on depth
+                    const depth = drops[i].y / canvas.height;
+                    const fontSize = (depth * 20) + 10; // Adjust the multiplier to control the size change
+
+                    // Draw the character
+                    ctx.font = `italic bold ${fontSize}px "Consolas", monospace`;
+                    ctx.fillStyle = color;
+                    ctx.fillText(character, i * 20, drops[i].y);
+
+                    // Move the character down
+                    drops[i].y += drops[i].speed;
+
+                    // Reset drop if it reaches bottom
+                    if (drops[i].y > canvas.height && Math.random() > 0.95) {
+                        drops[i].y = 0;
+                    }
+                }
+            }
+
+            // Resize canvas when window is resized
+            window.addEventListener('resize', function() {
+                setCanvasDimensions();
+                columns = Math.floor(canvas.width / 20);
+                drops = [];
+                for (let i = 0; i < columns; i++) {
+                    drops[i] = {
+                        y: Math.floor(Math.random() * canvas.height),
+                        speed: Math.random() * 3 + 1,
+                        size: Math.random() * 10 + 10
+                    };
+                }
+            });
+
+            // Animation loop
+            setInterval(draw, 50);
         }
-    });
 
-    // Animation loop
-    setInterval(draw, 50);
-}
-
-// Start the matrix rain animation when the page loads
-window.onload = function () {
-    matrixRain();
-};
+        // Start the matrix rain animation when the page loads
+        window.onload = function () {
+            matrixRain();
+        };
 
         function openURL(url) {
         window.open(url, '_blank');
