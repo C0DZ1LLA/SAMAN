@@ -56,7 +56,6 @@
             <div class="stream-container">
                 <iframe id="kickStreamIframe" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
                 <div class="control-buttons">
-                    <button id="kickFullScreenBtn" aria-label="Fullscreen Kick Stream">Full Screen Kick</button>
                 </div>
             </div>
         </section>
@@ -99,7 +98,8 @@
             <button id="closeModalBtn" class="btn-primary">OK, Let's Go!</button>
         </div>
     </div>
-<script>document.addEventListener('DOMContentLoaded', () => {
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const kickStreamIframe = document.getElementById('kickStreamIframe');
     const kickFullScreenBtn = document.getElementById('kickFullScreenBtn');
@@ -110,14 +110,12 @@
     const notificationModal = document.getElementById('notificationModal');
     const closeNotificationBtn = document.getElementsByClassName('close-btn')[0];
     const closeModalBtn = document.getElementById('closeModalBtn');
-    const countdownElement = document.getElementById('timer');
 
     initializeDarkMode();
     handleDarkModeToggle();
     handleFullScreenKick();
     handleButtonActions();
     initializeNotificationModal();
-    startCountdown();
 
     function createKickModal() {
         const modal = document.createElement('div');
@@ -201,32 +199,8 @@
         notificationModal.classList.remove('hidden');
         notificationModal.style.display = 'block';
     }
-
-    function startCountdown() {
-        const countdownDate = new Date().getTime() + 60 * 60 * 1000; // 1 hour from now
-        const countdownInterval = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
-
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                countdownElement.innerHTML = "The wait is over!";
-                revealHiddenContent();
-            }
-        }, 1000);
-    }
-
-    function revealHiddenContent() {
-        const additionalContent = document.getElementById('additionalContent');
-        additionalContent.style.display = 'block';
-    }
 });
+
 </script>
 </body>
 </html>
