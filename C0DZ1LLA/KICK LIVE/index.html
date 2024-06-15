@@ -7,34 +7,11 @@
     <meta name="description" content="Join our live streams on Kick.com and Twitch, and interact with the community while we work on some top-secret features.">
     <meta property="og:title" content="Interactive Kick.com and Twitch Streams - Under Construction">
     <meta property="og:description" content="Join our live streams on Kick.com and Twitch, and interact with the community while we work on some top-secret features.">
-    <meta property="og:image" content="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png">
-    <meta property="og:url" content="https://www.samanconnect.com">
+    <meta property="og:image" content="path/to/your/image.jpg">
+    <meta property="og:url" content="https://www.example.com">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
-    <title>C0DZ1LLA Systems</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S5FVTLKRD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0TTNJ9CYT8');
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "C0DZ1LLA Systems",
-          "url": "https://samanconnect.com",
-          "description": "Fun",
-          "logo": "https://c0dz1lla.github.io/LOGO/SAMANLOGOVIDEO.mp4",
-          "sameAs": [
-            "https://twitter.com/saman_abotaleby"
-          ]
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -56,6 +33,7 @@
             <div class="stream-container">
                 <iframe id="kickStreamIframe" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
                 <div class="control-buttons">
+                    <button id="kickFullScreenBtn" aria-label="Fullscreen Kick Stream">Full Screen Kick</button>
                 </div>
             </div>
         </section>
@@ -72,12 +50,6 @@
                     <li>Saturday: 6 PM - 10 PM</li>
                     <li>Sunday: 6 PM - 10 PM</li>
                 </ul>
-            </div>
-        </section>
-        <section class="live-stream-details">
-            <h2>Twitch Live Stream Details</h2>
-            <div id="twitchStreamDetails">
-                <p>Loading Twitch stream details...</p>
             </div>
         </section>
     </main>
@@ -104,8 +76,7 @@
             <button id="closeModalBtn" class="btn-primary">OK, Let's Go!</button>
         </div>
     </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
+<script>document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const kickStreamIframe = document.getElementById('kickStreamIframe');
     const kickFullScreenBtn = document.getElementById('kickFullScreenBtn');
@@ -116,12 +87,14 @@
     const notificationModal = document.getElementById('notificationModal');
     const closeNotificationBtn = document.getElementsByClassName('close-btn')[0];
     const closeModalBtn = document.getElementById('closeModalBtn');
+    const twitchStreamDetails = document.getElementById('twitchStreamDetails');
 
     initializeDarkMode();
     handleDarkModeToggle();
     handleFullScreenKick();
     handleButtonActions();
     initializeNotificationModal();
+    fetchTwitchStreamDetails();
 
     function createKickModal() {
         const modal = document.createElement('div');
@@ -204,6 +177,37 @@
     function showNotification() {
         notificationModal.classList.remove('hidden');
         notificationModal.style.display = 'block';
+    }
+
+    async function fetchTwitchStreamDetails() {
+        const clientId = 'YOUR_TWITCH_CLIENT_ID';
+        const accessToken = 'YOUR_TWITCH_ACCESS_TOKEN';
+        const userLogin = 'YOUR_TWITCH_USERNAME';
+
+        try {
+            const response = await fetch(`https://api.twitch.tv/helix/streams?user_login=${userLogin}`, {
+                headers: {
+                    'Client-ID': clientId,
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            });
+            const data = await response.json();
+
+            if (data.data.length > 0) {
+                const stream = data.data[0];
+                twitchStreamDetails.innerHTML = `
+                    <p><strong>Title:</strong> ${stream.title}</p>
+                    <p><strong>Viewer Count:</strong> ${stream.viewer_count}</p>
+                    <p><strong>Game:</strong> ${stream.game_name}</p>
+                    <p><strong>Language:</strong> ${stream.language}</p>
+                `;
+            } else {
+                twitchStreamDetails.innerHTML = `<p>No live streams currently.</p>`;
+            }
+        } catch (error) {
+            console.error('Error fetching Twitch stream details:', error);
+            twitchStreamDetails.innerHTML = `<p>Error loading Twitch stream details.</p>`;
+        }
     }
 });
 
