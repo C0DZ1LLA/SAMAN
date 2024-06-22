@@ -11,206 +11,183 @@
     <meta property="og:url" content="https://www.example.com">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <div class="header-content">
+        <div class="header-content text-center">
             <h1>Attention! We're Under Construction</h1>
             <p>But hey, the streams are still live! Enjoy the live streams and interact with the community while we work on some top-secret features!</p>
-            <button id="darkModeToggle" aria-label="Toggle Dark Mode">Toggle Dark Mode</button>
+            <button id="darkModeToggle" class="btn btn-outline-light" aria-label="Toggle Dark Mode">Toggle Dark Mode</button>
             <!-- New Buttons -->
-            <div class="header-buttons">
-                <button class="btn-header" id="websiteBtn" aria-label="Go to Home">Website</button>
-                <button class="btn-header" id="socialMediaBtn" aria-label="About Us">Social Media</button>
-                <button class="btn-header" id="emailBtn" aria-label="Contact Us">Email</button>
+            <div class="header-buttons mt-3">
+                <button class="btn btn-outline-light" id="websiteBtn" aria-label="Go to Home">Website</button>
+                <button class="btn btn-outline-light" id="socialMediaBtn" aria-label="About Us">Social Media</button>
+                <button class="btn btn-outline-light" id="emailBtn" aria-label="Contact Us">Email</button>
+            </div>
+            <div class="mt-3">
+                <a href="https://kick.com/C0DZ1LLA" class="btn-header" target="_blank" aria-label="Follow on KICK.com">Follow me on KICK.com</a>
             </div>
         </div>
     </header>
-    <main>
+    <main class="container mt-5">
         <section class="live-stream">
             <h2>Live Streams</h2>
-            <div class="stream-container">
-                <iframe id="kickStreamIframe" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
-                <div class="control-buttons">
-                    <button id="kickFullScreenBtn" aria-label="Fullscreen Kick Stream">Full Screen Kick</button>
+            <div class="stream-container position-relative">
+                <iframe id="kickStreamIframe" class="w-100 h-100 rounded shadow-lg" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
+                <div class="control-buttons position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex justify-content-center gap-3">
+                    <button id="kickFullScreenBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Fullscreen Kick Stream"><i class="fas fa-expand"></i> Full Screen</button>
+                    <button id="kickMuteBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Mute/Unmute Stream"><i class="fas fa-volume-mute"></i> Mute</button>
+                    <button id="kickPipBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Picture-in-Picture"><i class="fas fa-window-restore"></i> PiP</button>
                 </div>
             </div>
         </section>
+    </main>
         
-        <section class="stream-schedule">
+        <section class="stream-schedule mt-5">
             <h2>Streaming Schedule</h2>
             <div class="schedule-container">
-                <ul>
-                    <li>Monday: 6 PM - 10 PM</li>
-                    <li>Tuesday: 6 PM - 10 PM</li>
-                    <li>Wednesday: 6 PM - 10 PM</li>
-                    <li>Thursday: 6 PM - 10 PM</li>
-                    <li>Friday: 6 PM - 11 PM</li>
-                    <li>Saturday: 6 PM - 10 PM</li>
-                    <li>Sunday: 6 PM - 10 PM</li>
+                <ul class="list-group">
+                    <li class="list-group-item bg-dark text-light">Monday: 6 PM - 10 PM</li>
+                    <li class="list-group-item bg-dark text-light">Tuesday: 6 PM - 10 PM</li>
+                    <li class="list-group-item bg-dark text-light">Wednesday: 6 PM - 10 PM</li>
+                    <li class="list-group-item bg-dark text-light">Thursday: 6 PM - 10 PM</li>
+                    <li class="list-group-item bg-dark text-light">Friday: 6 PM - 11 PM</li>
+                    <li class="list-group-item bg-dark text-light">Saturday: 6 PM - 10 PM</li>
+                    <li class="list-group-item bg-dark text-light">Sunday: 6 PM - 10 PM</li>
                 </ul>
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="text-center mt-5">
         <p>&copy; 2024 C0DZ1LLA Interactive Stream. All rights reserved.</p>
     </footer>
 
     <!-- Modal Structure -->
-    <div id="notificationModal" class="modal hidden" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-        <div class="modal-content">
-            <span class="close-btn" aria-label="Close Modal">&times;</span>
-            <h2 id="modalTitle">Welcome to the Ultimate Multistream Experience!</h2>
-            <p id="notificationMessage">Hey there, stream enthusiast! 🎉</p>
-            <p>Welcome to our interactive multistream hub where you can catch all the action from every corner of the internet. We're talking Kick, Twitch, and all your favorite platforms, all in one place!</p>
-            <p>We're under construction, but that doesn't mean you can't have fun. Dive into our streams, chat with the community, and watch out for some top-secret features coming your way soon. Stay tuned and enjoy the show!</p>
-            <div id="countdown">
-                <p>Something amazing is coming in:</p>
-                <p id="timer"></p>
+    <div id="notificationModal" class="modal fade" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Welcome to the Ultimate Multistream Experience!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="notificationMessage">Hey there, stream enthusiast! 🎉</p>
+                    <p>Welcome to our interactive multistream hub where you can catch all the action from every corner of the internet. We're talking Kick, Twitch, and all your favorite platforms, all in one place!</p>
+                    <p>We're under construction, but that doesn't mean you can't have fun. Dive into our streams, chat with the community, and watch out for some top-secret features coming your way soon. Stay tuned and enjoy the show!</p>
+                    <div id="countdown" class="mt-3">
+                        <p>Something amazing is coming in:</p>
+                        <p id="timer"></p>
+                    </div>
+                    <div id="additionalContent" class="mt-3" style="display: none;">
+                        <img src="https://media.giphy.com/media/l0HlMWkKz2cHOH16k/giphy.gif" alt="Exciting features coming soon!" onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallbackMessage').style.display='block';">
+                        <p id="fallbackMessage" style="display:none;">Exciting features coming soon!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="closeModalBtn" class="btn btn-outline-light" data-bs-dismiss="modal">OK, Let's Go!</button>
+                </div>
             </div>
-            <div id="additionalContent" style="display: none;">
-                <img src="https://media.giphy.com/media/l0HlMWkKz2cHOH16k/giphy.gif" alt="Exciting features coming soon!" onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallbackMessage').style.display='block';">
-                <p id="fallbackMessage" style="display:none;">Exciting features coming soon!</p>
-            </div>
-            <button id="closeModalBtn" class="btn-primary">OK, Let's Go!</button>
         </div>
     </div>
-<script>document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const kickStreamIframe = document.getElementById('kickStreamIframe');
-    const kickFullScreenBtn = document.getElementById('kickFullScreenBtn');
-    const modal = createKickModal();
-    const websiteBtn = document.getElementById('websiteBtn');
-    const emailBtn = document.getElementById('emailBtn');
-    const socialMediaBtn = document.getElementById('socialMediaBtn');
-    const notificationModal = document.getElementById('notificationModal');
-    const closeNotificationBtn = document.getElementsByClassName('close-btn')[0];
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const twitchStreamDetails = document.getElementById('twitchStreamDetails');
 
-    initializeDarkMode();
-    handleDarkModeToggle();
-    handleFullScreenKick();
-    handleButtonActions();
-    initializeNotificationModal();
-    fetchTwitchStreamDetails();
-
-    function createKickModal() {
-        const modal = document.createElement('div');
-        modal.id = 'kickModal';
-        modal.classList.add('modal');
-
-        const modalContent = document.createElement('div');
-        modalContent.classList.add('modal-content');
-
-        const closeKickBtn = document.createElement('span');
-        closeKickBtn.classList.add('close-kick-btn');
-        closeKickBtn.innerHTML = '&times;';
-
-        const kickStreamModalIframe = document.createElement('iframe');
-        kickStreamModalIframe.id = 'kickStreamModalIframe';
-        kickStreamModalIframe.src = kickStreamIframe.src;
-
-        modalContent.appendChild(closeKickBtn);
-        modalContent.appendChild(kickStreamModalIframe);
-        modal.appendChild(modalContent);
-        document.body.appendChild(modal);
-
-        closeKickBtn.onclick = () => modal.style.display = 'none';
-        window.onclick = (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        };
-
-        return modal;
-    }
-
-    function initializeDarkMode() {
-        const darkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
-        document.body.classList.add(darkModeEnabled ? 'dark-mode' : 'light-mode');
-        darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
-    }
-
-    function handleDarkModeToggle() {
-        darkModeToggle.addEventListener('click', () => {
-            const darkModeEnabled = document.body.classList.toggle('dark-mode');
-            document.body.classList.toggle('light-mode');
-            localStorage.setItem('dark-mode', darkModeEnabled ? 'enabled' : 'disabled');
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const kickStreamIframe = document.getElementById('kickStreamIframe');
+        const kickFullScreenBtn = document.getElementById('kickFullScreenBtn');
+        const websiteBtn = document.getElementById('websiteBtn');
+        const emailBtn = document.getElementById('emailBtn');
+        const socialMediaBtn = document.getElementById('socialMediaBtn');
+        const notificationModal = new bootstrap.Modal(document.getElementById('notificationModal'));
+        const closeModalBtn = document.getElementById('closeModalBtn');
+    
+        initializeDarkMode();
+        handleDarkModeToggle();
+        handleFullScreenKick();
+        handleButtonActions();
+        initializeNotificationModal();
+    
+        function initializeDarkMode() {
+            const darkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
+            document.body.classList.toggle('dark-mode', darkModeEnabled);
+            document.body.classList.toggle('light-mode', !darkModeEnabled);
             darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
-        });
-    }
-
-    function handleFullScreenKick() {
-        kickFullScreenBtn.addEventListener('click', () => {
-            modal.style.display = 'block';
-        });
-    }
-
-    function handleButtonActions() {
-        websiteBtn.addEventListener('click', () => {
-            window.open('https://www.samanconnect.com', '_blank');
-        });
-
-        emailBtn.addEventListener('click', () => {
-            window.location.href = 'mailto:saman.abotaleby@gmail.com?subject=Subject%20Here&body=Body%20content%20here';
-        });
-
-        socialMediaBtn.addEventListener('click', () => {
-            window.open('https://www.instagram.com/saman.abotaleby', '_blank');
-        });
-    }
-
-    function initializeNotificationModal() {
-        showNotification();
-
-        closeNotificationBtn.onclick = () => notificationModal.style.display = 'none';
-        closeModalBtn.onclick = () => notificationModal.style.display = 'none';
-        window.onclick = (event) => {
-            if (event.target === notificationModal) {
-                notificationModal.style.display = 'none';
-            }
-        };
-    }
-
-    function showNotification() {
-        notificationModal.classList.remove('hidden');
-        notificationModal.style.display = 'block';
-    }
-
-    async function fetchTwitchStreamDetails() {
-        const clientId = 'YOUR_TWITCH_CLIENT_ID';
-        const accessToken = 'YOUR_TWITCH_ACCESS_TOKEN';
-        const userLogin = 'YOUR_TWITCH_USERNAME';
-
-        try {
-            const response = await fetch(`https://api.twitch.tv/helix/streams?user_login=${userLogin}`, {
-                headers: {
-                    'Client-ID': clientId,
-                    'Authorization': `Bearer ${accessToken}`
-                }
-            });
-            const data = await response.json();
-
-            if (data.data.length > 0) {
-                const stream = data.data[0];
-                twitchStreamDetails.innerHTML = `
-                    <p><strong>Title:</strong> ${stream.title}</p>
-                    <p><strong>Viewer Count:</strong> ${stream.viewer_count}</p>
-                    <p><strong>Game:</strong> ${stream.game_name}</p>
-                    <p><strong>Language:</strong> ${stream.language}</p>
-                `;
-            } else {
-                twitchStreamDetails.innerHTML = `<p>No live streams currently.</p>`;
-            }
-        } catch (error) {
-            console.error('Error fetching Twitch stream details:', error);
-            twitchStreamDetails.innerHTML = `<p>Error loading Twitch stream details.</p>`;
         }
-    }
-});
-
-</script>
+    
+        function handleDarkModeToggle() {
+            darkModeToggle.addEventListener('click', () => {
+                const darkModeEnabled = document.body.classList.toggle('dark-mode');
+                document.body.classList.toggle('light-mode', !darkModeEnabled);
+                localStorage.setItem('dark-mode', darkModeEnabled ? 'enabled' : 'disabled');
+                darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
+            });
+        }
+    
+        function handleFullScreenKick() {
+            kickFullScreenBtn.addEventListener('click', () => {
+                const modal = document.createElement('div');
+                modal.id = 'kickModal';
+                modal.classList.add('modal');
+    
+                const modalContent = document.createElement('div');
+                modalContent.classList.add('modal-content');
+    
+                const closeKickBtn = document.createElement('span');
+                closeKickBtn.classList.add('close-kick-btn');
+                closeKickBtn.innerHTML = '&times;';
+    
+                const kickStreamModalIframe = document.createElement('iframe');
+                kickStreamModalIframe.id = 'kickStreamModalIframe';
+                kickStreamModalIframe.src = kickStreamIframe.src;
+    
+                modalContent.appendChild(closeKickBtn);
+                modalContent.appendChild(kickStreamModalIframe);
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+    
+                closeKickBtn.onclick = () => modal.style.display = 'none';
+                window.onclick = (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                };
+    
+                modal.style.display = 'block';
+            });
+        }
+    
+        function handleButtonActions() {
+            websiteBtn.addEventListener('click', () => {
+                window.open('https://www.samanconnect.com', '_blank');
+            });
+    
+            emailBtn.addEventListener('click', () => {
+                window.location.href = 'mailto:saman.abotaleby@gmail.com?subject=Subject%20Here&body=Body%20content%20here';
+            });
+    
+            socialMediaBtn.addEventListener('click', () => {
+                window.open('https://www.instagram.com/saman.abotaleby', '_blank');
+            });
+        }
+    
+        function initializeNotificationModal() {
+            showNotification();
+    
+            closeModalBtn.onclick = () => notificationModal.hide();
+            window.onclick = (event) => {
+                if (event.target === notificationModal._element) {
+                    notificationModal.hide();
+                }
+            };
+        }
+    
+        function showNotification() {
+            notificationModal.show();
+        }
+    });
+    </script>
 </body>
 </html>
