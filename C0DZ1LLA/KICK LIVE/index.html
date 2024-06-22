@@ -34,17 +34,25 @@
     <main class="container mt-5">
         <section class="live-stream">
             <h2>Live Streams</h2>
-            <div class="stream-container position-relative">
-                <iframe id="kickStreamIframe" class="w-100 h-100 rounded shadow-lg" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
-                <div class="control-buttons position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex justify-content-center gap-3">
-                    <button id="kickFullScreenBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Fullscreen Kick Stream"><i class="fas fa-expand"></i> Full Screen</button>
-                    <button id="kickMuteBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Mute/Unmute Stream"><i class="fas fa-volume-mute"></i> Mute</button>
-                    <button id="kickPipBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Picture-in-Picture"><i class="fas fa-window-restore"></i> PiP</button>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="stream-container position-relative">
+                        <iframe id="kickStreamIframe" class="w-100 h-100 rounded shadow-lg" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
+                        <div class="control-buttons position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex justify-content-center gap-3">
+                            <button id="kickFullScreenBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Fullscreen Kick Stream"><i class="fas fa-expand"></i> Full Screen</button>
+                            <button id="kickQualityBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Change Stream Quality"><i class="fas fa-cog"></i> Quality</button>
+                            <button id="kickShareBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Share Stream"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="chat-container mt-3 mt-md-0">
+                        <h3>Live Chat Under Construction</h3>
+                        <iframe id="kickChatIframe" class="w-100 rounded shadow-lg" src="https://kick.com/c0dz1lla/chatroom" frameborder="0" allowfullscreen title="Kick.com Live Chat"></iframe>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
-        
         <section class="stream-schedule mt-5">
             <h2>Streaming Schedule</h2>
             <div class="schedule-container">
@@ -98,25 +106,27 @@
         const darkModeToggle = document.getElementById('darkModeToggle');
         const kickStreamIframe = document.getElementById('kickStreamIframe');
         const kickFullScreenBtn = document.getElementById('kickFullScreenBtn');
+        const kickQualityBtn = document.getElementById('kickQualityBtn');
+        const kickShareBtn = document.getElementById('kickShareBtn');
         const websiteBtn = document.getElementById('websiteBtn');
         const emailBtn = document.getElementById('emailBtn');
         const socialMediaBtn = document.getElementById('socialMediaBtn');
         const notificationModal = new bootstrap.Modal(document.getElementById('notificationModal'));
         const closeModalBtn = document.getElementById('closeModalBtn');
-    
+
         initializeDarkMode();
         handleDarkModeToggle();
         handleFullScreenKick();
         handleButtonActions();
         initializeNotificationModal();
-    
+
         function initializeDarkMode() {
             const darkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
             document.body.classList.toggle('dark-mode', darkModeEnabled);
             document.body.classList.toggle('light-mode', !darkModeEnabled);
             darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
         }
-    
+
         function handleDarkModeToggle() {
             darkModeToggle.addEventListener('click', () => {
                 const darkModeEnabled = document.body.classList.toggle('dark-mode');
@@ -125,57 +135,38 @@
                 darkModeToggle.textContent = darkModeEnabled ? 'Light Mode' : 'Dark Mode';
             });
         }
-    
+
         function handleFullScreenKick() {
             kickFullScreenBtn.addEventListener('click', () => {
-                const modal = document.createElement('div');
-                modal.id = 'kickModal';
-                modal.classList.add('modal');
-    
-                const modalContent = document.createElement('div');
-                modalContent.classList.add('modal-content');
-    
-                const closeKickBtn = document.createElement('span');
-                closeKickBtn.classList.add('close-kick-btn');
-                closeKickBtn.innerHTML = '&times;';
-    
-                const kickStreamModalIframe = document.createElement('iframe');
-                kickStreamModalIframe.id = 'kickStreamModalIframe';
-                kickStreamModalIframe.src = kickStreamIframe.src;
-    
-                modalContent.appendChild(closeKickBtn);
-                modalContent.appendChild(kickStreamModalIframe);
-                modal.appendChild(modalContent);
-                document.body.appendChild(modal);
-    
-                closeKickBtn.onclick = () => modal.style.display = 'none';
-                window.onclick = (event) => {
-                    if (event.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                };
-    
-                modal.style.display = 'block';
+                if (kickStreamIframe.requestFullscreen) {
+                    kickStreamIframe.requestFullscreen();
+                } else if (kickStreamIframe.mozRequestFullScreen) {
+                    kickStreamIframe.mozRequestFullScreen();
+                } else if (kickStreamIframe.webkitRequestFullscreen) {
+                    kickStreamIframe.webkitRequestFullscreen();
+                } else if (kickStreamIframe.msRequestFullscreen) {
+                    kickStreamIframe.msRequestFullscreen();
+                }
             });
         }
-    
+
         function handleButtonActions() {
             websiteBtn.addEventListener('click', () => {
                 window.open('https://www.samanconnect.com', '_blank');
             });
-    
+
             emailBtn.addEventListener('click', () => {
                 window.location.href = 'mailto:saman.abotaleby@gmail.com?subject=Subject%20Here&body=Body%20content%20here';
             });
-    
+
             socialMediaBtn.addEventListener('click', () => {
                 window.open('https://www.instagram.com/saman.abotaleby', '_blank');
             });
         }
-    
+
         function initializeNotificationModal() {
             showNotification();
-    
+
             closeModalBtn.onclick = () => notificationModal.hide();
             window.onclick = (event) => {
                 if (event.target === notificationModal._element) {
@@ -183,10 +174,23 @@
                 }
             };
         }
-    
+
         function showNotification() {
             notificationModal.show();
         }
+
+        kickQualityBtn.addEventListener('click', () => {
+            alert('Quality settings are not supported in this demo.');
+        });
+
+        kickShareBtn.addEventListener('click', () => {
+            const shareUrl = kickStreamIframe.src;
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert('Stream link copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy stream link: ', err);
+            });
+        });
     });
     </script>
 </body>
