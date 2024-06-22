@@ -20,7 +20,6 @@
             <h1>Attention! We're Under Construction</h1>
             <p>But hey, the streams are still live! Enjoy the live streams and interact with the community while we work on some top-secret features!</p>
             <button id="darkModeToggle" class="btn btn-outline-light" aria-label="Toggle Dark Mode">Toggle Dark Mode</button>
-            <!-- New Buttons -->
             <div class="header-buttons mt-3">
                 <button class="btn btn-outline-light" id="websiteBtn" aria-label="Go to Home">Website</button>
                 <button class="btn btn-outline-light" id="socialMediaBtn" aria-label="About Us">Social Media</button>
@@ -38,11 +37,6 @@
                 <div class="col-md-8">
                     <div class="stream-container position-relative">
                         <iframe id="kickStreamIframe" class="w-100 h-100 rounded shadow-lg" src="https://player.kick.com/c0dz1lla" frameborder="0" allowfullscreen title="Kick.com Live Stream"></iframe>
-                        <div class="control-buttons position-absolute bottom-0 start-50 translate-middle-x mb-3 d-flex justify-content-center gap-3">
-                            <button id="kickFullScreenBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Fullscreen Kick Stream"><i class="fas fa-expand"></i> Full Screen</button>
-                            <button id="kickQualityBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Change Stream Quality"><i class="fas fa-cog"></i> Quality</button>
-                            <button id="kickShareBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Share Stream"><i class="fas fa-share-alt"></i> Share</button>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -51,6 +45,14 @@
                         <iframe id="kickChatIframe" class="w-100 rounded shadow-lg" src="https://kick.com/c0dz1lla/chatroom" frameborder="0" allowfullscreen title="Kick.com Live Chat"></iframe>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section class="stream-buttons mt-5">
+            <h2>Stream Controls</h2>
+            <div class="control-buttons d-flex justify-content-center gap-3">
+                <button id="kickFullScreenBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Fullscreen Kick Stream"><i class="fas fa-expand"></i> Full Screen</button>
+                <button id="kickQualityBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Change Stream Quality"><i class="fas fa-cog"></i> Quality</button>
+                <button id="kickShareBtn" class="btn btn-outline-light rounded-pill px-4 py-2 shadow" aria-label="Share Stream"><i class="fas fa-share-alt"></i> Share</button>
             </div>
         </section>
         <section class="stream-schedule mt-5">
@@ -99,8 +101,8 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const darkModeToggle = document.getElementById('darkModeToggle');
