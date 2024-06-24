@@ -5,10 +5,17 @@
     box-sizing: border-box;
 }
 
+/* Disable scrolling on mobile */
+body {
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
 /* Body and container styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0a0a23 0%, #1f1f60 100%);
+    background: linear-gradient(135deg, #0a0a23 0%, #000000 100%);
     color: #e0e0e0;
     text-align: center;
     display: flex;
@@ -17,81 +24,95 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    animation: backgroundAnimation 10s ease-in-out infinite;
+    animation: backgroundAnimation 15s ease-in-out infinite;
 }
 
 @keyframes backgroundAnimation {
-    0% { background: linear-gradient(135deg, #0a0a23 0%, #1f1f60 100%); }
-    50% { background: linear-gradient(135deg, #1f1f60 0%, #0a0a23 100%); }
-    100% { background: linear-gradient(135deg, #0a0a23 0%, #1f1f60 100%); }
+    0%, 100% { background: linear-gradient(135deg, #0a0a23 0%, #000000 100%); }
+    50% { background: linear-gradient(135deg, #000000 0%, #0a0a23 100%); }
 }
 
 .container {
-    max-width: 800px;
-    width: 90%;
-    padding: 20px;
-    background: rgba(34, 34, 51, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    max-width: 90%;
+    width: 800px;
+    padding: 30px;
+    background: rgba(10, 10, 10, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
     overflow-y: auto;
     max-height: 90vh;
     animation: fadeIn 1s ease-in-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 h1 {
-    font-size: 2.5em;
-    color: #ffffff;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    font-size: 3em;
+    color: #ffd700;
+    margin-bottom: 25px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
-    to { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+    from { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+    to { text-shadow: 0 0 30px rgba(255, 215, 0, 1); }
 }
 
 p {
     margin-bottom: 20px;
-    font-size: 1.2em;
-    line-height: 1.5;
+    font-size: 1.4em;
+    line-height: 1.6;
+    color: #f0f0f0;
 }
 
 .game-interface {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
-.game-interface img {
-    width: 200px;
-    cursor: pointer;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+#tap-area {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.2));
     border-radius: 50%;
-    box-shadow: 0 0 30px rgba(0, 183, 255, 0.7), 0 0 40px rgba(0, 183, 255, 1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.game-interface img:active {
-    transform: scale(0.95);
-    box-shadow: 0 0 25px rgba(0, 183, 255, 0.7), 0 0 35px rgba(0, 183, 255, 1);
-}
-
-#coin-count, #tap-count, #profit-per-hour {
-    font-size: 1.4em;
-    margin-top: 15px;
-    text-shadow: 0 0 10px rgba(0, 183, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.7), 0 0 70px rgba(255, 215, 0, 1);
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+#tap-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#coin-count, #tap-count, #profit-per-hour {
+    font-size: 1.8em;
+    margin-top: 15px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    animation: pulseText 2s infinite;
+}
+
+@keyframes pulseText {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.1); }
 }
@@ -106,48 +127,72 @@ p {
     100% { transform: translateY(0) scale(1); }
 }
 
+.tap-effect {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.5);
+    pointer-events: none;
+}
+
+.coin-popup {
+    position: absolute;
+    color: #ffd700;
+    font-size: 1.5em;
+    font-weight: bold;
+    animation: popupFade 1s forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes popupFade {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}
+
 .game-sections {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .section {
-    background: rgba(0, 0, 34, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 0 30px rgba(0, 183, 255, 0.7), 0 0 40px rgba(0, 183, 255, 1);
+    background: rgba(0, 0, 34, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.7), 0 0 50px rgba(255, 215, 0, 1);
     transition: transform 0.3s, box-shadow 0.3s;
     animation: sectionFadeIn 1s ease-in-out;
 }
 
 @keyframes sectionFadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 35px rgba(0, 183, 255, 0.7), 0 0 45px rgba(0, 183, 255, 1);
+    box-shadow: 0 0 45px rgba(255, 215, 0, 0.7), 0 0 55px rgba(255, 215, 0, 1);
 }
 
 h2 {
-    font-size: 1.5em;
-    color: #ffffff;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    font-size: 2em;
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
 }
 
 button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 1.1em;
+    padding: 15px 30px;
+    margin-top: 15px;
+    font-size: 1.4em;
     color: #fff;
     background: linear-gradient(45deg, #4b5d67, #00b7ff);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 0 15px rgba(0, 183, 255, 0.5);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
     animation: buttonFadeIn 1s ease-in-out;
 }
 
@@ -158,8 +203,8 @@ button {
 
 button:hover {
     background: linear-gradient(45deg, #6a7d89, #00dfff);
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(0, 183, 255, 0.7);
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.7);
 }
 
 button:active {
@@ -168,34 +213,39 @@ button:active {
 }
 
 p {
-    margin-top: 5px;
-    font-size: 1em;
+    margin-top: 10px;
+    font-size: 1.2em;
 }
 
 .game-controls {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .profit-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .profit-item img {
-    width: 60px;
-    margin-right: 10px;
+    width: 70px;
+    margin-right: 15px;
     transition: transform 0.3s;
 }
 
 .profit-item img:hover {
-    transform: rotate(15deg);
+    transform: rotate(20deg);
 }
 
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
+    }
+
+    #tap-area {
+        width: 250px;
+        height: 250px;
     }
 
     .game-interface img {
@@ -203,12 +253,12 @@ p {
     }
 
     button {
-        padding: 8px 15px;
-        font-size: 1em;
+        padding: 10px 20px;
+        font-size: 1.2em;
     }
 
     p {
-        font-size: 1em;
+        font-size: 1.1em;
     }
 
     .profit-item img {
@@ -216,10 +266,10 @@ p {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     h2 {
-        font-size: 1.2em;
+        font-size: 1.8em;
     }
 }

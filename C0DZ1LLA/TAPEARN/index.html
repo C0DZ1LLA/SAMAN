@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Hamster Tap-to-Earn Game</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
@@ -23,7 +23,9 @@
         <h1>Hamster Tap-to-Earn Game</h1>
         <p>Welcome to the Hamster Tap-to-Earn Game! Tap the hamster to earn coins and upgrade your abilities. Aim to reach level 1000 in each category within a year. Enjoy the game!</p>
         <div class="game-interface">
-            <img id="hamster" src="img/1.png" alt="Tap the hamster">
+            <div id="tap-area">
+                <img id="hamster" src="img/1.png" alt="Tap the hamster">
+            </div>
             <div id="coin-count">Hamster Coins: <span id="coins">0</span></div>
             <div id="tap-count">Taps Left: <span id="taps-left">1000</span></div>
             <div id="profit-per-hour">Profit per Hour: <span id="profit">0</span> Coins</div>
@@ -128,7 +130,8 @@
         }
 
         function addEventListeners() {
-            document.getElementById('hamster').addEventListener('click', handleTap);
+            const tapArea = document.getElementById('tap-area');
+            tapArea.addEventListener('pointerdown', handleTap);
             document.getElementById('upgrade').addEventListener('click', handleUpgrade);
             document.getElementById('increase-recharge-speed').addEventListener('click', handleIncreaseRechargeSpeed);
             document.getElementById('increase-max-taps').addEventListener('click', handleIncreaseMaxTaps);
@@ -137,12 +140,14 @@
             document.getElementById('reset-game').addEventListener('click', handleResetGame);
         }
 
-        function handleTap() {
+        function handleTap(event) {
             if (tapsLeft > 0) {
-                coins += upgradeLevel;
+                const coinAmount = upgradeLevel;
+                coins += coinAmount;
                 tapsLeft--;
                 playTapSound();
-                showTapEffect();
+                showTapEffect(event);
+                showCoinPopup(event, coinAmount);
                 saveGameState();
                 updateGameStatus();
             } else {
@@ -233,15 +238,30 @@
             tapSound.play();
         }
 
-        function showTapEffect() {
-    const hamster = document.getElementById('hamster');
-    hamster.classList.add('tap-animation');
-    setTimeout(() => {
-        hamster.classList.remove('tap-animation');
-    }, 300);
-}
+        function showTapEffect(event) {
+            const tapArea = document.getElementById('tap-area');
+            const effect = document.createElement('div');
+            effect.className = 'tap-effect';
+            effect.style.left = `${event.clientX - tapArea.getBoundingClientRect().left - 50}px`;
+            effect.style.top = `${event.clientY - tapArea.getBoundingClientRect().top - 50}px`;
+            tapArea.appendChild(effect);
+            setTimeout(() => {
+                tapArea.removeChild(effect);
+            }, 300);
+        }
 
-
+        function showCoinPopup(event, amount) {
+            const tapArea = document.getElementById('tap-area');
+            const popup = document.createElement('div');
+            popup.className = 'coin-popup';
+            popup.textContent = `+${amount}`;
+            popup.style.left = `${event.clientX - tapArea.getBoundingClientRect().left}px`;
+            popup.style.top = `${event.clientY - tapArea.getBoundingClientRect().top}px`;
+            tapArea.appendChild(popup);
+            setTimeout(() => {
+                tapArea.removeChild(popup);
+            }, 1000);
+        }
 
         function saveGameState() {
             localStorage.setItem('coins', coins);
