@@ -8,26 +8,28 @@
     <meta name="keywords" content="C0DZ1LLA Systems, technology solutions, web development, software engineering, game development, tech consulting, innovation, expertise, cutting-edge, AI, artificial intelligence">
     <meta name="author" content="Saman Abotaleby">
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!-- Favicon and Touch Icons -->
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-<link rel="manifest" href="img/site.webmanifest">
-<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="img/favicon.ico">
-<meta name="msapplication-TileColor" content="#2b5797">
-<meta name="msapplication-config" content="img/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="img/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
 
     <title>C0DZ1LLA Made by SAMAN</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S5FVTLKRD"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0TTNJ9CYT8');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-0TTNJ9CYT8');
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="application/ld+json">
@@ -44,364 +46,296 @@
         }
     </script>
     <style>
-/* Universal Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-    background: linear-gradient(to bottom, rgba(0,255,0,1) 0%, rgba(0,0,0,0) 100%), radial-gradient(circle, rgba(0,255,0,1) 0%, rgba(0,0,0,0) 80%);
-    color: #0f0; /* Neon green text color */
-    overflow-x: hidden; /* Hide horizontal overflow */
+        /* Universal Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            background: radial-gradient(circle at center, #000000, #0d0d0d, #1a1a1a);
+            color: #00ffcc; /* Neon cyan text color */
+            overflow-x: hidden; /* Hide horizontal overflow */
+        }
 
-}
+        /* Create holographic matrix rain effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/matrix-rain.gif') repeat;
+            opacity: 0.05;
+            z-index: -1;
+        }
 
-/* Create futuristic matrix rain effect */
-body::before {
-    content: '';
-    position: fixed;
-    top: -50%; /* Start above the viewport */
-    left: -50%; /* Start left of the viewport */
-    width: 200%; /* Extend twice the viewport width */
-    height: 200%; /* Extend twice the viewport height */
-    background: linear-gradient(to bottom, rgba(0,0,255,1) 0%, rgba(255,0,0,0) 100%), radial-gradient(circle, rgba(0,0,255,1) 0%, rgba(255,0,0,0) 80%);
-    background-size: 100% 200%; /* Double the height to create scrolling effect */
-    animation: matrixRain 5s linear infinite;
-    z-index: -1;
-}
+        /* Apply matrix rain effect to canvas background */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width of the viewport */
+            height: 100%; /* Full height of the viewport */
+            z-index: -1;
+        }
 
-@keyframes matrixRain {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100%);
-    }
-}
+        /* Ensure canvas is behind other content */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
 
-/* Apply matrix rain effect to canvas background */
-#matrixCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width of the viewport */
-    height: 100%; /* Full height of the viewport */
-    z-index: -1;
-}
+        h1, h2, h3 {
+            font-size: 5em;
+            margin-bottom: 20px;
+            font-weight: bold; /* Bold font weight */
+            text-transform: uppercase; /* Uppercase text */
+            text-align: center; /* Center align text */
+            letter-spacing: 3px; /* Increased letter spacing */
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
+        }
 
-/* Ensure canvas is behind other content */
-.container {
-    position: relative;
-    z-index: 1;
-}
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            line-height: 1.6; /* Increased line height */
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
+        }
 
-/* Create futuristic matrix rain effect for the container background */
-.container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext x='0' y='15' font-family='Consolas' font-size='15' fill='%23ff0080'%3E%3C/text%3E%3C/svg%3E");
-    background-size: 100% 200%; /* Double the height to create scrolling effect */
-    animation: matrixRain 5s linear infinite;
-    z-index: -1;
-}
+        /* Vertical button container */
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Change to column direction */
+            align-items: center; /* Center align buttons vertically */
+            gap: 20px; /* Increased gap between buttons */
+            max-width: 100%;
+            padding: 0 20px;
+        }
 
-h1, h2, h3 {
-    font-size: 5em;
-    margin-bottom: 20px;
-    font-weight: bold; /* Bold font weight */
-    text-transform: uppercase; /* Uppercase text */
-    text-align: center; /* Center align text */
-    letter-spacing: 3px; /* Increased letter spacing */
-    text-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Neon glow text shadow */
-}
+        /* Adjust button styles for vertical layout */
+        button {
+            padding: 1em 2em;
+            font-size: 1.2em;
+            background-color: transparent; /* Transparent button background */
+            border: 2px solid #00ffcc; /* Neon cyan border */
+            color: #00ffcc; /* Neon cyan text color */
+            border-radius: 50px; /* Round border for futuristic look */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            font-family: 'Roboto', sans-serif;
+            width: 300px; /* Increased button width */
+            text-transform: uppercase; /* Uppercase text */
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.5); /* Neon glow */
+        }
 
-p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    line-height: 1.6; /* Increased line height */
-}
+        button:hover {
+            background-color: #00ffcc; /* Neon cyan on hover */
+            color: #000; /* Black text on hover */
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.7); /* Intensified neon cyan glow on hover */
+        }
 
-/* Vertical button container */
-.button-container {
-    display: flex;
-    flex-direction: column; /* Change to column direction */
-    align-items: center; /* Center align buttons vertically */
-    gap: 20px; /* Increased gap between buttons */
-    max-width: 100%;
-    padding: 0 20px;
-}
+        /* Modal Styles */
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
+            z-index: 1000;
+            width: 80%; /* Adjust width as needed */
+            max-width: 1000px; /* Maximum width for large screens */
+            max-height: 80vh; /* Maximum height for large screens */
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+            border: 3px solid #00ffcc; /* Neon cyan border */
+            border-radius: 50px; /* Rounded border */
+            padding: 60px; /* Increased padding for better spacing */
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
+            color: #00d8ff; /* Electric blue text color */
+            text-align: center; /* Center align text */
+            animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
+        }
 
-/* Adjust button styles for vertical layout */
-button {
-    padding: 1em 2em;
-    font-size: 1.2em;
-    background-color: transparent; /* Transparent button background */
-    border: 2px solid #0f0; /* Neon green border */
-    color: #0f0; /* Neon green text color */
-    border-radius: 50px; /* Round border for futuristic look */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    outline: none;
-    font-family: 'Roboto', sans-serif;
-    width: 300px; /* Increased button width */
-    text-transform: uppercase; /* Uppercase text */
-}
+        /* Fade In and Zoom Animation */
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1); /* End at full size */
+            }
+        }
 
-button:hover {
-    background-color: #0f0; /* Neon green on hover */
-    color: #000; /* Black text on hover */
-    box-shadow: 0 0 50px rgba(0, 255, 0, 0.7); /* Intensified neon glow on hover */
-}
+        /* Media Query for Small Devices */
+        @media only screen and (max-width: 600px) {
+            .modal-content {
+                width: 100%; /* Adjust width percentage for small screens */
+                height: 100%; /* Adjust height percentage for small screens */
+            }
+        }
 
-/* Modal Styles */
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
-    z-index: 1000;
-    width: 80%; /* Adjust width as needed */
-    max-width: 1000px; /* Maximum width for large screens */
-    max-height: 80vh; /* Maximum height for large screens */
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Transparent black background */
-    border: 3px solid #0f0; /* Neon green border */
-    border-radius: 50px; /* Rounded border */
-    padding: 60px; /* Increased padding for better spacing */
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
-    color: #00d8ff; /* Electric blue text color */
-    text-align: center; /* Center align text */
-    animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
-}
+        /* Media Query for Medium Devices */
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            .modal-content {
+                width: 70%; /* Adjust width percentage for medium screens */
+                height: 70%; /* Adjust height percentage for medium screens */
+            }
+        }
 
-/* Fade In and Zoom Animation */
-@keyframes fadeInZoom {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1); /* End at full size */
-    }
-}
+        .modal-content:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+        }
 
-/* Media Query for Small Devices */
-@media only screen and (max-width: 600px) {
-    .modal-content {
-        width: 100%; /* Adjust width percentage for small screens */
-        height: 100%; /* Adjust height percentage for small screens */
-    }
-}
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for header */
+            padding: 40px 0; /* Add more padding to the top and bottom */
+            text-align: center; /* Center align the content */
+            overflow: hidden; /* Hide overflow to prevent scroll */
+        }
 
-/* Media Query for Medium Devices */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .modal-content {
-        width: 70%; /* Adjust width percentage for medium screens */
-        height: 70%; /* Adjust height percentage for medium screens */
-    }
-}
+        header h1 {
+            font-size: 6.5em; /* Increase font size for header */
+            color: #00ffcc; /* Neon cyan text color */
+            animation: slideInDown 0.5s ease; /* Slide in from top animation */
+        }
 
-.modal-content:hover {
-    box-shadow: 0 0 40px rgba(0, 216, 255, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
-}
+        /* Slide In Animation */
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
 
+        header p {
+            font-size: 1.5em; /* Increase font size for paragraph */
+            color: #00ffcc; /* Neon cyan text color */
+        }
 
-/* Header Styles */
-header {
-    background-color: rgba(0, 0, 0, 0.9); /* Transparent black background for header */
-    padding: 40px 0; /* Add more padding to the top and bottom */
-    text-align: center; /* Center align the content */
-    overflow: hidden; /* Hide overflow to prevent scroll */
-}
+        /* Footer Styles */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for footer */
+            padding: 40px 0; /* Add more padding to the top and bottom */
+            text-align: center; /* Center align the content */
+        }
 
-header h1 {
-    font-size: 6.5em; /* Increase font size for header */
-    color: #0f0; /* Gold text color */
-    animation: slideInDown 0.5s ease; /* Slide in from top animation */
-}
+        footer p {
+            font-size: 1.3em; /* Increased font size for paragraph */
+            color: #00ffcc; /* Neon cyan text color */
+        }
 
-/* Slide In Animation */
-@keyframes slideInDown {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
+        /* Image container styles */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-y: hidden;
+            max-height: calc(100% - 100%); /* Adjust as needed */
+            padding: 20px;
+        }
 
-header p {
-    font-size: 1.5em; /* Increase font size for paragraph */
-    color: #0f0; /* Neon green text color */
-}
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+            cursor: pointer;
+            margin: 10px; /* Increased margin */
+            border: 3px solid #00ffcc; /* Neon cyan border */
+            border-radius: 50px; /* Rounded corners */
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); /* Intensified neon cyan glow */
+        }
 
-/* Footer Styles */
-footer {
-    background-color: rgba(0, 0, 0, 0.9); /* Transparent black background for footer */
-    padding: 40px 0; /* Add more padding to the top and bottom */
-    text-align: center; /* Center align the content */
-}
+        .hidden {
+            display: none;
+        }
 
-footer p {
-    font-size: 1.3em; /* Increased font size for paragraph */
-    color: #0f0; /* Neon green text color */
-}
+        .welcome-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #fff; /* White text color */
+            text-align: center;
+            margin: 20px auto; /* Center and add margin */
+            max-width: 800px; /* Limit width for better readability */
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
+        }
 
-/* Image container styles */
-.image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-y: hidden;
-    max-height: calc(100% - 100%); /* Adjust as needed */
-    padding: 20px;
-}
+        /* Holographic Hover Effect */
+        @keyframes holographicHover {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.4), 0 0 15px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+            }
+            50% {
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+            }
+        }
 
-.image-container img {
-    max-width: 50%;
-    height: auto;
-    cursor: pointer;
-    margin: 10px; /* Increased margin */
-    border: 3px solid #0f0; /* Neon green border */
-    border-radius: 50px; /* Rounded corners */
-    box-shadow: 0 0 40px rgba(0, 255, 0, 0.5); /* Intensified neon glow */
-}
+        h1:hover, h2:hover, h3:hover {
+            animation: holographicHover 1s infinite alternate;
+        }
 
-.hidden {
-    display: none;
-}
-.welcome-text {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #fff; /* White text color */
-    text-align: center;
-    margin: 20px auto; /* Center and add margin */
-    max-width: 800px; /* Limit width for better readability */
-}
+        /* Futuristic Neon Border Animation */
+        .neon-border {
+            border: 2px solid;
+            border-image-slice: 1;
+            border-width: 4px;
+            border-image-source: linear-gradient(45deg, #00ffcc, #0066ff);
+            animation: neonBorder 3s infinite;
+        }
+
+        @keyframes neonBorder {
+            0%, 100% {
+                border-image-source: linear-gradient(45deg, #00ffcc, #0066ff);
+            }
+            50% {
+                border-image-source: linear-gradient(45deg, #0066ff, #00ffcc);
+            }
+        }
+
+        .neon-text {
+            font-size: 1.5em;
+            color: #00ffcc;
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+            }
+            100% {
+                text-shadow: 0 0 10px #0066ff, 0 0 20px #0066ff, 0 0 40px #0066ff, 0 0 80px #0066ff, 0 0 160px #0066ff;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="image-container">
-            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
-        </div>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/KICK%20LIVE/')">LIVE Sessions</button>
+<header>
+    <div class="image-container">
+        <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
+    </div>
 
-        <div class="container">
-            <h1>&#120138&#120120&#120132&#120120&#8469</h1>
-            <p class="welcome-text">Welcome to my website! I'm a self-taught enthusiast driven by curiosity and a passion for technology. As a coder, programmer, and developer, I'm constantly exploring the endless possibilities that technology, especially in the era of AI, has to offer. Through C0DZ1LLA Systems, my aim is to craft captivating websites, innovative software solutions, engaging games, and much more, drawing upon my expertise and boundless creativity.</p>
-        </div>
-        <div class="image-container">
-            <div class="button-container">
-                <button onclick="toggleModal('translateModal')">Translate Page</button>
-                <button onclick="toggleModal('aboutModal')">About</button>
-                <button onclick="openModal('GithubModal')">Github Profile</button>
-                <button onclick="openModal('GameDevModal')">Game Development</button>
-                <button onclick="toggleModal('contactModal')">Contact</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TAPEARN/')">Tap-Earn Game</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/ProContent/')">Content Composer</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">Note System</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project3')">Product//VAT</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/POLL SYSTEM')">Poll System</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">Compose Email</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">Monthly Schedule Management</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/Futuristic%20Fridge%20Management%20System/')">FRIDGE LOG</button>
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Reusable Inventory Management System</button>
-
-            </div>
-        </div>
-    </header>
-    
-    <canvas id="matrixCanvas"></canvas>
-    
-    <div id="translateModal" class="modal-content hidden">
-        <h2>Translate</h2>
-        <p>Translate this website into your preferred language.</p>
-        <div class="language-selector"></div>
-        <div id="google_translate_element"></div>
+    <div class="container">
+        <h1>&#120138&#120120&#120132&#120120&#8469</h1>
+        <p class="welcome-text">Welcome to my website! I'm a self-taught enthusiast driven by curiosity and a passion for technology. As a coder, programmer, and developer, I'm constantly exploring the endless possibilities that technology, especially in the era of AI, has to offer. Through C0DZ1LLA Systems, my aim is to craft captivating websites, innovative software solutions, engaging games, and much more, drawing upon my expertise and boundless creativity.</p>
     </div>
-    
-    <div id="contactModal" class="modal-content hidden">
-        <h2>Contact</h2>
+    <div class="image-container">
         <div class="button-container">
-            <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
-            <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
-            <button onclick="openPhoneApp('+35797906864')">Whatsup</button>
-        </div>
-        <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
-    </div>
-    
-    <div id="aboutModal" class="modal-content hidden">
-        <h2>Saman's Tech Portfolio</h2>
-        <ul>
-            <li>Website Development: From concept to execution, I design and develop cutting-edge websites that captivate and engage users, tailored to meet your specific needs.</li>
-            <li>Software Engineering: As a skilled software engineer, I craft powerful applications that solve complex problems and streamline processes, utilizing the latest AI technologies.</li>
-            <li>Game Development: Immerse yourself in captivating gaming experiences crafted with passion and creativity, combining AI algorithms with innovative design concepts.</li>
-            <li>Tech Consulting: Need guidance on navigating the tech landscape? My consulting services provide personalized insights and strategies to help you succeed in your projects.</li>
-        </ul>
-        <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
-    </div>
-    
-    <!-- Github modal -->
-    <div id="GithubModal" class="modal-content hidden">
-        <h2>Github Profile</h2>
-        <p>I can do some cool stuff with various programming languages:</p>
-        <ul>
-            <li>Python: From crunching numbers to making awesome websites.</li>
-            <li>JavaScript: Creating interactive web wonders and browser enchantments.</li>
-            <li>Java: Creating Android apps or tackling enterprise projects.</li>
-            <!-- Add other languages here -->
-        </ul>
-        <div class="button-container">
-            <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Website</button>
-        </div>
-        <span class="close" onclick="closeModal('GithubModal')"><i class="fas fa-times"></i></span>
-    </div>
-<!-- Game Development modal -->
-<div id="GameDevModal" class="modal-content hidden">
-    <h2>Game</h2>
-                <li>3D Game Development:
-                    <ul>
-                        <li>Utilizing advanced tools like Unity or Unreal Engine to create immersive 3D environments.</li>
-                        <li>Implementing realistic physics, lighting effects, and animations for lifelike experiences.</li>
-                        <li>Developing complex game mechanics and AI systems to enhance gameplay.</li>
-                        <li>Creating multiplayer experiences with network programming and server integration.</li>
-                    </ul>
-                </li>
-                <li>2D Game Development:
-                    <ul>
-                        <li>Using frameworks Unity's 2D features to build engaging 2D games.</li>
-                        <li>Designing captivating visual assets and animations to bring games to life.</li>
-                        <li>Implementing intuitive user interfaces and responsive controls for seamless gameplay.</li>
-                        <li>Optimizing performance and compatibility across various platforms and devices.</li>
-                    </ul>
-                </li>
-            </ul>
-        </p>
-        <div class="button-container">
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA//3D WEB')">View Portfolio</button>
-            <span class="close" onclick="closeModal('GameDevModal')"><i class="fas fa-times"></i></span>
-        </div>
-    </div>
-</div>
-
-<!-- Recent Projects modal -->
-<div id="ProjectsModal" class="modal-content hidden">
-    <h1>Projects</h1>
-
-        <div class="button-container">
+            <button onclick="toggleModal('translateModal')">Translate Page</button>
+            <button onclick="toggleModal('aboutModal')">About</button>
+            <button onclick="openModal('GithubModal')">Github Profile</button>
+            <button onclick="openModal('GameDevModal')">Game Development</button>
+            <button onclick="toggleModal('contactModal')">Contact</button>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/KICK%20LIVE/')">LIVE Sessions</button>
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TAPEARN/')">Tap-Earn Game</button>
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/ProContent/')">Content Composer</button>
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">Note System</button>
@@ -410,244 +344,325 @@ footer p {
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">Compose Email</button>
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">Monthly Schedule Management</button>
             <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/Futuristic%20Fridge%20Management%20System/')">FRIDGE LOG</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')">Project 3</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PINEVIEWHOTEL/1')">Project 4</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Project 5</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CHARIDIOVENUE')">Project 6</button>
-
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Reusable Inventory Management System</button>
         </div>
-        
-        <span class="close" onclick="closeModal('ProjectsModal')"><i class="fas fa-times"></i></span>
+    </div>
+</header>
 
+<canvas id="matrixCanvas"></canvas>
+
+<div id="translateModal" class="modal-content hidden">
+    <h2>Translate</h2>
+    <p>Translate this website into your preferred language.</p>
+    <div class="language-selector"></div>
+    <div id="google_translate_element"></div>
+</div>
+
+<div id="contactModal" class="modal-content hidden">
+    <h2>Contact</h2>
+    <div class="button-container">
+        <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
+        <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
+        <button onclick="openPhoneApp('+35797906864')">Whatsup</button>
+    </div>
+    <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
+</div>
+
+<div id="aboutModal" class="modal-content hidden">
+    <h2>Saman's Tech Portfolio</h2>
+    <ul>
+        <li>Website Development: From concept to execution, I design and develop cutting-edge websites that captivate and engage users, tailored to meet your specific needs.</li>
+        <li>Software Engineering: As a skilled software engineer, I craft powerful applications that solve complex problems and streamline processes, utilizing the latest AI technologies.</li>
+        <li>Game Development: Immerse yourself in captivating gaming experiences crafted with passion and creativity, combining AI algorithms with innovative design concepts.</li>
+        <li>Tech Consulting: Need guidance on navigating the tech landscape? My consulting services provide personalized insights and strategies to help you succeed in your projects.</li>
+    </ul>
+    <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
+</div>
+
+<!-- Github modal -->
+<div id="GithubModal" class="modal-content hidden">
+    <h2>Github Profile</h2>
+    <p>I can do some cool stuff with various programming languages:</p>
+    <ul>
+        <li>Python: From crunching numbers to making awesome websites.</li>
+        <li>JavaScript: Creating interactive web wonders and browser enchantments.</li>
+        <li>Java: Creating Android apps or tackling enterprise projects.</li>
+        <!-- Add other languages here -->
+    </ul>
+    <div class="button-container">
+        <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Website</button>
+    </div>
+    <span class="close" onclick="closeModal('GithubModal')"><i class="fas fa-times"></i></span>
+</div>
+
+<!-- Game Development modal -->
+<div id="GameDevModal" class="modal-content hidden">
+    <h2>Game</h2>
+    <ul>
+        <li>3D Game Development:
+            <ul>
+                <li>Utilizing advanced tools like Unity or Unreal Engine to create immersive 3D environments.</li>
+                <li>Implementing realistic physics, lighting effects, and animations for lifelike experiences.</li>
+                <li>Developing complex game mechanics and AI systems to enhance gameplay.</li>
+                <li>Creating multiplayer experiences with network programming and server integration.</li>
+            </ul>
+        </li>
+        <li>2D Game Development:
+            <ul>
+                <li>Using frameworks Unity's 2D features to build engaging 2D games.</li>
+                <li>Designing captivating visual assets and animations to bring games to life.</li>
+                <li>Implementing intuitive user interfaces and responsive controls for seamless gameplay.</li>
+                <li>Optimizing performance and compatibility across various platforms and devices.</li>
+            </ul>
+        </li>
+    </ul>
+    <div class="button-container">
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA//3D WEB')">View Portfolio</button>
+        <span class="close" onclick="closeModal('GameDevModal')"><i class="fas fa-times"></i></span>
     </div>
 </div>
 
-    <footer>
-            <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
+<!-- Recent Projects modal -->
+<div id="ProjectsModal" class="modal-content hidden">
+    <h1>Projects</h1>
+    <div class="button-container">
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TAPEARN/')">Tap-Earn Game</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/ProContent/')">Content Composer</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">Note System</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project3')">Product//VAT</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/POLL SYSTEM')">Poll System</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">Compose Email</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">Monthly Schedule Management</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/Futuristic%20Fridge%20Management%20System/')">FRIDGE LOG</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')">Project 3</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PINEVIEWHOTEL/1')">Project 4</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Project 5</button>
+        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CHARIDIOVENUE')">Project 6</button>
+    </div>
+    <span class="close" onclick="closeModal('ProjectsModal')"><i class="fas fa-times"></i></span>
+</div>
 
-    
+<footer>
+    <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
 
+<script>
+    // Function to open modal
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+        modal.children[0].classList.add("fadeIn");
+        modal.children[0].classList.remove("fadeOut");
+        currentModal = modal;
+    }
 
-    <script>
-        // Function to open modal
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = "flex";
-            modal.children[0].classList.add("fadeIn");
-            modal.children[0].classList.remove("fadeOut");
-            currentModal = modal;
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = "none";
-            
-            // Check if the closed modal is the translate modal
-            if (modalId === "translateModal") {
-                // Get the Google Translate element
-                const translateElement = document.getElementById("google_translate_element");
-                
-                // Remove the Google Translate element from the DOM
-                translateElement.remove();
-                
-                // Create a new Google Translate script element
-                const googleTranslateScript = document.createElement('script');
-                googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-                googleTranslateScript.type = 'text/javascript';
-                
-                // Append the new script element to the head
-                document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
-            }
-        }
-
-        // Close modal on outside click, excluding clicks inside the modal content
-        window.addEventListener("click", (event) => {
-            if (
-                event.target.classList.contains('modal-content') &&
-                !event.target.closest('.modal-content').contains(event.target)
-            ) {
-                closeModal(event.target.id);
-            }
-        });
-
-        let currentModal = null;
-                // Function to toggle modal display
-                const toggleModal = (id) => {
-                    const modal = document.getElementById(id);
-                    if (currentModal !== null && currentModal !== modal) {
-                        currentModal.style.display = "none";
-                        currentModal.children[0].classList.remove("fadeIn");
-                        currentModal.children[0].classList.add("fadeOut");
-                    }
-                    modal.style.display = modal.style.display === "flex" ? "none" : "flex";
-                    modal.children[0].classList.toggle("fadeIn");
-                    modal.children[0].classList.toggle("fadeOut");
-                    currentModal = modal.style.display === "flex" ? modal : null;
-                }
-
-
-                // Function to open email app
-                function openEmailApp(email) {
-                    window.location.href = "mailto:" + email;
-                }
-            
-                // Function to open phone app
-                function openPhoneApp(phone) {
-                    window.location.href = "tel:" + phone;
-                }
-            
-        // Function to translate page
-        function translatePage() {
-            // Get the selected language from the dropdown or any other UI element
-            var selectedLanguage = document.getElementById('languageSelect').value;
-
-            // Call the Google Translate API to translate the page
-            new google.translate.TranslateElement({
-                pageLanguage: 'en', // Set the default page language
-                includedLanguages: selectedLanguage // Set the selected language for translation
-            }, 'google_translate_element');
-        }
-
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none";
         
-        // Load Google Translate script when the page loads
-        window.onload = function () {
-            loadGoogleTranslateScript();
-            fetchSupportedLanguages(function (languages) {
-                var languageSelect = document.getElementById('languageSelect');
-                languages.forEach(function (lang) {
-                    var option = document.createElement('option');
-                    option.value = lang.code;
-                    option.textContent = lang.name;
-                    languageSelect.appendChild(option);
-                });
+        // Check if the closed modal is the translate modal
+        if (modalId === "translateModal") {
+            // Get the Google Translate element
+            const translateElement = document.getElementById("google_translate_element");
+            
+            // Remove the Google Translate element from the DOM
+            translateElement.remove();
+            
+            // Create a new Google Translate script element
+            const googleTranslateScript = document.createElement('script');
+            googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            googleTranslateScript.type = 'text/javascript';
+            
+            // Append the new script element to the head
+            document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
+        }
+    }
+
+    // Close modal on outside click, excluding clicks inside the modal content
+    window.addEventListener("click", (event) => {
+        if (
+            event.target.classList.contains('modal-content') &&
+            !event.target.closest('.modal-content').contains(event.target)
+        ) {
+            closeModal(event.target.id);
+        }
+    });
+
+    let currentModal = null;
+    // Function to toggle modal display
+    const toggleModal = (id) => {
+        const modal = document.getElementById(id);
+        if (currentModal !== null && currentModal !== modal) {
+            currentModal.style.display = "none";
+            currentModal.children[0].classList.remove("fadeIn");
+            currentModal.children[0].classList.add("fadeOut");
+        }
+        modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+        modal.children[0].classList.toggle("fadeIn");
+        modal.children[0].classList.toggle("fadeOut");
+        currentModal = modal.style.display === "flex" ? modal : null;
+    }
+
+    // Function to open email app
+    function openEmailApp(email) {
+        window.location.href = "mailto:" + email;
+    }
+
+    // Function to open phone app
+    function openPhoneApp(phone) {
+        window.location.href = "tel:" + phone;
+    }
+
+    // Function to translate page
+    function translatePage() {
+        // Get the selected language from the dropdown or any other UI element
+        var selectedLanguage = document.getElementById('languageSelect').value;
+
+        // Call the Google Translate API to translate the page
+        new google.translate.TranslateElement({
+            pageLanguage: 'en', // Set the default page language
+            includedLanguages: selectedLanguage // Set the selected language for translation
+        }, 'google_translate_element');
+    }
+
+    // Load Google Translate script when the page loads
+    window.onload = function () {
+        loadGoogleTranslateScript();
+        fetchSupportedLanguages(function (languages) {
+            var languageSelect = document.getElementById('languageSelect');
+            languages.forEach(function (lang) {
+                var option = document.createElement('option');
+                option.value = lang.code;
+                option.textContent = lang.name;
+                languageSelect.appendChild(option);
             });
-        };
-        
-                // Callback function for Google Translate
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({
-                        pageLanguage: 'en',
-                        includedLanguages: 'en,es,fr,de,ja,ko,zh-CN,ar,hi,pt,ru,el,fa,iw,tr'
-                    }, 'google_translate_element');
+        });
+    };
+
+    // Callback function for Google Translate
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,es,fr,de,ja,ko,zh-CN,ar,hi,pt,ru,el,fa,iw,tr'
+        }, 'google_translate_element');
+    }
+
+    // Close modal on outside click
+    window.addEventListener("click", (event) => {
+        if (event.target.classList.contains('modal-content')) {
+            toggleModal(currentModal.id);
+        }
+    });
+
+    // Function to generate a random character
+    function generateRandomCharacter() {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        return characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    // Function to generate a random color
+    function generateRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Matrix rain animation with 3D effect
+    function matrixRain() {
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas dimensions
+        function setCanvasDimensions() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        setCanvasDimensions();
+
+        // Number of columns
+        let columns = Math.floor(canvas.width / 20);
+
+        // Initialize an array to store the y-coordinate of each character
+        let drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = {
+                y: Math.floor(Math.random() * canvas.height),
+                speed: Math.random() * 3 + 1, // Randomize falling speed
+                size: Math.random() * 10 + 10 // Randomize character size
+            };
+        }
+
+        // Animation loop
+        function draw() {
+            // Draw semi-transparent rectangles to create trails
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Set font properties
+            ctx.textAlign = 'center';
+
+            // Loop through each column
+            for (let i = 0; i < drops.length; i++) {
+                // Randomly change the character
+                const character = generateRandomCharacter();
+
+                // Randomly change the color
+                const color = generateRandomColor();
+
+                // Calculate character size based on depth
+                const depth = drops[i].y / canvas.height;
+                const fontSize = (depth * 20) + 10; // Adjust the multiplier to control the size change
+
+                // Draw the character
+                ctx.font = `italic bold ${fontSize}px "Consolas", monospace`;
+                ctx.fillStyle = color;
+                ctx.fillText(character, i * 20, drops[i].y);
+
+                // Move the character down
+                drops[i].y += drops[i].speed;
+
+                // Reset drop if it reaches bottom
+                if (drops[i].y > canvas.height && Math.random() > 0.95) {
+                    drops[i].y = 0;
                 }
-                // Close modal on outside click
-                window.addEventListener("click", (event) => {
-                    if (event.target.classList.contains('modal-content')) {
-                        toggleModal(currentModal.id);
-                    }
-                });
-        // Function to generate a random character
-        function generateRandomCharacter() {
-            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            return characters.charAt(Math.floor(Math.random() * characters.length));
+            }
         }
 
-        // Function to generate a random color
-        function generateRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        // Matrix rain animation with 3D effect
-        function matrixRain() {
-            const canvas = document.getElementById('matrixCanvas');
-            const ctx = canvas.getContext('2d');
-
-            // Set canvas dimensions
-            function setCanvasDimensions() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-
+        // Resize canvas when window is resized
+        window.addEventListener('resize', function () {
             setCanvasDimensions();
-
-            // Number of columns
-            let columns = Math.floor(canvas.width / 20);
-
-            // Initialize an array to store the y-coordinate of each character
-            let drops = [];
+            columns = Math.floor(canvas.width / 20);
+            drops = [];
             for (let i = 0; i < columns; i++) {
                 drops[i] = {
                     y: Math.floor(Math.random() * canvas.height),
-                    speed: Math.random() * 3 + 1, // Randomize falling speed
-                    size: Math.random() * 10 + 10 // Randomize character size
+                    speed: Math.random() * 3 + 1,
+                    size: Math.random() * 10 + 10
                 };
             }
+        });
 
-            // Animation loop
-            function draw() {
-                // Draw semi-transparent rectangles to create trails
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Animation loop
+        setInterval(draw, 50);
+    }
 
-                // Set font properties
-                ctx.textAlign = 'center';
+    // Start the matrix rain animation when the page loads
+    window.onload = function () {
+        matrixRain();
+    };
 
-                // Loop through each column
-                for (let i = 0; i < drops.length; i++) {
-                    // Randomly change the character
-                    const character = generateRandomCharacter();
-
-                    // Randomly change the color
-                    const color = generateRandomColor();
-
-                    // Calculate character size based on depth
-                    const depth = drops[i].y / canvas.height;
-                    const fontSize = (depth * 20) + 10; // Adjust the multiplier to control the size change
-
-                    // Draw the character
-                    ctx.font = `italic bold ${fontSize}px "Consolas", monospace`;
-                    ctx.fillStyle = color;
-                    ctx.fillText(character, i * 20, drops[i].y);
-
-                    // Move the character down
-                    drops[i].y += drops[i].speed;
-
-                    // Reset drop if it reaches bottom
-                    if (drops[i].y > canvas.height && Math.random() > 0.95) {
-                        drops[i].y = 0;
-                    }
-                }
-            }
-
-            // Resize canvas when window is resized
-            window.addEventListener('resize', function() {
-                setCanvasDimensions();
-                columns = Math.floor(canvas.width / 20);
-                drops = [];
-                for (let i = 0; i < columns; i++) {
-                    drops[i] = {
-                        y: Math.floor(Math.random() * canvas.height),
-                        speed: Math.random() * 3 + 1,
-                        size: Math.random() * 10 + 10
-                    };
-                }
-            });
-
-            // Animation loop
-            setInterval(draw, 50);
-        }
-
-        // Start the matrix rain animation when the page loads
-        window.onload = function () {
-            matrixRain();
-        };
-
-        function openURL(url) {
+    function openURL(url) {
         window.open(url, '_blank');
     }
-    
-    </script>
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 
