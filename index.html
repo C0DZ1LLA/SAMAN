@@ -46,63 +46,63 @@
         }
     </script>
     <style>
-        /* Universal Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Roboto", sans-serif;
-            background: radial-gradient(circle at center, #000000, #0d0d0d, #1a1a1a);
-            color: #ff0000; /* Neon cyan text color */
-            overflow-x: hidden; /* Hide horizontal overflow */
-        }
+/* Universal Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background: radial-gradient(circle at center, #000000, #0d0d0d, #1a1a1a);
+    color: #00ffcc; /* Neon cyan text color */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
 
-        /* Create holographic matrix rain effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('img/matrix-rain.gif') repeat;
-            opacity: 0.05;
-            z-index: -1;
-        }
+/* Create holographic matrix rain effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/matrix-rain.gif') repeat;
+    opacity: 0.05;
+    z-index: -1;
+}
 
-        /* Apply matrix rain effect to canvas background */
-        #matrixCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%; /* Full width of the viewport */
-            height: 100%; /* Full height of the viewport */
-            z-index: -1;
-        }
+/* Apply matrix rain effect to canvas background */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    z-index: -1;
+}
 
-        /* Ensure canvas is behind other content */
-        .container {
-            position: relative;
-            z-index: 1;
-        }
+/* Ensure canvas is behind other content */
+.container {
+    position: relative;
+    z-index: 1;
+}
 
-        h1, h2, h3 {
-            font-size: 5em;
-            margin-bottom: 20px;
-            font-weight: bold; /* Bold font weight */
-            text-transform: uppercase; /* Uppercase text */
-            text-align: center; /* Center align text */
-            letter-spacing: 3px; /* Increased letter spacing */
-            text-shadow: 0 0 30px rgba(0, 255, 255, 1); /* Neon cyan glow text shadow */
-        }
+h1, h2, h3 {
+    font-size: 5em;
+    margin-bottom: 20px;
+    font-weight: bold; /* Bold font weight */
+    text-transform: uppercase; /* Uppercase text */
+    text-align: center; /* Center align text */
+    letter-spacing: 3px; /* Increased letter spacing */
+    text-shadow: 0 0 30px rgba(0, 255, 255, 1); /* Neon cyan glow text shadow */
+}
 
-        p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            line-height: 1.6; /* Increased line height */
-            text-shadow: 0 0 10px rgba(0, 255, 255, 1); /* Neon cyan glow text shadow */
-        }
+p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    line-height: 1.6; /* Increased line height */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 1); /* Neon cyan glow text shadow */
+}
 
-        /* Add this to your existing CSS */
+/* Add this to your existing CSS */
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -118,16 +118,15 @@
     margin: 10px;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #BF00FF;
+    border: 2px solid #BF00FF; /* Neon purple border */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(191, 0, 255, 0.5); /* Neon purple glow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-wrapper:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 255, 255, 1)
-    ;
+    box-shadow: 0 0 30px rgba(191, 0, 255, 1); /* Intensified neon purple glow on hover */
 }
 
 button {
@@ -152,210 +151,208 @@ button:hover {
     box-shadow: 0 0 50px rgba(0, 255, 255, 0.7); /* Intensified neon cyan glow on hover */
 }
 
+/* Modal Styles */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
+    z-index: 1000;
+    width: 80%; /* Adjust width as needed */
+    max-width: 1000px; /* Maximum width for large screens */
+    max-height: 80vh; /* Maximum height for large screens */
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+    border: 3px solid #00ffcc; /* Neon cyan border */
+    border-radius: 50px; /* Rounded border */
+    padding: 60px; /* Increased padding for better spacing */
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
+    color: #00d8ff; /* Electric blue text color */
+    text-align: center; /* Center align text */
+    animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
+}
 
-        /* Modal Styles */
-        .modal-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
-            z-index: 1000;
-            width: 80%; /* Adjust width as needed */
-            max-width: 1000px; /* Maximum width for large screens */
-            max-height: 80vh; /* Maximum height for large screens */
-            overflow-y: auto;
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
-            border: 3px solid #00ffcc; /* Neon cyan border */
-            border-radius: 50px; /* Rounded border */
-            padding: 60px; /* Increased padding for better spacing */
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
-            color: #00d8ff; /* Electric blue text color */
-            text-align: center; /* Center align text */
-            animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
-        }
+/* Fade In and Zoom Animation */
+@keyframes fadeInZoom {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1); /* End at full size */
+    }
+}
 
-        /* Fade In and Zoom Animation */
-        @keyframes fadeInZoom {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1); /* End at full size */
-            }
-        }
+/* Media Query for Small Devices */
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        width: 100%; /* Adjust width percentage for small screens */
+        height: 100%; /* Adjust height percentage for small screens */
+    }
+}
 
-        /* Media Query for Small Devices */
-        @media only screen and (max-width: 600px) {
-            .modal-content {
-                width: 100%; /* Adjust width percentage for small screens */
-                height: 100%; /* Adjust height percentage for small screens */
-            }
-        }
+/* Media Query for Medium Devices */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .modal-content {
+        width: 70%; /* Adjust width percentage for medium screens */
+        height: 70%; /* Adjust height percentage for medium screens */
+    }
+}
 
-        /* Media Query for Medium Devices */
-        @media only screen and (min-width: 601px) and (max-width: 1024px) {
-            .modal-content {
-                width: 70%; /* Adjust width percentage for medium screens */
-                height: 70%; /* Adjust height percentage for medium screens */
-            }
-        }
+.modal-content:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+}
 
-        .modal-content:hover {
-            box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
-        }
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for header */
+    padding: 40px 0; /* Add more padding to the top and bottom */
+    text-align: center; /* Center align the content */
+    overflow: hidden; /* Hide overflow to prevent scroll */
+}
 
-        /* Header Styles */
-        header {
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for header */
-            padding: 40px 0; /* Add more padding to the top and bottom */
-            text-align: center; /* Center align the content */
-            overflow: hidden; /* Hide overflow to prevent scroll */
-        }
+header h1 {
+    font-size: 6.5em; /* Increase font size for header */
+    color: #00ffcc; /* Neon cyan text color */
+    animation: slideInDown 0.5s ease; /* Slide in from top animation */
+}
 
-        header h1 {
-            font-size: 6.5em; /* Increase font size for header */
-            color: #00ffcc; /* Neon cyan text color */
-            animation: slideInDown 0.5s ease; /* Slide in from top animation */
-        }
+/* Slide In Animation */
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
-        /* Slide In Animation */
-        @keyframes slideInDown {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
+header p {
+    font-size: 1.5em; /* Increase font size for paragraph */
+    color: #00ffcc; /* Neon cyan text color */
+}
 
-        header p {
-            font-size: 1.5em; /* Increase font size for paragraph */
-            color: #00ffcc; /* Neon cyan text color */
-        }
+/* Footer Styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for footer */
+    padding: 40px 0; /* Add more padding to the top and bottom */
+    text-align: center; /* Center align the content */
+}
 
-        /* Footer Styles */
-        footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for footer */
-            padding: 40px 0; /* Add more padding to the top and bottom */
-            text-align: center; /* Center align the content */
-        }
+footer p {
+    font-size: 1.3em; /* Increased font size for paragraph */
+    color: #00ffcc; /* Neon cyan text color */
+}
 
-        footer p {
-            font-size: 1.3em; /* Increased font size for paragraph */
-            color: #00ffcc; /* Neon cyan text color */
-        }
+/* Image container styles */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: hidden;
+    max-height: calc(100% - 100%); /* Adjust as needed */
+    padding: 20px;
+}
 
-        /* Image container styles */
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            overflow-y: hidden;
-            max-height: calc(100% - 100%); /* Adjust as needed */
-            padding: 20px;
-        }
+.image-container img {
+    max-width: 50%;
+    height: auto;
+    cursor: pointer;
+    margin: 10px; /* Increased margin */
+    border: 3px solid #00ffcc; /* Neon cyan border */
+    border-radius: 50px; /* Rounded corners */
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); /* Intensified neon cyan glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .image-container img {
-            max-width: 50%;
-            height: auto;
-            cursor: pointer;
-            margin: 10px; /* Increased margin */
-            border: 3px solid #00ffcc; /* Neon cyan border */
-            border-radius: 50px; /* Rounded corners */
-            box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); /* Intensified neon cyan glow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.image-container img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.7); /* Brighter glow on hover */
+}
 
-        .image-container img:hover {
-            transform: scale(1.05); /* Slight zoom on hover */
-            box-shadow: 0 0 60px rgba(0, 255, 255, 0.7); /* Brighter glow on hover */
-        }
+.hidden {
+    display: none;
+}
 
-        .hidden {
-            display: none;
-        }
+.welcome-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #fff; /* White text color */
+    text-align: center;
+    margin: 20px auto; /* Center and add margin */
+    max-width: 800px; /* Limit width for better readability */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
+}
 
-        .welcome-text {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #fff; /* White text color */
-            text-align: center;
-            margin: 20px auto; /* Center and add margin */
-            max-width: 800px; /* Limit width for better readability */
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
-        }
+/* Holographic Hover Effect */
+@keyframes holographicHover {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.4), 0 0 15px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+    }
+}
 
-        /* Holographic Hover Effect */
-        @keyframes holographicHover {
-            0%, 100% {
-                text-shadow: 0 0 5px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.4), 0 0 15px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
-            }
-            50% {
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
-            }
-        }
+h1:hover, h2:hover, h3:hover {
+    animation: holographicHover 1s infinite alternate;
+}
 
-        h1:hover, h2:hover, h3:hover {
-            animation: holographicHover 1s infinite alternate;
-        }
+/* Futuristic Neon Border Animation */
+.neon-border {
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 4px;
+    border-image-source: linear-gradient(45deg, #00ffcc, #ff00ff); /* Neon cyan to magenta gradient */
+    animation: neonBorder 3s infinite;
+}
 
-        /* Futuristic Neon Border Animation */
-        .neon-border {
-            border: 2px solid;
-            border-image-slice: 1;
-            border-width: 4px;
-            border-image-source: linear-gradient(45deg, #00ffcc, #0066ff);
-            animation: neonBorder 3s infinite;
-        }
+@keyframes neonBorder {
+    0%, 100% {
+        border-image-source: linear-gradient(45deg, #00ffcc, #ff00ff);
+    }
+    50% {
+        border-image-source: linear-gradient(45deg, #ff00ff, #00ffcc);
+    }
+}
 
-        @keyframes neonBorder {
-            0%, 100% {
-                border-image-source: linear-gradient(45deg, #00ffcc, #0066ff);
-            }
-            50% {
-                border-image-source: linear-gradient(45deg, #0066ff, #00ffcc);
-            }
-        }
+.neon-text {
+    font-size: 1.5em;
+    color: #00ffcc; /* Neon cyan text color */
+    animation: neonGlow 1.5s infinite alternate;
+}
 
-        .neon-text {
-            font-size: 1.5em;
-            color: #00ffcc;
-            animation: neonGlow 1.5s infinite alternate;
-        }
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+    }
+    100% {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff, 0 0 160px #ff00ff; /* Magenta glow */
+    }
+}
 
-        @keyframes neonGlow {
-            0% {
-                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 80px #00ffcc;
-            }
-            100% {
-                text-shadow: 0 0 10px #0066ff, 0 0 20px #0066ff, 0 0 40px #0066ff, 0 0 80px #0066ff, 0 0 160px #0066ff;
-            }
-        }
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    color: #00ffcc;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
 
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 2em;
-            color: #00ffcc;
-            cursor: pointer;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
+.close:hover {
+    color: #ff00ff; /* Magenta on hover */
+    transform: scale(1.2);
+}
 
-        .close:hover {
-            color: #0066ff;
-            transform: scale(1.2);
-        }
-
-
-        .welcome-text {
+.welcome-text {
     font-size: 1.5em;
     line-height: 1.8;
     color: #ffffff; /* White text color */
@@ -375,6 +372,7 @@ button:hover {
     transform: scale(1.05); /* Slight zoom on hover */
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.7); /* Brighter glow on hover */
 }
+
 
     </style>
 </head>
