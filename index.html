@@ -102,38 +102,55 @@
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
         }
 
-        /* Vertical button container */
-        .button-container {
-            display: flex;
-            flex-direction: column; /* Change to column direction */
-            align-items: center; /* Center align buttons vertically */
-            gap: 20px; /* Increased gap between buttons */
-            max-width: 100%;
-            padding: 0 20px;
-        }
+        /* Add this to your existing CSS */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+    padding: 20px;
+}
 
-        /* Adjust button styles for vertical layout */
-        button {
-            padding: 1em 2em;
-            font-size: 1.2em;
-            background-color: transparent; /* Transparent button background */
-            border: 2px solid #00ffcc; /* Neon cyan border */
-            color: #00ffcc; /* Neon cyan text color */
-            border-radius: 50px; /* Round border for futuristic look */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none;
-            font-family: 'Roboto', sans-serif;
-            width: 300px; /* Increased button width */
-            text-transform: uppercase; /* Uppercase text */
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.5); /* Neon glow */
-        }
+.button-wrapper {
+    width: 300px; /* Adjust width as needed */
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        button:hover {
-            background-color: #00ffcc; /* Neon cyan on hover */
-            color: #000; /* Black text on hover */
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.7); /* Intensified neon cyan glow on hover */
-        }
+.button-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+}
+
+button {
+    padding: 1em 2em;
+    font-size: 1.2em;
+    background-color: transparent; /* Transparent button background */
+    border: 2px solid #00ffcc; /* Neon cyan border */
+    color: #00ffcc; /* Neon cyan text color */
+    border-radius: 50px; /* Round border for futuristic look */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase; /* Uppercase text */
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.5); /* Neon glow */
+    width: 100%; /* Make button take full width of the wrapper */
+}
+
+button:hover {
+    background-color: #00ffcc; /* Neon cyan on hover */
+    color: #000; /* Black text on hover */
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.7); /* Intensified neon cyan glow on hover */
+}
+
 
         /* Modal Styles */
         .modal-content {
@@ -252,6 +269,12 @@
             border: 3px solid #00ffcc; /* Neon cyan border */
             border-radius: 50px; /* Rounded corners */
             box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); /* Intensified neon cyan glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 0 60px rgba(0, 255, 255, 0.7); /* Brighter glow on hover */
         }
 
         .hidden {
@@ -314,6 +337,21 @@
                 text-shadow: 0 0 10px #0066ff, 0 0 20px #0066ff, 0 0 40px #0066ff, 0 0 80px #0066ff, 0 0 160px #0066ff;
             }
         }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2em;
+            color: #00ffcc;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #0066ff;
+            transform: scale(1.2);
+        }
     </style>
 </head>
 
@@ -330,23 +368,57 @@
     </div>
     <div class="image-container">
         <div class="button-container">
-            <button onclick="toggleModal('translateModal')">Translate Page</button>
-            <button onclick="toggleModal('aboutModal')">About</button>
-            <button onclick="openModal('GithubModal')">Github Profile</button>
-            <button onclick="openModal('GameDevModal')">Game Development</button>
-            <button onclick="toggleModal('contactModal')">Contact</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/KICK%20LIVE/')">LIVE Sessions</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TAPEARN/')">Tap-Earn Game</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/ProContent/')">Content Composer</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">Note System</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project3')">Product//VAT</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/POLL SYSTEM')">Poll System</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">Compose Email</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">Monthly Schedule Management</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/Futuristic%20Fridge%20Management%20System/')">FRIDGE LOG</button>
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Reusable Inventory Management System</button>
+            <div class="button-wrapper">
+                <button onclick="toggleModal('translateModal')">Translate Page</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="toggleModal('aboutModal')">About</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openModal('GithubModal')">Github Profile</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openModal('GameDevModal')">Game Development</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="toggleModal('contactModal')">Contact</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/KICK%20LIVE/')">LIVE Sessions</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TEXTCONV/')">TextConv</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TAPEARN/')">Tap-Earn Game</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/ProContent/')">Content Composer</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">Note System</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project3')">Product//VAT</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/POLL SYSTEM')">Poll System</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">Compose Email</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">Monthly Schedule Management</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/Futuristic%20Fridge%20Management%20System/')">FRIDGE LOG</button>
+            </div>
+            <div class="button-wrapper">
+                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Reusable Inventory Management System</button>
+            </div>
         </div>
     </div>
+    
 </header>
 
 <canvas id="matrixCanvas"></canvas>
@@ -356,6 +428,7 @@
     <p>Translate this website into your preferred language.</p>
     <div class="language-selector"></div>
     <div id="google_translate_element"></div>
+    <span class="close" onclick="closeModal('translateModal')"><i class="fas fa-times"></i></span>
 </div>
 
 <div id="contactModal" class="modal-content hidden">
@@ -363,7 +436,7 @@
     <div class="button-container">
         <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
         <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
-        <button onclick="openPhoneApp('+35797906864')">Whatsup</button>
+        <button onclick="openPhoneApp('+35797906864')">WhatsApp</button>
     </div>
     <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
 </div>
@@ -397,7 +470,7 @@
 
 <!-- Game Development modal -->
 <div id="GameDevModal" class="modal-content hidden">
-    <h2>Game</h2>
+    <h2>Game Development</h2>
     <ul>
         <li>3D Game Development:
             <ul>
