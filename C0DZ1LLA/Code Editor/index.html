@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Live Code Editor</title>
+    <title>Futuristic Live Code Editor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/theme/material-darker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/addon/hint/show-hint.min.css">
@@ -11,42 +11,63 @@
         body {
             display: flex;
             flex-direction: column;
-            font-family: 'Arial', sans-serif;
-            background-color: #282c34;
-            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             height: 100vh;
             overflow: hidden;
         }
         header {
-            background-color: #61dafb;
+            background: linear-gradient(90deg, #0074d9, #01ff70);
             width: 100%;
             padding: 20px;
             text-align: center;
             font-size: 24px;
             font-weight: bold;
+            color: #0d0d0d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         #toolbar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            background-color: #20232a;
+            background-color: #141414;
             padding: 10px;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 2px solid #01ff70;
+            overflow-y: auto;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 5px;
+        }
+        .button-group h3 {
+            width: 100%;
+            text-align: center;
+            color: #01ff70;
+            margin-bottom: 5px;
         }
         button {
-            background-color: #61dafb;
+            background-color: #0074d9;
             border: none;
             padding: 10px 15px;
             margin: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             border-radius: 5px;
-            color: #20232a;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         button:hover {
-            background-color: #21a1f1;
+            background-color: #01ff70;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
         }
         #main-container {
             display: flex;
@@ -58,10 +79,15 @@
             display: flex;
             flex-direction: column;
             height: calc(100vh - 150px);
+            background-color: #1b1b1b;
+            border-right: 2px solid #01ff70;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .CodeMirror {
             flex: 1;
             font-size: 16px;
+            background-color: #1b1b1b;
+            color: #ffffff;
         }
         #modal {
             display: none;
@@ -70,22 +96,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
         #modal-content {
-            background-color: white;
-            color: black;
+            background-color: #1b1b1b;
+            color: white;
             width: 80%;
             height: 80%;
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
         #modal iframe {
             width: 100%;
             height: 100%;
             border: none;
+            background-color: #ffffff;
         }
         @media (max-width: 768px) {
             #main-container {
@@ -99,42 +128,57 @@
     </style>
 </head>
 <body>
-    <header>Professional Live Code Editor</header>
+    <header>Futuristic Live Code Editor</header>
     <div id="toolbar">
-        <button onclick="insertTag('&lt;!DOCTYPE html&gt;', '')">Insert <!DOCTYPE html></button>
-        <button onclick="insertTag('&lt;html&gt;', '&lt;/html&gt;')">Insert &lt;html&gt;</button>
-        <button onclick="insertTag('&lt;head&gt;', '&lt;/head&gt;')">Insert &lt;head&gt;</button>
-        <button onclick="insertTag('&lt;body&gt;', '&lt;/body&gt;')">Insert &lt;body&gt;</button>
-        <button onclick="insertTag('&lt;h1&gt;', '&lt;/h1&gt;')">Insert &lt;h1&gt;</button>
-        <button onclick="insertTag('&lt;p&gt;', '&lt;/p&gt;')">Insert &lt;p&gt;</button>
-        <button onclick="insertTag('&lt;a href=&quot;&quot;&gt;', '&lt;/a&gt;')">Insert &lt;a&gt;</button>
-        <button onclick="insertTag('&lt;div&gt;', '&lt;/div&gt;')">Insert &lt;div&gt;</button>
-        <button onclick="insertTag('&lt;span&gt;', '&lt;/span&gt;')">Insert &lt;span&gt;</button>
-        <button onclick="insertTag('&lt;script&gt;', '&lt;/script&gt;')">Insert &lt;script&gt;</button>
-        <button onclick="insertTag('&lt;style&gt;', '&lt;/style&gt;')">Insert &lt;style&gt;</button>
-        <button onclick="insertTag('&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;', '')">Insert &lt;img&gt;</button>
-        <button onclick="insertTag('&lt;table&gt;', '&lt;/table&gt;')">Insert &lt;table&gt;</button>
-        <button onclick="insertTag('&lt;ul&gt;', '&lt;/ul&gt;')">Insert &lt;ul&gt;</button>
-        <button onclick="insertTag('&lt;li&gt;', '&lt;/li&gt;')">Insert &lt;li&gt;</button>
-        <button onclick="insertTag('&lt;form&gt;', '&lt;/form&gt;')">Insert &lt;form&gt;</button>
-        <button onclick="insertTag('&lt;input type=&quot;text&quot; name=&quot;&quot;&gt;', '')">Insert &lt;input&gt;</button>
-        <button onclick="insertTag('&lt;button&gt;', '&lt;/button&gt;')">Insert &lt;button&gt;</button>
-        <button onclick="insertTag('&lt;textarea&gt;', '&lt;/textarea&gt;')">Insert &lt;textarea&gt;</button>
-        <button onclick="insertTag('&lt;h2&gt;', '&lt;/h2&gt;')">Insert &lt;h2&gt;</button>
-        <button onclick="insertTag('&lt;h3&gt;', '&lt;/h3&gt;')">Insert &lt;h3&gt;</button>
-        <button onclick="insertTag('&lt;h4&gt;', '&lt;/h4&gt;')">Insert &lt;h4&gt;</button>
-        <button onclick="insertTag('&lt;h5&gt;', '&lt;/h5&gt;')">Insert &lt;h5&gt;</button>
-        <button onclick="insertTag('&lt;h6&gt;', '&lt;/h6&gt;')">Insert &lt;h6&gt;</button>
-        <button onclick="insertTag('&lt;header&gt;', '&lt;/header&gt;')">Insert &lt;header&gt;</button>
-        <button onclick="insertTag('&lt;footer&gt;', '&lt;/footer&gt;')">Insert &lt;footer&gt;</button>
-        <button onclick="insertTag('&lt;nav&gt;', '&lt;/nav&gt;')">Insert &lt;nav&gt;</button>
-        <button onclick="insertTag('&lt;section&gt;', '&lt;/section&gt;')">Insert &lt;section&gt;</button>
-        <button onclick="insertTag('&lt;article&gt;', '&lt;/article&gt;')">Insert &lt;article&gt;</button>
-        <button onclick="insertTag('&lt;aside&gt;', '&lt;/aside&gt;')">Insert &lt;aside&gt;</button>
-        <button onclick="insertTag('&lt;figure&gt;', '&lt;/figure&gt;')">Insert &lt;figure&gt;</button>
-        <button onclick="insertTag('&lt;figcaption&gt;', '&lt;/figcaption&gt;')">Insert &lt;figcaption&gt;</button>
-        <button onclick="runCode()">Run</button>
-        <button onclick="clearCode()">Clear</button>
+        <div class="button-group">
+            <h3>HTML Elements</h3>
+            <button onclick="insertTag('&lt;!DOCTYPE html&gt;', '')">Insert <!DOCTYPE html></button>
+            <button onclick="insertTag('&lt;html&gt;', '&lt;/html&gt;')">Insert &lt;html&gt;</button>
+            <button onclick="insertTag('&lt;head&gt;', '&lt;/head&gt;')">Insert &lt;head&gt;</button>
+            <button onclick="insertTag('&lt;body&gt;', '&lt;/body&gt;')">Insert &lt;body&gt;</button>
+            <button onclick="insertTag('&lt;h1&gt;', '&lt;/h1&gt;')">Insert &lt;h1&gt;</button>
+            <button onclick="insertTag('&lt;p&gt;', '&lt;/p&gt;')">Insert &lt;p&gt;</button>
+            <button onclick="insertTag('&lt;a href=&quot;&quot;&gt;', '&lt;/a&gt;')">Insert &lt;a&gt;</button>
+            <button onclick="insertTag('&lt;div&gt;', '&lt;/div&gt;')">Insert &lt;div&gt;</button>
+            <button onclick="insertTag('&lt;span&gt;', '&lt;/span&gt;')">Insert &lt;span&gt;</button>
+            <button onclick="insertTag('&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;', '')">Insert &lt;img&gt;</button>
+            <button onclick="insertTag('&lt;table&gt;', '&lt;/table&gt;')">Insert &lt;table&gt;</button>
+            <button onclick="insertTag('&lt;ul&gt;', '&lt;/ul&gt;')">Insert &lt;ul&gt;</button>
+            <button onclick="insertTag('&lt;li&gt;', '&lt;/li&gt;')">Insert &lt;li&gt;</button>
+            <button onclick="insertTag('&lt;form&gt;', '&lt;/form&gt;')">Insert &lt;form&gt;</button>
+            <button onclick="insertTag('&lt;input type=&quot;text&quot; name=&quot;&quot;&gt;', '')">Insert &lt;input&gt;</button>
+            <button onclick="insertTag('&lt;button&gt;', '&lt;/button&gt;')">Insert &lt;button&gt;</button>
+            <button onclick="insertTag('&lt;textarea&gt;', '&lt;/textarea&gt;')">Insert &lt;textarea&gt;</button>
+        </div>
+        <div class="button-group">
+            <h3>Headings</h3>
+            <button onclick="insertTag('&lt;h2&gt;', '&lt;/h2&gt;')">Insert &lt;h2&gt;</button>
+            <button onclick="insertTag('&lt;h3&gt;', '&lt;/h3&gt;')">Insert &lt;h3&gt;</button>
+            <button onclick="insertTag('&lt;h4&gt;', '&lt;/h4&gt;')">Insert &lt;h4&gt;</button>
+            <button onclick="insertTag('&lt;h5&gt;', '&lt;/h5&gt;')">Insert &lt;h5&gt;</button>
+            <button onclick="insertTag('&lt;h6&gt;', '&lt;/h6&gt;')">Insert &lt;h6&gt;</button>
+        </div>
+        <div class="button-group">
+            <h3>Semantic Elements</h3>
+            <button onclick="insertTag('&lt;header&gt;', '&lt;/header&gt;')">Insert &lt;header&gt;</button>
+            <button onclick="insertTag('&lt;footer&gt;', '&lt;/footer&gt;')">Insert &lt;footer&gt;</button>
+            <button onclick="insertTag('&lt;nav&gt;', '&lt;/nav&gt;')">Insert &lt;nav&gt;</button>
+            <button onclick="insertTag('&lt;section&gt;', '&lt;/section&gt;')">Insert &lt;section&gt;</button>
+            <button onclick="insertTag('&lt;article&gt;', '&lt;/article&gt;')">Insert &lt;article&gt;</button>
+            <button onclick="insertTag('&lt;aside&gt;', '&lt;/aside&gt;')">Insert &lt;aside&gt;</button>
+            <button onclick="insertTag('&lt;figure&gt;', '&lt;/figure&gt;')">Insert &lt;figure&gt;</button>
+            <button onclick="insertTag('&lt;figcaption&gt;', '&lt;/figcaption&gt;')">Insert &lt;figcaption&gt;</button>
+        </div>
+        <div class="button-group">
+            <h3>JavaScript & CSS</h3>
+            <button onclick="insertTag('&lt;script&gt;', '&lt;/script&gt;')">Insert &lt;script&gt;</button>
+            <button onclick="insertTag('&lt;style&gt;', '&lt;/style&gt;')">Insert &lt;style&gt;</button>
+        </div>
+        <div class="button-group">
+            <h3>Actions</h3>
+            <button onclick="runCode()">Run</button>
+            <button onclick="clearCode()">Clear</button>
+        </div>
     </div>
     <div id="main-container">
         <div id="editor-container">
