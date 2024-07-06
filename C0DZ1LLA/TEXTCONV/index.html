@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Text Converter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #333333);
+            color: #00e5ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.6), 0 0 60px rgba(0, 229, 255, 0.4);
+            max-width: 90%;
+            width: 100%;
+            max-height: 90vh;
+            overflow: auto;
+            text-align: center;
+        }
+        input, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            background: #1a1a1a;
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+            border-radius: 10px;
+            font-size: 16px;
+            box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            background: #00e5ff;
+            border: none;
+            color: #1a1a1a;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+        }
+        button:hover {
+            background: #1a1a1a;
+            color: #00e5ff;
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.6), 0 0 60px rgba(0, 229, 255, 0.4);
+        }
+        .output {
+            margin-top: 20px;
+        }
+        .output .encoding {
+            margin-top: 20px;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        .output .encoding p {
+            margin: 0;
+            color: #00e5ff;
+            word-wrap: break-word;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            input, textarea {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Futuristic Text Converter</h1>
+        <textarea id="inputText" rows="4" placeholder="Enter text here"></textarea>
+        <br>
+        <button onclick="convertText()">Convert Text to Codes</button>
+        <button onclick="convertCodesToText()">Convert Codes to Text</button>
+        <br>
+        <div id="output" class="output"></div>
+    </div>
+
+    <script>
+        const morseCode = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
+            'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
+            'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+            '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ' ': '/'
+        };
+
+        const morseCodeReverse = Object.keys(morseCode).reduce((acc, key) => {
+            acc[morseCode[key]] = key;
+            return acc;
+        }, {});
+
+        const natoPhonetic = {
+            'A': 'Alpha', 'B': 'Bravo', 'C': 'Charlie', 'D': 'Delta', 'E': 'Echo', 'F': 'Foxtrot', 'G': 'Golf',
+            'H': 'Hotel', 'I': 'India', 'J': 'Juliett', 'K': 'Kilo', 'L': 'Lima', 'M': 'Mike', 'N': 'November',
+            'O': 'Oscar', 'P': 'Papa', 'Q': 'Quebec', 'R': 'Romeo', 'S': 'Sierra', 'T': 'Tango', 'U': 'Uniform',
+            'V': 'Victor', 'W': 'Whiskey', 'X': 'X-ray', 'Y': 'Yankee', 'Z': 'Zulu', ' ': '/'
+        };
+
+        const natoPhoneticReverse = Object.keys(natoPhonetic).reduce((acc, key) => {
+            acc[natoPhonetic[key].toLowerCase()] = key;
+            return acc;
+        }, {});
+
+        const atbashCipher = {
+            'A': 'Z', 'B': 'Y', 'C': 'X', 'D': 'W', 'E': 'V', 'F': 'U', 'G': 'T', 'H': 'S',
+            'I': 'R', 'J': 'Q', 'K': 'P', 'L': 'O', 'M': 'N', 'N': 'M', 'O': 'L', 'P': 'K',
+            'Q': 'J', 'R': 'I', 'S': 'H', 'T': 'G', 'U': 'F', 'V': 'E', 'W': 'D', 'X': 'C',
+            'Y': 'B', 'Z': 'A', ' ': ' '
+        };
+
+        const baconCipher = {
+            'A': 'AAAAA', 'B': 'AAAAB', 'C': 'AAABA', 'D': 'AAABB', 'E': 'AABAA', 'F': 'AABAB', 'G': 'AABBA',
+            'H': 'AABBB', 'I': 'ABAAA', 'J': 'ABAAB', 'K': 'ABABA', 'L': 'ABABB', 'M': 'ABBAA', 'N': 'ABBAB',
+            'O': 'ABBBA', 'P': 'ABBBB', 'Q': 'BAAAA', 'R': 'BAAAB', 'S': 'BAABA', 'T': 'BAABB', 'U': 'BABAA',
+            'V': 'BABAB', 'W': 'BABBA', 'X': 'BABBB', 'Y': 'BBAAA', 'Z': 'BBAAB', ' ': ' '
+        };
+
+        const baconCipherReverse = Object.keys(baconCipher).reduce((acc, key) => {
+            acc[baconCipher[key]] = key;
+            return acc;
+        }, {});
+
+        const polybiusSquare = {
+            'A': '11', 'B': '12', 'C': '13', 'D': '14', 'E': '15', 'F': '21', 'G': '22', 'H': '23',
+            'I': '24', 'J': '24', 'K': '25', 'L': '31', 'M': '32', 'N': '33', 'O': '34', 'P': '35',
+            'Q': '41', 'R': '42', 'S': '43', 'T': '44', 'U': '45', 'V': '51', 'W': '52', 'X': '53',
+            'Y': '54', 'Z': '55', ' ': ' '
+        };
+
+        const polybiusSquareReverse = Object.keys(polybiusSquare).reduce((acc, key) => {
+            acc[polybiusSquare[key]] = key;
+            return acc;
+        }, {});
+
+        function toMorseCode(text) {
+            return text.toUpperCase().split('').map(char => morseCode[char] || char).join(' ');
+        }
+
+        function fromMorseCode(code) {
+            return code.split(' ').map(char => morseCodeReverse[char] || char).join('');
+        }
+
+        function toBinary(text) {
+            return text.split('').map(char => char.charCodeAt(0).toString(2).padStart(8, '0')).join(' ');
+        }
+
+        function fromBinary(code) {
+            return code.split(' ').map(char => String.fromCharCode(parseInt(char, 2))).join('');
+        }
+
+        function toHex(text) {
+            return text.split('').map(char => char.charCodeAt(0).toString(16).padStart(2, '0')).join(' ');
+        }
+
+        function fromHex(code) {
+            return code.split(' ').map(char => String.fromCharCode(parseInt(char, 16))).join('');
+        }
+
+        function toASCII(text) {
+            return text.split('').map(char => char.charCodeAt(0)).join(' ');
+        }
+
+        function fromASCII(code) {
+            return code.split(' ').map(char => String.fromCharCode(char)).join('');
+        }
+
+        function toNATO(text) {
+            return text.toUpperCase().split('').map(char => natoPhonetic[char] || char).join(' ');
+        }
+
+        function fromNATO(code) {
+            return code.split(' ').map(char => natoPhoneticReverse[char.toLowerCase()] || char).join('');
+        }
+
+        function toAtbash(text) {
+            return text.toUpperCase().split('').map(char => atbashCipher[char] || char).join('');
+        }
+
+        function toBacon(text) {
+            return text.toUpperCase().split('').map(char => baconCipher[char] || char).join(' ');
+        }
+
+        function fromBacon(code) {
+            return code.split(' ').map(char => baconCipherReverse[char] || char).join('');
+        }
+
+        function toPolybius(text) {
+            return text.toUpperCase().split('').map(char => polybiusSquare[char] || char).join(' ');
+        }
+
+        function fromPolybius(code) {
+            return code.split(' ').map(char => polybiusSquareReverse[char] || char).join('');
+        }
+
+        function toCaesarCipher(text, shift = 3) {
+            return text.split('').map(char => {
+                if (char.match(/[a-z]/i)) {
+                    let code = char.charCodeAt(0);
+                    let shiftCode = code >= 65 && code <= 90 ? ((code - 65 + shift) % 26) + 65 :
+                                    code >= 97 && code <= 122 ? ((code - 97 + shift) % 26) + 97 : code;
+                    return String.fromCharCode(shiftCode);
+                }
+                return char;
+            }).join('');
+        }
+
+        function fromCaesarCipher(text, shift = 3) {
+            return text.split('').map(char => {
+                if (char.match(/[a-z]/i)) {
+                    let code = char.charCodeAt(0);
+                    let shiftCode = code >= 65 && code <= 90 ? ((code - 65 - shift + 26) % 26) + 65 :
+                                    code >= 97 && code <= 122 ? ((code - 97 - shift + 26) % 26) + 97 : code;
+                    return String.fromCharCode(shiftCode);
+                }
+                return char;
+            }).join('');
+        }
+
+        function toBase64(text) {
+            return btoa(text);
+        }
+
+        function fromBase64(code) {
+            return atob(code);
+        }
+
+        function toROT13(text) {
+            return text.split('').map(char => {
+                if (char.match(/[a-z]/i)) {
+                    let code = char.charCodeAt(0);
+                    let shiftCode = code >= 65 && code <= 90 ? ((code - 65 + 13) % 26) + 65 :
+                                    code >= 97 && code <= 122 ? ((code - 97 + 13) % 26) + 97 : code;
+                    return String.fromCharCode(shiftCode);
+                }
+                return char;
+            }).join('');
+        }
+
+        function fromROT13(text) {
+            return toROT13(text); // ROT13 is self-reversing
+        }
+
+        function toRailFenceCipher(text, numRails = 3) {
+            if (numRails === 1) return text;
+
+            const rail = new Array(numRails).fill('');
+            let railIndex = 0;
+            let direction = 1;
+
+            for (const char of text) {
+                rail[railIndex] += char;
+                railIndex += direction;
+                if (railIndex === 0 || railIndex === numRails - 1) direction *= -1;
+            }
+
+            return rail.join('');
+        }
+
+        function fromRailFenceCipher(text, numRails = 3) {
+            if (numRails === 1) return text;
+
+            const rail = new Array(numRails).fill('');
+            const railLengths = new Array(numRails).fill(0);
+            let railIndex = 0;
+            let direction = 1;
+
+            for (const char of text) {
+                railLengths[railIndex]++;
+                railIndex += direction;
+                if (railIndex === 0 || railIndex === numRails - 1) direction *= -1;
+            }
+
+            let index = 0;
+            for (let i = 0; i < numRails; i++) {
+                rail[i] = text.slice(index, index + railLengths[i]);
+                index += railLengths[i];
+            }
+
+            let result = '';
+            railIndex = 0;
+            direction = 1;
+
+            for (let i = 0; i < text.length; i++) {
+                result += rail[railIndex][0];
+                rail[railIndex] = rail[railIndex].slice(1);
+                railIndex += direction;
+                if (railIndex === 0 || railIndex === numRails - 1) direction *= -1;
+            }
+
+            return result;
+        }
+
+        function convertText() {
+            const inputText = document.getElementById('inputText').value;
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <div class="encoding"><strong>Morse Code:</strong> <p>${toMorseCode(inputText)}</p></div>
+                <div class="encoding"><strong>Binary Code:</strong> <p>${toBinary(inputText)}</p></div>
+                <div class="encoding"><strong>Hexadecimal Code:</strong> <p>${toHex(inputText)}</p></div>
+                <div class="encoding"><strong>ASCII:</strong> <p>${toASCII(inputText)}</p></div>
+                <div class="encoding"><strong>NATO Phonetic Alphabet:</strong> <p>${toNATO(inputText)}</p></div>
+                <div class="encoding"><strong>Atbash Cipher:</strong> <p>${toAtbash(inputText)}</p></div>
+                <div class="encoding"><strong>Bacon's Cipher:</strong> <p>${toBacon(inputText)}</p></div>
+                <div class="encoding"><strong>Polybius Square:</strong> <p>${toPolybius(inputText)}</p></div>
+                <div class="encoding"><strong>Caesar Cipher:</strong> <p>${toCaesarCipher(inputText)}</p></div>
+                <div class="encoding"><strong>Base64:</strong> <p>${toBase64(inputText)}</p></div>
+                <div class="encoding"><strong>ROT13:</strong> <p>${toROT13(inputText)}</p></div>
+                <div class="encoding"><strong>Rail Fence Cipher:</strong> <p>${toRailFenceCipher(inputText)}</p></div>
+            `;
+        }
+
+        function convertCodesToText() {
+            const inputText = document.getElementById('inputText').value;
+            const output = document.getElementById('output');
+            const morse = fromMorseCode(inputText);
+            const binary = fromBinary(inputText);
+            const hex = fromHex(inputText);
+            const ascii = fromASCII(inputText);
+            const nato = fromNATO(inputText);
+            const bacon = fromBacon(inputText);
+            const polybius = fromPolybius(inputText);
+            const atbash = toAtbash(inputText); // Atbash is self-reversing
+            const caesar = fromCaesarCipher(inputText);
+            const base64 = fromBase64(inputText);
+            const rot13 = fromROT13(inputText);
+            const railFence = fromRailFenceCipher(inputText);
+
+            output.innerHTML = `
+                <div class="encoding"><strong>Text from Morse Code:</strong> <p>${morse}</p></div>
+                <div class="encoding"><strong>Text from Binary Code:</strong> <p>${binary}</p></div>
+                <div class="encoding"><strong>Text from Hexadecimal Code:</strong> <p>${hex}</p></div>
+                <div class="encoding"><strong>Text from ASCII:</strong> <p>${ascii}</p></div>
+                <div class="encoding"><strong>Text from NATO Phonetic Alphabet:</strong> <p>${nato}</p></div>
+                <div class="encoding"><strong>Text from Atbash Cipher:</strong> <p>${atbash}</p></div>
+                <div class="encoding"><strong>Text from Bacon's Cipher:</strong> <p>${bacon}</p></div>
+                <div class="encoding"><strong>Text from Polybius Square:</strong> <p>${polybius}</p></div>
+                <div class="encoding"><strong>Text from Caesar Cipher:</strong> <p>${caesar}</p></div>
+                <div class="encoding"><strong>Text from Base64:</strong> <p>${base64}</p></div>
+                <div class="encoding"><strong>Text from ROT13:</strong> <p>${rot13}</p></div>
+                <div class="encoding"><strong>Text from Rail Fence Cipher:</strong> <p>${railFence}</p></div>
+            `;
+        }
+    </script>
+</body>
+</html>
