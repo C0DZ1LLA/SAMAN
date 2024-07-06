@@ -33,6 +33,6 @@ You have the right to:
 We may update this policy from time to time. We will notify you of any changes by posting the new policy on our website.
 
 ### Contact Information
-If you have any questions about this privacy policy, please contact us at [Your Contact Information].
+If you have any questions about this privacy policy, please contact us at [samanabotaleby@gmail.com].
 
 By using our website, you agree to this privacy policy.
