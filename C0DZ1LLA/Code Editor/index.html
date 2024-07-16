@@ -11,7 +11,7 @@
         body {
             display: flex;
             flex-direction: column;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Orbitron', sans-serif;
             background-color: #0d0d0d;
             color: #ffffff;
             margin: 0;
@@ -79,7 +79,6 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            height: calc(80vh - 150px);
             background-color: #1b1b1b;
             border-right: 2px solid #01ff70;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -133,87 +132,89 @@
     <div id="toolbar">
         <div class="button-group">
             <h3>HTML Elements</h3>
-            <button onclick="insertTag('&lt;!DOCTYPE html&gt;', '')">Insert <!DOCTYPE html></button>
-            <button onclick="insertTag('&lt;html&gt;', '&lt;/html&gt;')">Insert &lt;html&gt;</button>
-            <button onclick="insertTag('&lt;head&gt;', '&lt;/head&gt;')">Insert &lt;head&gt;</button>
-            <button onclick="insertTag('&lt;body&gt;', '&lt;/body&gt;')">Insert &lt;body&gt;</button>
-            <button onclick="insertTag('&lt;h1&gt;', '&lt;/h1&gt;')">Insert &lt;h1&gt;</button>
-            <button onclick="insertTag('&lt;h2&gt;', '&lt;/h2&gt;')">Insert &lt;h2&gt;</button>
-            <button onclick="insertTag('&lt;h3&gt;', '&lt;/h3&gt;')">Insert &lt;h3&gt;</button>
-            <button onclick="insertTag('&lt;h4&gt;', '&lt;/h4&gt;')">Insert &lt;h4&gt;</button>
-            <button onclick="insertTag('&lt;h5&gt;', '&lt;/h5&gt;')">Insert &lt;h5&gt;</button>
-            <button onclick="insertTag('&lt;h6&gt;', '&lt;/h6&gt;')">Insert &lt;h6&gt;</button>
-            <button onclick="insertTag('&lt;p&gt;', '&lt;/p&gt;')">Insert &lt;p&gt;</button>
-            <button onclick="insertTag('&lt;a href=&quot;&quot;&gt;', '&lt;/a&gt;')">Insert &lt;a&gt;</button>
-            <button onclick="insertTag('&lt;div&gt;', '&lt;/div&gt;')">Insert &lt;div&gt;</button>
-            <button onclick="insertTag('&lt;span&gt;', '&lt;/span&gt;')">Insert &lt;span&gt;</button>
-            <button onclick="insertTag('&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;', '')">Insert &lt;img&gt;</button>
-            <button onclick="insertTag('&lt;table&gt;', '&lt;/table&gt;')">Insert &lt;table&gt;</button>
-            <button onclick="insertTag('&lt;ul&gt;', '&lt;/ul&gt;')">Insert &lt;ul&gt;</button>
-            <button onclick="insertTag('&lt;li&gt;', '&lt;/li&gt;')">Insert &lt;li&gt;</button>
-            <button onclick="insertTag('&lt;ol&gt;', '&lt;/ol&gt;')">Insert &lt;ol&gt;</button>
-            <button onclick="insertTag('&lt;form&gt;', '&lt;/form&gt;')">Insert &lt;form&gt;</button>
-            <button onclick="insertTag('&lt;input type=&quot;text&quot; name=&quot;&quot;&gt;', '')">Insert &lt;input&gt;</button>
-            <button onclick="insertTag('&lt;button&gt;', '&lt;/button&gt;')">Insert &lt;button&gt;</button>
-            <button onclick="insertTag('&lt;textarea&gt;', '&lt;/textarea&gt;')">Insert &lt;textarea&gt;</button>
-            <button onclick="insertTag('&lt;label&gt;', '&lt;/label&gt;')">Insert &lt;label&gt;</button>
-            <button onclick="insertTag('&lt;select&gt;', '&lt;/select&gt;')">Insert &lt;select&gt;</button>
-            <button onclick="insertTag('&lt;option&gt;', '&lt;/option&gt;')">Insert &lt;option&gt;</button>
+            <button onclick="insertTag('<!DOCTYPE html>', '')">Insert <!DOCTYPE html></button>
+            <button onclick="insertTag('<html>', '</html>')">Insert &lt;html&gt;</button>
+            <button onclick="insertTag('<head>', '</head>')">Insert &lt;head&gt;</button>
+            <button onclick="insertTag('<body>', '</body>')">Insert &lt;body&gt;</button>
+            <button onclick="insertTag('<h1>', '</h1>')">Insert &lt;h1&gt;</button>
+            <button onclick="insertTag('<h2>', '</h2>')">Insert &lt;h2&gt;</button>
+            <button onclick="insertTag('<h3>', '</h3>')">Insert &lt;h3&gt;</button>
+            <button onclick="insertTag('<h4>', '</h4>')">Insert &lt;h4&gt;</button>
+            <button onclick="insertTag('<h5>', '</h5>')">Insert &lt;h5&gt;</button>
+            <button onclick="insertTag('<h6>', '</h6>')">Insert &lt;h6&gt;</button>
+            <button onclick="insertTag('<p>', '</p>')">Insert &lt;p&gt;</button>
+            <button onclick="insertTag('<a href="">', '</a>')">Insert &lt;a&gt;</button>
+            <button onclick="insertTag('<div>', '</div>')">Insert &lt;div&gt;</button>
+            <button onclick="insertTag('<span>', '</span>')">Insert &lt;span&gt;</button>
+            <button onclick="insertTag('<img src="" alt="">', '')">Insert &lt;img&gt;</button>
+            <button onclick="insertTag('<table>', '</table>')">Insert &lt;table&gt;</button>
+            <button onclick="insertTag('<ul>', '</ul>')">Insert &lt;ul&gt;</button>
+            <button onclick="insertTag('<li>', '</li>')">Insert &lt;li&gt;</button>
+            <button onclick="insertTag('<ol>', '</ol>')">Insert &lt;ol&gt;</button>
+            <button onclick="insertTag('<form>', '</form>')">Insert &lt;form&gt;</button>
+            <button onclick="insertTag('<input type="text" name="">', '')">Insert &lt;input&gt;</button>
+            <button onclick="insertTag('<button>', '</button>')">Insert &lt;button&gt;</button>
+            <button onclick="insertTag('<textarea>', '</textarea>')">Insert &lt;textarea&gt;</button>
+            <button onclick="insertTag('<label>', '</label>')">Insert &lt;label&gt;</button>
+            <button onclick="insertTag('<select>', '</select>')">Insert &lt;select&gt;</button>
+            <button onclick="insertTag('<option>', '</option>')">Insert &lt;option&gt;</button>
         </div>
         <div class="button-group">
             <h3>Semantic Elements</h3>
-            <button onclick="insertTag('&lt;header&gt;', '&lt;/header&gt;')">Insert &lt;header&gt;</button>
-            <button onclick="insertTag('&lt;footer&gt;', '&lt;/footer&gt;')">Insert &lt;footer&gt;</button>
-            <button onclick="insertTag('&lt;nav&gt;', '&lt;/nav&gt;')">Insert &lt;nav&gt;</button>
-            <button onclick="insertTag('&lt;section&gt;', '&lt;/section&gt;')">Insert &lt;section&gt;</button>
-            <button onclick="insertTag('&lt;article&gt;', '&lt;/article&gt;')">Insert &lt;article&gt;</button>
-            <button onclick="insertTag('&lt;aside&gt;', '&lt;/aside&gt;')">Insert &lt;aside&gt;</button>
-            <button onclick="insertTag('&lt;figure&gt;', '&lt;/figure&gt;')">Insert &lt;figure&gt;</button>
-            <button onclick="insertTag('&lt;figcaption&gt;', '&lt;/figcaption&gt;')">Insert &lt;figcaption&gt;</button>
+            <button onclick="insertTag('<header>', '</header>')">Insert &lt;header&gt;</button>
+            <button onclick="insertTag('<footer>', '</footer>')">Insert &lt;footer&gt;</button>
+            <button onclick="insertTag('<nav>', '</nav>')">Insert &lt;nav&gt;</button>
+            <button onclick="insertTag('<section>', '</section>')">Insert &lt;section&gt;</button>
+            <button onclick="insertTag('<article>', '</article>')">Insert &lt;article&gt;</button>
+            <button onclick="insertTag('<aside>', '</aside>')">Insert &lt;aside&gt;</button>
+            <button onclick="insertTag('<figure>', '</figure>')">Insert &lt;figure&gt;</button>
+            <button onclick="insertTag('<figcaption>', '</figcaption>')">Insert &lt;figcaption&gt;</button>
         </div>
         <div class="button-group">
             <h3>Media Elements</h3>
-            <button onclick="insertTag('&lt;audio&gt;', '&lt;/audio&gt;')">Insert &lt;audio&gt;</button>
-            <button onclick="insertTag('&lt;video&gt;', '&lt;/video&gt;')">Insert &lt;video&gt;</button>
-            <button onclick="insertTag('&lt;source&gt;', '')">Insert &lt;source&gt;</button>
-            <button onclick="insertTag('&lt;track&gt;', '')">Insert &lt;track&gt;</button>
-            <button onclick="insertTag('&lt;embed&gt;', '')">Insert &lt;embed&gt;</button>
-            <button onclick="insertTag('&lt;object&gt;', '&lt;/object&gt;')">Insert &lt;object&gt;</button>
-            <button onclick="insertTag('&lt;param&gt;', '')">Insert &lt;param&gt;</button>
+            <button onclick="insertTag('<audio>', '</audio>')">Insert &lt;audio&gt;</button>
+            <button onclick="insertTag('<video>', '</video>')">Insert &lt;video&gt;</button>
+            <button onclick="insertTag('<source>', '')">Insert &lt;source&gt;</button>
+            <button onclick="insertTag('<track>', '')">Insert &lt;track&gt;</button>
+            <button onclick="insertTag('<embed>', '')">Insert &lt;embed&gt;</button>
+            <button onclick="insertTag('<object>', '</object>')">Insert &lt;object&gt;</button>
+            <button onclick="insertTag('<param>', '')">Insert &lt;param&gt;</button>
         </div>
         <div class="button-group">
             <h3>Form Elements</h3>
-            <button onclick="insertTag('&lt;input type=&quot;text&quot; name=&quot;&quot;&gt;', '')">Insert &lt;input&gt;</button>
-            <button onclick="insertTag('&lt;textarea&gt;', '&lt;/textarea&gt;')">Insert &lt;textarea&gt;</button>
-            <button onclick="insertTag('&lt;button&gt;', '&lt;/button&gt;')">Insert &lt;button&gt;</button>
-            <button onclick="insertTag('&lt;label&gt;', '&lt;/label&gt;')">Insert &lt;label&gt;</button>
-            <button onclick="insertTag('&lt;select&gt;', '&lt;/select&gt;')">Insert &lt;select&gt;</button>
-            <button onclick="insertTag('&lt;option&gt;', '&lt;/option&gt;')">Insert &lt;option&gt;</button>
-            <button onclick="insertTag('&lt;fieldset&gt;', '&lt;/fieldset&gt;')">Insert &lt;fieldset&gt;</button>
-            <button onclick="insertTag('&lt;legend&gt;', '&lt;/legend&gt;')">Insert &lt;legend&gt;</button>
+            <button onclick="insertTag('<input type="text" name="">', '')">Insert &lt;input&gt;</button>
+            <button onclick="insertTag('<textarea>', '</textarea>')">Insert &lt;textarea&gt;</button>
+            <button onclick="insertTag('<button>', '</button>')">Insert &lt;button&gt;</button>
+            <button onclick="insertTag('<label>', '</label>')">Insert &lt;label&gt;</button>
+            <button onclick="insertTag('<select>', '</select>')">Insert &lt;select&gt;</button>
+            <button onclick="insertTag('<option>', '</option>')">Insert &lt;option&gt;</button>
+            <button onclick="insertTag('<fieldset>', '</fieldset>')">Insert &lt;fieldset&gt;</button>
+            <button onclick="insertTag('<legend>', '</legend>')">Insert &lt;legend&gt;</button>
         </div>
         <div class="button-group">
             <h3>Tables</h3>
-            <button onclick="insertTag('&lt;table&gt;', '&lt;/table&gt;')">Insert &lt;table&gt;</button>
-            <button onclick="insertTag('&lt;tr&gt;', '&lt;/tr&gt;')">Insert &lt;tr&gt;</button>
-            <button onclick="insertTag('&lt;th&gt;', '&lt;/th&gt;')">Insert &lt;th&gt;</button>
-            <button onclick="insertTag('&lt;td&gt;', '&lt;/td&gt;')">Insert &lt;td&gt;</button>
-            <button onclick="insertTag('&lt;thead&gt;', '&lt;/thead&gt;')">Insert &lt;thead&gt;</button>
-            <button onclick="insertTag('&lt;tbody&gt;', '&lt;/tbody&gt;')">Insert &lt;tbody&gt;</button>
-            <button onclick="insertTag('&lt;tfoot&gt;', '&lt;/tfoot&gt;')">Insert &lt;tfoot&gt;</button>
-            <button onclick="insertTag('&lt;caption&gt;', '&lt;/caption&gt;')">Insert &lt;caption&gt;</button>
+            <button onclick="insertTag('<table>', '</table>')">Insert &lt;table&gt;</button>
+            <button onclick="insertTag('<tr>', '</tr>')">Insert &lt;tr&gt;</button>
+            <button onclick="insertTag('<th>', '</th>')">Insert &lt;th&gt;</button>
+            <button onclick="insertTag('<td>', '</td>')">Insert &lt;td&gt;</button>
+            <button onclick="insertTag('<thead>', '</thead>')">Insert &lt;thead&gt;</button>
+            <button onclick="insertTag('<tbody>', '</tbody>')">Insert &lt;tbody&gt;</button>
+            <button onclick="insertTag('<tfoot>', '</tfoot>')">Insert &lt;tfoot&gt;</button>
+            <button onclick="insertTag('<caption>', '</caption>')">Insert &lt;caption&gt;</button>
         </div>
         <div class="button-group">
             <h3>JavaScript & CSS</h3>
-            <button onclick="insertTag('&lt;script&gt;', '&lt;/script&gt;')">Insert &lt;script&gt;</button>
-            <button onclick="insertTag('&lt;style&gt;', '&lt;/style&gt;')">Insert &lt;style&gt;</button>
-            <button onclick="insertTag('&lt;link rel=&quot;stylesheet&quot; href=&quot;&quot;&gt;', '')">Insert &lt;link&gt;</button>
-            <button onclick="insertTag('&lt;meta charset=&quot;UTF-8&quot;&gt;', '')">Insert &lt;meta&gt;</button>
+            <button onclick="insertTag('<script>', '</script>')">Insert &lt;script&gt;</button>
+            <button onclick="insertTag('<style>', '</style>')">Insert &lt;style&gt;</button>
+            <button onclick="insertTag('<link rel="stylesheet" href="">', '')">Insert &lt;link&gt;</button>
+            <button onclick="insertTag('<meta charset="UTF-8">', '')">Insert &lt;meta&gt;</button>
         </div>
         <div class="button-group">
             <h3>Actions</h3>
             <button onclick="runCode()">Run</button>
             <button onclick="clearCode()">Clear</button>
+            <button onclick="saveCode()">Save</button>
+            <button onclick="loadCode()">Load</button>
         </div>
     </div>
     <div id="main-container">
@@ -277,6 +278,32 @@
 
         document.getElementById('modal').onclick = function() {
             document.getElementById('modal').style.display = 'none';
+        }
+
+        function saveCode() {
+            const code = editor.getValue();
+            const blob = new Blob([code], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'code.html';
+            a.click();
+        }
+
+        function loadCode() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'text/html';
+            input.onchange = e => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = e => {
+                        editor.setValue(e.target.result);
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
         }
     </script>
 </body>
