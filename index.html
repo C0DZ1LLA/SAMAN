@@ -51,8 +51,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    background: radial-gradient(circle at center, #000000, #0d0d0d, #1a1a1a);
-    color: #00ffcc; /* Neon cyan text color */
+    background: radial-gradient(circle at center, #1a1a1a, #0d0d0d, #000000);
+    color: #FFD700; /* Dark gold neon text color */
     overflow-x: hidden; /* Hide horizontal overflow */
 }
 
@@ -86,20 +86,20 @@ body::before {
 }
 
 h1, h2, h3 {
-    font-size: 5em;
+    font-size: 3em;
     margin-bottom: 20px;
     font-weight: bold; /* Bold font weight */
     text-transform: uppercase; /* Uppercase text */
     text-align: center; /* Center align text */
     letter-spacing: 3px; /* Increased letter spacing */
-    text-shadow: 0 0 30px rgba(0, 255, 255, 1); /* Neon cyan glow text shadow */
+    text-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
 }
 
 p {
     font-size: 1.5em;
     margin-bottom: 20px;
     line-height: 1.6; /* Increased line height */
-    text-shadow: 0 0 10px rgba(0, 255, 255, 1); /* Neon cyan glow text shadow */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
 }
 
 /* Add this to your existing CSS */
@@ -118,37 +118,37 @@ p {
     margin: 10px;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #BF00FF; /* Neon purple border */
+    border: 2px solid #FFD700; /* Dark gold neon border */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(191, 0, 255, 0.5); /* Neon purple glow */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-wrapper:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(191, 0, 255, 1); /* Intensified neon purple glow on hover */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Intensified dark gold neon glow on hover */
 }
 
 button {
     padding: 1em 2em;
     font-size: 1.2em;
     background-color: transparent; /* Transparent button background */
-    border: 2px solid #00ffcc; /* Neon cyan border */
-    color: #00ffcc; /* Neon cyan text color */
+    border: 2px solid #FFD700; /* Dark gold neon border */
+    color: #FFD700; /* Dark gold neon text color */
     border-radius: 50px; /* Round border for futuristic look */
     cursor: pointer;
     transition: all 0.3s ease;
     outline: none;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase; /* Uppercase text */
-    box-shadow: 0 0 50px rgba(0, 255, 255, 0.5); /* Neon glow */
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); /* Neon glow */
     width: 100%; /* Make button take full width of the wrapper */
 }
 
 button:hover {
-    background-color: #00ffcc; /* Neon cyan on hover */
+    background-color: #FFD700; /* Dark gold neon on hover */
     color: #000; /* Black text on hover */
-    box-shadow: 0 0 50px rgba(0, 255, 255, 0.7); /* Intensified neon cyan glow on hover */
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.7); /* Intensified dark gold neon glow on hover */
 }
 
 /* Modal Styles */
@@ -167,11 +167,11 @@ button:hover {
     max-height: 80vh; /* Maximum height for large screens */
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
-    border: 3px solid #00ffcc; /* Neon cyan border */
+    border: 3px solid #FFD700; /* Dark gold neon border */
     border-radius: 50px; /* Rounded border */
     padding: 60px; /* Increased padding for better spacing */
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
-    color: #00d8ff; /* Electric blue text color */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
+    color: #FFD700; /* Dark gold neon text color */
     text-align: center; /* Center align text */
     animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
@@ -206,7 +206,7 @@ button:hover {
 }
 
 .modal-content:hover {
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
 }
 
 /* Header Styles */
@@ -219,7 +219,7 @@ header {
 
 header h1 {
     font-size: 6.5em; /* Increase font size for header */
-    color: #00ffcc; /* Neon cyan text color */
+    color: #FFD700; /* Dark gold neon text color */
     animation: slideInDown 0.5s ease; /* Slide in from top animation */
 }
 
@@ -235,7 +235,7 @@ header h1 {
 
 header p {
     font-size: 1.5em; /* Increase font size for paragraph */
-    color: #00ffcc; /* Neon cyan text color */
+    color: #FFD700; /* Dark gold neon text color */
 }
 
 /* Footer Styles */
@@ -247,7 +247,7 @@ footer {
 
 footer p {
     font-size: 1.3em; /* Increased font size for paragraph */
-    color: #00ffcc; /* Neon cyan text color */
+    color: #FFD700; /* Dark gold neon text color */
 }
 
 /* Image container styles */
@@ -265,15 +265,15 @@ footer p {
     height: auto;
     cursor: pointer;
     margin: 10px; /* Increased margin */
-    border: 3px solid #00ffcc; /* Neon cyan border */
+    border: 3px solid #FFD700; /* Dark gold neon border */
     border-radius: 50px; /* Rounded corners */
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); /* Intensified neon cyan glow */
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); /* Intensified dark gold neon glow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-container img:hover {
     transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 0 60px rgba(0, 255, 255, 0.7); /* Brighter glow on hover */
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
 }
 
 .hidden {
@@ -287,16 +287,16 @@ footer p {
     text-align: center;
     margin: 20px auto; /* Center and add margin */
     max-width: 800px; /* Limit width for better readability */
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Dark gold neon glow text shadow */
 }
 
 /* Holographic Hover Effect */
 @keyframes holographicHover {
     0%, 100% {
-        text-shadow: 0 0 5px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.4), 0 0 15px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
     }
     50% {
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2);
     }
 }
 
@@ -309,28 +309,28 @@ h1:hover, h2:hover, h3:hover {
     border: 2px solid;
     border-image-slice: 1;
     border-width: 4px;
-    border-image-source: linear-gradient(45deg, #00ffcc, #ff00ff); /* Neon cyan to magenta gradient */
+    border-image-source: linear-gradient(45deg, #FFD700, #ff00ff); /* Dark gold to magenta gradient */
     animation: neonBorder 3s infinite;
 }
 
 @keyframes neonBorder {
     0%, 100% {
-        border-image-source: linear-gradient(45deg, #00ffcc, #ff00ff);
+        border-image-source: linear-gradient(45deg, #FFD700, #ff00ff);
     }
     50% {
-        border-image-source: linear-gradient(45deg, #ff00ff, #00ffcc);
+        border-image-source: linear-gradient(45deg, #ff00ff, #FFD700);
     }
 }
 
 .neon-text {
     font-size: 1.5em;
-    color: #00ffcc; /* Neon cyan text color */
+    color: #FFD700; /* Dark gold neon text color */
     animation: neonGlow 1.5s infinite alternate;
 }
 
 @keyframes neonGlow {
     0% {
-        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 80px #FFD700;
     }
     100% {
         text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff, 0 0 160px #ff00ff; /* Magenta glow */
@@ -342,7 +342,7 @@ h1:hover, h2:hover, h3:hover {
     top: 10px;
     right: 20px;
     font-size: 2em;
-    color: #00ffcc;
+    color: #FFD700;
     cursor: pointer;
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -359,21 +359,19 @@ h1:hover, h2:hover, h3:hover {
     text-align: center;
     margin: 30px auto; /* Center and add margin */
     max-width: 800px; /* Limit width for better readability */
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon cyan glow text shadow */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Dark gold neon glow text shadow */
     padding: 20px;
     background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    border: 2px solid #00ffcc; /* Neon cyan border */
+    border: 2px solid #FFD700; /* Dark gold neon border */
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Neon cyan glow */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .welcome-text:hover {
     transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7); /* Brighter glow on hover */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
 }
-
-
     </style>
 </head>
 
