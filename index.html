@@ -7,7 +7,6 @@
     <meta name="description" content="Welcome to C0DZ1LLA Systems, a hub of innovative technology solutions. Explore our website for cutting-edge web development, software engineering, game development, and tech consulting services. Our team of experts is dedicated to pushing the boundaries of technology to deliver exceptional results for our clients.">
     <meta name="keywords" content="C0DZ1LLA Systems, technology solutions, web development, software engineering, game development, tech consulting, innovation, expertise, cutting-edge, AI, artificial intelligence">
     <meta name="author" content="Saman Abotaleby">
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Favicon and Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -46,707 +45,487 @@
         }
     </script>
     <style>
-/* Universal Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-    background: radial-gradient(circle at center, #1a1a1a, #0d0d0d, #000000);
-    color: #FFD700; /* Dark gold neon text color */
-    overflow-x: hidden; /* Hide horizontal overflow */
-}
+        /* Universal Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            background: radial-gradient(circle at center, #1a1a1a, #0d0d0d, #000000);
+            color: #FFD700; /* Dark gold neon text color */
+            overflow-x: hidden; /* Hide horizontal overflow */
+        }
 
-/* Create holographic matrix rain effect */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('img/matrix-rain.gif') repeat;
-    opacity: 0.05;
-    z-index: -1;
-}
+        /* Create holographic matrix rain effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/matrix-rain.gif') repeat;
+            opacity: 0.05;
+            z-index: -1;
+        }
 
-/* Apply matrix rain effect to canvas background */
-#matrixCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width of the viewport */
-    height: 100%; /* Full height of the viewport */
-    z-index: -1;
-}
+        /* Apply matrix rain effect to canvas background */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width of the viewport */
+            height: 100%; /* Full height of the viewport */
+            z-index: -1;
+        }
 
-/* Ensure canvas is behind other content */
-.container {
-    position: relative;
-    z-index: 1;
-}
+        /* Ensure canvas is behind other content */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
 
-h1, h2, h3 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    font-weight: bold; /* Bold font weight */
-    text-transform: uppercase; /* Uppercase text */
-    text-align: center; /* Center align text */
-    letter-spacing: 3px; /* Increased letter spacing */
-    text-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
-}
+        h1, h2, h3 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: bold; /* Bold font weight */
+            text-transform: uppercase; /* Uppercase text */
+            text-align: center; /* Center align text */
+            letter-spacing: 3px; /* Increased letter spacing */
+            text-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
+        }
 
-p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    line-height: 1.6; /* Increased line height */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
-}
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            line-height: 1.6; /* Increased line height */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
+        }
 
-/* Add this to your existing CSS */
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 100%;
-    padding: 20px;
-}
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 100%;
+            padding: 20px;
+        }
 
-.button-wrapper {
-    width: 300px; /* Adjust width as needed */
-    text-align: center;
-    margin: 10px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #FFD700; /* Dark gold neon border */
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .button-wrapper {
+            width: 300px; /* Adjust width as needed */
+            text-align: center;
+            margin: 10px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #FFD700; /* Dark gold neon border */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.button-wrapper:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Intensified dark gold neon glow on hover */
-}
+        .button-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Intensified dark gold neon glow on hover */
+        }
 
-button {
-    padding: 1em 2em;
-    font-size: 1.2em;
-    background-color: transparent; /* Transparent button background */
-    border: 2px solid #FFD700; /* Dark gold neon border */
-    color: #FFD700; /* Dark gold neon text color */
-    border-radius: 50px; /* Round border for futuristic look */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    outline: none;
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase; /* Uppercase text */
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); /* Neon glow */
-    width: 100%; /* Make button take full width of the wrapper */
-}
+        button {
+            padding: 1em 2em;
+            font-size: 1.2em;
+            background-color: transparent; /* Transparent button background */
+            border: 2px solid #FFD700; /* Dark gold neon border */
+            color: #FFD700; /* Dark gold neon text color */
+            border-radius: 50px; /* Round border for futuristic look */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase; /* Uppercase text */
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); /* Neon glow */
+            width: 100%; /* Make button take full width of the wrapper */
+        }
 
-button:hover {
-    background-color: #FFD700; /* Dark gold neon on hover */
-    color: #000; /* Black text on hover */
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.7); /* Intensified dark gold neon glow on hover */
-}
+        button:hover {
+            background-color: #FFD700; /* Dark gold neon on hover */
+            color: #000; /* Black text on hover */
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.7); /* Intensified dark gold neon glow on hover */
+        }
 
-/* Modal Styles */
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
-    z-index: 1000;
-    width: 80%; /* Adjust width as needed */
-    max-width: 1000px; /* Maximum width for large screens */
-    max-height: 80vh; /* Maximum height for large screens */
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
-    border: 3px solid #FFD700; /* Dark gold neon border */
-    border-radius: 50px; /* Rounded border */
-    padding: 60px; /* Increased padding for better spacing */
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
-    color: #FFD700; /* Dark gold neon text color */
-    text-align: center; /* Center align text */
-    animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
-}
+        .modal-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
+            z-index: 1000;
+            width: 80%; /* Adjust width as needed */
+            max-width: 1000px; /* Maximum width for large screens */
+            max-height: 80vh; /* Maximum height for large screens */
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+            border: 3px solid #FFD700; /* Dark gold neon border */
+            border-radius: 50px; /* Rounded border */
+            padding: 60px; /* Increased padding for better spacing */
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
+            color: #FFD700; /* Dark gold neon text color */
+            text-align: center; /* Center align text */
+            animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
+        }
 
-/* Fade In and Zoom Animation */
-@keyframes fadeInZoom {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1); /* End at full size */
-    }
-}
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1); /* End at full size */
+            }
+        }
 
-/* Media Query for Small Devices */
-@media only screen and (max-width: 600px) {
-    .modal-content {
-        width: 100%; /* Adjust width percentage for small screens */
-        height: 100%; /* Adjust height percentage for small screens */
-    }
-}
+        @media only screen and (max-width: 600px) {
+            .modal-content {
+                width: 100%; /* Adjust width percentage for small screens */
+                height: 100%; /* Adjust height percentage for small screens */
+            }
+        }
 
-/* Media Query for Medium Devices */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .modal-content {
-        width: 70%; /* Adjust width percentage for medium screens */
-        height: 70%; /* Adjust height percentage for medium screens */
-    }
-}
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            .modal-content {
+                width: 70%; /* Adjust width percentage for medium screens */
+                height: 70%; /* Adjust height percentage for medium screens */
+            }
+        }
 
-.modal-content:hover {
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
-}
+        .modal-content:hover {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+        }
 
-/* Header Styles */
-header {
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for header */
-    padding: 40px 0; /* Add more padding to the top and bottom */
-    text-align: center; /* Center align the content */
-    overflow: hidden; /* Hide overflow to prevent scroll */
-}
+        header {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for header */
+            padding: 40px 0; /* Add more padding to the top and bottom */
+            text-align: center; /* Center align the content */
+            overflow: hidden; /* Hide overflow to prevent scroll */
+        }
 
-header h1 {
-    font-size: 6.5em; /* Increase font size for header */
-    color: #FFD700; /* Dark gold neon text color */
-    animation: slideInDown 0.5s ease; /* Slide in from top animation */
-}
+        header h1 {
+            font-size: 6.5em; /* Increase font size for header */
+            color: #FFD700; /* Dark gold neon text color */
+            animation: slideInDown 0.5s ease; /* Slide in from top animation */
+        }
 
-/* Slide In Animation */
-@keyframes slideInDown {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
 
-header p {
-    font-size: 1.5em; /* Increase font size for paragraph */
-    color: #FFD700; /* Dark gold neon text color */
-}
+        header p {
+            font-size: 1.5em; /* Increase font size for paragraph */
+            color: #FFD700; /* Dark gold neon text color */
+        }
 
-/* Footer Styles */
-footer {
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for footer */
-    padding: 40px 0; /* Add more padding to the top and bottom */
-    text-align: center; /* Center align the content */
-}
+        footer {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for footer */
+            padding: 40px 0; /* Add more padding to the top and bottom */
+            text-align: center; /* Center align the content */
+        }
 
-footer p {
-    font-size: 1.3em; /* Increased font size for paragraph */
-    color: #FFD700; /* Dark gold neon text color */
-}
+        footer p {
+            font-size: 1.3em; /* Increased font size for paragraph */
+            color: #FFD700; /* Dark gold neon text color */
+        }
 
-/* Image container styles */
-.image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-y: hidden;
-    max-height: calc(100% - 100%); /* Adjust as needed */
-    padding: 20px;
-}
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-y: hidden;
+            max-height: calc(100% - 100%); /* Adjust as needed */
+            padding: 20px;
+        }
 
-.image-container img {
-    max-width: 50%;
-    height: auto;
-    cursor: pointer;
-    margin: 10px; /* Increased margin */
-    border: 3px solid #FFD700; /* Dark gold neon border */
-    border-radius: 50px; /* Rounded corners */
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); /* Intensified dark gold neon glow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+            cursor: pointer;
+            margin: 10px; /* Increased margin */
+            border: 3px solid #FFD700; /* Dark gold neon border */
+            border-radius: 50px; /* Rounded corners */
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); /* Intensified dark gold neon glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.image-container img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 0 60px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
-}
+        .image-container img:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
+        }
 
-.hidden {
-    display: none;
-}
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2em;
+            color: #FFD700;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
 
-.welcome-text {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #fff; /* White text color */
-    text-align: center;
-    margin: 20px auto; /* Center and add margin */
-    max-width: 800px; /* Limit width for better readability */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Dark gold neon glow text shadow */
-}
+        .close:hover {
+            color: #ff00ff; /* Magenta on hover */
+            transform: scale(1.2);
+        }
 
-/* Holographic Hover Effect */
-@keyframes holographicHover {
-    0%, 100% {
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
-    }
-    50% {
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2);
-    }
-}
+        .welcome-text {
+            font-size: 1.5em;
+            line-height: 1.8;
+            color: #ffffff; /* White text color */
+            text-align: center;
+            margin: 30px auto; /* Center and add margin */
+            max-width: 800px; /* Limit width for better readability */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Dark gold neon glow text shadow */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            border: 2px solid #FFD700; /* Dark gold neon border */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+        }
 
-h1:hover, h2:hover, h3:hover {
-    animation: holographicHover 1s infinite alternate;
-}
-
-/* Futuristic Neon Border Animation */
-.neon-border {
-    border: 2px solid;
-    border-image-slice: 1;
-    border-width: 4px;
-    border-image-source: linear-gradient(45deg, #FFD700, #ff00ff); /* Dark gold to magenta gradient */
-    animation: neonBorder 3s infinite;
-}
-
-@keyframes neonBorder {
-    0%, 100% {
-        border-image-source: linear-gradient(45deg, #FFD700, #ff00ff);
-    }
-    50% {
-        border-image-source: linear-gradient(45deg, #ff00ff, #FFD700);
-    }
-}
-
-.neon-text {
-    font-size: 1.5em;
-    color: #FFD700; /* Dark gold neon text color */
-    animation: neonGlow 1.5s infinite alternate;
-}
-
-@keyframes neonGlow {
-    0% {
-        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 80px #FFD700;
-    }
-    100% {
-        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff, 0 0 160px #ff00ff; /* Magenta glow */
-    }
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2em;
-    color: #FFD700;
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.close:hover {
-    color: #ff00ff; /* Magenta on hover */
-    transform: scale(1.2);
-}
-
-.welcome-text {
-    font-size: 1.5em;
-    line-height: 1.8;
-    color: #ffffff; /* White text color */
-    text-align: center;
-    margin: 30px auto; /* Center and add margin */
-    max-width: 800px; /* Limit width for better readability */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Dark gold neon glow text shadow */
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    border: 2px solid #FFD700; /* Dark gold neon border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.welcome-text:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
-}
+        .welcome-text:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
+        }
     </style>
 </head>
 
 <body>
+    <header>
+        <div class="image-container">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
+        </div>
 
-<header>
-    <div class="image-container">
-        <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
-    </div>
-
-    <div class="container">
-        <h1>&#120138&#120120&#120132&#120120&#8469</h1>
-        <p class="welcome-text">
-            Welcome to my website! I'm a tech enthusiast with a passion for coding and exploring new technologies. I love creating websites, software solutions, and games as a hobby. Through C0DZ1LLA Systems, I share my projects and creativity. Join me on this tech journey!
-        </p>
-            </div>
-    <div class="image-container">
-        <div class="button-container">
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/Google%20Form')">Google Contact</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="toggleModal('translateModal')">Translate Page</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="toggleModal('aboutModal')">About</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openModal('GithubModal')">Github Profile</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openModal('GameDevModal')">Game Development</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="toggleModal('contactModal')">Contact</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/KICK%20LIVE/')">LIVE Sessions</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/Code%20Editor/')">CODE EDITOR</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TEXTCONV/')">TextConv</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TAPEARN/')">Tap-Earn Game</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/ProContent/')">Content Composer</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">Note System</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project3')">Product//VAT</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/POLL SYSTEM')">Poll System</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">Compose Email</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">Monthly Schedule Management</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/Futuristic%20Fridge%20Management%20System/')">FRIDGE LOG</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Reusable Inventory Management System</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/Privacy%20Policy')">PRIVACY POLICY</button>
-            </div>
-            <div class="button-wrapper">
-                <button onclick="openURL('https://samanconnect.com/Terms%20of%20Use')">TERMS OF USE</button>
+        <div class="container">
+            <h1>&#120138&#120120&#120132&#120120&#8469</h1>
+            <p class="welcome-text">
+                Welcome to my website! I'm a tech enthusiast with a passion for coding and exploring new technologies. I love creating websites, software solutions, and games as a hobby. Through C0DZ1LLA Systems, I share my projects and creativity. Join me on this tech journey!
+            </p>
+        </div>
+        <div class="image-container">
+            <div class="button-container">
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://samanconnect.com/Google%20Form')">Google Contact</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="toggleModal('translateModal')">Translate Page</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="toggleModal('aboutModal')">About</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openModal('GithubModal')">Github Profile</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openModal('GameDevModal')">Game Development</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="toggleModal('contactModal')">Contact</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/ChronoPlanner/ChronoPlanner.html')">ChronoPlanner</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/CodeCraft/CodeCraft.html')">CodeCraft</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Coin Frenzy/Coin Frenzy.html')">Coin Frenzy</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futurify - Futuristic Content Composer/Futurify - Futuristic Content Composer.html')">Futurify</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futuristic Fridge Management System/Futuristic Fridge Management System.html')">Fridge Management</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futuristic Text Converter/Futuristic Text Converter.html')">Text Converter</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/ImageVault Pro/ImageVault Pro.html')">ImageVault Pro</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/LinkKeeper Pro/LinkKeeper Pro.html')">LinkKeeper Pro</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Live Streams Hub/Live Streams Hub.html')">Live Streams Hub</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/MailMaster Pro/MailMaster Pro.html')">MailMaster Pro</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/NoteMaster Pro/NoteMaster Pro.html')">NoteMaster Pro</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://samanconnect.com/Privacy%20Policy')">PRIVACY POLICY</button>
+                </div>
+                <div class="button-wrapper">
+                    <button onclick="openURL('https://samanconnect.com/Terms%20of%20Use')">TERMS OF USE</button>
+                </div>
             </div>
         </div>
+    </header>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div id="translateModal" class="modal-content">
+        <h2>Translate</h2>
+        <p>Translate this website into your preferred language.</p>
+        <div id="google_translate_element"></div>
+        <span class="close" onclick="closeModal('translateModal')"><i class="fas fa-times"></i></span>
     </div>
-    
-</header>
 
-<canvas id="matrixCanvas"></canvas>
-
-<div id="translateModal" class="modal-content hidden">
-    <h2>Translate</h2>
-    <p>Translate this website into your preferred language.</p>
-    <div class="language-selector"></div>
-    <div id="google_translate_element"></div>
-    <span class="close" onclick="closeModal('translateModal')"><i class="fas fa-times"></i></span>
-</div>
-
-<div id="contactModal" class="modal-content hidden">
-    <h2>Contact</h2>
-    <div class="button-container">
-        <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
-        <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
-        <button onclick="openPhoneApp('+35797906864')">WhatsApp</button>
+    <div id="contactModal" class="modal-content">
+        <h2>Contact</h2>
+        <div class="button-container">
+            <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
+            <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
+            <button onclick="openPhoneApp('+35797906864')">WhatsApp</button>
+        </div>
+        <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
     </div>
-    <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
-</div>
 
-<div id="aboutModal" class="modal-content hidden">
-    <h2>Saman's Tech Portfolio</h2>
-    <ul>
-        <li>Website Development: From concept to execution, I design and develop cutting-edge websites that captivate and engage users, tailored to meet your specific needs.</li>
-        <li>Software Engineering: As a skilled software engineer, I craft powerful applications that solve complex problems and streamline processes, utilizing the latest AI technologies.</li>
-        <li>Game Development: Immerse yourself in captivating gaming experiences crafted with passion and creativity, combining AI algorithms with innovative design concepts.</li>
-        <li>Tech Consulting: Need guidance on navigating the tech landscape? My consulting services provide personalized insights and strategies to help you succeed in your projects.</li>
-    </ul>
-    <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
-</div>
-
-<!-- Github modal -->
-<div id="GithubModal" class="modal-content hidden">
-    <h2>Github Profile</h2>
-    <p>I can do some cool stuff with various programming languages:</p>
-    <ul>
-        <li>Python: From crunching numbers to making awesome websites.</li>
-        <li>JavaScript: Creating interactive web wonders and browser enchantments.</li>
-        <li>Java: Creating Android apps or tackling enterprise projects.</li>
-        <!-- Add other languages here -->
-    </ul>
-    <div class="button-container">
-        <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Website</button>
+    <div id="aboutModal" class="modal-content">
+        <h2>Saman's Tech Portfolio</h2>
+        <ul>
+            <li>Website Development: From concept to execution, I design and develop cutting-edge websites that captivate and engage users, tailored to meet your specific needs.</li>
+            <li>Software Engineering: As a skilled software engineer, I craft powerful applications that solve complex problems and streamline processes, utilizing the latest AI technologies.</li>
+            <li>Game Development: Immerse yourself in captivating gaming experiences crafted with passion and creativity, combining AI algorithms with innovative design concepts.</li>
+            <li>Tech Consulting: Need guidance on navigating the tech landscape? My consulting services provide personalized insights and strategies to help you succeed in your projects.</li>
+        </ul>
+        <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
     </div>
-    <span class="close" onclick="closeModal('GithubModal')"><i class="fas fa-times"></i></span>
-</div>
 
-<!-- Game Development modal -->
-<div id="GameDevModal" class="modal-content hidden">
-    <h2>Game Development</h2>
-    <ul>
-        <li>3D Game Development:
-            <ul>
-                <li>Utilizing advanced tools like Unity or Unreal Engine to create immersive 3D environments.</li>
-                <li>Implementing realistic physics, lighting effects, and animations for lifelike experiences.</li>
-                <li>Developing complex game mechanics and AI systems to enhance gameplay.</li>
-                <li>Creating multiplayer experiences with network programming and server integration.</li>
-            </ul>
-        </li>
-        <li>2D Game Development:
-            <ul>
-                <li>Using frameworks Unity's 2D features to build engaging 2D games.</li>
-                <li>Designing captivating visual assets and animations to bring games to life.</li>
-                <li>Implementing intuitive user interfaces and responsive controls for seamless gameplay.</li>
-                <li>Optimizing performance and compatibility across various platforms and devices.</li>
-            </ul>
-        </li>
-    </ul>
-    <div class="button-container">
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA//3D WEB')">View Portfolio</button>
+    <!-- Github modal -->
+    <div id="GithubModal" class="modal-content">
+        <h2>Github Profile</h2>
+        <p>I can do some cool stuff with various programming languages:</p>
+        <ul>
+            <li>Python: From crunching numbers to making awesome websites.</li>
+            <li>JavaScript: Creating interactive web wonders and browser enchantments.</li>
+            <li>Java: Creating Android apps or tackling enterprise projects.</li>
+        </ul>
+        <div class="button-container">
+            <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Website</button>
+        </div>
+        <span class="close" onclick="closeModal('GithubModal')"><i class="fas fa-times"></i></span>
+    </div>
+
+    <!-- Game Development modal -->
+    <div id="GameDevModal" class="modal-content">
+        <h2>Game Development</h2>
+        <ul>
+            <li>3D Game Development:
+                <ul>
+                    <li>Utilizing advanced tools like Unity or Unreal Engine to create immersive 3D environments.</li>
+                    <li>Implementing realistic physics, lighting effects, and animations for lifelike experiences.</li>
+                    <li>Developing complex game mechanics and AI systems to enhance gameplay.</li>
+                    <li>Creating multiplayer experiences with network programming and server integration.</li>
+                </ul>
+            </li>
+            <li>2D Game Development:
+                <ul>
+                    <li>Using frameworks Unity's 2D features to build engaging 2D games.</li>
+                    <li>Designing captivating visual assets and animations to bring games to life.</li>
+                    <li>Implementing intuitive user interfaces and responsive controls for seamless gameplay.</li>
+                    <li>Optimizing performance and compatibility across various platforms and devices.</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="button-container">
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA//3D WEB')">View Portfolio</button>
+        </div>
         <span class="close" onclick="closeModal('GameDevModal')"><i class="fas fa-times"></i></span>
     </div>
-</div>
 
-<!-- Recent Projects modal -->
-<div id="ProjectsModal" class="modal-content hidden">
-    <h1>Projects</h1>
-    <div class="button-container">
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/TAPEARN/')">Tap-Earn Game</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/ProContent/')">Content Composer</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project1')">Note System</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/project3')">Product//VAT</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/POLL SYSTEM')">Poll System</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/EMAIL COMPOSER')">Compose Email</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/WORK')">Monthly Schedule Management</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PROJECTS/Futuristic%20Fridge%20Management%20System/')">FRIDGE LOG</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/Laser%20by%20Yas/2design/')">Project 3</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/PINEVIEWHOTEL/1')">Project 4</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CUSTOMEMADESYSTEM')">Project 5</button>
-        <button onclick="openURL('https://samanconnect.com/C0DZ1LLA/CHARIDIOVENUE')">Project 6</button>
-    </div>
-    <span class="close" onclick="closeModal('ProjectsModal')"><i class="fas fa-times"></i></span>
-</div>
+    <footer>
+        <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
+    </footer>
 
-<footer>
-    <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
 
-<script>
-    // Function to open modal
-    function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.style.display = "flex";
-        modal.children[0].classList.add("fadeIn");
-        modal.children[0].classList.remove("fadeOut");
-        currentModal = modal;
-    }
-
-    function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.style.display = "none";
-        
-        // Check if the closed modal is the translate modal
-        if (modalId === "translateModal") {
-            // Get the Google Translate element
-            const translateElement = document.getElementById("google_translate_element");
-            
-            // Remove the Google Translate element from the DOM
-            translateElement.remove();
-            
-            // Create a new Google Translate script element
-            const googleTranslateScript = document.createElement('script');
-            googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            googleTranslateScript.type = 'text/javascript';
-            
-            // Append the new script element to the head
-            document.getElementsByTagName('head')[0].appendChild(googleTranslateScript);
-        }
-    }
-
-    // Close modal on outside click, excluding clicks inside the modal content
-    window.addEventListener("click", (event) => {
-        if (
-            event.target.classList.contains('modal-content') &&
-            !event.target.closest('.modal-content').contains(event.target)
-        ) {
-            closeModal(event.target.id);
-        }
-    });
-
-    let currentModal = null;
-    // Function to toggle modal display
-    const toggleModal = (id) => {
-        const modal = document.getElementById(id);
-        if (currentModal !== null && currentModal !== modal) {
-            currentModal.style.display = "none";
-            currentModal.children[0].classList.remove("fadeIn");
-            currentModal.children[0].classList.add("fadeOut");
-        }
-        modal.style.display = modal.style.display === "flex" ? "none" : "flex";
-        modal.children[0].classList.toggle("fadeIn");
-        modal.children[0].classList.toggle("fadeOut");
-        currentModal = modal.style.display === "flex" ? modal : null;
-    }
-
-    // Function to open email app
-    function openEmailApp(email) {
-        window.location.href = "mailto:" + email;
-    }
-
-    // Function to open phone app
-    function openPhoneApp(phone) {
-        window.location.href = "tel:" + phone;
-    }
-
-    // Function to translate page
-    function translatePage() {
-        // Get the selected language from the dropdown or any other UI element
-        var selectedLanguage = document.getElementById('languageSelect').value;
-
-        // Call the Google Translate API to translate the page
-        new google.translate.TranslateElement({
-            pageLanguage: 'en', // Set the default page language
-            includedLanguages: selectedLanguage // Set the selected language for translation
-        }, 'google_translate_element');
-    }
-
-    // Load Google Translate script when the page loads
-    window.onload = function () {
-        loadGoogleTranslateScript();
-        fetchSupportedLanguages(function (languages) {
-            var languageSelect = document.getElementById('languageSelect');
-            languages.forEach(function (lang) {
-                var option = document.createElement('option');
-                option.value = lang.code;
-                option.textContent = lang.name;
-                languageSelect.appendChild(option);
-            });
-        });
-    };
-
-    // Callback function for Google Translate
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,es,fr,de,ja,ko,zh-CN,ar,hi,pt,ru,el,fa,iw,tr'
-        }, 'google_translate_element');
-    }
-
-    // Close modal on outside click
-    window.addEventListener("click", (event) => {
-        if (event.target.classList.contains('modal-content')) {
-            toggleModal(currentModal.id);
-        }
-    });
-
-    // Function to generate a random character
-    function generateRandomCharacter() {
-        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        return characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-
-    // Function to generate a random color
-    function generateRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
-
-    // Matrix rain animation with 3D effect
-    function matrixRain() {
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-
-        // Set canvas dimensions
-        function setCanvasDimensions() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "flex";
+            modal.children[0].classList.add("fadeIn");
+            modal.children[0].classList.remove("fadeOut");
+            currentModal = modal;
         }
 
-        setCanvasDimensions();
-
-        // Number of columns
-        let columns = Math.floor(canvas.width / 20);
-
-        // Initialize an array to store the y-coordinate of each character
-        let drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = {
-                y: Math.floor(Math.random() * canvas.height),
-                speed: Math.random() * 3 + 1, // Randomize falling speed
-                size: Math.random() * 10 + 10 // Randomize character size
-            };
-        }
-
-        // Animation loop
-        function draw() {
-            // Draw semi-transparent rectangles to create trails
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Set font properties
-            ctx.textAlign = 'center';
-
-            // Loop through each column
-            for (let i = 0; i < drops.length; i++) {
-                // Randomly change the character
-                const character = generateRandomCharacter();
-
-                // Randomly change the color
-                const color = generateRandomColor();
-
-                // Calculate character size based on depth
-                const depth = drops[i].y / canvas.height;
-                const fontSize = (depth * 20) + 10; // Adjust the multiplier to control the size change
-
-                // Draw the character
-                ctx.font = `italic bold ${fontSize}px "Consolas", monospace`;
-                ctx.fillStyle = color;
-                ctx.fillText(character, i * 20, drops[i].y);
-
-                // Move the character down
-                drops[i].y += drops[i].speed;
-
-                // Reset drop if it reaches bottom
-                if (drops[i].y > canvas.height && Math.random() > 0.95) {
-                    drops[i].y = 0;
-                }
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+            if (modalId === "translateModal") {
+                const translateElement = document.getElementById("google_translate_element");
+                translateElement.innerHTML = ''; // Clear previous Google Translate widget content
             }
         }
 
-        // Resize canvas when window is resized
-        window.addEventListener('resize', function () {
+        window.addEventListener("click", (event) => {
+            if (
+                event.target.classList.contains('modal-content') &&
+                !event.target.closest('.modal-content').contains(event.target)
+            ) {
+                closeModal(event.target.id);
+            }
+        });
+
+        let currentModal = null;
+
+        const toggleModal = (id) => {
+            const modal = document.getElementById(id);
+            if (currentModal !== null && currentModal !== modal) {
+                currentModal.style.display = "none";
+                currentModal.children[0].classList.remove("fadeIn");
+                currentModal.children[0].classList.add("fadeOut");
+            }
+            modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+            modal.children[0].classList.toggle("fadeIn");
+            modal.children[0].classList.toggle("fadeOut");
+            currentModal = modal.style.display === "flex" ? modal : null;
+
+            if (id === 'translateModal') {
+                loadGoogleTranslate();
+            }
+        }
+
+        function openEmailApp(email) {
+            window.location.href = "mailto:" + email;
+        }
+
+        function openPhoneApp(phone) {
+            window.location.href = "tel:" + phone;
+        }
+
+        function matrixRain() {
+            const canvas = document.getElementById('matrixCanvas');
+            const ctx = canvas.getContext('2d');
+
+            function setCanvasDimensions() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
             setCanvasDimensions();
-            columns = Math.floor(canvas.width / 20);
-            drops = [];
+
+            let columns = Math.floor(canvas.width / 20);
+            let drops = [];
             for (let i = 0; i < columns; i++) {
                 drops[i] = {
                     y: Math.floor(Math.random() * canvas.height),
@@ -754,23 +533,81 @@ h1:hover, h2:hover, h3:hover {
                     size: Math.random() * 10 + 10
                 };
             }
-        });
 
-        // Animation loop
-        setInterval(draw, 50);
-    }
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Start the matrix rain animation when the page loads
-    window.onload = function () {
-        matrixRain();
-    };
+                ctx.textAlign = 'center';
+                for (let i = 0; i < drops.length; i++) {
+                    const character = generateRandomCharacter();
+                    const color = generateRandomColor();
+                    const depth = drops[i].y / canvas.height;
+                    const fontSize = (depth * 20) + 10;
+                    ctx.font = `italic bold ${fontSize}px "Consolas", monospace`;
+                    ctx.fillStyle = color;
+                    ctx.fillText(character, i * 20, drops[i].y);
+                    drops[i].y += drops[i].speed;
+                    if (drops[i].y > canvas.height && Math.random() > 0.95) {
+                        drops[i].y = 0;
+                    }
+                }
+            }
 
-    function openURL(url) {
-        window.open(url, '_blank');
-    }
-</script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+            window.addEventListener('resize', function () {
+                setCanvasDimensions();
+                columns = Math.floor(canvas.width / 20);
+                drops = [];
+                for (let i = 0; i < columns; i++) {
+                    drops[i] = {
+                        y: Math.floor(Math.random() * canvas.height),
+                        speed: Math.random() * 3 + 1,
+                        size: Math.random() * 10 + 10
+                    };
+                }
+            });
 
+            setInterval(draw, 50);
+        }
+
+        window.onload = function () {
+            matrixRain();
+        };
+
+        function openURL(url) {
+            window.open(url, '_blank');
+        }
+
+        function generateRandomCharacter() {
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            return characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+
+        function generateRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function loadGoogleTranslate() {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            document.body.appendChild(script);
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'af,sq,am,ar,hy,az,eu,be,bn,bg,ca,ceb,zh-CN,zh-TW,co,hr,cs,da,nl,en,eo,et,fi,fr,fy,gl,ka,de,el,gu,ht,ha,haw,he,hi,hmn,hu,is,ig,id,ga,it,ja,jv,kn,kk,km,rw,ko,ku,ky,lo,la,lv,lt,lb,mk,mg,ms,ml,mt,mi,mr,mn,my,ne,no,ny,or,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,si,sk,sl,so,es,su,sw,sv,tg,ta,tt,te,th,tr,tur,uk,ur,uz,vi,cy,xh,yi,yo,zu',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
