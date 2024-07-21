@@ -1,0 +1,21 @@
+{
+  "name": "C0DZ1LLA Systems",
+  "short_name": "C0DZ1LLA",
+  "description": "A hub of innovative technology solutions.",
+  "icons": [
+    {
+      "src": "img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FFD700"
+}
