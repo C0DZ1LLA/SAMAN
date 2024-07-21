@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to C0DZ1LLA Systems, a hub of innovative technology solutions. Explore our website for cutting-edge web development, software engineering, game development, and tech consulting services. Our team of experts is dedicated to pushing the boundaries of technology to deliver exceptional results for our clients.">
     <meta name="keywords" content="C0DZ1LLA Systems, technology solutions, web development, software engineering, game development, tech consulting, innovation, expertise, cutting-edge, AI, artificial intelligence">
     <meta name="author" content="Saman Abotaleby">
-    <!-- Favicon and Touch Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
@@ -19,18 +17,15 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
-
     <title>C0DZ1LLA Made by SAMAN</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JGE32M12GV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JGE32M12GV');
-</script>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGE32M12GV"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
+    <script src="js/scripts.js" defer></script>
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -44,272 +39,12 @@
           ]
         }
     </script>
-    <style>
-        /* Universal Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Roboto", sans-serif;
-            background: radial-gradient(circle at center, #1a1a1a, #0d0d0d, #000000);
-            color: #FFD700; /* Dark gold neon text color */
-            overflow-x: hidden; /* Hide horizontal overflow */
-        }
-
-        /* Create holographic matrix rain effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('img/matrix-rain.gif') repeat;
-            opacity: 0.05;
-            z-index: -1;
-        }
-
-        /* Apply matrix rain effect to canvas background */
-        #matrixCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%; /* Full width of the viewport */
-            height: 100%; /* Full height of the viewport */
-            z-index: -1;
-        }
-
-        /* Ensure canvas is behind other content */
-        .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        h1, h2, h3 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            font-weight: bold; /* Bold font weight */
-            text-transform: uppercase; /* Uppercase text */
-            text-align: center; /* Center align text */
-            letter-spacing: 3px; /* Increased letter spacing */
-            text-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
-        }
-
-        p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            line-height: 1.6; /* Increased line height */
-            text-shadow: 0 0 10px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
-        }
-
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            max-width: 100%;
-            padding: 20px;
-        }
-
-        .button-wrapper {
-            width: 300px; /* Adjust width as needed */
-            text-align: center;
-            margin: 10px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 2px solid #FFD700; /* Dark gold neon border */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .button-wrapper:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Intensified dark gold neon glow on hover */
-        }
-
-        button {
-            padding: 1em 2em;
-            font-size: 1.2em;
-            background-color: transparent; /* Transparent button background */
-            border: 2px solid #FFD700; /* Dark gold neon border */
-            color: #FFD700; /* Dark gold neon text color */
-            border-radius: 50px; /* Round border for futuristic look */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none;
-            font-family: 'Roboto', sans-serif;
-            text-transform: uppercase; /* Uppercase text */
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); /* Neon glow */
-            width: 100%; /* Make button take full width of the wrapper */
-        }
-
-        button:hover {
-            background-color: #FFD700; /* Dark gold neon on hover */
-            color: #000; /* Black text on hover */
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.7); /* Intensified dark gold neon glow on hover */
-        }
-
-        .modal-content {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
-            z-index: 1000;
-            width: 80%; /* Adjust width as needed */
-            max-width: 1000px; /* Maximum width for large screens */
-            max-height: 80vh; /* Maximum height for large screens */
-            overflow-y: auto;
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
-            border: 3px solid #FFD700; /* Dark gold neon border */
-            border-radius: 50px; /* Rounded border */
-            padding: 60px; /* Increased padding for better spacing */
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
-            color: #FFD700; /* Dark gold neon text color */
-            text-align: center; /* Center align text */
-            animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
-        }
-
-        @keyframes fadeInZoom {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
-            }
-            100% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1); /* End at full size */
-            }
-        }
-
-        @media only screen and (max-width: 600px) {
-            .modal-content {
-                width: 100%; /* Adjust width percentage for small screens */
-                height: 100%; /* Adjust height percentage for small screens */
-            }
-        }
-
-        @media only screen and (min-width: 601px) and (max-width: 1024px) {
-            .modal-content {
-                width: 70%; /* Adjust width percentage for medium screens */
-                height: 70%; /* Adjust height percentage for medium screens */
-            }
-        }
-
-        .modal-content:hover {
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
-        }
-
-        header {
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for header */
-            padding: 40px 0; /* Add more padding to the top and bottom */
-            text-align: center; /* Center align the content */
-            overflow: hidden; /* Hide overflow to prevent scroll */
-        }
-
-        header h1 {
-            font-size: 6.5em; /* Increase font size for header */
-            color: #FFD700; /* Dark gold neon text color */
-            animation: slideInDown 0.5s ease; /* Slide in from top animation */
-        }
-
-        @keyframes slideInDown {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        header p {
-            font-size: 1.5em; /* Increase font size for paragraph */
-            color: #FFD700; /* Dark gold neon text color */
-        }
-
-        footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for footer */
-            padding: 40px 0; /* Add more padding to the top and bottom */
-            text-align: center; /* Center align the content */
-        }
-
-        footer p {
-            font-size: 1.3em; /* Increased font size for paragraph */
-            color: #FFD700; /* Dark gold neon text color */
-        }
-
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            overflow-y: hidden;
-            max-height: calc(100% - 100%); /* Adjust as needed */
-            padding: 20px;
-        }
-
-        .image-container img {
-            max-width: 50%;
-            height: auto;
-            cursor: pointer;
-            margin: 10px; /* Increased margin */
-            border: 3px solid #FFD700; /* Dark gold neon border */
-            border-radius: 50px; /* Rounded corners */
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); /* Intensified dark gold neon glow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .image-container img:hover {
-            transform: scale(1.05); /* Slight zoom on hover */
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 2em;
-            color: #FFD700;
-            cursor: pointer;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .close:hover {
-            color: #ff00ff; /* Magenta on hover */
-            transform: scale(1.2);
-        }
-
-        .welcome-text {
-            font-size: 1.5em;
-            line-height: 1.8;
-            color: #ffffff; /* White text color */
-            text-align: center;
-            margin: 30px auto; /* Center and add margin */
-            max-width: 800px; /* Limit width for better readability */
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Dark gold neon glow text shadow */
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            border: 2px solid #FFD700; /* Dark gold neon border */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-        }
-
-        .welcome-text:hover {
-            transform: scale(1.05); /* Slight zoom on hover */
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
-        }
-    </style>
 </head>
-
 <body>
     <header>
         <div class="image-container">
             <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
         </div>
-
         <div class="container">
             <h1>&#120138&#120120&#120132&#120120&#8469</h1>
             <p class="welcome-text">
@@ -409,7 +144,6 @@
         <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
     </div>
 
-    <!-- Github modal -->
     <div id="GithubModal" class="modal-content">
         <h2>Github Profile</h2>
         <p>I can do some cool stuff with various programming languages:</p>
@@ -424,7 +158,6 @@
         <span class="close" onclick="closeModal('GithubModal')"><i class="fas fa-times"></i></span>
     </div>
 
-    <!-- Game Development modal -->
     <div id="GameDevModal" class="modal-content">
         <h2>Game Development</h2>
         <ul>
@@ -450,164 +183,11 @@
         </div>
         <span class="close" onclick="closeModal('GameDevModal')"><i class="fas fa-times"></i></span>
     </div>
-
-    <footer>
-        <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
-
-    <script>
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = "flex";
-            modal.children[0].classList.add("fadeIn");
-            modal.children[0].classList.remove("fadeOut");
-            currentModal = modal;
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.style.display = "none";
-            if (modalId === "translateModal") {
-                const translateElement = document.getElementById("google_translate_element");
-                translateElement.innerHTML = ''; // Clear previous Google Translate widget content
-            }
-        }
-
-        window.addEventListener("click", (event) => {
-            if (
-                event.target.classList.contains('modal-content') &&
-                !event.target.closest('.modal-content').contains(event.target)
-            ) {
-                closeModal(event.target.id);
-            }
-        });
-
-        let currentModal = null;
-
-        const toggleModal = (id) => {
-            const modal = document.getElementById(id);
-            if (currentModal !== null && currentModal !== modal) {
-                currentModal.style.display = "none";
-                currentModal.children[0].classList.remove("fadeIn");
-                currentModal.children[0].classList.add("fadeOut");
-            }
-            modal.style.display = modal.style.display === "flex" ? "none" : "flex";
-            modal.children[0].classList.toggle("fadeIn");
-            modal.children[0].classList.toggle("fadeOut");
-            currentModal = modal.style.display === "flex" ? modal : null;
-
-            if (id === 'translateModal') {
-                loadGoogleTranslate();
-            }
-        }
-
-        function openEmailApp(email) {
-            window.location.href = "mailto:" + email;
-        }
-
-        function openPhoneApp(phone) {
-            window.location.href = "tel:" + phone;
-        }
-
-        function matrixRain() {
-            const canvas = document.getElementById('matrixCanvas');
-            const ctx = canvas.getContext('2d');
-
-            function setCanvasDimensions() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-
-            setCanvasDimensions();
-
-            let columns = Math.floor(canvas.width / 20);
-            let drops = [];
-            for (let i = 0; i < columns; i++) {
-                drops[i] = {
-                    y: Math.floor(Math.random() * canvas.height),
-                    speed: Math.random() * 3 + 1,
-                    size: Math.random() * 10 + 10
-                };
-            }
-
-            function draw() {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                ctx.textAlign = 'center';
-                for (let i = 0; i < drops.length; i++) {
-                    const character = generateRandomCharacter();
-                    const color = generateRandomColor();
-                    const depth = drops[i].y / canvas.height;
-                    const fontSize = (depth * 20) + 10;
-                    ctx.font = `italic bold ${fontSize}px "Consolas", monospace`;
-                    ctx.fillStyle = color;
-                    ctx.fillText(character, i * 20, drops[i].y);
-                    drops[i].y += drops[i].speed;
-                    if (drops[i].y > canvas.height && Math.random() > 0.95) {
-                        drops[i].y = 0;
-                    }
-                }
-            }
-
-            window.addEventListener('resize', function () {
-                setCanvasDimensions();
-                columns = Math.floor(canvas.width / 20);
-                drops = [];
-                for (let i = 0; i < columns; i++) {
-                    drops[i] = {
-                        y: Math.floor(Math.random() * canvas.height),
-                        speed: Math.random() * 3 + 1,
-                        size: Math.random() * 10 + 10
-                    };
-                }
-            });
-
-            setInterval(draw, 50);
-        }
-
-        window.onload = function () {
-            matrixRain();
-        };
-
-        function openURL(url) {
-            window.open(url, '_blank');
-        }
-
-        function generateRandomCharacter() {
-            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            return characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-
-        function generateRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        function loadGoogleTranslate() {
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            document.body.appendChild(script);
-        }
-
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'af,sq,am,ar,hy,az,eu,be,bn,bg,ca,ceb,zh-CN,zh-TW,co,hr,cs,da,nl,en,eo,et,fi,fr,fy,gl,ka,de,el,gu,ht,ha,haw,he,hi,hmn,hu,is,ig,id,ga,it,ja,jv,kn,kk,km,rw,ko,ku,ky,lo,la,lv,lt,lb,mk,mg,ms,ml,mt,mi,mr,mn,my,ne,no,ny,or,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,si,sk,sl,so,es,su,sw,sv,tg,ta,tt,te,th,tr,tur,uk,ur,uz,vi,cy,xh,yi,yo,zu',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <footer>
+        <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
+    </footer>
 </body>
-
 </html>
