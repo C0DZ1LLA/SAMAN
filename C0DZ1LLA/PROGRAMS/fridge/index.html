@@ -8,8 +8,8 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #1a1a1a;
-            color: #ffffff;
+            background-color: #f0f2f5;
+            color: #1c1e21;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,15 +22,15 @@
             max-width: 1000px;
             width: 100%;
             padding: 20px;
-            background-color: #2a2a2a;
+            background-color: #ffffff;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: auto;
             max-height: 100%;
         }
         h1 {
             text-align: center;
-            color: #00aaff;
+            color: #1877f2;
             font-weight: 700;
         }
         form {
@@ -42,10 +42,10 @@
         input[type="text"], input[type="number"] {
             width: 100%;
             padding: 15px;
-            border: none;
+            border: 1px solid #ccd0d5;
             border-radius: 10px;
-            background-color: #333;
-            color: #ffffff;
+            background-color: #f0f2f5;
+            color: #1c1e21;
             font-size: 1em;
         }
         .temp-field {
@@ -57,7 +57,7 @@
             flex: 1;
         }
         .temp-field button {
-            background-color: #ff5c5c;
+            background-color: #e53935;
             border: none;
             border-radius: 10px;
             color: #ffffff;
@@ -66,20 +66,20 @@
             font-size: 1em;
         }
         .temp-field button:hover {
-            background-color: #ff1c1c;
+            background-color: #d32f2f;
         }
         button {
             padding: 15px;
             border: none;
             border-radius: 10px;
-            background-color: #00aaff;
+            background-color: #1877f2;
             color: #ffffff;
             font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #008ecc;
+            background-color: #1565c0;
         }
         table {
             width: 100%;
@@ -88,15 +88,15 @@
         }
         th, td {
             padding: 15px;
-            border: 1px solid #444;
+            border: 1px solid #ccd0d5;
             text-align: center;
         }
         th {
-            background-color: #333;
-            color: #00aaff;
+            background-color: #f0f2f5;
+            color: #1c1e21;
         }
         td {
-            background-color: #2a2a2a;
+            background-color: #ffffff;
         }
         .edit-btn, .delete-btn {
             cursor: pointer;
@@ -108,16 +108,16 @@
             transition: background-color 0.3s ease;
         }
         .edit-btn {
-            background-color: #4CAF50;
+            background-color: #4caf50;
         }
         .edit-btn:hover {
-            background-color: #45a049;
+            background-color: #388e3c;
         }
         .delete-btn {
-            background-color: #f44336;
+            background-color: #e53935;
         }
         .delete-btn:hover {
-            background-color: #e41e1e;
+            background-color: #d32f2f;
         }
         @media (max-width: 600px) {
             body {
@@ -139,11 +139,19 @@
             }
         }
     </style>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
 <div class="container">
     <h1>Information Manager</h1>
+
+    <div id="google_translate_element"></div>
 
     <form id="infoForm">
         <input type="hidden" id="index" value="">
