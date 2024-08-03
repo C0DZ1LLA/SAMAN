@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to C0DZ1LLA Systems, a hub of innovative technology solutions. Explore our website for cutting-edge web development, software engineering, game development, and tech consulting services. Our team of experts is dedicated to pushing the boundaries of technology to deliver exceptional results for our clients.">
+    <meta name="keywords" content="C0DZ1LLA Systems, technology solutions, web development, software engineering, game development, tech consulting, innovation, expertise, cutting-edge, AI, artificial intelligence">
+    <meta name="author" content="Saman Abotaleby">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
+    <title>C0DZ1LLA Made by SAMAN</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            max-height: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #1877f2;
+            font-weight: 700;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="time"], input[type="date"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccd0d5;
+            border-radius: 10px;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            font-size: 1em;
+        }
+        .schedule-field {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .schedule-field input {
+            flex: 1;
+        }
+        .schedule-field button {
+            background-color: #e53935;
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 1em;
+        }
+        .schedule-field button:hover {
+            background-color: #d32f2f;
+        }
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #1877f2;
+            color: #ffffff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1565c0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ccd0d5;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f2f5;
+            color: #1c1e21;
+        }
+        td {
+            background-color: #ffffff;
+        }
+        .edit-btn, .delete-btn {
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+        .edit-btn {
+            background-color: #4caf50;
+        }
+        .edit-btn:hover {
+            background-color: #388e3c;
+        }
+        .delete-btn {
+            background-color: #e53935;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+            input[type="text"], input[type="time"], button {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+            th, td {
+                padding: 10px;
+            }
+            .edit-btn, .delete-btn {
+                padding: 5px 10px;
+                margin: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Employee Schedule Manager</h1>
+
+    <form id="employeeForm">
+        <input type="hidden" id="index" value="">
+        <input type="text" id="name" placeholder="Employee Name" required>
+        <div id="scheduleFields">
+            <div class="schedule-field">
+                <input type="date" id="singleDayDate" placeholder="Date" required>
+                <input type="time" id="singleDayStartTime" placeholder="Start Time" required>
+                <input type="time" id="singleDayEndTime" placeholder="End Time" required>
+            </div>
+        </div>
+        <button type="button" onclick="addWeekSchedule()">Add Whole Week</button>
+        <button type="button" onclick="addMonthSchedule()">Add Whole Month</button>
+        <button type="submit">Add/Update Employee</button>
+    </form>
+
+    <button id="downloadCSV">Download CSV</button>
+    <button id="downloadJSON">Download JSON</button>
+
+    <table>
+        <thead id="tableHead">
+            <tr>
+                <th>Employee Name</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const employeeForm = document.getElementById('employeeForm');
+        const employeeTableBody = document.getElementById('employeeTableBody');
+        const downloadCSV = document.getElementById('downloadCSV');
+        const downloadJSON = document.getElementById('downloadJSON');
+        const tableHead = document.getElementById('tableHead');
+
+        // Load data from local storage
+        let employeeList = JSON.parse(localStorage.getItem('employeeList')) || [];
+
+        function updateTableHeaders() {
+            let headers = '<tr><th>Employee Name</th><th>Date</th><th>Start Time</th><th>End Time</th><th>Actions</th></tr>';
+            tableHead.innerHTML = headers;
+        }
+
+        function renderTable() {
+            updateTableHeaders();
+            employeeTableBody.innerHTML = '';
+            employeeList.forEach((employee, index) => {
+                if (employee.schedule) {
+                    employee.schedule.forEach(schedule => {
+                        let row = `<tr><td>${employee.name}</td><td>${schedule.date}</td><td>${schedule.startTime}</td><td>${schedule.endTime}</td>
+                                   <td>
+                                       <button class="edit-btn" onclick="editEmployee(${index})">Edit</button>
+                                       <button class="delete-btn" onclick="deleteEmployee(${index})">Delete</button>
+                                   </td></tr>`;
+                        employeeTableBody.innerHTML += row;
+                    });
+                }
+            });
+        }
+
+        function resetForm() {
+            document.getElementById('index').value = '';
+            document.getElementById('name').value = '';
+            const scheduleFields = document.getElementById('scheduleFields');
+            scheduleFields.innerHTML = '';
+            addInitialScheduleField();
+        }
+
+        function addInitialScheduleField() {
+            const scheduleFields = document.getElementById('scheduleFields');
+            const div = document.createElement('div');
+            div.className = 'schedule-field';
+            div.innerHTML = `
+                <input type="date" id="singleDayDate" placeholder="Date" required>
+                <input type="time" id="singleDayStartTime" placeholder="Start Time" required>
+                <input type="time" id="singleDayEndTime" placeholder="End Time" required>
+            `;
+            scheduleFields.appendChild(div);
+        }
+
+        function addSingleDay() {
+            const singleDayDate = document.getElementById('singleDayDate').value;
+            const singleDayStartTime = document.getElementById('singleDayStartTime').value;
+            const singleDayEndTime = document.getElementById('singleDayEndTime').value;
+
+            if (singleDayDate && singleDayStartTime && singleDayEndTime) {
+                addScheduleField(singleDayDate, singleDayStartTime, singleDayEndTime);
+            } else {
+                alert('Please fill in the single day schedule first.');
+            }
+        }
+
+        function addScheduleField(date = '', startTime = '', endTime = '') {
+            const scheduleFields = document.getElementById('scheduleFields');
+            const div = document.createElement('div');
+            div.className = 'schedule-field';
+            div.innerHTML = `
+                <input type="date" value="${date}" placeholder="Date" required>
+                <input type="time" value="${startTime}" placeholder="Start Time" required>
+                <input type="time" value="${endTime}" placeholder="End Time" required>
+                <button type="button" onclick="removeScheduleField(this)">Remove</button>
+            `;
+            scheduleFields.appendChild(div);
+        }
+
+        function addWeekSchedule() {
+            const singleDayDate = document.getElementById('singleDayDate').value;
+            const singleDayStartTime = document.getElementById('singleDayStartTime').value;
+            const singleDayEndTime = document.getElementById('singleDayEndTime').value;
+
+            if (singleDayDate && singleDayStartTime && singleDayEndTime) {
+                const date = new Date(singleDayDate);
+                for (let i = 1; i <= 7; i++) { // Start from the day after the selected day
+                    const day = new Date(date);
+                    day.setDate(date.getDate() + i);
+                    addScheduleField(day.toISOString().split('T')[0], singleDayStartTime, singleDayEndTime);
+                }
+            } else {
+                alert('Please fill in the single day schedule first.');
+            }
+        }
+
+        function addMonthSchedule() {
+            const singleDayDate = document.getElementById('singleDayDate').value;
+            const singleDayStartTime = document.getElementById('singleDayStartTime').value;
+            const singleDayEndTime = document.getElementById('singleDayEndTime').value;
+
+            if (singleDayDate && singleDayStartTime && singleDayEndTime) {
+                const date = new Date(singleDayDate);
+                const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1); // Start from the day after the selected day
+                const endOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                for (let d = startOfMonth; d <= endOfMonth; d.setDate(d.getDate() + 1)) {
+                    addScheduleField(d.toISOString().split('T')[0], singleDayStartTime, singleDayEndTime);
+                }
+            } else {
+                alert('Please fill in the single day schedule first.');
+            }
+        }
+
+        function removeScheduleField(button) {
+            const scheduleField = button.parentElement;
+            scheduleField.parentElement.removeChild(scheduleField);
+        }
+
+        employeeForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const index = document.getElementById('index').value;
+            const name = document.getElementById('name').value;
+            const scheduleFields = Array.from(document.querySelectorAll('#scheduleFields .schedule-field'));
+            const schedule = scheduleFields.map(field => {
+                const date = field.querySelector('input[type="date"]').value;
+                const startTime = field.querySelector('input[type="time"]').value;
+                const endTime = field.querySelector('input[type="time"]').value;
+                return { date, startTime, endTime };
+            });
+
+            if (index) {
+                employeeList[index] = { name, schedule };
+            } else {
+                employeeList.push({ name, schedule });
+            }
+
+            localStorage.setItem('employeeList', JSON.stringify(employeeList));
+            renderTable();
+            resetForm();
+        });
+
+        window.editEmployee = function (index) {
+            const employee = employeeList[index];
+            document.getElementById('index').value = index;
+            document.getElementById('name').value = employee.name;
+            const scheduleFields = document.getElementById('scheduleFields');
+            scheduleFields.innerHTML = '';
+            employee.schedule.forEach(schedule => {
+                addScheduleField(schedule.date, schedule.startTime, schedule.endTime);
+            });
+        }
+
+        window.deleteEmployee = function (index) {
+            employeeList.splice(index, 1);
+            localStorage.setItem('employeeList', JSON.stringify(employeeList));
+            renderTable();
+        }
+
+        function downloadData(format) {
+            let dataStr = '';
+            if (format === 'csv') {
+                dataStr = 'Employee Name,Date,Start Time,End Time\n';
+                employeeList.forEach(employee => {
+                    if (employee.schedule) {
+                        employee.schedule.forEach(schedule => {
+                            dataStr += `${employee.name},${schedule.date},${schedule.startTime},${schedule.endTime}\n`;
+                        });
+                    }
+                });
+            } else if (format === 'json') {
+                dataStr = JSON.stringify(employeeList, null, 2);
+            }
+
+            const blob = new Blob([dataStr], { type: format === 'csv' ? 'text/csv' : 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `employee_schedule.${format}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        downloadCSV.addEventListener('click', () => downloadData('csv'));
+        downloadJSON.addEventListener('click', () => downloadData('json'));
+
+        renderTable();
+    });
+
+    function addScheduleField(date = '', startTime = '', endTime = '') {
+        const scheduleFields = document.getElementById('scheduleFields');
+        const div = document.createElement('div');
+        div.className = 'schedule-field';
+        div.innerHTML = `
+            <input type="date" value="${date}" placeholder="Date" required>
+            <input type="time" value="${startTime}" placeholder="Start Time" required>
+            <input type="time" value="${endTime}" placeholder="End Time" required>
+            <button type="button" onclick="removeScheduleField(this)">Remove</button>
+        `;
+        scheduleFields.appendChild(div);
+    }
+
+    function addWeekSchedule() {
+        const singleDayDate = document.getElementById('singleDayDate').value;
+        const singleDayStartTime = document.getElementById('singleDayStartTime').value;
+        const singleDayEndTime = document.getElementById('singleDayEndTime').value;
+
+        if (singleDayDate && singleDayStartTime && singleDayEndTime) {
+            const date = new Date(singleDayDate);
+            for (let i = 1; i <= 7; i++) { // Start from the day after the selected day
+                const day = new Date(date);
+                day.setDate(date.getDate() + i);
+                addScheduleField(day.toISOString().split('T')[0], singleDayStartTime, singleDayEndTime);
+            }
+        } else {
+            alert('Please fill in the single day schedule first.');
+        }
+    }
+
+    function addMonthSchedule() {
+        const singleDayDate = document.getElementById('singleDayDate').value;
+        const singleDayStartTime = document.getElementById('singleDayStartTime').value;
+        const singleDayEndTime = document.getElementById('singleDayEndTime').value;
+
+        if (singleDayDate && singleDayStartTime && singleDayEndTime) {
+            const date = new Date(singleDayDate);
+            const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1); // Start from the day after the selected day
+            const endOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+            for (let d = startOfMonth; d <= endOfMonth; d.setDate(d.getDate() + 1)) {
+                addScheduleField(d.toISOString().split('T')[0], singleDayStartTime, singleDayEndTime);
+            }
+        } else {
+            alert('Please fill in the single day schedule first.');
+        }
+    }
+
+    function removeScheduleField(button) {
+        const scheduleField = button.parentElement;
+        scheduleField.parentElement.removeChild(scheduleField);
+    }
+</script>
+
+</body>
+</html>
