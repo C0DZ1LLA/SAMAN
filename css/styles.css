@@ -2,255 +2,584 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
-    background: radial-gradient(circle at center, #1a1a1a, #0d0d0d, #000000);
-    color: #FFD700; /* Dark gold neon text color */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    color: #00ffc6; /* Futuristic neon green */
+    overflow-x: hidden;
+    transition: background 0.5s ease, color 0.5s ease;
+    display: block;
 }
 
-/* Create holographic matrix rain effect */
-body::before {
-    content: '';
+body.light-theme {
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    color: #000;
+}
+
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('img/matrix-rain.gif') repeat;
-    opacity: 0.05;
+    background: rgba(0, 0, 0, 0.85);
     z-index: -1;
+    transition: background 0.5s ease;
 }
 
-/* Apply matrix rain effect to canvas background */
-#matrixCanvas {
+body.light-theme .overlay {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+canvas#backgroundCanvas {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Full width of the viewport */
-    height: 100%; /* Full height of the viewport */
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    transition: background 0.5s ease;
 }
 
-/* Ensure canvas is behind other content */
-.container {
-    position: relative;
-    z-index: 1;
+body.light-theme canvas#backgroundCanvas {
+    background: rgba(255, 255, 255, 0.7);
 }
 
-h1, h2, h3 {
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid #00ffc6;
+    animation: headerGlow 2s infinite alternate;
+}
+
+body.light-theme header {
+    background: rgba(255, 255, 255, 0.7);
+    border-bottom: 2px solid #000;
+    animation: headerGlowLight 2s infinite alternate;
+}
+
+@keyframes headerGlow {
+    from {
+        box-shadow: 0 0 10px #00ffc6;
+    }
+    to {
+        box-shadow: 0 0 20px #00ffc6;
+    }
+}
+
+@keyframes headerGlowLight {
+    from {
+        box-shadow: 0 0 10px #000;
+    }
+    to {
+        box-shadow: 0 0 20px #000;
+    }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+    animation: logoSpin 10s linear infinite;
+}
+
+@keyframes logoSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 3em;
+    color: #00ffc6;
+    text-shadow: 0 0 10px #00ffc6;
+    animation: textGlow 2s infinite alternate;
+}
+
+body.light-theme h1 {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px #00ffc6, 0 0 20px #00ffc6;
+    }
+    to {
+        text-shadow: 0 0 20px #00ffc6, 0 0 30px #00ffc6;
+    }
+}
+
+@keyframes textGlowLight {
+    from {
+        text-shadow: 0 0 10px #000, 0 0 20px #000;
+    }
+    to {
+        text-shadow: 0 0 20px #000, 0 0 30px #000;
+    }
+}
+
+.tagline {
+    font-size: 1.2em;
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ffc6;
+    animation: taglineGlow 2s infinite alternate;
+}
+
+body.light-theme .tagline {
+    color: #000;
+    text-shadow: none;
+    animation: taglineGlowLight 2s infinite alternate;
+}
+
+@keyframes taglineGlow {
+    from {
+        text-shadow: 0 0 5px #00ffc6, 0 0 10px #00ffc6;
+    }
+    to {
+        text-shadow: 0 0 10px #00ffc6, 0 0 15px #00ffc6;
+    }
+}
+
+@keyframes taglineGlowLight {
+    from {
+        text-shadow: 0 0 5px #000, 0 0 10px #000;
+    }
+    to {
+        text-shadow: 0 0 10px #000, 0 0 15px #000;
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #00ffc6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+}
+
+body.light-theme nav ul li a {
+    color: #000;
+}
+
+body.light-theme nav ul li a:hover {
+    color: #333;
+}
+
+#theme-switcher {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#theme-switcher button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #00ffc6;
+    color: #000;
+}
+
+body.light-theme #theme-switcher button {
+    background-color: #000;
+    color: #fff;
+}
+
+#theme-switcher button:hover {
+    background-color: #00b3ff;
+    color: #fff;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.intro, .projects {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    color: #00ffc6;
+    text-shadow: 0 0 10px #00ffc6;
     margin-bottom: 20px;
-    font-weight: bold; /* Bold font weight */
-    text-transform: uppercase; /* Uppercase text */
-    text-align: center; /* Center align text */
-    letter-spacing: 3px; /* Increased letter spacing */
-    text-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
+    animation: textGlow 2s infinite alternate;
+}
+
+body.light-theme h2 {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
 }
 
 p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    line-height: 1.6; /* Increased line height */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 1); /* Dark gold neon glow text shadow */
+    font-size: 1.2em;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px #00ffc6;
+    line-height: 1.6;
+    animation: textGlow 2s infinite alternate;
 }
 
-.button-container {
+body.light-theme p {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
+}
+
+.project-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    max-width: 100%;
-    padding: 20px;
 }
 
-.button-wrapper {
-    width: 300px; /* Adjust width as needed */
-    text-align: center;
-    margin: 10px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #FFD700; /* Dark gold neon border */
+.project-card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffc6;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button-wrapper:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Intensified dark gold neon glow on hover */
-}
-
-button {
-    padding: 1em 2em;
-    font-size: 1.2em;
-    background-color: transparent; /* Transparent button background */
-    border: 2px solid #FFD700; /* Dark gold neon border */
-    color: #FFD700; /* Dark gold neon text color */
-    border-radius: 50px; /* Round border for futuristic look */
+    box-shadow: 0 0 20px rgba(0, 255, 198, 0.5);
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
-    transition: all 0.3s ease;
-    outline: none;
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase; /* Uppercase text */
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); /* Neon glow */
-    width: 100%; /* Make button take full width of the wrapper */
+    animation: cardHover 0.3s infinite alternate;
 }
 
-button:hover {
-    background-color: #FFD700; /* Dark gold neon on hover */
-    color: #000; /* Black text on hover */
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.7); /* Intensified dark gold neon glow on hover */
+body.light-theme .project-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes cardHover {
+    from {
+        box-shadow: 0 0 20px rgba(0, 255, 198, 0.5);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(0, 255, 198, 1);
+    }
+}
+
+body.light-theme @keyframes cardHover {
+    from {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+    }
+}
+
+.project-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    color: #00ffc6;
+    text-shadow: 0 0 10px #00ffc6;
+    margin-bottom: 10px;
+    animation: textGlow 2s infinite alternate;
+}
+
+body.light-theme .project-card h3 {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
+}
+
+.project-card p {
+    color: #e0e0e0;
+    text-shadow: 0 0 5px #00ffc6;
+    animation: textGlow 2s infinite alternate;
+}
+
+body.light-theme .project-card p {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
+}
+
+/* Footer Styles */
+footer {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #00ffc6;
+    animation: footerGlow 2s infinite alternate;
+}
+
+body.light-theme footer {
+    background: rgba(255, 255, 255, 0.7);
+    border-top: 2px solid #000;
+    animation: footerGlowLight 2s infinite alternate;
+}
+
+@keyframes footerGlow {
+    from {
+        box-shadow: 0 0 10px #00ffc6;
+    }
+    to {
+        box-shadow: 0 0 20px #00ffc6;
+    }
+}
+
+@keyframes footerGlowLight {
+    from {
+        box-shadow: 0 0 10px #000;
+    }
+    to {
+        box-shadow: 0 0 20px #000;
+    }
+}
+
+footer p {
+    color: #00ffc6;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px #00ffc6;
+    animation: textGlow 2s infinite alternate;
+}
+
+body.light-theme footer p {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: background 0.5s ease;
+}
+
+body.light-theme .modal {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .modal-content {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller size */
-    z-index: 1000;
-    width: 80%; /* Adjust width as needed */
-    max-width: 1000px; /* Maximum width for large screens */
-    max-height: 80vh; /* Maximum height for large screens */
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
-    border: 3px solid #FFD700; /* Dark gold neon border */
-    border-radius: 50px; /* Rounded border */
-    padding: 60px; /* Increased padding for better spacing */
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.3); /* Neon glow and shadow */
-    color: #FFD700; /* Dark gold neon text color */
-    text-align: center; /* Center align text */
-    animation: fadeInZoom 0.5s ease; /* Fade in and zoom animation */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Futuristic font */
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffc6;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 198, 0.5);
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    animation: fadeInZoom 0.5s ease;
+}
+
+body.light-theme .modal-content {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes fadeInZoom {
     0% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5); /* Start from smaller size */
+        transform: scale(0.5);
     }
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1); /* End at full size */
+        transform: scale(1);
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .modal-content {
-        width: 100%; /* Adjust width percentage for small screens */
-        height: 100%; /* Adjust height percentage for small screens */
-    }
+.modal-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    color: #00ffc6;
+    text-shadow: 0 0 10px #00ffc6;
+    margin-bottom: 20px;
+    animation: textGlow 2s infinite alternate;
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .modal-content {
-        width: 70%; /* Adjust width percentage for medium screens */
-        height: 70%; /* Adjust height percentage for medium screens */
-    }
+body.light-theme .modal-content h2 {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
 }
 
-.modal-content:hover {
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.9); /* Slightly intensify glow effect on hover */
+.modal ul {
+    list-style: none;
+    padding: 0;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px #00ffc6;
+    font-size: 1.2em;
+    text-align: left;
+    margin-bottom: 20px;
+    animation: textGlow 2s infinite alternate;
 }
 
-header {
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for header */
-    padding: 40px 0; /* Add more padding to the top and bottom */
-    text-align: center; /* Center align the content */
-    overflow: hidden; /* Hide overflow to prevent scroll */
+body.light-theme .modal ul {
+    color: #000;
+    text-shadow: none;
+    animation: textGlowLight 2s infinite alternate;
 }
 
-header h1 {
-    font-size: 6.5em; /* Increase font size for header */
-    color: #FFD700; /* Dark gold neon text color */
-    animation: slideInDown 0.5s ease; /* Slide in from top animation */
+.modal ul li {
+    margin-bottom: 10px;
 }
 
-@keyframes slideInDown {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.modal ul li ul {
+    margin-top: 10px;
+    padding-left: 20px;
 }
 
-header p {
-    font-size: 1.5em; /* Increase font size for paragraph */
-    color: #FFD700; /* Dark gold neon text color */
+.modal ul li ul li {
+    margin-bottom: 5px;
 }
 
-footer {
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background for footer */
-    padding: 40px 0; /* Add more padding to the top and bottom */
-    text-align: center; /* Center align the content */
-}
-
-footer p {
-    font-size: 1.3em; /* Increased font size for paragraph */
-    color: #FFD700; /* Dark gold neon text color */
-}
-
-.image-container {
+.modal .contact-options {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    overflow-y: hidden;
-    max-height: calc(100% - 100%); /* Adjust as needed */
-    padding: 20px;
+    gap: 10px;
 }
 
-.image-container img {
-    max-width: 50%;
-    height: auto;
+.modal .contact-options button {
+    background: transparent;
+    border: 2px solid #00ffc6;
+    color: #00ffc6;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
     cursor: pointer;
-    margin: 10px; /* Increased margin */
-    border: 3px solid #FFD700; /* Dark gold neon border */
-    border-radius: 50px; /* Rounded corners */
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5); /* Intensified dark gold neon glow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s, color 0.3s;
 }
 
-.image-container img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 0 60px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
+body.light-theme .modal .contact-options button {
+    border: 2px solid #000;
+    color: #000;
 }
 
-.close {
+.modal .contact-options button:hover {
+    background: #00ffc6;
+    color: #000;
+}
+
+body.light-theme .modal .contact-options button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.modal .close {
     position: absolute;
     top: 10px;
     right: 20px;
     font-size: 2em;
-    color: #FFD700;
+    color: #00ffc6;
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s, color 0.3s;
 }
 
-.close:hover {
-    color: #ff00ff; /* Magenta on hover */
+body.light-theme .modal .close {
+    color: #000;
+}
+
+.modal .close:hover {
     transform: scale(1.2);
+    color: #ffffff;
 }
 
-.welcome-text {
-    font-size: 1.5em;
-    line-height: 1.8;
-    color: #ffffff; /* White text color */
-    text-align: center;
-    margin: 30px auto; /* Center and add margin */
-    max-width: 800px; /* Limit width for better readability */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Dark gold neon glow text shadow */
+body.light-theme .modal .close:hover {
+    color: #333;
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+    display: center;
+}
+
+/* Contact Form Styles */
+form#contactForm {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    border: 2px solid #FFD700; /* Dark gold neon border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Dark gold neon glow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.welcome-text:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Brighter glow on hover */
+form#contactForm label {
+    color: #00ffff;
+    font-size: 1.2em;
+}
+
+form#contactForm input,
+form#contactForm textarea {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    transition: box-shadow 0.3s ease;
+}
+
+form#contactForm input:focus,
+form#contactForm textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+form#contactForm button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #00ffff;
+    color: #121212;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+form#contactForm button:hover {
+    background-color: #00cccc;
+    transform: scale(1.05);
 }

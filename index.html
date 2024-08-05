@@ -18,176 +18,190 @@
     <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
     <title>C0DZ1LLA Made by SAMAN</title>
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGE32M12GV"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "C0DZ1LLA Systems",
-          "url": "https://samanconnect.com",
-          "description": "Fun",
-          "logo": "https://c0dz1lla.github.io/LOGO/SAMANLOGOVIDEO.mp4",
-          "sameAs": [
-            "https://twitter.com/saman_abotaleby"
-          ]
-        }
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("b4_f9dwDnpWLKkWBB");
+        })();
     </script>
+    
 </head>
 <body>
+    <div class="overlay"></div>
+    <canvas id="backgroundCanvas"></canvas>
     <header>
-        <div class="image-container">
-            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo">
+        <div class="logo-container">
+            <img src="https://samanconnect.com/C0DZ1LLA/CONTENT/LOGO/1.png" alt="Logo" class="logo">
         </div>
-        <div class="container">
-            <h1>&#120138&#120120&#120132&#120120&#8469</h1>
-            <p class="welcome-text">
-                Welcome to my website! I'm a tech enthusiast with a passion for coding and exploring new technologies. I love creating websites, software solutions, and games as a hobby. Through C0DZ1LLA Systems, I share my projects and creativity. Join me on this tech journey!
-            </p>
-        </div>
-        <div class="image-container">
-            <div class="button-container">
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://samanconnect.com/Google%20Form')">Google Contact</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="toggleModal('translateModal')">Translate Page</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="toggleModal('aboutModal')">About</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openModal('GithubModal')">Github Profile</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openModal('GameDevModal')">Game Development</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="toggleModal('contactModal')">Contact</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/ChronoPlanner/ChronoPlanner.html')">ChronoPlanner</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/CodeCraft/CodeCraft.html')">CodeCraft</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Coin Frenzy/Coin Frenzy.html')">Coin Frenzy</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futurify - Futuristic Content Composer/Futurify - Futuristic Content Composer.html')">Futurify</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futuristic Fridge Management System/Futuristic Fridge Management System.html')">Fridge Management</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futuristic Text Converter/Futuristic Text Converter.html')">Text Converter</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/ImageVault Pro/ImageVault Pro.html')">ImageVault Pro</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/LinkKeeper Pro/LinkKeeper Pro.html')">LinkKeeper Pro</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Live Streams Hub/Live Streams Hub.html')">Live Streams Hub</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/MailMaster Pro/MailMaster Pro.html')">MailMaster Pro</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/NoteMaster Pro/NoteMaster Pro.html')">NoteMaster Pro</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://samanconnect.com/Privacy%20Policy')">PRIVACY POLICY</button>
-                </div>
-                <div class="button-wrapper">
-                    <button onclick="openURL('https://samanconnect.com/Terms%20of%20Use')">TERMS OF USE</button>
-                </div>
-            </div>
+        <h1>Saman's Playground</h1>
+        <p class="tagline">Exploring Technology with Passion and Creativity</p>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="toggleModal('translateModal')">Translate Page</a></li>
+                <li><a href="#" onclick="toggleModal('aboutModal')">About</a></li>
+                <li><a href="#" onclick="toggleModal('GithubModal')">Github Profile</a></li>
+                <li><a href="#" onclick="toggleModal('GameDevModal')">Game Development</a></li>
+                <li><a href="#" onclick="toggleModal('contactModal')">Social</a></li>
+            </ul>
+        </nav>
+        <div id="theme-switcher">
+            <button onclick="switchTheme('dark')">Dark Theme</button>
+            <button onclick="switchTheme('light')">Light Theme</button>
         </div>
     </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to My Playground</h2>
+            <p>Hi there! I'm Saman, a tech enthusiast who loves creating innovative projects using AI. This is my space to share my passion for web development, software engineering, and game development. Join me in exploring the endless possibilities of technology.</p>
+        </section>
 
-    <canvas id="matrixCanvas"></canvas>
-
-    <div id="translateModal" class="modal-content">
-        <h2>Translate</h2>
-        <p>Translate this website into your preferred language.</p>
-        <div id="google_translate_element"></div>
-        <span class="close" onclick="closeModal('translateModal')"><i class="fas fa-times"></i></span>
-    </div>
-
-    <div id="contactModal" class="modal-content">
-        <h2>Contact</h2>
-        <div class="button-container">
-            <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
-            <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
-            <button onclick="openPhoneApp('+35797906864')">WhatsApp</button>
-        </div>
-        <span class="close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></span>
-    </div>
-
-    <div id="aboutModal" class="modal-content">
-        <h2>Saman's Tech Portfolio</h2>
-        <ul>
-            <li>Website Development: From concept to execution, I design and develop cutting-edge websites that captivate and engage users, tailored to meet your specific needs.</li>
-            <li>Software Engineering: As a skilled software engineer, I craft powerful applications that solve complex problems and streamline processes, utilizing the latest AI technologies.</li>
-            <li>Game Development: Immerse yourself in captivating gaming experiences crafted with passion and creativity, combining AI algorithms with innovative design concepts.</li>
-            <li>Tech Consulting: Need guidance on navigating the tech landscape? My consulting services provide personalized insights and strategies to help you succeed in your projects.</li>
-        </ul>
-        <span class="close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></span>
-    </div>
-
-    <div id="GithubModal" class="modal-content">
-        <h2>Github Profile</h2>
-        <p>I can do some cool stuff with various programming languages:</p>
-        <ul>
-            <li>Python: From crunching numbers to making awesome websites.</li>
-            <li>JavaScript: Creating interactive web wonders and browser enchantments.</li>
-            <li>Java: Creating Android apps or tackling enterprise projects.</li>
-        </ul>
-        <div class="button-container">
-            <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Website</button>
-        </div>
-        <span class="close" onclick="closeModal('GithubModal')"><i class="fas fa-times"></i></span>
-    </div>
-
-    <div id="GameDevModal" class="modal-content">
-        <h2>Game Development</h2>
-        <ul>
-            <li>3D Game Development:
-                <ul>
-                    <li>Utilizing advanced tools like Unity or Unreal Engine to create immersive 3D environments.</li>
-                    <li>Implementing realistic physics, lighting effects, and animations for lifelike experiences.</li>
-                    <li>Developing complex game mechanics and AI systems to enhance gameplay.</li>
-                    <li>Creating multiplayer experiences with network programming and server integration.</li>
-                </ul>
-            </li>
-            <li>2D Game Development:
-                <ul>
-                    <li>Using frameworks Unity's 2D features to build engaging 2D games.</li>
-                    <li>Designing captivating visual assets and animations to bring games to life.</li>
-                    <li>Implementing intuitive user interfaces and responsive controls for seamless gameplay.</li>
-                    <li>Optimizing performance and compatibility across various platforms and devices.</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="button-container">
-            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA//3D WEB')">View Portfolio</button>
-        </div>
-        <span class="close" onclick="closeModal('GameDevModal')"><i class="fas fa-times"></i></span>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FBXLoader.js"></script>
+        <section class="projects">
+            <h2>My Projects</h2>
+            <div class="project-cards">
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/ChronoPlanner/ChronoPlanner.html')">
+                    <h3>ChronoPlanner</h3>
+                    <p>A time management tool to help you plan your day effectively.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/CodeCraft/CodeCraft.html')">
+                    <h3>CodeCraft</h3>
+                    <p>Interactive coding challenges to improve your skills.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Coin Frenzy/Coin Frenzy.html')">
+                    <h3>Coin Frenzy</h3>
+                    <p>Experience the thrill of cryptocurrency trading.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futurify - Futuristic Content Composer/Futurify - Futuristic Content Composer.html')">
+                    <h3>Futurify</h3>
+                    <p>Create futuristic content with advanced AI tools.</p>
+                </div>
+                
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futuristic Fridge Management System/Futuristic Fridge Management System.html')">
+                    <h3>Fridge Management</h3>
+                    <p>Manage your fridge contents efficiently with AI.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Futuristic Text Converter/Futuristic Text Converter.html')">
+                    <h3>Text Converter</h3>
+                    <p>Convert text into unique futuristic formats.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/ImageVault Pro/ImageVault Pro.html')">
+                    <h3>ImageVault Pro</h3>
+                    <p>Securely store and manage your images.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/LinkKeeper Pro/LinkKeeper Pro.html')">
+                    <h3>LinkKeeper Pro</h3>
+                    <p>Organize and keep track of all your links.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/Live Streams Hub/Live Streams Hub.html')">
+                    <h3>Live Streams Hub</h3>
+                    <p>Manage and view live streams easily.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/MailMaster Pro/MailMaster Pro.html')">
+                    <h3>MailMaster Pro</h3>
+                    <p>Optimize your email management with advanced features.</p>
+                </div>
+                <div class="project-card" onclick="openURL('https://c0dz1lla.github.io/Saman-Abotaleby-Fingerprint/Saman%20Abotaleby%20Fingerprint/NoteMaster Pro/NoteMaster Pro.html')">
+                    <h3>NoteMaster Pro</h3>
+                    <p>Take and manage notes efficiently.</p>
+                </div>
+            </div>
+        </section>
+        <h2>Contact Me</h2>
+        <form id="contactForm" autocomplete="off">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="from_name" required autocomplete="off">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="reply_to" required autocomplete="off">
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required autocomplete="off"></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    </main>
     <footer>
-        <p>&copy; 2024 C0DZ1LLA Futuristic Website. With the use of A.I tools&#128125</p>
+        <p>&copy; 2024 Saman's AI Playground. Innovating with Passion and Creativity.</p>
     </footer>
+
+    <!-- Modal Structures -->
+    <div id="translateModal" class="modal">
+        <div class="modal-content">
+            <h2>Translate</h2>
+            <p>Translate this website into your preferred language.</p>
+            <div id="google_translate_element"></div>
+            <span class="close" onclick="closeModal('translateModal')">&times;</span>
+        </div>
+    </div>
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <h2>About Me</h2>
+            <ul>
+                <li>Website Development: Creating captivating websites as a hobby.</li>
+                <li>Software Engineering: Building powerful applications with AI.</li>
+                <li>Game Development: Crafting immersive games for fun.</li>
+                <li>Tech Enthusiast: Exploring new technologies and sharing my journey.</li>
+            </ul>
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+        </div>
+    </div>
+    <div id="GithubModal" class="modal">
+        <div class="modal-content">
+            <h2>Github Profile</h2>
+            <p>Check out my projects and code:</p>
+            <ul>
+                <li>Python: From data crunching to web development.</li>
+                <li>JavaScript: Building interactive web experiences.</li>
+                <li>Java: Developing Android apps and enterprise solutions.</li>
+            </ul>
+            <button onclick="openURL('https://github.com/C0DZ1LLA')">Visit Github</button>
+            <span class="close" onclick="closeModal('GithubModal')">&times;</span>
+        </div>
+    </div>
+    <div id="GameDevModal" class="modal">
+        <div class="modal-content">
+            <h2>Game Development</h2>
+            <ul>
+                <li>3D Game Development:
+                    <ul>
+                        <li>Creating 3D environments with Unity or Unreal Engine.</li>
+                        <li>Implementing realistic physics and animations.</li>
+                        <li>Developing complex game mechanics and AI.</li>
+                        <li>Building multiplayer experiences with network programming.</li>
+                    </ul>
+                </li>
+                <li>2D Game Development:
+                    <ul>
+                        <li>Building engaging 2D games with Unity.</li>
+                        <li>Designing captivating visual assets and animations.</li>
+                        <li>Implementing intuitive user interfaces and controls.</li>
+                        <li>Optimizing performance across platforms.</li>
+                    </ul>
+                </li>
+            </ul>
+            <button onclick="openURL('https://samanconnect.com/C0DZ1LLA//3D WEB')">View Portfolio</button>
+            <span class="close" onclick="closeModal('GameDevModal')">&times;</span>
+        </div>
+    </div>
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <h2>Contact Me</h2>
+            <div class="contact-options">
+                <button onclick="openURL('https://twitter.com/saman_abotaleby')">X.com</button>
+                <button onclick="openEmailApp('saman.abotaleby@gmail.com')">Email</button>
+                <button onclick="openPhoneApp('+35797906864')">WhatsApp</button>
+            </div>
+            <span class="close" onclick="closeModal('contactModal')">&times;</span>
+        </div>
+    </div>
+</body>
+</html>
 </body>
 </html>
