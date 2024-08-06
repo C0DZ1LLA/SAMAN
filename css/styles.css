@@ -3,16 +3,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-    color: #00ffc6; /* Futuristic neon green */
+    background: linear-gradient(135deg, #2e2e2e, #1a1a1a); /* Dark theme background */
+    color: #d4af37; /* Dark gold color */
     overflow-x: hidden;
     transition: background 0.5s ease, color 0.5s ease;
     display: block;
 }
 
 body.light-theme {
-    background: linear-gradient(135deg, #ffffff, #e0e0e0);
-    color: #000;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff); /* Light theme background */
+    color: #00bfff; /* Shining blue color */
 }
 
 .overlay {
@@ -21,13 +21,13 @@ body.light-theme {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(46, 46, 46, 0.85);
     z-index: -1;
     transition: background 0.5s ease;
 }
 
 body.light-theme .overlay {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(224, 247, 250, 0.85);
 }
 
 canvas#backgroundCanvas {
@@ -41,39 +41,39 @@ canvas#backgroundCanvas {
 }
 
 body.light-theme canvas#backgroundCanvas {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(224, 247, 250, 0.7);
 }
 
 /* Header Styles */
 header {
     text-align: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border-bottom: 2px solid #00ffc6;
+    background: rgba(46, 46, 46, 0.7);
+    border-bottom: 2px solid #d4af37;
     animation: headerGlow 2s infinite alternate;
 }
 
 body.light-theme header {
-    background: rgba(255, 255, 255, 0.7);
-    border-bottom: 2px solid #000;
+    background: rgba(224, 247, 250, 0.7);
+    border-bottom: 2px solid #00bfff;
     animation: headerGlowLight 2s infinite alternate;
 }
 
 @keyframes headerGlow {
     from {
-        box-shadow: 0 0 10px #00ffc6;
+        box-shadow: 0 0 10px #d4af37;
     }
     to {
-        box-shadow: 0 0 20px #00ffc6;
+        box-shadow: 0 0 20px #d4af37;
     }
 }
 
 @keyframes headerGlowLight {
     from {
-        box-shadow: 0 0 10px #000;
+        box-shadow: 0 0 10px #00bfff;
     }
     to {
-        box-shadow: 0 0 20px #000;
+        box-shadow: 0 0 20px #00bfff;
     }
 }
 
@@ -101,63 +101,63 @@ body.light-theme header {
 h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 3em;
-    color: #00ffc6;
-    text-shadow: 0 0 10px #00ffc6;
+    color: #d4af37;
+    text-shadow: 0 0 10px #d4af37;
     animation: textGlow 2s infinite alternate;
 }
 
 body.light-theme h1 {
-    color: #000;
+    color: #00bfff;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
 
 @keyframes textGlow {
     from {
-        text-shadow: 0 0 10px #00ffc6, 0 0 20px #00ffc6;
+        text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
     }
     to {
-        text-shadow: 0 0 20px #00ffc6, 0 0 30px #00ffc6;
+        text-shadow: 0 0 20px #d4af37, 0 0 30px #d4af37;
     }
 }
 
 @keyframes textGlowLight {
     from {
-        text-shadow: 0 0 10px #000, 0 0 20px #000;
+        text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
     }
     to {
-        text-shadow: 0 0 20px #000, 0 0 30px #000;
+        text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff;
     }
 }
 
 .tagline {
     font-size: 1.2em;
     color: #ffffff;
-    text-shadow: 0 0 5px #00ffc6;
+    text-shadow: 0 0 5px #d4af37;
     animation: taglineGlow 2s infinite alternate;
 }
 
 body.light-theme .tagline {
-    color: #000;
+    color: #333;
     text-shadow: none;
     animation: taglineGlowLight 2s infinite alternate;
 }
 
 @keyframes taglineGlow {
     from {
-        text-shadow: 0 0 5px #00ffc6, 0 0 10px #00ffc6;
+        text-shadow: 0 0 5px #d4af37, 0 0 10px #d4af37;
     }
     to {
-        text-shadow: 0 0 10px #00ffc6, 0 0 15px #00ffc6;
+        text-shadow: 0 0 10px #d4af37, 0 0 15px #d4af37;
     }
 }
 
 @keyframes taglineGlowLight {
     from {
-        text-shadow: 0 0 5px #000, 0 0 10px #000;
+        text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff;
     }
     to {
-        text-shadow: 0 0 10px #000, 0 0 15px #000;
+        text-shadow: 0 0 10px #00bfff, 0 0 15px #00bfff;
     }
 }
 
@@ -172,7 +172,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #00ffc6;
+    color: #d4af37;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -183,7 +183,7 @@ nav ul li a:hover {
 }
 
 body.light-theme nav ul li a {
-    color: #000;
+    color: #00bfff;
 }
 
 body.light-theme nav ul li a:hover {
@@ -204,17 +204,17 @@ body.light-theme nav ul li a:hover {
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #00ffc6;
+    background-color: #d4af37;
     color: #000;
 }
 
 body.light-theme #theme-switcher button {
-    background-color: #000;
-    color: #fff;
+    background-color: #00bfff;
+    color: #000;
 }
 
 #theme-switcher button:hover {
-    background-color: #00b3ff;
+    background-color: #b8860b;
     color: #fff;
 }
 
@@ -231,28 +231,28 @@ main {
 h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.5em;
-    color: #00ffc6;
-    text-shadow: 0 0 10px #00ffc6;
+    color: #d4af37;
+    text-shadow: 0 0 10px #d4af37;
     margin-bottom: 20px;
     animation: textGlow 2s infinite alternate;
 }
 
 body.light-theme h2 {
-    color: #000;
+    color: #00bfff;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
 
 p {
     font-size: 1.2em;
-    color: #e0e0e0;
-    text-shadow: 0 0 5px #00ffc6;
+    color: #c9c9c9;
+    text-shadow: 0 0 5px #d4af37;
     line-height: 1.6;
     animation: textGlow 2s infinite alternate;
 }
 
 body.light-theme p {
-    color: #000;
+    color: #333;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
@@ -265,10 +265,10 @@ body.light-theme p {
 }
 
 .project-card {
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #00ffc6;
+    background: rgba(46, 46, 46, 0.8);
+    border: 2px solid #d4af37;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 198, 0.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
     padding: 20px;
     width: 250px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -278,97 +278,97 @@ body.light-theme p {
 
 body.light-theme .project-card {
     background: rgba(255, 255, 255, 0.8);
-    border: 2px solid #000;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid #00bfff;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
 }
 
 @keyframes cardHover {
     from {
-        box-shadow: 0 0 20px rgba(0, 255, 198, 0.5);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
     }
     to {
-        box-shadow: 0 0 30px rgba(0, 255, 198, 1);
+        box-shadow: 0 0 30px rgba(212, 175, 55, 1);
     }
 }
 
 body.light-theme @keyframes cardHover {
     from {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
     }
     to {
-        box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+        box-shadow: 0 0 30px rgba(0, 191, 255, 1);
     }
 }
 
 .project-card h3 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5em;
-    color: #00ffc6;
-    text-shadow: 0 0 10px #00ffc6;
+    color: #d4af37;
+    text-shadow: 0 0 10px #d4af37;
     margin-bottom: 10px;
     animation: textGlow 2s infinite alternate;
 }
 
 body.light-theme .project-card h3 {
-    color: #000;
+    color: #00bfff;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
 
 .project-card p {
-    color: #e0e0e0;
-    text-shadow: 0 0 5px #00ffc6;
+    color: #c9c9c9;
+    text-shadow: 0 0 5px #d4af37;
     animation: textGlow 2s infinite alternate;
 }
 
 body.light-theme .project-card p {
-    color: #000;
+    color: #333;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
 
 /* Footer Styles */
 footer {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(46, 46, 46, 0.7);
     padding: 20px;
     text-align: center;
-    border-top: 2px solid #00ffc6;
+    border-top: 2px solid #d4af37;
     animation: footerGlow 2s infinite alternate;
 }
 
 body.light-theme footer {
-    background: rgba(255, 255, 255, 0.7);
-    border-top: 2px solid #000;
+    background: rgba(224, 247, 250, 0.7);
+    border-top: 2px solid #00bfff;
     animation: footerGlowLight 2s infinite alternate;
 }
 
 @keyframes footerGlow {
     from {
-        box-shadow: 0 0 10px #00ffc6;
+        box-shadow: 0 0 10px #d4af37;
     }
     to {
-        box-shadow: 0 0 20px #00ffc6;
+        box-shadow: 0 0 20px #d4af37;
     }
 }
 
 @keyframes footerGlowLight {
     from {
-        box-shadow: 0 0 10px #000;
+        box-shadow: 0 0 10px #00bfff;
     }
     to {
-        box-shadow: 0 0 20px #000;
+        box-shadow: 0 0 20px #00bfff;
     }
 }
 
 footer p {
-    color: #00ffc6;
+    color: #d4af37;
     font-size: 1.1em;
-    text-shadow: 0 0 5px #00ffc6;
+    text-shadow: 0 0 5px #d4af37;
     animation: textGlow 2s infinite alternate;
 }
 
 body.light-theme footer p {
-    color: #000;
+    color: #00bfff;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
@@ -381,7 +381,7 @@ body.light-theme footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(46, 46, 46, 0.9);
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -389,14 +389,15 @@ body.light-theme footer p {
 }
 
 body.light-theme .modal {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(224, 247, 250, 0.9);
 }
 
 .modal-content {
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #00ffc6;
+    position: relative;
+    background: rgba(46, 46, 46, 0.8);
+    border: 2px solid #d4af37;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 198, 0.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
     padding: 30px;
     width: 80%;
     max-width: 800px;
@@ -406,8 +407,8 @@ body.light-theme .modal {
 
 body.light-theme .modal-content {
     background: rgba(255, 255, 255, 0.8);
-    border: 2px solid #000;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid #00bfff;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
 }
 
 @keyframes fadeInZoom {
@@ -424,14 +425,14 @@ body.light-theme .modal-content {
 .modal-content h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 2em;
-    color: #00ffc6;
-    text-shadow: 0 0 10px #00ffc6;
+    color: #d4af37;
+    text-shadow: 0 0 10px #d4af37;
     margin-bottom: 20px;
     animation: textGlow 2s infinite alternate;
 }
 
 body.light-theme .modal-content h2 {
-    color: #000;
+    color: #00bfff;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
@@ -439,8 +440,8 @@ body.light-theme .modal-content h2 {
 .modal ul {
     list-style: none;
     padding: 0;
-    color: #e0e0e0;
-    text-shadow: 0 0 5px #00ffc6;
+    color: #c9c9c9;
+    text-shadow: 0 0 5px #d4af37;
     font-size: 1.2em;
     text-align: left;
     margin-bottom: 20px;
@@ -448,7 +449,7 @@ body.light-theme .modal-content h2 {
 }
 
 body.light-theme .modal ul {
-    color: #000;
+    color: #333;
     text-shadow: none;
     animation: textGlowLight 2s infinite alternate;
 }
@@ -474,8 +475,8 @@ body.light-theme .modal ul {
 
 .modal .contact-options button {
     background: transparent;
-    border: 2px solid #00ffc6;
-    color: #00ffc6;
+    border: 2px solid #d4af37;
+    color: #d4af37;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 1em;
@@ -484,32 +485,32 @@ body.light-theme .modal ul {
 }
 
 body.light-theme .modal .contact-options button {
-    border: 2px solid #000;
-    color: #000;
+    border: 2px solid #00bfff;
+    color: #00bfff;
 }
 
 .modal .contact-options button:hover {
-    background: #00ffc6;
+    background: #d4af37;
     color: #000;
 }
 
 body.light-theme .modal .contact-options button:hover {
-    background: #000;
-    color: #fff;
+    background: #00bfff;
+    color: #000;
 }
 
 .modal .close {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 10px;
     font-size: 2em;
-    color: #00ffc6;
+    color: #d4af37;
     cursor: pointer;
     transition: transform 0.3s, color 0.3s;
 }
 
 body.light-theme .modal .close {
-    color: #000;
+    color: #00bfff;
 }
 
 .modal .close:hover {
@@ -529,11 +530,11 @@ body.light-theme .modal .close:hover {
 
 /* Contact Form Styles */
 form#contactForm {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(240, 240, 240, 0.1);
+    border: 1px solid rgba(240, 240, 240, 0.2);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
     backdrop-filter: blur(10px);
     max-width: 500px;
     width: 90%;
@@ -544,7 +545,7 @@ form#contactForm {
 }
 
 form#contactForm label {
-    color: #00ffff;
+    color: #d4af37;
     font-size: 1.2em;
 }
 
@@ -553,7 +554,7 @@ form#contactForm textarea {
     width: 100%;
     padding: 10px;
     background: transparent;
-    border: 1px solid #00ffff;
+    border: 1px solid #d4af37;
     border-radius: 5px;
     color: #ffffff;
     font-family: 'Orbitron', sans-serif;
@@ -564,13 +565,13 @@ form#contactForm textarea {
 form#contactForm input:focus,
 form#contactForm textarea:focus {
     outline: none;
-    box-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 0 10px #d4af37;
 }
 
 form#contactForm button {
     padding: 10px 20px;
     border: none;
-    background-color: #00ffff;
+    background-color: #d4af37;
     color: #121212;
     font-size: 1.2em;
     cursor: pointer;
@@ -580,6 +581,29 @@ form#contactForm button {
 }
 
 form#contactForm button:hover {
-    background-color: #00cccc;
+    background-color: #b8860b;
     transform: scale(1.05);
+}
+
+body.light-theme form#contactForm {
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+}
+
+body.light-theme form#contactForm label,
+body.light-theme form#contactForm input,
+body.light-theme form#contactForm textarea {
+    border-color: #00bfff;
+}
+
+body.light-theme form#contactForm input:focus,
+body.light-theme form#contactForm textarea:focus {
+    box-shadow: 0 0 10px #00bfff;
+}
+
+body.light-theme form#contactForm button {
+    background-color: #00bfff;
+}
+
+body.light-theme form#contactForm button:hover {
+    background-color: #00bfff;
 }
